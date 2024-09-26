@@ -40,4 +40,15 @@ class SlubTheme extends ThemePlugin {
 	public function getDescription() {
 		return __('plugins.themes.slubTheme.description');
 	}
+
+    /**
+     * Get the URL to the theme's root directory
+     */
+    public function getPluginUrl(): string
+    {
+        $request = Application::get()->getRequest();
+        $baseUrl = rtrim($request->getBaseUrl(), '/');
+        $pluginPath = rtrim($this->getPluginPath(), '/');
+        return "{$baseUrl}/{$pluginPath}";
+    }
 }

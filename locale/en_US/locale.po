@@ -18,3 +18,12 @@ msgstr "Default (Centered)"
 
 msgid "plugins.themes.slubTheme.option.header.oneLine"
 msgstr "One Line (logo and navigation menu on one line)"
+
+msgid "plugins.themes.slubTheme.backToTop"
+msgstr "Back to Top"
+
+msgid "plugins.themes.slubTheme.accessibility"
+msgstr "Accessibility"
+
+msgid "plugins.themes.slubTheme.privacyPolicy"
+msgstr "Privacy Policy"
