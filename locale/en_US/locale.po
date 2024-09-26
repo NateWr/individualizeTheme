@@ -1,0 +1,20 @@
+msgid "plugins.themes.slubTheme.name"
+msgstr "SLUB Theme"
+
+msgid "plugins.themes.slubTheme.description"
+msgstr "Custom theme for journals hosted by SLUB."
+
+msgid "plugins.themes.slubTheme.option.header.label"
+msgstr "Header"
+
+msgid "plugins.themes.slubTheme.option.header.description"
+msgstr "Choose the layout of the logo and navigation menus in the header of your site. The default layouts work for most sites. Only use the One Line option if you have a small number of items in your navigation menu."
+
+msgid "plugins.themes.slubTheme.option.header.default"
+msgstr "Default"
+
+msgid "plugins.themes.slubTheme.option.header.default-center"
+msgstr "Default (Centered)"
+
+msgid "plugins.themes.slubTheme.option.header.oneLine"
+msgstr "One Line (logo and navigation menu on one line)"
