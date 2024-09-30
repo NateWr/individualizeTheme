@@ -1,0 +1,6 @@
+vendor
+node_modules
+
+# Vite
+dist
+.vite.server.json

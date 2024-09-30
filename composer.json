@@ -1,0 +1,14 @@
+{
+    "name": "slub/slub-theme",
+    "description": "Custom OJS theme for journals hosted by SLUB.",
+    "license": "GPL",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/NateWr/pkp-vite"
+        }
+    ],
+    "require": {
+        "natewr/pkp-vite": "dev-main"
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "40a0c8197885c1e78373f48da20a952a",
+    "packages": [
+        {
+            "name": "NateWr/pkp-vite",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NateWr/pkp-vite.git",
+                "reference": "ff0ec2072c1a1f1339acc5c8cf768a008c53a19a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NateWr/pkp-vite/zipball/ff0ec2072c1a1f1339acc5c8cf768a008c53a19a",
+                "reference": "ff0ec2072c1a1f1339acc5c8cf768a008c53a19a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NateWr\\vite\\": "src/"
+                }
+            },
+            "license": [
+                "GPL3"
+            ],
+            "description": "Backend setup to use Vite with custom themes for PKP software (OJS, OMP, OPS).",
+            "support": {
+                "source": "https://github.com/NateWr/pkp-vite/tree/main",
+                "issues": "https://github.com/NateWr/pkp-vite/issues"
+            },
+            "time": "2024-09-30T15:39:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "natewr/pkp-vite": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
