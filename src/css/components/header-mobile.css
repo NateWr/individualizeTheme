@@ -1,0 +1,17 @@
+.header-mobile {
+  background: var(--color-background);
+
+  & h1 {
+    color: var(--color-primary);
+  }
+}
+
+@media (--tablets) {
+
+  .header-mobile {
+
+    & h1 {
+      color: var(--color-accent);
+    }
+  }
+}

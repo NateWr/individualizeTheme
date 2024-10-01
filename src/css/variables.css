@@ -1,0 +1,11 @@
+:root {
+  --color-background: white;
+  --color-primary: #c00;
+  --color-accent: #078078;
+}
+
+@custom-media --tablets (min-width: 768px);
+@custom-media --tablets-landscape (min-width: 1024px);
+@custom-media --laptops-sm (min-width: 1280px);
+@custom-media --laptops (min-width: 1536px);
+@custom-media --laptops-lg (min-width: 1920px);

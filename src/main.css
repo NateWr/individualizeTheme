@@ -1,4 +1,3 @@
-body {
-  background: lightblue;
-  color: red;
-}
+@import "css/variables";
+@import "css/preflight";
+@import "css/components/header-mobile.css";

@@ -23,8 +23,12 @@
   class="body"
 >
   <a name="back-to-top" class="sr-only">{translate key="common.top"}</a>
+  <header>
+    {include file="frontend/components/header-mobile.tpl"}
+    {include file="frontend/components/header-desktop.tpl"}
+  </header>
   <main>
-    <div class="page-wrapper page-wrapper-lg">
+    <div class="page-wrapper">
 
     {block name="content"}{/block}
 
