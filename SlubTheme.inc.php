@@ -5,23 +5,11 @@ use NateWr\themehelper\ThemeHelper;
 use NateWr\vite\Loader;
 
 import('lib.pkp.classes.plugins.ThemePlugin');
+import('plugins.themes.slubTheme.SlubThemeOptions');
 
 class SlubTheme extends ThemePlugin
 {
-    public const HEADER_DEFAULT = 'default';
-    public const HEADER_CENTER = 'defaultCenter';
-    public const HEADER_LINE = 'line';
-
-    public const HOMEPAGE_IMAGE_POSITION_ABOVE = 'above';
-    public const HOMEPAGE_IMAGE_POSITION_ABOVE_CENTER = 'above-center';
-    public const HOMEPAGE_IMAGE_POSITION_BEHIND = 'behind';
-    public const HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_TOP = 'behind-right-top';
-    public const HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_CENTER = 'behind-right-center';
-    public const HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_BOTTOM = 'behind-right-bottom';
-    public const HOMEPAGE_IMAGE_POSITION_BEHIND_PATTERN = 'behind-pattern';
-    public const HOMEPAGE_IMAGE_POSITION_BELOW = 'below';
-    public const HOMEPAGE_IMAGE_POSITION_BELOW_CENTER = 'below-center';
-
+    protected SlubThemeOptions $optionsHelper;
     protected ThemeHelper $themeHelper;
 
     public function isActive()
@@ -33,84 +21,10 @@ class SlubTheme extends ThemePlugin
     public function init()
     {
         $this->registerTemplatePlugins();
-
-        $this->addOption('header', 'FieldOptions', [
-            'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.header.label'),
-            'description' => __('plugins.themes.slubTheme.option.header.description'),
-            'options' => [
-                [
-                    'value' => self::HEADER_DEFAULT,
-                    'label' => __('plugins.themes.slubTheme.option.header.default'),
-                ],
-                [
-                    'value' => self::HEADER_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.header.default-center'),
-                ],
-                [
-                    'value' => self::HEADER_LINE,
-                    'label' => __('plugins.themes.slubTheme.option.header.line'),
-                ],
-            ],
-            'default' => self::HEADER_DEFAULT,
-        ]);
-
-        $this->addOption('tagline', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.tagline.label'),
-            'description' => __('plugins.themes.slubTheme.option.tagline.description'),
-            'default' => '',
-        ]);
-
-        $this->addOption('homepageImagePosition', 'FieldOptions', [
-            'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.label'),
-            'description' => __('plugins.themes.slubTheme.option.homepageImagePosition.description'),
-            'options' => [
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_ABOVE,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.above'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_ABOVE_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.above-center'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_TOP,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-top'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-center'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_BOTTOM,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-bottom'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_PATTERN,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-pattern'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BELOW,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.below'),
-                ],
-                [
-                    'value' => self::HOMEPAGE_IMAGE_POSITION_BELOW_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.below-center'),
-                ],
-            ],
-            'default' => self::HOMEPAGE_IMAGE_POSITION_ABOVE,
-        ]);
-
-
+        $this->optionsHelper = new SlubThemeOptions($this);
+        $this->optionsHelper->addOptions();
         $this->addMenuArea(['primary', 'user', 'homepage']);
-
         $this->addViteAssets(['src/main.js']);
-
     }
 
     public function getDisplayName()
@@ -124,7 +38,7 @@ class SlubTheme extends ThemePlugin
     }
 
     /**
-     * Add helper functions to the template manager
+     * Add helper functions to the TemplateManager
      *
      * Registering these helper functions ensures that they are
      * available to use in the theme's templates, even if a
