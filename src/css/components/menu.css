@@ -1,0 +1,55 @@
+.menu {
+  --inline-padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & .menu-button {
+    @apply tab-focus;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem var(--inline-padding);
+    margin-inline-start: calc(-1 * var(--inline-padding));
+    font-weight: 600;
+  }
+
+  & .menu-button-with-icon {
+    margin-inline-start: calc(-1.75rem - var(--inline-padding));
+
+    & svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  & .menu-submenu {
+    margin-inline-start: var(--inline-padding);
+
+    & .menu {
+      gap: 0;
+    }
+
+    & .menu-button {
+      font-weight: 400;
+    }
+  }
+}
+
+/**
+ * Task count bubble which appears next to the
+ * dashboard nav menu items
+ */
+.task_count {
+  margin-left: 0.25rem;
+  padding: 0 0.25em;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: var(--border-width) solid;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 400;
+}

@@ -5,7 +5,7 @@ import path from 'path'
 const viteServer = './.vite.server.json'
 
 const pkpThemePlugin = () => ({
-  name: 'config-test',
+  name: 'pkp-vite',
   configResolved({ mode }) {
     if (mode === 'production') {
       if (fs.existsSync(viteServer)) {

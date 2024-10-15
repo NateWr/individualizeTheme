@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40a0c8197885c1e78373f48da20a952a",
+    "content-hash": "1d00e16c075ac49731997c0e43cbadff",
     "packages": [
+        {
+            "name": "NateWr/pkp-theme-helper",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NateWr/pkp-theme-helper.git",
+                "reference": "4880bfbb5990614e537450f71e398f9aae72e897"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NateWr/pkp-theme-helper/zipball/4880bfbb5990614e537450f71e398f9aae72e897",
+                "reference": "4880bfbb5990614e537450f71e398f9aae72e897",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NateWr\\themehelper\\": "src/"
+                }
+            },
+            "license": [
+                "GPL3"
+            ],
+            "description": "A library of helper functions to build themes for PKP software (OJS, OMP, and OPS).",
+            "support": {
+                "source": "https://github.com/NateWr/pkp-theme-helper/tree/main",
+                "issues": "https://github.com/NateWr/pkp-theme-helper/issues"
+            },
+            "time": "2024-10-02T13:47:54+00:00"
+        },
         {
             "name": "NateWr/pkp-vite",
             "version": "dev-main",
@@ -45,6 +79,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "natewr/pkp-theme-helper": 20,
         "natewr/pkp-vite": 20
     },
     "prefer-stable": false,

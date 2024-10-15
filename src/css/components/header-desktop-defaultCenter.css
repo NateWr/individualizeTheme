@@ -1,0 +1,61 @@
+.header-desktop-defaultCenter {
+  --max-height: 26rem;
+  --logo-max-height: 10rem;
+  text-align: center;
+
+  & .header-desktop-inner-content {
+    justify-content: center;
+    padding-top: calc((var(--max-height) - var(--logo-max-height)) / 2);
+    padding-bottom: calc((var(--max-height) - var(--logo-max-height)) / 2);
+  }
+
+  & .header-desktop-context {
+    flex-direction: column;
+  }
+
+  & .header-desktop-logo {
+    max-width: 24em;
+    max-height: var(--logo-max-height);
+  }
+
+  & .header-desktop-tagline {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 20rem;
+  }
+
+  & .menu-desktop-main  {
+    justify-content: center;
+  }
+}
+
+.header-desktop-defaultCenter.header-desktop-image-behind {
+
+  .header-desktop-inner {
+    align-items: center;
+  }
+
+}
+
+.header-desktop-defaultCenter.header-desktop-image-behind,
+.header-desktop-defaultCenter.header-desktop-image-behind-right-top,
+.header-desktop-defaultCenter.header-desktop-image-behind-right-center,
+.header-desktop-defaultCenter.header-desktop-image-behind-right-bottom {
+
+  .header-desktop-behind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: calc(var(--max-height) + var(--logo-max-height));
+    overflow: hidden;
+  }
+}
+
+.header-desktop-defaultCenter.header-desktop-image-behind-right-top,
+.header-desktop-defaultCenter.header-desktop-image-behind-right-center,
+.header-desktop-defaultCenter.header-desktop-image-behind-right-bottom {
+
+  .header-desktop-image {
+    max-height: none;
+  }
+}

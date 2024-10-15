@@ -16,8 +16,47 @@ msgstr "Default"
 msgid "plugins.themes.slubTheme.option.header.default-center"
 msgstr "Default (Centered)"
 
-msgid "plugins.themes.slubTheme.option.header.oneLine"
+msgid "plugins.themes.slubTheme.option.header.line"
 msgstr "One Line (logo and navigation menu on one line)"
+
+msgid "plugins.themes.slubTheme.option.tagline.label"
+msgstr "Tagline"
+
+msgid "plugins.themes.slubTheme.option.tagline.description"
+msgstr "A short description, motto or title to display beside the journal's logo. This will not be displayed if no logo is uploaded."
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.label"
+msgstr "Homepage Image Position"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.description"
+msgstr "Choose how to display the Homepage Image on the header of your website. The Homepage Image can be uploaded in the <a href='#appearance/appearance-setup'>Appearance > Setup</a> settings."
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.above"
+msgstr "Above Header"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.above-center"
+msgstr "Above Header (Center)"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.behind"
+msgstr "Behind Header"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.behind-right-top"
+msgstr "Behind Header (Top Right)"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.behind-right-center"
+msgstr "Behind Header (Center Right)"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.behind-right-bottom"
+msgstr "Behind Header (Bottom Right)"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.behind-pattern"
+msgstr "Behind Header (Repeating Pattern)"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.below"
+msgstr "Below Header"
+
+msgid "plugins.themes.slubTheme.option.homepageImagePosition.below-center"
+msgstr "Below Header (Center)"
 
 msgid "plugins.themes.slubTheme.backToTop"
 msgstr "Back to Top"
@@ -27,3 +66,12 @@ msgstr "Accessibility"
 
 msgid "plugins.themes.slubTheme.privacyPolicy"
 msgstr "Privacy Policy"
+
+msgid "plugins.themes.slubTheme.changeLanguage"
+msgstr "Change Language"
+
+msgid "plugins.themes.slubTheme.account"
+msgstr "Account"
+
+msgid "plugins.themes.slubTheme.loggedInAs"
+msgstr "Logged in as <strong>{$username}</strong>."

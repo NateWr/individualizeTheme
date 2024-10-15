@@ -1,0 +1,10 @@
+.header-desktop-default {
+
+  & .menu-desktop-main {
+    margin-inline-start: calc(-1 * var(--inline-padding));
+
+    > .menu-item > .menu-button {
+      margin-top: 0.25rem;
+    }
+  }
+}

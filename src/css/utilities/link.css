@@ -1,0 +1,9 @@
+@layer utilities {
+
+  .link {
+    @apply tab-focus;
+    color: var(--color-page-links);
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+  }
+}

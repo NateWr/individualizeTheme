@@ -1,0 +1,30 @@
+/**
+ * Remove default Bootstrap dropdown caret
+ *
+ * We use a custom SVG file instead.
+ */
+.dropdown-toggle:after {
+  display: none;
+}
+
+.dropdown-menu {
+  padding: 1rem;
+  background: var(--overlay-background);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--overlay-shadow);
+}
+
+.dropdown-divider {
+  margin: 0;
+  border-top-color: currentColor;
+  opacity: 0.15;
+}
+
+.dropdown-item {
+
+  &:hover {
+    background: inherit;
+  }
+}

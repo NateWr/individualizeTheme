@@ -1,0 +1,10 @@
+.header-desktop-line {
+
+  & .header-desktop-inner-content {
+    gap: 1rem;
+  }
+
+  & .menu-desktop-main  {
+    justify-content: center;
+  }
+}

@@ -5,10 +5,15 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "https://github.com/NateWr/pkp-theme-helper"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/NateWr/pkp-vite"
         }
     ],
     "require": {
+        "natewr/pkp-theme-helper": "dev-main",
         "natewr/pkp-vite": "dev-main"
     }
 }

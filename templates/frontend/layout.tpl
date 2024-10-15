@@ -9,18 +9,13 @@
 	{load_stylesheet context="frontend"}
 </head>
 
-{**
- * Nav menus appear twice or more. To save database
- * calls, we call {load_menu} once for each menu with a
- * placeholder id. When showing the menus, we'll replace
- * this with a unique id.
+ {**
+ * Get the list of locales supported by the journal or site
  *}
-{capture assign="primaryMenuBase"}{strip}{load_menu name="primary" id="__id__"}{/strip}{/capture}
-{capture assign="userMenuBase"}{strip}{load_menu name="user" id="__id__"}{/strip}{/capture}
+{th_locales assign="slubLocales"}
 
 <body
   dir="{$currentLocaleLangDir|escape|default:"ltr"}"
-  class="body"
 >
   <a name="back-to-top" class="sr-only">{translate key="common.top"}</a>
   <header>
