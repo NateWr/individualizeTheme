@@ -9,4 +9,5 @@
 body {
   background: var(--color-page-background);
   color: var(--color-page-text);
+  font-family: var(--font-base);
 }

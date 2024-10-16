@@ -19,6 +19,10 @@
   --color-footer-background: var(--color-primary);
   --color-footer-text: var(--color-secondary);
 
+  --font-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-titles: var(--font-base);
+  --font-actions: var(--font-base);
+
   --radius: 0.5rem;
   --border-width: 1px;
 
