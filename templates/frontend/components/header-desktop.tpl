@@ -7,12 +7,10 @@
   {/if}
 {/if}
 
-<div class="
+<header class="
   header-desktop
   header-desktop-{$activeTheme->getOption('header')|escape}
   header-desktop-image-{$activeTheme->getOption('homepageImagePosition')|escape}
-  sr-only
-  lg:not-sr-only
 ">
   {if $homepageImage && in_array($activeTheme->getOption('homepageImagePosition'), ['above', 'above-center'])}
     <div class="header-desktop-above">
@@ -134,4 +132,4 @@
       <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
     </div>
   {/if}
-</div>
+</header>

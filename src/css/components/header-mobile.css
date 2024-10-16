@@ -1,0 +1,5 @@
+@media (--laptops-sm) {
+  .header-mobile {
+    display: none;
+  }
+}

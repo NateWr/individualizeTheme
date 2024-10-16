@@ -1,5 +1,5 @@
-<div class="header-mobile lg:sr-only">
+<header class="header-mobile">
   <h1>
     Header Mobile
   </h1>
-</div>
+</header>

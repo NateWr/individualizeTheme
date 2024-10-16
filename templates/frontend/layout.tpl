@@ -18,10 +18,8 @@
   dir="{$currentLocaleLangDir|escape|default:"ltr"}"
 >
   <a name="back-to-top" class="sr-only">{translate key="common.top"}</a>
-  <header>
-    {include file="frontend/components/header-mobile.tpl"}
-    {include file="frontend/components/header-desktop.tpl"}
-  </header>
+  {include file="frontend/components/header-mobile.tpl"}
+  {include file="frontend/components/header-desktop.tpl"}
   <main>
     <div class="page-wrapper">
 

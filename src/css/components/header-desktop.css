@@ -1,6 +1,13 @@
 .header-desktop {
   --inline-padding: 4rem;
+  display: none;
   position: relative;
+}
+
+@media (--laptops-sm) {
+  .header-desktop {
+    display: block;
+  }
 }
 
 .header-desktop-inner {
