@@ -58,6 +58,63 @@ msgstr "Below Header"
 msgid "plugins.themes.slubTheme.option.homepageImagePosition.below-center"
 msgstr "Below Header (Center)"
 
+msgid "plugins.themes.slubTheme.option.colorMode.label"
+msgstr "Color Options Mode"
+
+msgid "plugins.themes.slubTheme.option.colorMode.description"
+msgstr "Most journals should use the Simple mode."
+
+msgid "plugins.themes.slubTheme.option.colorMode.default"
+msgstr "Simple Mode: Choose one or two colors for your site."
+
+msgid "plugins.themes.slubTheme.option.colorMode.advanced"
+msgstr "Advanced Mode: Set different colors for headers, footers, buttons, text, links and more. "
+
+msgid "plugins.themes.slubTheme.option.primaryColor.label"
+msgstr "Primary Color"
+
+msgid "plugins.themes.slubTheme.option.primaryColor.description"
+msgstr "The dominant color of your website used for the header background."
+
+msgid "plugins.themes.slubTheme.option.accentColor.label"
+msgstr "Accent Color"
+
+msgid "plugins.themes.slubTheme.option.accentColor.description"
+msgstr "The color used for links and buttons."
+
+msgid "plugins.themes.slubTheme.option.pageBackgroundColor.label"
+msgstr "Page Background Color"
+
+msgid "plugins.themes.slubTheme.option.pageTextColor.label"
+msgstr "Page Text Color"
+
+msgid "plugins.themes.slubTheme.option.pageLinkColor.label"
+msgstr "Page Link Color"
+
+msgid "plugins.themes.slubTheme.option.headerBackgroundColor.label"
+msgstr "Header Background Color"
+
+msgid "plugins.themes.slubTheme.option.headerTextColor.label"
+msgstr "Header Text Color"
+
+msgid "plugins.themes.slubTheme.option.buttonBackgroundColor.label"
+msgstr "Button Background Color"
+
+msgid "plugins.themes.slubTheme.option.buttonTextColor.label"
+msgstr "Button Text Color"
+
+msgid "plugins.themes.slubTheme.option.blockBackgroundColor.label"
+msgstr "Block Background Color"
+
+msgid "plugins.themes.slubTheme.option.blockTextColor.label"
+msgstr "Block Text Color"
+
+msgid "plugins.themes.slubTheme.option.footerBackgroundColor.label"
+msgstr "Footer Background Color"
+
+msgid "plugins.themes.slubTheme.option.footerTextColor.label"
+msgstr "Footer Text Color"
+
 msgid "plugins.themes.slubTheme.backToTop"
 msgstr "Back to Top"
 

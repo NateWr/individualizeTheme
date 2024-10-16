@@ -7,6 +7,6 @@
 @tailwind utilities;
 
 body {
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--color-page-background);
+  color: var(--color-page-text);
 }

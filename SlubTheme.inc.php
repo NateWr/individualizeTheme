@@ -23,6 +23,7 @@ class SlubTheme extends ThemePlugin
         $this->registerTemplatePlugins();
         $this->optionsHelper = new SlubThemeOptions($this);
         $this->optionsHelper->addOptions();
+        $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true]);
         $this->addMenuArea(['primary', 'user', 'homepage']);
         $this->addViteAssets(['src/main.js']);
     }

@@ -9,8 +9,8 @@
 
 .dropdown-menu {
   padding: 1rem;
-  background: var(--overlay-background);
-  color: var(--color-text);
+  background: var(--color-overlay-background);
+  color: var(--color-overlay-text);
   border: none;
   border-radius: var(--radius);
   box-shadow: var(--overlay-shadow);

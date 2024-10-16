@@ -1,7 +1,6 @@
 :root {
   --color-background: white;
   --color-primary: #c00;
-  --color-primary-light: #fdd;
   --color-secondary: #078078;
   --color-text: rgba(0, 0, 0, 0.85);
   --color-text-on-primary: white;
@@ -15,14 +14,14 @@
   --color-button-text: var(--color-primary);
   --color-block-background: var(--color-primary);
   --color-block-text: var(--color-text-on-primary);
+  --color-overlay-background: var(--color-background);
+  --color-overlay-text: var(--color-text);
   --color-footer-background: var(--color-primary);
   --color-footer-text: var(--color-secondary);
 
   --radius: 0.5rem;
   --border-width: 1px;
 
-  --overlay-background: var(--color-background);
-  --overlay-text: var(--color-text);
   --overlay-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
   --overlay-radius: var(--radius);
 
