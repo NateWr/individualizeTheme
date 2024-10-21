@@ -1,9 +1,18 @@
+/**
+ * Use this to style any item like a text link
+ * with an underline and hover/focus states.
+ */
 @layer utilities {
 
   .link {
     @apply tab-focus;
+    font-weight: 600;
     color: var(--color-page-links);
     text-decoration: underline;
     text-decoration-thickness: 0.1em;
+
+    &:hover {
+      color: var(--color-page-text);
+    }
   }
 }

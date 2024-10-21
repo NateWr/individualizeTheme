@@ -1,0 +1,90 @@
+/**
+ * Use this utility to wrap any rich text
+ * content.
+ *
+ * Tailwind strips out all default styles. Apply this
+ * class to a parent element of any HTML string to restore
+ * styles to things like links, lists, blockquotes, etc.
+ *
+ * Example usage:
+ *
+ * <div class="html-text">
+ *   {$currentContext->getLocalizedData('description')}
+ * </div>
+ */
+@layer utilities {
+  .html-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+
+    & a {
+      @apply link;
+    }
+
+    abbr {
+      text-decoration: underline dotted;
+      text-decoration-thickness: 2px;
+    }
+
+    ul,
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+      margin-left: 2em;
+    }
+
+    li {
+      list-style: initial;
+      line-height: 1.5;
+    }
+
+    blockquote {
+      margin-left: 2em;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    h5 {
+      font-size: 1.125rem;
+      font-style: italic;
+    }
+
+    h6 {
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+}

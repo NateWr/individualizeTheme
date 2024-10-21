@@ -11,7 +11,7 @@
   --color-page-text: var(--color-text);
   --color-page-links: var(--color-secondary);
   --color-button-background: var(--color-background);
-  --color-button-text: var(--color-primary);
+  --color-button-text: var(--color-secondary);
   --color-block-background: var(--color-primary);
   --color-block-text: var(--color-text-on-primary);
   --color-overlay-background: var(--color-background);
@@ -29,7 +29,9 @@
   --overlay-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
   --overlay-radius: var(--radius);
 
-  --input-radius: 9999px;
+  --button-radius: 9999px;
+  --search-radius: 9999px;
+  --input-radius: var(--radius);
   --input-border-width: var(--border-width);
 }
 
@@ -38,3 +40,4 @@
 @custom-media --laptops-sm (min-width: 1280px);
 @custom-media --laptops (min-width: 1536px);
 @custom-media --laptops-lg (min-width: 1920px);
+@custom-media --desktops (min-width: 2560px);

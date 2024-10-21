@@ -22,6 +22,22 @@ class SlubThemeOptions
   public const HOMEPAGE_IMAGE_POSITION_BELOW = 'below';
   public const HOMEPAGE_IMAGE_POSITION_BELOW_CENTER = 'below-center';
 
+  public const HOMEPAGE_BLOCK_ANNOUNCEMENT = 'frontend/components/homepage-blocks/announcement.tpl';
+  public const HOMEPAGE_BLOCK_ABOUT = 'frontend/components/homepage-blocks/about.tpl';
+  public const HOMEPAGE_BLOCK_ISSUE_SUMMARY = 'frontend/components/homepage-blocks/issue-summary.tpl';
+  public const HOMEPAGE_BLOCK_ISSUE_TOC = 'frontend/components/homepage-blocks/issue-toc.tpl';
+  public const HOMEPAGE_BLOCK_HIGHLIGHTS = 'frontend/components/homepage-blocks/highlights.tpl';
+  public const HOMEPAGE_BLOCK_SUBMIT = 'frontend/components/homepage-blocks/how-to-submit.tpl';
+  public const HOMEPAGE_BLOCK_LATEST_ARTICLES = 'frontend/components/homepage-blocks/latest-articles.tpl';
+  public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
+  public const HOMEPAGE_BLOCK_PARTNERS = 'frontend/components/homepage-blocks/partners.tpl';
+  public const HOMEPAGE_BLOCKS_DEFAULT = [
+    self::HOMEPAGE_BLOCK_ANNOUNCEMENT,
+    self::HOMEPAGE_BLOCK_ABOUT,
+    self::HOMEPAGE_BLOCK_ISSUE_SUMMARY,
+    self::HOMEPAGE_BLOCK_SUBMIT,
+  ];
+
   public const COLOR_MODE_DEFAULT = 'default';
   public const COLOR_MODE_ADVANCED = 'advanced';
 
@@ -44,7 +60,12 @@ class SlubThemeOptions
     $this->addHeaderOption();
     $this->addTaglineOption();
     $this->addHomepageImageOption();
+    $this->addHomepageBlocksOption();
+    $this->addHowToSubmitBlock();
     $this->addColorOptions();
+
+    // Must be last option
+    $this->fixOrderedHomepageBlocks();
   }
 
   /**
@@ -59,18 +80,24 @@ class SlubThemeOptions
         $variables['--color-secondary'] = $this->theme->getOption('accentColor');
         if ($this->theme->isColourDark($this->theme->getOption('primaryColor'))) {
             $variables['--color-text-on-primary'] = 'white';
+            $variables['--color-button-text'] = 'var(--color-primary)';
         } else {
             $variables['--color-text-on-primary'] = 'rgba(0, 0, 0, 0.85)';
         }
+        if ($this->theme->isColourDark($this->theme->getOption('accentColor'))) {
+            $variables['--color-page-links'] = 'var(--color-secondary)';
+            $variables['--color-button-text'] = 'var(--color-secondary)';
+        } else {
+            $variables['--color-page-links'] = 'var(--color-text)';
+            $variables['--color-button-text'] = 'var(--color-text)';
+        }
         $variables['--color-header-background'] = 'var(--color-primary)';
         $variables['--color-header-text'] = 'var(--color-text-on-primary)';
-        $variables['--color-page-links'] = 'var(--color-secondary)';
         $variables['--color-button-background'] = 'var(--color-background)';
-        $variables['--color-button-text'] = 'var(--color-primary)';
         $variables['--color-block-background'] = 'var(--color-primary)';
         $variables['--color-block-text'] = 'var(--color-text-on-primary)';
         $variables['--color-footer-background'] = 'var(--color-primary)';
-        $variables['--color-footer-text'] = 'var(--color-secondary)';
+        $variables['--color-footer-text'] = 'var(--color-text-on-primary)';
     } else {
         $variables['--color-header-background'] = $this->theme->getOption('headerBackgroundColor');
         $variables['--color-header-text'] = $this->theme->getOption('headerTextColor');
@@ -107,6 +134,75 @@ class SlubThemeOptions
         ->join('');
 
     return "{$selector} {{$string}}";
+  }
+
+  /**
+   * Load the homepage blocks
+   *
+   * This method returns a list of templates to load the homepage blocks
+   * and adds any required data to the TemplateManager.
+   */
+  public function getHomepageBlocks(): array
+  {
+    $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+
+    $blocks = $this->theme->getOption('homepageBlocks');
+    $templateMgr->assign('homepageBlocks', $blocks);
+
+    foreach ($blocks as $template) {
+        switch ($template) {
+            case self::HOMEPAGE_BLOCK_ISSUE_TOC:
+                $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
+                $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
+        }
+    }
+
+    return $blocks;
+  }
+
+  /**
+   * Helper function to get all homepage block options
+   */
+  public function getHomepageBlockOptions(): Collection
+  {
+    return collect([
+        [
+            'value' => self::HOMEPAGE_BLOCK_ANNOUNCEMENT,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.announcement'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_ABOUT,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.about'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_ISSUE_SUMMARY,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.issue-summary'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_ISSUE_TOC,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.issue-toc'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_HIGHLIGHTS,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.highlights'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_SUBMIT,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.how-to-submit'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.latest-articles'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.browse-by-category'),
+        ],
+        [
+            'value' => self::HOMEPAGE_BLOCK_PARTNERS,
+            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.partners'),
+        ],
+    ]);
   }
 
   /**
@@ -196,6 +292,68 @@ class SlubThemeOptions
           ],
       ],
       'default' => self::HOMEPAGE_IMAGE_POSITION_ABOVE,
+    ]);
+  }
+
+  /**
+   * Add option to select which blocks to show on the homepage
+   */
+  protected function addHomepageBlocksOption(): void
+  {
+    $this->theme->addOption('homepageBlocks', 'FieldOptions', [
+        'type' => 'checkbox',
+        'isOrderable' => true,
+        'label' => __('plugins.themes.slubTheme.option.homepageBlocks.label'),
+        'description' => __('plugins.themes.slubTheme.option.homepageBlocks.description'),
+        'options' => $this->getHomepageBlockOptions()->toArray(),
+        'default' => self::HOMEPAGE_BLOCKS_DEFAULT,
+    ]);
+  }
+
+  /**
+   * Workaround for bug in 3.3.x where the form does not display the options
+   * in the selected order. This function must be called after all other
+   * options are defined. All option values are loaded and stored in memory
+   * once. Any theme options defined after this function is called will not
+   * have their values loaded.
+   */
+  protected function fixOrderedHomepageBlocks(): void
+  {
+    $enabled = $this->theme->getOption('homepageBlocks');
+    if (!$enabled) {
+        $enabled = self::HOMEPAGE_BLOCKS_DEFAULT;
+    }
+
+    $options = $this->getHomepageBlockOptions()->values()->toArray();
+    usort($options, function($a, $b) use ($enabled) {
+        $aIndex = array_search($a['value'], $enabled);
+        $aIndex = $aIndex === false ? PHP_INT_MAX : $aIndex;
+        $bIndex = array_search($b['value'], $enabled);
+        $bIndex = $bIndex === false ? PHP_INT_MAX : $bIndex;
+        return $aIndex < $bIndex ? -1 : 1;
+    });
+
+    $this->theme->options['homepageBlocks']->options = $options;
+  }
+
+  protected function addHowToSubmitBlock(): void
+  {
+    $this->theme->addOption('howToSubmitTitle', 'FieldText', [
+        'label' => __('plugins.themes.slubTheme.option.howToSubmitTitle.label'),
+        'description' => __('plugins.themes.slubTheme.option.howToSubmitTitle.description'),
+        'default' => __('navigation.submissions'),
+    ]);
+    $this->theme->addOption('howToSubmitText', 'FieldText', [
+        'label' => __('plugins.themes.slubTheme.option.howToSubmitText.label'),
+        'description' => __('plugins.themes.slubTheme.option.howToSubmitText.description'),
+        'size' => 'large',
+        'default' => __('plugins.themes.slubTheme.option.howToSubmitText.default'),
+    ]);
+    $this->theme->addOption('howToSubmitAction', 'FieldText', [
+        'label' => __('plugins.themes.slubTheme.option.howToSubmitAction.label'),
+        'description' => __('plugins.themes.slubTheme.option.howToSubmitAction.description'),
+        'size' => 'small',
+        'default' => __('plugins.themes.slubTheme.option.howToSubmitAction.default'),
     ]);
   }
 

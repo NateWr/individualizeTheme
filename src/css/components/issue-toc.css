@@ -1,0 +1,113 @@
+.issue-toc {
+  --cover-image-width: 16rem;
+  --gap: 1.5rem;
+}
+
+.issue-toc,
+.issue-toc-header,
+.issue-toc-header-content,
+.issue-toc-header-top,
+.issue-toc-galleys,
+.issue-toc-sections,
+.issue-toc-section,
+.issue-toc-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.issue-toc {
+  gap: 6rem;
+}
+
+.issue-toc-cover {
+  max-width: var(--cover-image-width);
+}
+
+.issue-toc-header {
+  gap: var(--gap);
+}
+
+.issue-toc-header-top {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.issue-toc-galleys {
+  gap: 0.5rem;
+}
+
+.issue-toc-vol {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.issue-toc-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.issue-toc-title {
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.issue-toc-sections {
+  gap: 6rem;
+}
+
+.issue-toc-section,
+.issue-toc-articles {
+  gap: 2rem;
+}
+
+@media (--tablets) {
+
+  .issue-toc-with-cover {
+
+    & .issue-toc-header {
+      display: grid;
+      grid-template-columns: var(--cover-image-width) minmax(0, 1fr);
+    }
+
+    & .issue-toc-header-top {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    & .issue-toc-section-name {
+      margin-inline-start: calc(var(--cover-image-width) + var(--gap));
+    }
+  }
+}
+
+@media (--laptops-lg) {
+
+  .issue-toc-with-cover {
+    --cover-image-width: 24rem;
+    --gap: 3rem;
+  }
+
+  .issue-toc-vol {
+    font-size: 3rem;
+  }
+
+  .issue-toc-year {
+    font-size: 2rem;
+  }
+
+  .issue-toc-title {
+    font-size: 1.25rem;
+  }
+
+  .issue-toc-metadata,
+  .issue-toc-description {
+    font-size: 1.125rem;
+  }
+
+  .issue-toc-section-name {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,59 @@
+/**
+ * Use this utility to wrap page content in a container
+ * that centers the content on the page and prevents
+ * it from bleeding to the edge of the screen.
+ *
+ * Extends Tailwind's container utility.
+ *
+ * @see https://tailwindcss.com/docs/container
+ */
+@layer utilities {
+  .container {
+    padding: 0 0.75rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (--tablets) {
+
+    .container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (--tablets-landscape) {
+
+    .container {
+      padding: 0 4rem;
+    }
+  }
+
+  @media (--laptops-sm) {
+
+    .container {
+      padding: 0;
+      max-width: 1024px;
+    }
+  }
+
+  @media (--laptops) {
+
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (--laptops-lg) {
+
+    .container {
+      max-width: 1600px;
+    }
+  }
+
+  @media (--desktops) {
+
+    .container {
+      max-width: 1920px;
+    }
+  }
+}

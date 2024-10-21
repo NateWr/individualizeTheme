@@ -1,0 +1,33 @@
+/**
+ * Styles for the reveal component
+ *
+ * @see /src/js/reveal.js
+ */
+@layer utilities {
+  [data-reveal] {
+    position: relative;
+    overflow-y: hidden;
+  }
+
+  [data-reveal][data-open="true"] {
+    overflow: visible;
+    max-height: none !important;
+
+    [data-reveal-link] {
+      display: none;
+    }
+  }
+
+  [data-reveal-link] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-page-background);
+    box-shadow: 0 -2rem 2rem 2rem var(--color-page-background);
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    font-weight: 700;
+    color: var(--color-button-text);
+  }
+}

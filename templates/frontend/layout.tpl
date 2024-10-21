@@ -21,9 +21,9 @@
   {include file="frontend/components/header-mobile.tpl"}
   {include file="frontend/components/header-desktop.tpl"}
   <main>
-    <div class="page-wrapper">
+    <div class="container">
 
-    {block name="content"}{/block}
+      {block name="content"}{/block}
 
     </div>
   </main>

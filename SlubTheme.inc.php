@@ -26,7 +26,9 @@ class SlubTheme extends ThemePlugin
         $this->addFonts();
         $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true]);
         $this->addMenuArea(['primary', 'user', 'homepage']);
+        $this->addScript('i18n', $this->getI18nScript(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
+        HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);
     }
 
     public function getDisplayName()
@@ -37,27 +39,6 @@ class SlubTheme extends ThemePlugin
     public function getDescription()
     {
         return __('plugins.themes.slubTheme.description');
-    }
-
-    /**
-     * Add helper functions to the TemplateManager
-     *
-     * Registering these helper functions ensures that they are
-     * available to use in the theme's templates, even if a
-     * child theme is used.
-     */
-    protected function registerTemplatePlugins(): void
-    {
-        $templateMgr = $this->getTemplateManager();
-
-        $this->themeHelper = new ThemeHelper($templateMgr);
-        $this->themeHelper->registerDefaultPlugins();
-        $this->themeHelper->safeRegisterPlugin('function', 'slub_context_name_length', [$this, 'setContextNameLength']);
-    }
-
-    protected function getTemplateManager(): TemplateManager
-    {
-        return TemplateManager::getManager(Application::get()->getRequest());
     }
 
     /**
@@ -98,6 +79,41 @@ class SlubTheme extends ThemePlugin
         }
 
         $smarty->assign($params['assign'], $size);
+    }
+
+    /**
+     * Add data to specific templates
+     */
+    public function addTemplateData(string $hookName, array $args): bool
+    {
+        $template = $args[1];
+
+        if ($template === 'frontend/pages/indexJournal.tpl') {
+            $this->optionsHelper->getHomepageBlocks();
+        }
+
+        return false;
+    }
+
+    /**
+     * Add helper functions to the TemplateManager
+     *
+     * Registering these helper functions ensures that they are
+     * available to use in the theme's templates, even if a
+     * child theme is used.
+     */
+    protected function registerTemplatePlugins(): void
+    {
+        $templateMgr = $this->getTemplateManager();
+
+        $this->themeHelper = new ThemeHelper($templateMgr);
+        $this->themeHelper->registerDefaultPlugins();
+        $this->themeHelper->safeRegisterPlugin('function', 'slub_context_name_length', [$this, 'setContextNameLength']);
+    }
+
+    protected function getTemplateManager(): TemplateManager
+    {
+        return TemplateManager::getManager(Application::get()->getRequest());
     }
 
     /**
@@ -143,6 +159,16 @@ class SlubTheme extends ThemePlugin
             ",
             ['inline' => true]
         );
+    }
+
+    protected function getI18nScript(): string
+    {
+        return 'window.slubTheme = '
+            . json_encode([
+                'i18n' => [
+                    'reveal' => __('common.readMore'),
+                ],
+            ]);
     }
 
     /**

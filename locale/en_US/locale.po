@@ -58,11 +58,68 @@ msgstr "Below Header"
 msgid "plugins.themes.slubTheme.option.homepageImagePosition.below-center"
 msgstr "Below Header (Center)"
 
+msgid "plugins.themes.slubTheme.option.homepageBlocks.label"
+msgstr "Homepage Blocks"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.description"
+msgstr "Select which blocks to show on your homepage."
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.announcement"
+msgstr "Latest Announcement"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.about"
+msgstr "About the Journal with Homepage Menu"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.issue-summary"
+msgstr "Current Issue (Summary)"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.issue-toc"
+msgstr "Current Issue (Table of Contents)"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.highlights"
+msgstr "Highlights"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.how-to-submit"
+msgstr "How to Submit"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.latest-articles"
+msgstr "Latest Articles"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.browse-by-category"
+msgstr "Browse By Category"
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
+msgstr "Partners / Sponsors"
+
+msgid "plugins.themes.slubTheme.option.howToSubmitTitle.label"
+msgstr "How to Submit - Title"
+
+msgid "plugins.themes.slubTheme.option.howToSubmitTitle.description"
+msgstr "Change the title for the How to Submit block on the homepage."
+
+msgid "plugins.themes.slubTheme.option.howToSubmitText.label"
+msgstr "How to Submit - Text"
+
+msgid "plugins.themes.slubTheme.option.howToSubmitText.description"
+msgstr "Change the short prompt about making a submission to this journal."
+
+msgid "plugins.themes.slubTheme.option.howToSubmitText.default"
+msgstr "Read our author guidelines and learn how to submit to {$journalName}."
+
+msgid "plugins.themes.slubTheme.option.howToSubmitAction.label"
+msgstr "How to Submit - Button"
+
+msgid "plugins.themes.slubTheme.option.howToSubmitAction.description"
+msgstr "Change the text on the button to view the submissions page."
+
+msgid "plugins.themes.slubTheme.option.howToSubmitAction.default"
+msgstr "How to Submit"
+
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"
 
 msgid "plugins.themes.slubTheme.option.colorMode.description"
-msgstr "Most journals should use the Simple mode."
+msgstr "Most journals should use the simple mode. The advanced mode provides designers with more control, but misuse may cause some text on your site to be inaccessible."
 
 msgid "plugins.themes.slubTheme.option.colorMode.default"
 msgstr "Simple Mode: Choose one or two colors for your site."
@@ -80,7 +137,7 @@ msgid "plugins.themes.slubTheme.option.accentColor.label"
 msgstr "Accent Color"
 
 msgid "plugins.themes.slubTheme.option.accentColor.description"
-msgstr "The color used for links and buttons."
+msgstr "The color used for links and buttons. Choose a dark color that is easy to read against a white background."
 
 msgid "plugins.themes.slubTheme.option.pageBackgroundColor.label"
 msgstr "Page Background Color"

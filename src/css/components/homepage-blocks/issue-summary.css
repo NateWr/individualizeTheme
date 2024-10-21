@@ -1,0 +1,10 @@
+@media (--tablets) {
+  .homepage-issue-summary {
+
+    & .issue-summary {
+      flex-direction: row-reverse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

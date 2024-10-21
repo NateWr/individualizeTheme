@@ -1,0 +1,26 @@
+/**
+ * Use this utility to show a text link with an arrow.
+ *
+ * Example:
+ *
+ * <a class="arrow-link" href="...">
+ *   View Issue
+ *   {include file="frontend/icons/arrow-right.svg"}
+ * </a>
+ */
+@layer utilities {
+  .arrow-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: var(--color-button-text);
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+      text-decoration-thickness: 0.1em;
+      outline: 0;
+    }
+  }
+}
