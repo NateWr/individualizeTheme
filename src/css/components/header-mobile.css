@@ -24,6 +24,24 @@
   width: auto;
 }
 
+.header-mobile-name {
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.header-mobile-name-xs {
+  font-size: 1.25rem;
+}
+
+.header-mobile-name-sm {
+  font-size: 1.125rem;
+}
+
+.header-mobile-name-lg {
+  font-size: 0.75rem;
+}
+
 .header-mobile-button {
   display: flex;
   justify-content: center;
