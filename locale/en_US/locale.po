@@ -76,9 +76,6 @@ msgstr "Current Issue (Summary)"
 msgid "plugins.themes.slubTheme.option.homepageBlocks.issue-toc"
 msgstr "Current Issue (Table of Contents)"
 
-msgid "plugins.themes.slubTheme.option.homepageBlocks.highlights"
-msgstr "Highlights"
-
 msgid "plugins.themes.slubTheme.option.homepageBlocks.how-to-submit"
 msgstr "How to Submit"
 

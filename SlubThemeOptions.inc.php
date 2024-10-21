@@ -26,7 +26,6 @@ class SlubThemeOptions
   public const HOMEPAGE_BLOCK_ABOUT = 'frontend/components/homepage-blocks/about.tpl';
   public const HOMEPAGE_BLOCK_ISSUE_SUMMARY = 'frontend/components/homepage-blocks/issue-summary.tpl';
   public const HOMEPAGE_BLOCK_ISSUE_TOC = 'frontend/components/homepage-blocks/issue-toc.tpl';
-  public const HOMEPAGE_BLOCK_HIGHLIGHTS = 'frontend/components/homepage-blocks/highlights.tpl';
   public const HOMEPAGE_BLOCK_SUBMIT = 'frontend/components/homepage-blocks/how-to-submit.tpl';
   public const HOMEPAGE_BLOCK_LATEST_ARTICLES = 'frontend/components/homepage-blocks/latest-articles.tpl';
   public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
@@ -181,10 +180,6 @@ class SlubThemeOptions
         [
             'value' => self::HOMEPAGE_BLOCK_ISSUE_TOC,
             'label' => __('plugins.themes.slubTheme.option.homepageBlocks.issue-toc'),
-        ],
-        [
-            'value' => self::HOMEPAGE_BLOCK_HIGHLIGHTS,
-            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.highlights'),
         ],
         [
             'value' => self::HOMEPAGE_BLOCK_SUBMIT,
