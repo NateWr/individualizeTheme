@@ -20,7 +20,7 @@
   <a name="back-to-top" class="sr-only">{translate key="common.top"}</a>
   {include file="frontend/components/header-mobile.tpl"}
   {include file="frontend/components/header-desktop.tpl"}
-  <main>
+  <main class="pt-16">
     <div class="container">
 
       {block name="content"}{/block}

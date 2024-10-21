@@ -3,6 +3,9 @@ export default {
   content: [
     "./templates/**/*.tpl"
   ],
+  safelist: [
+    'overflow-hidden',
+  ],
   theme: {
     extend: {
       screens: {

@@ -4,6 +4,27 @@ msgstr "SLUB Theme"
 msgid "plugins.themes.slubTheme.description"
 msgstr "Custom theme for journals hosted by SLUB."
 
+msgid "plugins.themes.slubTheme.backToTop"
+msgstr "Back to Top"
+
+msgid "plugins.themes.slubTheme.accessibility"
+msgstr "Accessibility"
+
+msgid "plugins.themes.slubTheme.privacyPolicy"
+msgstr "Privacy Policy"
+
+msgid "plugins.themes.slubTheme.changeLanguage"
+msgstr "Change Language"
+
+msgid "plugins.themes.slubTheme.account"
+msgstr "Account"
+
+msgid "plugins.themes.slubTheme.loggedInAs"
+msgstr "Logged in as <strong>{$username}</strong>."
+
+msgid "plugins.themes.slubTheme.menu"
+msgstr "Menu"
+
 msgid "plugins.themes.slubTheme.option.header.label"
 msgstr "Header"
 
@@ -168,21 +189,3 @@ msgstr "Footer Background Color"
 
 msgid "plugins.themes.slubTheme.option.footerTextColor.label"
 msgstr "Footer Text Color"
-
-msgid "plugins.themes.slubTheme.backToTop"
-msgstr "Back to Top"
-
-msgid "plugins.themes.slubTheme.accessibility"
-msgstr "Accessibility"
-
-msgid "plugins.themes.slubTheme.privacyPolicy"
-msgstr "Privacy Policy"
-
-msgid "plugins.themes.slubTheme.changeLanguage"
-msgstr "Change Language"
-
-msgid "plugins.themes.slubTheme.account"
-msgstr "Account"
-
-msgid "plugins.themes.slubTheme.loggedInAs"
-msgstr "Logged in as <strong>{$username}</strong>."

@@ -12,6 +12,7 @@ import './css/bootstrap.scss'
 /**
  * Custom JS for the theme
  */
+import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
 
 /**
@@ -25,5 +26,6 @@ import './main.css'
  * Initialize
  */
 document.addEventListener('DOMContentLoaded',function() {
+  mobileMenu.init()
   reveal.init()
 })
