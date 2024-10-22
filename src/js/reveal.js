@@ -10,7 +10,7 @@
  *
  * Control the height by passing an int to a data-height attribute.
  *
- * <div data-reveal data-height="30">
+ * <div data-reveal data-height="20">
  *   ...
  * </div>
  *

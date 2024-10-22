@@ -1,0 +1,154 @@
+.footer {
+  margin-top: 12rem;
+}
+
+.footer-back-to-top {
+  display: flex;
+  margin-bottom: 6rem;
+}
+
+.footer-back-to-top-link {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.5rem;
+
+  & svg {
+    transform: translateY(-0.25em);
+  }
+}
+
+.footer-inner {
+  padding: 3rem 0;
+  background: var(--color-header-background);
+  color: var(--color-header-text);
+
+  & .link {
+    color: var(--color-header-text);
+  }
+}
+
+.footer-name {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer-block-masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  & [data-reveal-link] {
+    background: var(--color-header-background);
+    color: var(--color-header-text);
+    box-shadow: 0 -2rem 2rem 2rem var(--color-header-background);
+  }
+}
+
+.footer-metadata {
+  max-width: 20rem;
+
+  & th,
+  & td {
+    text-align: left;
+  }
+
+  & th {
+    font-weight: 700;
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.footer-block-menu .menu .menu-button-with-icon {
+  margin-inline-start: calc(-1 * var(--inline-padding));
+}
+
+.footer-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+
+  & .pkp_block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & .title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
+
+  & .block_information,
+  & .block_language,
+  & .block_web_feed {
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+    }
+
+    & a {
+      @apply tab-focus;
+    }
+  }
+}
+
+@media (--tablets) {
+
+  .footer-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .footer-block-masthead {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .footer-block-menu .menu .menu-button-with-icon {
+    margin-inline-start: calc(-1.75rem - var(--inline-padding));
+  }
+
+  .footer-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .footer-description {
+    max-width: 80%;
+  }
+}
+
+@media (--laptops-sm) {
+
+  .footer-sidebar {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (--laptops-lg) {
+
+  .footer-name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
