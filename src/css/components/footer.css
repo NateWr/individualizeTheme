@@ -93,6 +93,10 @@
     }
   }
 
+  & .pkp_screen_reader {
+    @apply sr-only;
+  }
+
   & .block_information,
   & .block_language,
   & .block_web_feed {
@@ -105,6 +109,28 @@
 
     & a {
       @apply tab-focus;
+    }
+  }
+
+  & .block_custom,
+  & .block_developed_by {
+
+    & a {
+      @apply link;
+      font-weight: 400;
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  & .block_make_submission_link {
+    @apply button;
+    background: var(--color-header-text);
+    color: var(--color-header-background);
+    border-color: var(--color-header-text);
+
+    &:hover,
+    &:focus-visible {
+      outline-color: var(--color-header-text);
     }
   }
 }
@@ -128,6 +154,7 @@
   .footer-sidebar {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 1.5rem;
   }
 }
 
@@ -142,6 +169,7 @@
 
   .footer-sidebar {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3rem;
   }
 }
 
