@@ -1,5 +1,11 @@
 .homepage-issue-toc {
-  max-width: 1280px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (--laptops-lg) {
+  .homepage-issue-toc {
+    max-width: 1280px;
+  }
 }
