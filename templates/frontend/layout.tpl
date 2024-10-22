@@ -9,7 +9,7 @@
 	{load_stylesheet context="frontend"}
 </head>
 
- {**
+{**
  * Get the list of locales supported by the journal or site
  *}
 {th_locales assign="slubLocales"}
