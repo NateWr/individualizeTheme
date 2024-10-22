@@ -25,7 +25,7 @@ class SlubTheme extends ThemePlugin
         $this->optionsHelper->addOptions();
         $this->addFonts();
         $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true]);
-        $this->addMenuArea(['primary', 'user', 'homepage']);
+        $this->addMenuArea(['primary', 'user', 'homepage', 'policy']);
         $this->addScript('i18n', $this->getI18nScript(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
         HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);

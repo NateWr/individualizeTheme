@@ -67,19 +67,32 @@
               </table>
             {/if}
             <div class="footer-links">
-              <a class="link tab-focus" href="{url page="about" op="privacy"}">
-                {translate key="plugins.themes.slubTheme.privacyPolicy"}
-              </a>
-              <a class="link tab-focus" href="{url page="about" op="contact"}">
-                {translate key="about.contact"}
-              </a>
+              {capture assign="policyMenu"}{strip}
+                {load_menu name="policy" id="nav-footer-policy" path="frontend/components/menu.tpl"}
+              {/strip}{/capture}
+              {if $policyMenu}
+                {$policyMenu}
+              {else}
+                <ul class="menu" id="nav-footer-policy">
+                  <li class="menu-item">
+                    <a class="menu-button" href="{url page="about" op="privacy"}">
+                      {translate key="plugins.themes.slubTheme.privacyPolicy"}
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a class="menu-button" href="{url page="about" op="contact"}">
+                      {translate key="about.contact"}
+                    </a>
+                  </li>
+                </ul>
+              {/if}
             </div>
           </div>
           <div class="footer-block footer-block-menu menu-vertical-wrapper">
-            {load_menu name="primary" path="frontend/components/menu.tpl"}
+            {load_menu name="primary" id="nav-footer-primary" path="frontend/components/menu.tpl"}
           </div>
           <div class="footer-block footer-block-menu menu-vertical-wrapper">
-            {load_menu name="user" path="frontend/components/menu.tpl"}
+            {load_menu name="user" id="nav-footer-user" path="frontend/components/menu.tpl"}
           </div>
         </div>
         {capture assign="sidebar"}{strip}

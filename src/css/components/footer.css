@@ -66,9 +66,17 @@
 }
 
 .footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+
+  & .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  & .menu-button {
+    @apply link;
+  }
 }
 
 .footer-block-menu .menu .menu-button-with-icon {
