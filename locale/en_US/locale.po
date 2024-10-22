@@ -25,6 +25,12 @@ msgstr "Logged in as <strong>{$username}</strong>."
 msgid "plugins.themes.slubTheme.menu"
 msgstr "Menu"
 
+msgid "plugins.themes.slubTheme.latestArticles"
+msgstr "Latest Articles"
+
+msgid "plugins.themes.slubTheme.latestArticles.description"
+msgstr "Read our most recent publications or browse every article in our <a href=\"{$url}\" class=\"link\">full archive</a>."
+
 msgid "plugins.themes.slubTheme.option.header.label"
 msgstr "Header"
 
@@ -99,9 +105,6 @@ msgstr "Current Issue (Table of Contents)"
 
 msgid "plugins.themes.slubTheme.option.homepageBlocks.how-to-submit"
 msgstr "How to Submit"
-
-msgid "plugins.themes.slubTheme.option.homepageBlocks.latest-articles"
-msgstr "Latest Articles"
 
 msgid "plugins.themes.slubTheme.option.homepageBlocks.browse-by-category"
 msgstr "Browse By Category"

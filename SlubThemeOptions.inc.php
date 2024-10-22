@@ -153,6 +153,9 @@ class SlubThemeOptions
             case self::HOMEPAGE_BLOCK_ISSUE_TOC:
                 $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
                 $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
+            case self::HOMEPAGE_BLOCK_LATEST_ARTICLES:
+                import('lib.pkp.classes.submission.PKPSubmissionDAO');
+                $templateMgr->assign('slubLatestArticles', $this->getLatestArticles());
         }
     }
 
@@ -187,7 +190,7 @@ class SlubThemeOptions
         ],
         [
             'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES,
-            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.latest-articles'),
+            'label' => __('plugins.themes.slubTheme.latestArticles'),
         ],
         [
             'value' => self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY,
@@ -444,5 +447,17 @@ class SlubThemeOptions
         'default' => self::COLOR_PRIMARY_TEXT,
         'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
     ]);
+  }
+
+  protected function getLatestArticles(): array
+  {
+    return iterator_to_array(
+        Services::get('submission')->getMany([
+            'contextId' => Application::get()->getRequest()->getContext()?->getId() ?? 0,
+            'status' => STATUS_PUBLISHED,
+            'orderBy' => ORDERBY_DATE_PUBLISHED,
+            'count' => 5,
+        ])
+    );
   }
 }

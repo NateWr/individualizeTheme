@@ -1,0 +1,50 @@
+.homepage-block-latest-articles,
+.homepage-block-latest-articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.homepage-block-latest-articles-title {
+  margin-bottom: 0.25rem;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.homepage-block-latest-articles-description {
+  font-size: 1.125rem;
+}
+
+@media (--tablets-landscape) {
+
+  .homepage-block-latest-articles {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+  }
+}
+
+@media (--laptops-sm) {
+
+  .homepage-block-latest-articles {
+    grid-template-columns: 22rem minmax(0, 1fr);
+    gap: 6rem;
+    max-width: 1024px;
+  }
+}
+
+@media (--laptops-lg) {
+
+  .homepage-block-latest-articles {
+    grid-template-columns: 24rem minmax(0, 1fr);
+    gap: 8rem;
+    max-width: 1280px;
+  }
+
+  .homepage-block-latest-articles-title {
+    font-size: 3rem;
+  }
+
+  .homepage-block-latest-articles-description {
+    font-size: 1.25rem;
+  }
+}
