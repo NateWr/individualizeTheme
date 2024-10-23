@@ -21,7 +21,7 @@
 @media (--tablets) {
 
   .homepage-block-about {
-    padding: 4rem;
+    padding: 0 4rem;
     gap: 4rem;
   }
 
