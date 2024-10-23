@@ -20,11 +20,11 @@
 
 .footer-inner {
   padding: 3rem 0;
-  background: var(--color-header-background);
-  color: var(--color-header-text);
+  background: var(--color-footer-background);
+  color: var(--color-footer-text);
 
   & .link {
-    color: var(--color-header-text);
+    color: var(--color-footer-text);
   }
 }
 
@@ -46,9 +46,9 @@
   gap: 1.5rem;
 
   & [data-reveal-link] {
-    background: var(--color-header-background);
-    color: var(--color-header-text);
-    box-shadow: 0 -2rem 2rem 2rem var(--color-header-background);
+    background: var(--color-footer-background);
+    color: var(--color-footer-text);
+    box-shadow: 0 -2rem 2rem 2rem var(--color-footer-background);
   }
 }
 
@@ -132,13 +132,13 @@
 
   & .block_make_submission_link {
     @apply button;
-    background: var(--color-header-text);
-    color: var(--color-header-background);
-    border-color: var(--color-header-text);
+    background: var(--color-footer-text);
+    color: var(--color-footer-background);
+    border-color: var(--color-footer-text);
 
     &:hover,
     &:focus-visible {
-      outline-color: var(--color-header-text);
+      outline-color: var(--color-footer-text);
     }
   }
 }
