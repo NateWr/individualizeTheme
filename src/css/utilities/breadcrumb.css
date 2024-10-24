@@ -1,0 +1,45 @@
+/**
+ * Use this utility to show a breadcrumb navigation
+ *
+ * Example:
+ *
+ * <div class="breadcrumb">
+ *   {include file="frontend/icons/arrow-left.svg"}
+ *   <svg>...left arrow</svg>
+ *   <a class="breadcrumb-item tab-focus" href="...">
+ *     ...
+ *   </a>
+ *   <span class="breadcrumb-separator">/</span>
+ *   <span class="breadcrumb-item">
+ *     ...
+ *   </span>
+ * </div>
+ */
+@layer utilities {
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.2;
+
+    & svg {
+      flex: 0 0 2rem;
+      width: 2rem;
+      height: auto;
+      color: var(--color-page-links);
+    }
+  }
+
+  .breadcrumb-item-last {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @media (--tablets-landscape) {
+
+    .breadcrumb {
+      margin-left: -2.5rem;
+    }
+  }
+}

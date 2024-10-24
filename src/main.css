@@ -1,6 +1,7 @@
 @import "css/variables";
 @import "css/preflight";
 @import "css/utilities/arrow-link.css";
+@import "css/utilities/breadcrumb.css";
 @import "css/utilities/button.css";
 @import "css/utilities/container.css";
 @import "css/utilities/link.css";
