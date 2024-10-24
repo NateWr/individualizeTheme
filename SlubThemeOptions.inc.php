@@ -62,6 +62,7 @@ class SlubThemeOptions
         $this->addHomepageBlocksOption();
         $this->addHowToSubmitBlock();
         $this->addPartnersBlock();
+        $this->addCategoriesBlock();
         $this->addColorOptions();
 
         // Must be last option
@@ -165,6 +166,14 @@ class SlubThemeOptions
                     $partnerLogosPlugin = PluginRegistry::getPlugin('generic', 'partnerlogosplugin');
                     if ($partnerLogosPlugin && $context) {
                         $templateMgr->assign('partnerLogosHtml', $partnerLogosPlugin->getHtml($context));
+                    }
+                    break;
+                case self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY:
+                    /** @var CategoryDAO */
+                    $categoryDao = DAORegistry::getDAO('CategoryDAO');
+                    if ($context) {
+                        $categories = $categoryDao->getByParentId(null, $context->getId())->toArray();
+                        $templateMgr->assign('categories', $categories);
                     }
                     break;
             }
@@ -386,6 +395,32 @@ class SlubThemeOptions
             'description' => __('plugins.themes.slubTheme.option.partnersDescription.description'),
             'size' => 'large',
             'default' => __('plugins.themes.slubTheme.partners.description'),
+        ]);
+    }
+
+    /**
+     * Add title and description fields for the browse by categories homepage block
+     */
+    protected function addCategoriesBlock(): void
+    {
+        $request = Application::get()->getRequest();
+        $issueArchiveUrl = $request->getDispatcher()->url(
+            $request,
+            ROUTE_PAGE,
+            null,
+            'issue',
+            'archive'
+        );
+        $this->theme->addOption('categoriesTitle', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.categoriesTitle.label'),
+            'description' => __('plugins.themes.slubTheme.option.categoriesTitle.description'),
+            'default' => __('plugins.themes.slubTheme.browseByCategory'),
+        ]);
+        $this->theme->addOption('categoriesDescription', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.categoriesDescription.label'),
+            'description' => __('plugins.themes.slubTheme.option.categoriesDescription.description'),
+            'size' => 'large',
+            'default' => __('plugins.themes.slubTheme.browseByCategory.description'),
         ]);
     }
 

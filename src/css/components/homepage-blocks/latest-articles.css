@@ -17,6 +17,11 @@
 
 .homepage-block-latest-articles-description {
   font-size: 1.125rem;
+  text-wrap: balance;
+
+  & a {
+    @apply link;
+  }
 }
 
 @media (--tablets-landscape) {

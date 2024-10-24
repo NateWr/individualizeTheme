@@ -1,5 +1,5 @@
 {if $partnerLogosHtml}
-  <div class="homepage-block homepage-block-partners">
+  <section class="homepage-block homepage-block-partners">
     <div class="homepage-block-partners-header">
       <h2 class="homepage-block-partners-title">
         {$activeTheme->getOption('partnersTitle')|escape}
@@ -9,5 +9,5 @@
       </div>
     </div>
     {$partnerLogosHtml}
-  </div>
+  </section>
 {/if}

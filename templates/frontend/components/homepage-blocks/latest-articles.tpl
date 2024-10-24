@@ -1,5 +1,5 @@
 {if $slubLatestArticles|count}
-  <div class="homepage-block homepage-block-latest-articles">
+  <section class="homepage-block homepage-block-latest-articles">
     <div class="homepage-block-latest-articles-header">
       <h2 class="homepage-block-latest-articles-title">
         {translate key="plugins.themes.slubTheme.latestArticles"}
@@ -24,5 +24,5 @@
         </li>
       {/foreach}
     </ul>
-  </div>
+  </section>
 {/if}

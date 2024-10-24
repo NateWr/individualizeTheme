@@ -16,6 +16,7 @@
 
 .homepage-block-partners-desc {
   font-size: 1.125rem;
+  text-wrap: balance;
 
   & a {
     @apply link;
@@ -40,5 +41,16 @@
 
   .homepage-block-partners .pl-partner-logos {
     justify-content: center;
+  }
+}
+
+@media (--laptops-lg) {
+
+  .homepage-block-partners-title {
+    font-size: 3rem;
+  }
+
+  .homepage-block-partners-desc {
+    font-size: 1.25rem;
   }
 }

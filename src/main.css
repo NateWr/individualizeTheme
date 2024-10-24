@@ -8,6 +8,7 @@
 @import "css/utilities/tab-focus.css";
 @import "css/utilities/html-text.css";
 @import "css/components/article-summary.css";
+@import "css/components/category-summary.css";
 @import "css/components/dropdown.css";
 @import "css/components/footer.css";
 @import "css/components/header-mobile.css";
@@ -17,6 +18,7 @@
 @import "css/components/header-desktop-line.css";
 @import "css/components/homepage-blocks/about.css";
 @import "css/components/homepage-blocks/announcement.css";
+@import "css/components/homepage-blocks/browse-by-category.css";
 @import "css/components/homepage-blocks/how-to-submit.css";
 @import "css/components/homepage-blocks/issue-summary.css";
 @import "css/components/homepage-blocks/issue-toc.css";

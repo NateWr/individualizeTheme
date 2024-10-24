@@ -1,0 +1,60 @@
+.homepage-block-categories,
+.homepage-block-categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.homepage-block-categories {
+  max-width: 1024px;
+}
+
+.homepage-block-categories-header {
+  max-width: 28rem;
+}
+
+.homepage-block-categories-title {
+  margin-bottom: 0.25rem;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.homepage-block-categories-desc {
+  font-size: 1.125rem;
+  text-wrap: balance;
+
+  & a {
+    @apply link;
+  }
+}
+
+@media (--tablets) {
+
+  .homepage-block-categories {
+    align-items: center;
+  }
+
+  .homepage-block-categories-header {
+    text-align: center;
+  }
+
+  .homepage-block-categories-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (--laptops-lg) {
+
+  .homepage-block-categories-header {
+    max-width: 40rem;
+  }
+
+  .homepage-block-categories-title {
+    font-size: 3rem;
+  }
+
+  .homepage-block-categories-desc {
+    font-size: 1.25rem;
+  }
+}

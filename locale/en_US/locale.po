@@ -37,6 +37,15 @@ msgstr "Partners"
 msgid "plugins.themes.slubTheme.partners.description"
 msgstr "This journal is published with support from the following partners."
 
+msgid "plugins.themes.slubTheme.browseByCategory"
+msgstr "Browse by Category"
+
+msgid "plugins.themes.slubTheme.browseByCategory.description"
+msgstr "Find articles across our main areas of coverage. Or browse every article in our <a href=\"{$url}\">back issues</a>."
+
+msgid "plugins.themes.slubTheme.viewCategory"
+msgstr "View Category"
+
 msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
 
@@ -156,6 +165,18 @@ msgstr "Partners / Sponsors - Description"
 
 msgid "plugins.themes.slubTheme.option.partnersDescription.description"
 msgstr "Change the description of the Partners / Sponsors block on the homepage."
+
+msgid "plugins.themes.slubTheme.option.categoriesTitle.label"
+msgstr "Browse by Category - Title"
+
+msgid "plugins.themes.slubTheme.option.categoriesTitle.description"
+msgstr "Change the title for the Browse by Category block on the homepage."
+
+msgid "plugins.themes.slubTheme.option.categoriesDescription.label"
+msgstr "Browse by Category - Description"
+
+msgid "plugins.themes.slubTheme.option.categoriesDescription.description"
+msgstr "Change the description of the Browse by Category block on the homepage."
 
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"

@@ -7,12 +7,12 @@
     </a>
   {/strip}{/capture}
 
-  <div class="homepage-block homepage-block-announcement">
+  <section class="homepage-block homepage-block-announcement">
     {include
       file="frontend/components/notice.tpl"
       title="<h2>{$announcement->getDatePosted()|date_format:$dateFormatLong}</h2>"
       content=$announcement->getLocalizedTitle()|escape
       actions=$actions
     }
-  </div>
+  </section>
 {/if}
