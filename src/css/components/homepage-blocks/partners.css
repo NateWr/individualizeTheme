@@ -1,0 +1,44 @@
+.homepage-block-partners,
+.homepage-block-partners-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.homepage-block-partners-header {
+  gap: 0.5rem;
+}
+
+.homepage-block-partners-title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.homepage-block-partners-desc {
+  font-size: 1.125rem;
+
+  & a {
+    @apply link;
+  }
+}
+
+@media (--tablets) {
+
+  .homepage-block-partners,
+  .homepage-block-partners-header {
+    align-items: center;
+  }
+
+  .homepage-block-partners {
+    max-width: 1280px;
+  }
+
+  .homepage-block-partners-header {
+    max-width: 25rem;
+    text-align: center;
+  }
+
+  .homepage-block-partners .pl-partner-logos {
+    justify-content: center;
+  }
+}

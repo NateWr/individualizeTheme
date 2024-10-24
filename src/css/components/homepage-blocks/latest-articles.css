@@ -5,6 +5,10 @@
   gap: 3rem;
 }
 
+.homepage-block-latest-articles-header {
+  max-width: 25rem;
+}
+
 .homepage-block-latest-articles-title {
   margin-bottom: 0.25rem;
   font-size: 2rem;

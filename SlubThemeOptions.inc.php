@@ -61,6 +61,7 @@ class SlubThemeOptions
         $this->addHomepageImageOption();
         $this->addHomepageBlocksOption();
         $this->addHowToSubmitBlock();
+        $this->addPartnersBlock();
         $this->addColorOptions();
 
         // Must be last option
@@ -143,7 +144,9 @@ class SlubThemeOptions
      */
     public function getHomepageBlocks(): array
     {
-        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $templateMgr = TemplateManager::getManager($request);
 
         $blocks = $this->theme->getOption('homepageBlocks');
         $templateMgr->assign('homepageBlocks', $blocks);
@@ -153,9 +156,17 @@ class SlubThemeOptions
                 case self::HOMEPAGE_BLOCK_ISSUE_TOC:
                     $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
                     $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
+                    break;
                 case self::HOMEPAGE_BLOCK_LATEST_ARTICLES:
-                    import('lib.pkp.classes.submission.PKPSubmissionDAO');
                     $templateMgr->assign('slubLatestArticles', $this->getLatestArticles());
+                    break;
+                case self::HOMEPAGE_BLOCK_PARTNERS:
+                    /** @var PartnerLogosPlugin */
+                    $partnerLogosPlugin = PluginRegistry::getPlugin('generic', 'partnerlogosplugin');
+                    if ($partnerLogosPlugin && $context) {
+                        $templateMgr->assign('partnerLogosHtml', $partnerLogosPlugin->getHtml($context));
+                    }
+                    break;
             }
         }
 
@@ -201,6 +212,8 @@ class SlubThemeOptions
                 'label' => __('plugins.themes.slubTheme.option.homepageBlocks.partners'),
             ],
         ]);
+
+        return $blocks;
     }
 
     /**
@@ -334,6 +347,9 @@ class SlubThemeOptions
         $this->theme->options['homepageBlocks']->options = $options;
     }
 
+    /**
+     * Add text fields for the how to submit homepage block
+     */
     protected function addHowToSubmitBlock(): void
     {
         $this->theme->addOption('howToSubmitTitle', 'FieldText', [
@@ -352,6 +368,24 @@ class SlubThemeOptions
             'description' => __('plugins.themes.slubTheme.option.howToSubmitAction.description'),
             'size' => 'small',
             'default' => __('plugins.themes.slubTheme.option.howToSubmitAction.default'),
+        ]);
+    }
+
+    /**
+     * Add title and description fields for the partners homepage block
+     */
+    protected function addPartnersBlock(): void
+    {
+        $this->theme->addOption('partnersTitle', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.partnersTitle.label'),
+            'description' => __('plugins.themes.slubTheme.option.partnersTitle.description'),
+            'default' => __('plugins.themes.slubTheme.partners'),
+        ]);
+        $this->theme->addOption('partnersDescription', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.partnersDescription.label'),
+            'description' => __('plugins.themes.slubTheme.option.partnersDescription.description'),
+            'size' => 'large',
+            'default' => __('plugins.themes.slubTheme.partners.description'),
         ]);
     }
 
@@ -451,6 +485,9 @@ class SlubThemeOptions
 
     protected function getLatestArticles(): array
     {
+        // Import required to access constant in 3.3
+        import('lib.pkp.classes.submission.PKPSubmissionDAO');
+
         return iterator_to_array(
             Services::get('submission')->getMany([
                 'contextId' => Application::get()->getRequest()->getContext()?->getId() ?? 0,

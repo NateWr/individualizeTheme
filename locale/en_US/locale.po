@@ -31,6 +31,15 @@ msgstr "Latest Articles"
 msgid "plugins.themes.slubTheme.latestArticles.description"
 msgstr "Read our most recent publications or browse every article in our <a href=\"{$url}\" class=\"link\">full archive</a>."
 
+msgid "plugins.themes.slubTheme.partners"
+msgstr "Partners"
+
+msgid "plugins.themes.slubTheme.partners.description"
+msgstr "This journal is published with support from the following partners."
+
+msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
+msgstr "Partners / Sponsors"
+
 msgid "plugins.themes.slubTheme.option.header.label"
 msgstr "Header"
 
@@ -135,6 +144,18 @@ msgstr "Change the text on the button to view the submissions page."
 
 msgid "plugins.themes.slubTheme.option.howToSubmitAction.default"
 msgstr "How to Submit"
+
+msgid "plugins.themes.slubTheme.option.partnersTitle.label"
+msgstr "Partners / Sponsors - Title"
+
+msgid "plugins.themes.slubTheme.option.partnersTitle.description"
+msgstr "Change the title for the Partners / Sponsors block on the homepage."
+
+msgid "plugins.themes.slubTheme.option.partnersDescription.label"
+msgstr "Partners / Sponsors - Description"
+
+msgid "plugins.themes.slubTheme.option.partnersDescription.description"
+msgstr "Change the description of the Partners / Sponsors block on the homepage."
 
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"
