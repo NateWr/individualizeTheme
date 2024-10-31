@@ -1,0 +1,55 @@
+.author-details,
+.author-details-author {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.author-details-author {
+  gap: 0.25rem;
+}
+
+.author-details-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.author-details-affiliation {
+  line-height: 1.25rem;
+}
+
+
+@media (--tablets) {
+
+  .author-details {
+    --columns: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .author-details-2 {
+    --columns: 2;
+  }
+
+  .author-details-3,
+  .author-details-3+ {
+    --columns: 3;
+  }
+
+  .author-details-name {
+    font-size: 1.25rem;
+  }
+
+  .author-details-affiliation {
+    font-size: 1.125rem;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .author-details-2 {
+    --columns: 3;
+  }
+}

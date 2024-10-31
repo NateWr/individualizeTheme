@@ -1,6 +1,5 @@
 @import "css/variables";
 @import "css/preflight";
-@import "css/layout-galley";
 @import "css/utilities/arrow-link.css";
 @import "css/utilities/breadcrumb.css";
 @import "css/utilities/button.css";
@@ -10,6 +9,7 @@
 @import "css/utilities/tab-focus.css";
 @import "css/utilities/html-text.css";
 @import "css/components/article-summary.css";
+@import "css/components/author-details.css";
 @import "css/components/category-summary.css";
 @import "css/components/dropdown.css";
 @import "css/components/footer.css";
@@ -32,3 +32,5 @@
 @import "css/components/menu-desktop-main.css";
 @import "css/components/notice.css";
 @import "css/components/search-input.css";
+@import "css/pages/article.css";
+@import "css/pages/galley.css";

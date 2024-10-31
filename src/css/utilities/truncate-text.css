@@ -1,0 +1,18 @@
+/**
+ * Prevents text from wrapping to two lines and
+ * adds ... if it exceeds the button width.
+ *
+ * Example usage:
+ *
+ * <a class="button" href="#">
+ *   <span class="truncate-text">Example text</span>
+ * </a>
+ */
+@layer utilities {
+
+  .truncate-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

@@ -6,6 +6,11 @@ export default {
   safelist: [
     'overflow-hidden',
   ],
+  blocklist: [
+    // Prevent clash with Bootstrap's collapse
+    // component
+    'collapse',
+  ],
   theme: {
     extend: {
       screens: {

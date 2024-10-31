@@ -92,6 +92,21 @@ class SlubTheme extends ThemePlugin
             $this->optionsHelper->getHomepageBlocks();
         }
 
+        if ($template === 'frontend/pages/article.tpl') {
+            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+            $request = Application::get()->getRequest();
+            $context = $request->getContext();
+            if ($context) {
+                /** @var UserGroupDAO */
+                $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+                $userGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
+                $templateMgr = TemplateManager::getManager($request);
+                $templateMgr->assign([
+                    'authorUserGroups' => $userGroups->toArray(),
+                ]);
+            }
+        }
+
         return false;
     }
 

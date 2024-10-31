@@ -6,12 +6,14 @@
  *
  * @see https://getbootstrap.com/docs/5.2/getting-started/vite/
  */
+import Collapse from 'bootstrap/js/dist/collapse'
 import Dropdown from 'bootstrap/js/dist/dropdown'
 import './css/bootstrap.scss'
 
 /**
  * Custom JS for the theme
  */
+import citation from './js/citation'
 import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
 
@@ -26,6 +28,7 @@ import './main.css'
  * Initialize
  */
 document.addEventListener('DOMContentLoaded',function() {
+  citation.init()
   mobileMenu.init()
   reveal.init()
 })

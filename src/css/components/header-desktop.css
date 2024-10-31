@@ -116,6 +116,10 @@
     padding: 0;
   }
 
+  .dropdown-divider {
+    margin: 0;
+  }
+
   .menu {
     padding: 1.25rem 2.25rem;
   }

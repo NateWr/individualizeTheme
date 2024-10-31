@@ -3,12 +3,22 @@
  *
  * We use a custom SVG file instead.
  */
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  gap: 0.25rem;
+}
+
 .dropdown-toggle:after {
   display: none;
 }
 
 .dropdown-menu {
-  padding: 1rem;
+  --inline-padding: 1rem;
+  padding: var(--inline-padding);
   background: var(--color-overlay-background);
   color: var(--color-overlay-text);
   border: none;
@@ -17,7 +27,8 @@
 }
 
 .dropdown-divider {
-  margin: 0;
+  margin-left: calc(-1 * var(--inline-padding));
+  margin-right: calc(-1 * var(--inline-padding));
   border-top-color: currentColor;
   opacity: 0.15;
 }

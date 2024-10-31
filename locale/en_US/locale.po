@@ -46,6 +46,12 @@ msgstr "Find articles across our main areas of coverage. Or browse every article
 msgid "plugins.themes.slubTheme.viewCategory"
 msgstr "View Category"
 
+msgid "plugins.themes.slubTheme.parenthesis"
+msgstr "({$text})"
+
+msgid "plugins.themes.slubTheme.publishedInIssue"
+msgstr "Published in <a class='link' href='{$issueUrl}'>{$issue}</a> of <a class='link' href='{$journalUrl}'>{$journal}</a>."
+
 msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
 
@@ -234,3 +240,13 @@ msgstr "Footer Background Color"
 
 msgid "plugins.themes.slubTheme.option.footerTextColor.label"
 msgstr "Footer Text Color"
+
+# 3.3 Compatibility
+#
+# The following locale keys can be removed for
+# OJS versions 3.4+
+msgid "publication.version"
+msgstr "Version {$version}"
+
+msgid "admin.versionHistory"
+msgstr "Version history"

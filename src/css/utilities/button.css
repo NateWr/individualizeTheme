@@ -35,4 +35,14 @@
       height: auto;
     }
   }
+
+  .button-text {
+    border-color: var(--color-page-text);
+    color: var(--color-page-text);
+    background: var(--color-page-background);
+
+    &:hover {
+      outline: var(--border-width) solid var(--color-page-text);
+    }
+  }
 }

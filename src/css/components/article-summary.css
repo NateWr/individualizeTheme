@@ -66,6 +66,19 @@
   }
 }
 
+@media (--laptops) {
+
+  .article-summary-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .article-summary-authors {
+    font-size: 1.125rem;
+  }
+
+}
+
 @media (--laptops-lg) {
 
   .article-summary-inner {
@@ -73,11 +86,11 @@
   }
 
   .article-summary-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .article-summary-authors {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 
 }

@@ -1,0 +1,193 @@
+.article,
+.article-header,
+.article-authors,
+.article-details,
+.article-media,
+.article-galleys-list,
+.article-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.article {
+  gap: 3rem;
+}
+
+.article-title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.article-authors {
+  font-style: normal;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.article-author-details {
+  width: 100%;
+}
+
+.article-authors-more-details {
+
+  &[aria-expanded="false"] .article-author-details-collapse {
+    display: none;
+  }
+
+  &[aria-expanded="true"] .article-author-details-expand {
+    display: none;
+  }
+}
+
+.article-galleys-list {
+  gap: 0.5rem;
+}
+
+.article-metadata-table {
+  border-collapse: collapse;
+  word-break: break-word;
+
+  & tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  & th {
+    width: 100%;
+    font-weight: 700;
+    text-align: left;
+    padding-right: 1.5rem;
+  }
+
+  & .dropdown-toggle {
+    font-weight: 600;
+    color: var(--color-page-links);
+  }
+
+  & .arrow-link {
+    align-self: flex-start;
+  }
+}
+
+.article-sections {
+  gap: 3rem;
+}
+
+.article-section-title {
+  margin: 1rem 0;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.article-abstract-galleys {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.citation-output {
+
+  & .csl-left-margin {
+    display: none;
+  }
+}
+
+@media (--tablets) {
+
+  .article-title {
+    font-size: 3rem;
+  }
+
+  .article-authors {
+    font-size: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .article-details {
+    flex-direction: row-reverse;
+  }
+
+  .article-media {
+    width: 16rem;
+    flex-shrink: 0;
+  }
+
+  .article-metadata {
+    width: 100%;
+  }
+
+  .article-section-title {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .article-header {
+    max-width: 56rem;
+  }
+
+  .article-authors {
+    max-width: 48rem;
+  }
+
+  .article-section {
+    max-width: 48rem;
+  }
+
+  .article-section-title {
+    font-size: 2.5rem;
+  }
+
+  .article-section {
+
+    & .html-text {
+      font-size: 1.125rem;
+    }
+  }
+
+  .article-metadata-table {
+    width: 100%;
+    max-width: 48rem;
+    border-collapse: initial;
+    border-spacing: 0 2rem;
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+
+    & tr {
+      display: table-row;
+    }
+
+    & th {
+      width: 25%;
+      vertical-align: top;
+    }
+
+    & td {
+      vertical-align: top;
+    }
+
+    & .html-text {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (--laptops-sm) {
+
+  .article-media {
+    width: 24rem;
+  }
+}
+
+@media (--laptops) {
+
+  .article-header {
+    max-width: 64rem;
+  }
+}

@@ -17,7 +17,7 @@
         {include file="frontend/icons/arrow-left.svg"}
         <a
           class="breadcrumb-item tab-focus"
-          href="{url page="index"}"
+          href="{url page="issue" op="archive"}"
         >
           {translate key="navigation.archives"}
         </a>
