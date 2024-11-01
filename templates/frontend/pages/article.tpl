@@ -168,32 +168,52 @@
 
         {* Optional metadata table (DOI, Published Date, etc *}
         <div class="article-metadata">
-          <table class="article-metadata-table">
-            <tbody>
-              {if $doiLink}
-                {include
-                  file="frontend/components/metadata-tr-html.tpl"
-                  title=$pubIdPlugin->getPubIdDisplayType()
-                  html=$doiLink
-                }
-              {/if}
-              {include
-                file="frontend/components/metadata-tr-keywords.tpl"
-                keywords=$publication->getLocalizedData('keywords')
-              }
-              {include
-                file="frontend/components/metadata-tr-published.tpl"
-                article=$article
-                publication=$publication
-                firstPublication=$firstPublication
-                currentPublication=$currentPublication
-              }
-              {include
-                file="frontend/components/metadata-tr-published-by.tpl"
-                issue=$issue
-              }
-            </tbodyz>
-          </table>
+          {if $activeTheme->getOption('highlightArticleMetadata')|count}
+            <table class="article-metadata-table">
+              <tbody>
+                {foreach from=$activeTheme->getOption('highlightArticleMetadata') item="type"}
+                  {if $type === 'doi' && $doiLink}
+                    {include
+                      file="frontend/components/metadata-tr-html.tpl"
+                      title=$pubIdPlugin->getPubIdDisplayType()
+                      html=$doiLink
+                    }
+                  {/if}
+                  {if $type === 'keywords'}
+                    {include
+                      file="frontend/components/metadata-tr-keywords.tpl"
+                      keywords=$publication->getLocalizedData('keywords')
+                    }
+                  {/if}
+                  {if $type === 'published'}
+                    {include
+                      file="frontend/components/metadata-tr-published.tpl"
+                      article=$article
+                      publication=$publication
+                      firstPublication=$firstPublication
+                      currentPublication=$currentPublication
+                    }
+                  {/if}
+                  {if $type === 'published-by'}
+                    {include
+                      file="frontend/components/metadata-tr-published-by.tpl"
+                      issue=$issue
+                    }
+                  {/if}
+                  {if $type === 'how-to-cite'}
+                    {include
+                      file="frontend/components/metadata-tr-how-to-cite.tpl"
+                      citation=$citation
+                      citationStyles=$citationStyles
+                      citationDownloads=$citationDownloads
+                      citationArgs=$citationArgs
+                      citationArgsJson=$citationArgsJson
+                    }
+                  {/if}
+                {/foreach}
+              </tbody>
+            </table>
+          {/if}
         </div>
       </div>
       <div class="article-sections">

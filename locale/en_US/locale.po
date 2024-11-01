@@ -184,6 +184,15 @@ msgstr "Browse by Category - Description"
 msgid "plugins.themes.slubTheme.option.categoriesDescription.description"
 msgstr "Change the description of the Browse by Category block on the homepage."
 
+msgid "plugins.themes.slubTheme.option.highlightArticleMetadata.label"
+msgstr "Highlight Article Metadata"
+
+msgid "plugins.themes.slubTheme.option.highlightArticleMetadata.description"
+msgstr "Select the article metadata that you want to show at the top of the article landing page."
+
+msgid "plugins.themes.slubTheme.option.highlightArticleMetadata.published-by"
+msgstr "Published In Issue/Journal"
+
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"
 

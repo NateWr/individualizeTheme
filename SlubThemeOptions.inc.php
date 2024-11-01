@@ -37,6 +37,18 @@ class SlubThemeOptions
         self::HOMEPAGE_BLOCK_SUBMIT,
     ];
 
+    public const ARTICLE_METADATA_DOI = 'doi';
+    public const ARTICLE_METADATA_KEYWORDS = 'keywords';
+    public const ARTICLE_METADATA_PUBLISHED = 'published';
+    public const ARTICLE_METADATA_PUBLISHED_BY = 'published-by';
+    public const ARTICLE_METADATA_HOW_TO_CITE = 'how-to-cite';
+    public const ARTICLE_METADATA_DEFAULT = [
+        self::ARTICLE_METADATA_DOI,
+        self::ARTICLE_METADATA_KEYWORDS,
+        self::ARTICLE_METADATA_PUBLISHED,
+        self::ARTICLE_METADATA_PUBLISHED_BY,
+    ];
+
     public const COLOR_MODE_DEFAULT = 'default';
     public const COLOR_MODE_ADVANCED = 'advanced';
 
@@ -63,6 +75,7 @@ class SlubThemeOptions
         $this->addHowToSubmitBlock();
         $this->addPartnersBlock();
         $this->addCategoriesBlock();
+        $this->addArticleMetadataOption();
         $this->addColorOptions();
 
         // Must be last option
@@ -421,6 +434,44 @@ class SlubThemeOptions
             'description' => __('plugins.themes.slubTheme.option.categoriesDescription.description'),
             'size' => 'large',
             'default' => __('plugins.themes.slubTheme.browseByCategory.description'),
+        ]);
+    }
+
+    /**
+     * Add option to highlight some metadata at the top
+     * of the article landing page
+     */
+    protected function addArticleMetadataOption(): void
+    {
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+        $this->theme->addOption('highlightArticleMetadata', 'FieldOptions', [
+            'type' => 'checkbox',
+            'isOrderable' => true,
+            'label' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.label'),
+            'description' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.description'),
+            'options' => [
+                [
+                    'value' => self::ARTICLE_METADATA_DOI,
+                    'label' => __('metadata.property.displayName.doi'),
+                ],
+                [
+                    'value' => self::ARTICLE_METADATA_KEYWORDS,
+                    'label' => __('common.keywords'),
+                ],
+                [
+                    'value' => self::ARTICLE_METADATA_PUBLISHED,
+                    'label' => __('metadata.property.displayName.date'),
+                ],
+                [
+                    'value' => self::ARTICLE_METADATA_PUBLISHED_BY,
+                    'label' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.published-by'),
+                ],
+                [
+                    'value' => self::ARTICLE_METADATA_HOW_TO_CITE,
+                    'label' => __('submission.howToCite'),
+                ],
+            ],
+            'default' => self::ARTICLE_METADATA_DEFAULT,
         ]);
     }
 
