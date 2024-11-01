@@ -19,6 +19,20 @@
   line-height: 1.25rem;
 }
 
+.author-details-orcid {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1.2;
+  font-size: 0.875rem;
+
+  & svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+}
+
 
 @media (--tablets) {
 
@@ -29,13 +43,8 @@
     gap: 2rem;
   }
 
-  .author-details-2 {
+  .author-details-many {
     --columns: 2;
-  }
-
-  .author-details-3,
-  .author-details-3+ {
-    --columns: 3;
   }
 
   .author-details-name {
@@ -47,9 +56,9 @@
   }
 }
 
-@media (--tablets-landscape) {
+@media (--laptops) {
 
-  .author-details-2 {
+  .author-details-many {
     --columns: 3;
   }
 }

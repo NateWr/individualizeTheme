@@ -3,8 +3,8 @@
 <div class="
   author-details
   author-details-{$count}
-  {if $count > 3}
-    author-details-3+
+  {if $count > 1}
+    author-details-many
   {/if}
 ">
   {foreach from=$publication->getData('authors') item="author"}
@@ -22,9 +22,9 @@
       {/if}
       {if $author->getData('orcid')}
         <a href="{$author->getData('orcid')|escape}" class="author-details-orcid tab-focus" target="_blank">
-          {if $author->getData('orcidAccessToken')}
+          {* {if $author->getData('orcidAccessToken')} *}
             {include file="frontend/icons/orcid.svg"}
-          {/if}
+          {* {/if} *}
           {$author->getData('orcid')|escape}
         </a>
       {/if}
