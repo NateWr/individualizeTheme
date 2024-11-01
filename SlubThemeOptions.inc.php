@@ -37,6 +37,10 @@ class SlubThemeOptions
         self::HOMEPAGE_BLOCK_SUBMIT,
     ];
 
+    public const SHOW_AUTHORS_AUTO = '';
+    public const SHOW_AUTHORS_SIMPLE = 'simple';
+    public const SHOW_AUTHORS_DETAILED = 'detailed';
+
     public const ARTICLE_METADATA_DOI = 'doi';
     public const ARTICLE_METADATA_KEYWORDS = 'keywords';
     public const ARTICLE_METADATA_PUBLISHED = 'published';
@@ -75,6 +79,7 @@ class SlubThemeOptions
         $this->addHowToSubmitBlock();
         $this->addPartnersBlock();
         $this->addCategoriesBlock();
+        $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
         $this->addColorOptions();
 
@@ -434,6 +439,34 @@ class SlubThemeOptions
             'description' => __('plugins.themes.slubTheme.option.categoriesDescription.description'),
             'size' => 'large',
             'default' => __('plugins.themes.slubTheme.browseByCategory.description'),
+        ]);
+    }
+
+    /**
+     * Add option to highlight some metadata at the top
+     * of the article landing page
+     */
+    protected function addArticleAuthorsOption(): void
+    {
+        $this->theme->addOption('showAuthors', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.slubTheme.option.showAuthors.label'),
+            'description' => __('plugins.themes.slubTheme.option.showAuthors.description'),
+            'options' => [
+                [
+                    'value' => self::SHOW_AUTHORS_AUTO,
+                    'label' => __('plugins.themes.slubTheme.option.showAuthors.auto'),
+                ],
+                [
+                    'value' => self::SHOW_AUTHORS_SIMPLE,
+                    'label' => __('plugins.themes.slubTheme.option.showAuthors.simple'),
+                ],
+                [
+                    'value' => self::SHOW_AUTHORS_DETAILED,
+                    'label' => __('plugins.themes.slubTheme.option.showAuthors.detailed'),
+                ],
+            ],
+            'default' => self::SHOW_AUTHORS_AUTO,
         ]);
     }
 

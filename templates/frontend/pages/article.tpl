@@ -83,9 +83,15 @@
               {assign var="hasAffiliations" value=true}
             {/if}
           {/foreach}
-
-          {* Detailed author list *}
-          {if $hasAffiliations && $publication->getData('authors')|count < 5}
+          {assign var="showAuthors" value=$activeTheme->getOption('showAuthors')}
+          {if !$showAuthors}
+            {if $hasAffiliations && $publication->getData('authors')|count < 5}
+              {assign var="showAuthors" value="detailed"}
+            {else}
+              {assign var="showAuthors" value="simple"}
+            {/if}
+          {/if}
+          {if $showAuthors === 'detailed'}
             {include file="frontend/components/author-details.tpl"}
           {else}
             <address class="article-authors">

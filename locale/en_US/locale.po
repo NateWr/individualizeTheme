@@ -184,6 +184,21 @@ msgstr "Browse by Category - Description"
 msgid "plugins.themes.slubTheme.option.categoriesDescription.description"
 msgstr "Change the description of the Browse by Category block on the homepage."
 
+msgid "plugins.themes.slubTheme.option.showAuthors.label"
+msgstr "Author Details"
+
+msgid "plugins.themes.slubTheme.option.showAuthors.description"
+msgstr "Select how to display author information on the article landing page. If you choose Automatic, the system will try to use the best display mode depending on the number of authors and what author details have been provided."
+
+msgid "plugins.themes.slubTheme.option.showAuthors.auto"
+msgstr "Automatic"
+
+msgid "plugins.themes.slubTheme.option.showAuthors.simple"
+msgstr "Always show author names with a button to view full details"
+
+msgid "plugins.themes.slubTheme.option.showAuthors.detailed"
+msgstr "Always show full author details"
+
 msgid "plugins.themes.slubTheme.option.highlightArticleMetadata.label"
 msgstr "Highlight Article Metadata"
 
