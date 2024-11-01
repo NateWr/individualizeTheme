@@ -20,7 +20,7 @@
 {block name="content"}
 
   <div class="
-    max-w-screen-xl flex flex-col gap-8 my-8 xl:gap-16 xl:my-0
+    max-w-screen-xl mx-auto flex flex-col gap-8 my-8 xl:gap-16 xl:my-0
   ">
     <div class="breadcrumb">
       {include file="frontend/icons/arrow-left.svg"}
