@@ -33,11 +33,13 @@
   </div>
   <div class="header-mobile-dropdown" id="{$dropdownId|escape}">
     <div class="header-mobile-dropdown-inner">
-      {include
-        file="frontend/components/search-input.tpl"
-        id="header-mobile-search"
-        name="query"
-      }
+      <form action="{url page="search"}" method="GET">
+        {include
+          file="frontend/components/search-input.tpl"
+          id="header-mobile-search"
+          name="query"
+        }
+      </form>
       <nav class="header-mobile-primary-menu">
         {load_menu name="primary" id="nav-mobile-primary" path="frontend/components/menu.tpl"}
       </nav>

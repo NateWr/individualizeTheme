@@ -55,11 +55,13 @@
       {/if}
       {if in_array($activeTheme->getOption('header'), ['default', 'line'])}
         <div class="header-desktop-utility">
-          {include
-            file="frontend/components/search-input.tpl"
-            id="header-desktop-search"
-            name="query"
-          }
+          <form action="{url page="search"}" method="GET">
+            {include
+              file="frontend/components/search-input.tpl"
+              id="header-desktop-search"
+              name="query"
+            }
+          </form>
           {if $slubLocales|count > 1}
             <div class="dropdown">
               <button
