@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
+use NateWr\themehelper\TemplatePlugin;
 use NateWr\themehelper\ThemeHelper;
 use NateWr\vite\Loader;
 
@@ -20,7 +21,7 @@ class SlubTheme extends ThemePlugin
 
     public function init()
     {
-        $this->registerTemplatePlugins();
+        $this->useThemeHelper();
         $this->optionsHelper = new SlubThemeOptions($this);
         $this->optionsHelper->addOptions();
         $this->addFonts();
@@ -111,19 +112,22 @@ class SlubTheme extends ThemePlugin
     }
 
     /**
-     * Add helper functions to the TemplateManager
+     * Use functions from ThemeHelper
      *
-     * Registering these helper functions ensures that they are
-     * available to use in the theme's templates, even if a
-     * child theme is used.
+     * These helper functions register custom template functions, add
+     * useful data to templates, and provide other utilities.
      */
-    protected function registerTemplatePlugins(): void
+    protected function useThemeHelper(): void
     {
-        $templateMgr = $this->getTemplateManager();
-
-        $this->themeHelper = new ThemeHelper($templateMgr);
-        $this->themeHelper->registerDefaultPlugins();
-        $this->themeHelper->safeRegisterPlugin('function', 'slub_context_name_length', [$this, 'setContextNameLength']);
+        $this->themeHelper = new ThemeHelper($this->getTemplateManager());
+        $this->themeHelper->addCommonTemplatePlugins();
+        $this->themeHelper->addTemplatePlugin(
+            new TemplatePlugin(
+                type: 'function',
+                name: 'slub_context_name_length',
+                callback: [$this, 'setContextNameLength']
+            )
+        );
     }
 
     protected function getTemplateManager(): TemplateManager
