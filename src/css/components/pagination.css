@@ -51,15 +51,12 @@
 }
 
 /**
- * This hides extra page links on small screens.
+ * Hides page links on small screens.
  */
-.pagination li {
+.pagination-pages li {
   display: none;
 }
 
-.pagination-pages li:first-child,
-.pagination-pages li:last-child,
-.pagination-pages li:has(.pagination-skip),
 .pagination-pages li:has([aria-current="true"]) {
   display: block;
 }

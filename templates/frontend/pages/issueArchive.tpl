@@ -42,11 +42,14 @@
         {translate key="current.noCurrentIssueDesc"}
       </div>
     {else}
+      <h2 class="sr-only">
+        {translate key="issue.issues"}
+      </h2>
       <ul class="issue-archive-list">
 			  {foreach from=$issues item="issue"}
           <li>
             {if $activeTheme->getOption('issueArchives') === 'covers'}
-              {include file="frontend/components/issue-covery-summary.tpl"}
+              {include file="frontend/components/issue-cover-summary.tpl"}
             {else}
               {include
                 file="frontend/components/issue-summary.tpl"

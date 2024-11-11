@@ -64,6 +64,26 @@
   .issue-archive-showing {
     max-width: 24rem;
   }
+
+  .issue-archive-covers {
+
+    & .issue-archive-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3rem 1.5rem;
+    }
+  }
+}
+
+@media (--laptops) {
+
+  .issue-archive-covers {
+
+    & .issue-archive-list {
+      gap: 3rem;
+    }
+  }
+
 }
 
 @media (--laptops-lg) {
