@@ -53,6 +53,10 @@ class SlubThemeOptions
         self::ARTICLE_METADATA_PUBLISHED_BY,
     ];
 
+    public const ISSUE_ARCHIVE_DEFAULT = 'default';
+    public const ISSUE_ARCHIVE_COVERS = 'covers';
+    public const ISSUE_ARCHIVE_NO_COVERS = 'no-covers';
+
     public const COLOR_MODE_DEFAULT = 'default';
     public const COLOR_MODE_ADVANCED = 'advanced';
 
@@ -81,6 +85,7 @@ class SlubThemeOptions
         $this->addCategoriesBlock();
         $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
+        $this->addIssueArchivesOption();
         $this->addColorOptions();
 
         // Must be last option
@@ -443,8 +448,8 @@ class SlubThemeOptions
     }
 
     /**
-     * Add option to highlight some metadata at the top
-     * of the article landing page
+     * Add option to change how authors are displayed on
+     * the article landing page
      */
     protected function addArticleAuthorsOption(): void
     {
@@ -505,6 +510,34 @@ class SlubThemeOptions
                 ],
             ],
             'default' => self::ARTICLE_METADATA_DEFAULT,
+        ]);
+    }
+
+    /**
+     * Add option to change how issues are displayed in
+     * the issue archive
+     */
+    protected function addIssueArchivesOption(): void
+    {
+        $this->theme->addOption('issueArchives', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.slubTheme.option.issueArchives.label'),
+            'description' => __('plugins.themes.slubTheme.option.issueArchives.description'),
+            'options' => [
+                [
+                    'value' => self::ISSUE_ARCHIVE_DEFAULT,
+                    'label' => __('plugins.themes.slubTheme.option.issueArchives.default'),
+                ],
+                [
+                    'value' => self::ISSUE_ARCHIVE_COVERS,
+                    'label' => __('plugins.themes.slubTheme.option.issueArchives.covers'),
+                ],
+                [
+                    'value' => self::ISSUE_ARCHIVE_NO_COVERS,
+                    'label' => __('plugins.themes.slubTheme.option.issueArchives.no-covers'),
+                ],
+            ],
+            'default' => self::ISSUE_ARCHIVE_DEFAULT,
         ]);
     }
 

@@ -52,6 +52,24 @@ msgstr "({$text})"
 msgid "plugins.themes.slubTheme.publishedInIssue"
 msgstr "Published in <a class='link' href='{$issueUrl}'>{$issue}</a> of <a class='link' href='{$journalUrl}'>{$journal}</a>."
 
+msgid "plugins.themes.slubTheme.allIssues"
+msgstr "All Issues"
+
+msgid "plugins.themes.slubTheme.pagination.prompt"
+msgstr "Goto other pages"
+
+msgid "plugins.themes.slubTheme.pagination.goToPage"
+msgstr "Goto {$page}"
+
+msgid "plugins.themes.slubTheme.pagination.nextPage"
+msgstr "Goto next page"
+
+msgid "plugins.themes.slubTheme.pagination.previousPage"
+msgstr "Goto previous page"
+
+msgid "plugins.themes.slubTheme.pagination.issueArchive"
+msgstr "Showing {$start}-{$end} of {$total} issues of <strong>{$journal}</strong>."
+
 msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
 
@@ -207,6 +225,21 @@ msgstr "Select the article metadata that you want to show at the top of the arti
 
 msgid "plugins.themes.slubTheme.option.highlightArticleMetadata.published-by"
 msgstr "Published In Issue/Journal"
+
+msgid "plugins.themes.slubTheme.option.issueArchives.label"
+msgstr "Issue Archives"
+
+msgid "plugins.themes.slubTheme.option.issueArchives.description"
+msgstr "Select how to display the list of published issues in the archive."
+
+msgid "plugins.themes.slubTheme.option.issueArchives.default"
+msgstr "List of issue summaries"
+
+msgid "plugins.themes.slubTheme.option.issueArchives.covers"
+msgstr "Galley of issue cover images"
+
+msgid "plugins.themes.slubTheme.option.issueArchives.no-covers"
+msgstr "List of issue summaries without cover images. (Choose this option if your journal never publishes issue cover images.)"
 
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"

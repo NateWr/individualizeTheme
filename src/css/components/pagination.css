@@ -1,0 +1,72 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  color: var(--color-page-links);
+  font-weight: 700;
+}
+
+.pagination-text-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  & svg {
+    width: 1.5rem;
+    height: auto;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    filter: saturate(0);
+  }
+}
+
+.pagination-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.pagination-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+
+  &:focus-visible {
+    outline: 2px solid;
+  }
+
+  &[aria-current="true"] {
+    border-radius: var(--radius);
+    background: var(--color-button-text);
+    color: var(--color-button-background);
+  }
+}
+
+/**
+ * This hides extra page links on small screens.
+ */
+.pagination li {
+  display: none;
+}
+
+.pagination-pages li:first-child,
+.pagination-pages li:last-child,
+.pagination-pages li:has(.pagination-skip),
+.pagination-pages li:has([aria-current="true"]) {
+  display: block;
+}
+
+@media (--tablets) {
+
+  .pagination li {
+    display: block;
+  }
+}

@@ -31,6 +31,8 @@
 @import "css/components/menu.css";
 @import "css/components/menu-desktop-main.css";
 @import "css/components/notice.css";
+@import "css/components/pagination.css";
 @import "css/components/search-input.css";
 @import "css/pages/article.css";
 @import "css/pages/galley.css";
+@import "css/pages/issue-archive.css";

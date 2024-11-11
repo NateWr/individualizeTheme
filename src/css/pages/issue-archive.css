@@ -1,0 +1,88 @@
+.issue-archive,
+.issue-archive-header,
+.issue-archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.issue-archive {
+  margin-top: 2rem;
+  gap: 3rem;
+}
+
+.issue-archive-header {
+
+  & .pagination {
+    margin-top: 1.5rem;
+  }
+}
+
+.issue-archive-title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.issue-archive-showing {
+  font-weight: 500;
+
+  & strong {
+    font-weight: 800;
+  }
+}
+
+.issue-archive-list {
+  width: 100%;
+  max-width: 1280px;
+  gap: 4rem;
+}
+
+.issue-archive-no-covers {
+
+  & .issue-archive-list {
+    max-width: 768px;
+  }
+}
+
+@media (--tablets) {
+
+  .issue-archive {
+    gap: 4rem;
+    align-items: center;
+
+    & .pagination {
+      width: 100%;
+    }
+  }
+
+  .issue-archive-header {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .issue-archive-showing {
+    max-width: 24rem;
+  }
+}
+
+@media (--laptops-lg) {
+
+  .issue-archive {
+    gap: 8rem;
+
+    & .pagination {
+      font-size: 1.25rem;
+    }
+  }
+
+  .issue-archive-title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  .issue-archive-showing {
+    max-width: 32rem;
+    font-size: 1.25rem;
+  }
+}

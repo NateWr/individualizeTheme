@@ -59,9 +59,11 @@
       {/if}
     </div>
     <div class="issue-summary-description">
-      <div class="html-text">
-        {$issue->getLocalizedDescription()|strip_unsafe_html}
-      </div>
+      {if $issue->getLocalizedDescription()}
+        <div class="html-text">
+          {$issue->getLocalizedDescription()|strip_unsafe_html}
+        </div>
+      {/if}
       <div class="issue-summary-button">
         <a
           class="arrow-link tab-focus"
