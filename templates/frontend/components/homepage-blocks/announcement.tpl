@@ -2,7 +2,7 @@
   {assign var="announcement" value=$announcements[0]}
 
   {capture assign="actions"}{strip}
-    <a class="button" href="{url page="about" op="submissions"}">
+    <a class="button" href="{url page="announcement" op="view" path=$announcement->getId()}">
       {translate key="common.readMore"}
     </a>
   {/strip}{/capture}
