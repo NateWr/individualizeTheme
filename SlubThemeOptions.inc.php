@@ -87,9 +87,6 @@ class SlubThemeOptions
         $this->addArticleMetadataOption();
         $this->addIssueArchivesOption();
         $this->addColorOptions();
-
-        // Must be last option
-        $this->fixOrderedHomepageBlocks();
     }
 
     /**
@@ -351,32 +348,6 @@ class SlubThemeOptions
             'options' => $this->getHomepageBlockOptions()->toArray(),
             'default' => self::HOMEPAGE_BLOCKS_DEFAULT,
         ]);
-    }
-
-    /**
-     * Workaround for bug in 3.3.x where the form does not display the options
-     * in the selected order. This function must be called after all other
-     * options are defined. All option values are loaded and stored in memory
-     * once. Any theme options defined after this function is called will not
-     * have their values loaded.
-     */
-    protected function fixOrderedHomepageBlocks(): void
-    {
-        $enabled = $this->theme->getOption('homepageBlocks');
-        if (!$enabled) {
-            $enabled = self::HOMEPAGE_BLOCKS_DEFAULT;
-        }
-
-        $options = $this->getHomepageBlockOptions()->values()->toArray();
-        usort($options, function ($a, $b) use ($enabled) {
-            $aIndex = array_search($a['value'], $enabled);
-            $aIndex = $aIndex === false ? PHP_INT_MAX : $aIndex;
-            $bIndex = array_search($b['value'], $enabled);
-            $bIndex = $bIndex === false ? PHP_INT_MAX : $bIndex;
-            return $aIndex < $bIndex ? -1 : 1;
-        });
-
-        $this->theme->options['homepageBlocks']->options = $options;
     }
 
     /**
