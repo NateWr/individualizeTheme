@@ -4,6 +4,7 @@
   --color-secondary: #078078;
   --color-text: rgba(0, 0, 0, 0.85);
   --color-text-on-primary: white;
+  --color-error: #c00;
 
   --color-header-background: var(--color-primary);
   --color-header-text: var(--color-text-on-primary);

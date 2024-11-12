@@ -16,6 +16,7 @@ import './css/bootstrap.scss'
 import citation from './js/citation'
 import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
+import reviewerInterests from './js/reviewer-interests'
 
 /**
  * Custom CSS for the theme
@@ -31,4 +32,5 @@ document.addEventListener('DOMContentLoaded',function() {
   citation.init()
   mobileMenu.init()
   reveal.init()
+  reviewerInterests.init()
 })
