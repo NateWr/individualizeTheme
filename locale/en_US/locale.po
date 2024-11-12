@@ -88,6 +88,12 @@ msgstr "Search articles..."
 msgid "plugins.themes.slubTheme.announcements.none"
 msgstr "There are no announcements at this time."
 
+msgid "plugins.themes.slubTheme.site.unsupported"
+msgstr "Unsupported"
+
+msgid "plugins.themes.slubTheme.site.unsupported.description"
+msgstr "This page is not supported by this theme. Please select another theme to use for a site hosting multiple journals."
+
 msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
 
