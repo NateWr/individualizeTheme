@@ -54,7 +54,7 @@
   z-index: 99;
   text-align: center;
   text-wrap: balance;
-  line-height: 1.2;
+  line-height: 1.25;
   font-size: 0.875rem;
 
   & a {

@@ -29,7 +29,7 @@
   .input-label {
     font-size: 1rem;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .input-checkbox-wrapper {
@@ -55,7 +55,7 @@
     padding: 0.75rem;
     margin-bottom: 0.75rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     background: var(--color-page-background);
     color: var(--color-page-links);
   }

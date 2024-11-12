@@ -16,14 +16,14 @@
 .search-title {
   font-size: 2rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .search-desc {
   gap: 0.5rem;
   font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
 
   & strong {
     font-weight: 800;
@@ -96,7 +96,7 @@
 
   .search-title {
     font-size: 3rem;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .search-desc {

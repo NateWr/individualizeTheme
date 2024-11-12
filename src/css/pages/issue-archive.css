@@ -21,7 +21,7 @@
 .issue-archive-title {
   font-size: 2rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .issue-archive-showing {
@@ -99,7 +99,7 @@
 
   .issue-archive-title {
     font-size: 3rem;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .issue-archive-showing {

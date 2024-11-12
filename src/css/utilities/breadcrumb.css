@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    line-height: 1.2;
+    line-height: 1.25;
 
     & svg {
       flex: 0 0 2rem;
