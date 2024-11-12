@@ -50,11 +50,10 @@
         </label>
         <input
           class="input"
-          type="text"
+          type="password"
           name="password"
           id="password"
           value="{$password|default:""|escape}"
-          password="true"
           maxlength="255"
           required
           aria-required="true"

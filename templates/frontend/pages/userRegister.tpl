@@ -146,10 +146,9 @@
           </label>
           <input
             class="input"
-            type="text"
+            type="password"
             name="password"
             id="password"
-            password="true"
             maxlength="255"
             required
             aria-required="true"
@@ -163,10 +162,9 @@
           </label>
           <input
             class="input"
-            type="text"
+            type="password"
             name="password2"
             id="password2"
-            password="true"
             maxlength="255"
             required
             aria-required="true"
