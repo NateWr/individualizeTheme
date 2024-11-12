@@ -1,3 +1,24 @@
+{**
+ * Article summary
+ *
+ * Used in issue tables of content, search results, and when browsing
+ * by category. Accepts a number of params to modify behavior.
+ *
+ * @param Submission article
+ * @param Publication publication (Optional) The version of the article
+ *   to display. Default: $article->getCurrentPublication()
+ * @param Context context (Optional) The context of this article.
+ *   Default: $currentContext
+ * @param string heading (Optional) The heading level to use for the
+ *  title (eg - <h2>). Default: h2
+ * @param bool cover (Optional) Whether or not to display the article
+ *   cover image. Default: false
+ * @param bool galleys (Optional) Whether or not to display the galley
+ *   links. Default: false
+ * @param bool abstract (Optional) Whether or not to show a snippet of
+ *   the abstract. Default: false
+ *}
+
 {if !$heading}
   {assign var="heading" value="h2"}
 {/if}
@@ -30,41 +51,51 @@
     <div>{* Empty on purpose *}</div>
   {/if}
   <div class="article-summary-inner">
-    <a
-      class="article-summary-content tab-focus"
-      href="{url journal=$context->getPath() page="article" op="view" path=$article->getBestId()}"
-    >
-      <{$heading} class="article-summary-title">
-        {$article->getLocalizedFullTitle()|strip_unsafe_html}
-      </{$heading}>
-      <div class="article-summary-authors">
-        {$article->getAuthorString()|escape}
-      </div>
-    </a>
-    {th_filter_galleys
-      assign="galleys"
-      galleys=$article->getGalleys()
-      genreIds=$primaryGenreIds
-      remotes=true
-    }
-    {if $galleys|count}
-      <div class="article-summary-galleys">
-        {foreach from=$galleys item="galley"}
-          {capture assign="galleyUrl"}{strip}
-            {if $galley->getRemoteUrl()}
-              {$galley->getRemoteUrl()}
-            {else}
-              {url page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}
-            {/if}
-          {/strip}{/capture}
-          <a class="button" href="{$galleyUrl}">
-            {if $galley->isPdfGalley()}
-              {include file="frontend/icons/download.svg"}
-            {/if}
-            {$galley->getGalleyLabel()|escape}
-          </a>
-        {/foreach}
-      </div>
+    <div class="article-summary-content">
+      <a
+        class="article-summary-link tab-focus"
+        href="{url journal=$context->getPath() page="article" op="view" path=$article->getBestId()}"
+      >
+        <{$heading} class="article-summary-title">
+          {$publication->getLocalizedFullTitle()|strip_unsafe_html}
+        </{$heading}>
+        <div class="article-summary-authors">
+          {$article->getAuthorString()|escape}
+        </div>
+      </a>
+      {if $abstract && $publication->getLocalizedData('abstract')}
+        <div class="article-summary-abstract html-text" data-reveal data-height="12">
+          {$publication->getLocalizedData('abstract')|strip_unsafe_html}
+        </div>
+      {/if}
+    </div>
+
+    {if $galleys}
+      {th_filter_galleys
+        assign="galleys"
+        galleys=$article->getGalleys()
+        genreIds=$primaryGenreIds
+        remotes=true
+      }
+      {if $galleys|count}
+        <div class="article-summary-galleys">
+          {foreach from=$galleys item="galley"}
+            {capture assign="galleyUrl"}{strip}
+              {if $galley->getRemoteUrl()}
+                {$galley->getRemoteUrl()}
+              {else}
+                {url page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}
+              {/if}
+            {/strip}{/capture}
+            <a class="button" href="{$galleyUrl}">
+              {if $galley->isPdfGalley()}
+                {include file="frontend/icons/download.svg"}
+              {/if}
+              {$galley->getGalleyLabel()|escape}
+            </a>
+          {/foreach}
+        </div>
+      {/if}
     {/if}
   </div>
 </div>

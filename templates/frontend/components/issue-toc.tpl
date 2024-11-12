@@ -119,6 +119,7 @@
                   article=$article
                   context=$currentContext
                   cover=true
+                  galleys=true
                   heading=$articleHeading
                 }
               </li>

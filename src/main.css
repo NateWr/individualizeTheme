@@ -4,10 +4,11 @@
 @import "css/utilities/breadcrumb.css";
 @import "css/utilities/button.css";
 @import "css/utilities/container.css";
+@import "css/utilities/html-text.css";
+@import "css/utilities/input.css";
 @import "css/utilities/link.css";
 @import "css/utilities/reveal.css";
 @import "css/utilities/tab-focus.css";
-@import "css/utilities/html-text.css";
 @import "css/components/article-summary.css";
 @import "css/components/author-details.css";
 @import "css/components/category-summary.css";
@@ -34,6 +35,8 @@
 @import "css/components/notice.css";
 @import "css/components/pagination.css";
 @import "css/components/search-input.css";
+@import "css/components/search-form.css";
 @import "css/pages/article.css";
 @import "css/pages/galley.css";
 @import "css/pages/issue-archive.css";
+@import "css/pages/search.css";

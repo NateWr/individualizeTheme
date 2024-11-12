@@ -26,9 +26,14 @@
   line-height: 1.5;
 }
 
+.article-summary-abstract {
+  margin-inline-start: 0.75rem;
+}
+
 .article-summary-galleys {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -44,6 +49,10 @@
   .article-summary-cover {
     display: block;
   }
+
+  .article-summary-abstract {
+    margin-inline-start: 1.5rem;
+  }
 }
 
 @media (--tablets-landscape) {
@@ -51,7 +60,7 @@
   .article-summary-inner {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     align-self: flex-start;
     gap: 1.5rem;
   }

@@ -6,6 +6,7 @@
  */
 @layer utilities {
   .button {
+    @apply tab-focus;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,10 +26,6 @@
       outline: var(--border-width) solid var(--color-button-text);
     }
 
-    &:focus-visible {
-      @apply tab-focus;
-    }
-
     & svg {
       flex: 0 0 1.5em;
       width: 1.5em;
@@ -43,6 +40,15 @@
 
     &:hover {
       outline: var(--border-width) solid var(--color-page-text);
+    }
+  }
+
+  .button-highlight {
+    background: var(--color-button-text);
+    color: var(--color-button-background);
+
+    &:focus-visible {
+      outline-color: var(--color-button-text);
     }
   }
 }

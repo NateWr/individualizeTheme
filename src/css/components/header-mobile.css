@@ -126,7 +126,9 @@
 .header-mobile {
 
   .search-input {
-    padding: 1rem
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

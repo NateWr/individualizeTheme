@@ -1,0 +1,32 @@
+/**
+ * Styles for user input fields
+ *
+ * Typically applied to <input>, <select>, and
+ * <textarea> elements.
+ */
+ @layer utilities {
+  .input {
+    padding: 0.25em 0.5em;
+    background: var(--color-page-background);
+    border: var(--input-border-width) solid;
+    color: var(--color-page-text);
+    border-radius: var(--input-radius);
+    font-weight: 400;
+
+    &:focus-visible {
+      outline: 1px solid;
+    }
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .input-label {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}

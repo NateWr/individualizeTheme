@@ -87,7 +87,10 @@ class SlubTheme extends ThemePlugin
      */
     public function addTemplateData(string $hookName, array $args): bool
     {
+        $templateMgr = $args[0];
         $template = $args[1];
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
 
         if ($template === 'frontend/pages/indexJournal.tpl') {
             $this->optionsHelper->getHomepageBlocks();
@@ -95,15 +98,20 @@ class SlubTheme extends ThemePlugin
 
         if ($template === 'frontend/pages/article.tpl') {
             AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
-            $request = Application::get()->getRequest();
-            $context = $request->getContext();
             if ($context) {
                 /** @var UserGroupDAO */
                 $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
                 $userGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-                $templateMgr = TemplateManager::getManager($request);
                 $templateMgr->assign([
                     'authorUserGroups' => $userGroups->toArray(),
+                ]);
+            }
+        }
+
+        if ($template === 'frontend/pages/search.tpl') {
+            if ($context) {
+                $templateMgr->assign([
+                    'primaryGenreIds' => $this->getPrimaryFileGenreIds($context->getId()),
                 ]);
             }
         }
@@ -230,5 +238,20 @@ class SlubTheme extends ThemePlugin
             return isset($config['local']) ? $config['local'][0] : 'http://localhost:5173/';
         }
         return $config['network'][0];
+    }
+
+    /**
+     * Get primary genre file ids
+     *
+     * These ids represent primary file types, like Article Text,
+     * rather than supplementary file types. These ids are required
+     * to only show primary galleys with article summaries.
+     */
+    protected function getPrimaryFileGenreIds(int $contextId): array
+    {
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $primaryGenres = $genreDao->getPrimaryByContextId($contextId)->toArray();
+        return array_map(fn($genre) => $genre->getId(), $primaryGenres);
     }
 }

@@ -25,8 +25,8 @@ const init = () => {
   const $reveals = document.querySelectorAll('[data-reveal]')
   for (const $reveal of $reveals) {
     const height = parseInt($reveal.dataset?.height ?? '20', 10)
-    const fontSize = window.getComputedStyle($reveal).getPropertyValue('font-size')
-    const maxHeight = height * (parseInt(fontSize.replace('px', ''), 10))
+    const fontSize = parseInt(window.getComputedStyle($reveal).getPropertyValue('font-size').replace('px', ''), 10)
+    const maxHeight = height * fontSize
     if ($reveal.clientHeight <= maxHeight) {
       continue
     }
@@ -49,6 +49,7 @@ const init = () => {
 
     $reveal.appendChild($button)
     $reveal.style.maxHeight = `${maxHeight}px`
+    $reveal.style.setProperty('--fade-size', `${((maxHeight / fontSize) / 10).toFixed(4)}em`);
   }
 }
 

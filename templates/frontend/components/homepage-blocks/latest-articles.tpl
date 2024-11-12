@@ -19,6 +19,7 @@
             article=$article
             context=$currentContext
             cover=false
+            galleys=true
             heading="h3"
           }
         </li>

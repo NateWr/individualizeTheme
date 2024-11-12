@@ -1,0 +1,77 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  & .search-input {
+    min-height: 3rem;
+  }
+}
+
+.search-form-filters-fieldset {
+  padding: 0.75rem;
+  border: 1px solid var(--color-page-text);
+}
+
+.search-form-filters-legend {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin: 0 auto;
+  color: var(--color-page-links);
+  font-weight: 700;
+}
+
+.search-form-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  & input,
+  & select {
+    @apply input;
+  }
+}
+
+.search-form-filters-date {
+
+  & fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  & label {
+    @apply sr-only;
+  }
+
+  & legend {
+    width: 100%;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  select {
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+
+  & [name*="Year"] {
+    width: 4rem;
+    max-width: 8rem;
+  }
+
+  & [name*="Day"] {
+    width: 3rem;
+    max-width: 6rem;
+  }
+}
+
+.search-form-footer {
+
+  & .button {
+    width: 100%;
+  };
+}

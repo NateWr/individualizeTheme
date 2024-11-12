@@ -24,6 +24,7 @@
     width: 100%;
     background: var(--color-page-background);
     box-shadow: 0 -2rem 2rem 2rem var(--color-page-background);
+    box-shadow: 0 calc(-1 * var(--fade-size)) var(--fade-size) var(--fade-size) var(--color-page-background);
     display: flex;
     align-items: center;
     gap: 0.25em;
