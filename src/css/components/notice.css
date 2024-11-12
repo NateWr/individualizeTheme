@@ -23,6 +23,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  & a {
+    color: var(--color-block-text);
+
+    &:hover {
+      color: var(--color-block-text);
+    }
+  }
 }
 
 .notice-title {

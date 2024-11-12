@@ -1,0 +1,44 @@
+.announcements-list,
+.announcements-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.announcements-list {
+  gap: 4rem;
+}
+
+.announcements-summary-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.announcements-summary-date {
+  font-size: 1.125rem;
+}
+
+.announcements-summary {
+
+  & .arrow-link {
+    margin-top: 1rem;
+    align-self: flex-start;
+  }
+}
+
+@media (--laptops) {
+
+  .announcements-summary-title {
+    max-width: 32em;
+  }
+
+  .announcements-summary-date {
+    font-size: 1.25rem;
+  }
+
+  .announcements-summary-desc,
+  .announcements-summary .arrow-link {
+    font-size: 1.125rem;
+  }
+}

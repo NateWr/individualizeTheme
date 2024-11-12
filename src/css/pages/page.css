@@ -1,0 +1,71 @@
+/**
+ * Styles for basic HTML content pages, like the about or
+ * contact page. Also used for custom pages and announcements.
+ */
+.page,
+.page-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page {
+  margin-top: 2rem;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-heading {
+  gap: 0.5rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.page-description {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+@media (--tablets) {
+
+  .page {
+    margin-top: 4rem;
+  }
+
+  .page-description {
+    max-width: 32em;
+  }
+}
+
+@media (--laptops-sm) {
+
+  .page {
+    margin-top: 0;
+    gap: 3rem;
+  }
+}
+
+@media (--laptops) {
+
+  .page {
+    max-width: 1024px;
+  }
+
+  .page-title {
+    font-size: 3rem;
+  }
+
+  .page-description {
+    font-size: 1.5rem;
+  }
+
+  .page-content {
+    font-size: 1.25rem;
+    gap: 2rem;
+  }
+}
