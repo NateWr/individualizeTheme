@@ -1,11 +1,13 @@
-{capture assign="urlPattern"}{url page="issue" op="archive" path="__page__"}{/capture}
-{th_pagination
-  assignPages="pages"
-  assignCurrent="currentPage"
-  perPage=$itemsPerPage
-  total=$total
-  start=$showingStart
-}
+{if $prevPage || $nextPage}
+  {capture assign="urlPattern"}{url page="issue" op="archive" path="__page__"}{/capture}
+  {th_pagination
+    assignPages="pages"
+    assignCurrent="currentPage"
+    perPage=$itemsPerPage
+    total=$total
+    start=$showingStart
+  }
+{/if}
 
 {extends file="frontend/layout.tpl"}
 
