@@ -40,12 +40,12 @@
           name="query"
         }
       </form>
-      <nav class="header-mobile-primary-menu">
+      <nav class="header-mobile-primary-menu" id="skip-to-nav-mobile">
         {load_menu name="primary" id="nav-mobile-primary" path="frontend/components/menu.tpl"}
       </nav>
       {if $slubLocales|count > 1}
         <div class="header-mobile-languages">
-          <h2 class="sr-only">
+          <h2 class="sr-only" id="skip-to-language-mobile">
             {translate key="plugins.themes.slubTheme.changeLanguage"}
           </h2>
           {include file="frontend/icons/globe.svg"}
@@ -73,7 +73,7 @@
           {include file="frontend/components/logged-in-as.tpl"}
         </div>
       {/if}
-      <nav class="header-mobile-utility-menu">
+      <nav class="header-mobile-utility-menu" id="skip-to-user-nav-mobile">
         {load_menu name="user" id="nav-mobile-user" path="frontend/components/menu.tpl"}
       </nav>
     </div>

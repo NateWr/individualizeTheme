@@ -18,16 +18,17 @@
   dir="{$currentLocaleLangDir|escape|default:"ltr"}"
 >
   <a name="back-to-top" class="sr-only">{translate key="common.top"}</a>
+  {include file="frontend/components/skip-links.tpl"}
   {include file="frontend/components/header-mobile.tpl"}
   {include file="frontend/components/header-desktop.tpl"}
-  <main class="pt-16">
+  <main class="pt-16" id="skip-to-main">
     <div class="container">
 
       {block name="content"}{/block}
 
     </div>
   </main>
-  <footer class="footer">
+  <footer class="footer" id="skip-to-footer">
     <div class="container">
       <div class="footer-back-to-top">
         <a href="#back-to-top" class="footer-back-to-top-link tab-focus">

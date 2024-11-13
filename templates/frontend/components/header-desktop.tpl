@@ -49,7 +49,7 @@
         {/if}
       </div>
       {if $activeTheme->getOption('header') === 'line'}
-        <nav class="header-desktop-nav-main-line">
+        <nav class="header-desktop-nav-main-line" id="skip-to-nav-desktop">
           {$primaryMenu}
         </nav>
       {/if}
@@ -68,6 +68,7 @@
                 class="dropdown-toggle tab-focus"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                id="skip-to-language-desktop"
               >
                 <span class="sr-only">
                   {translate key="plugins.themes.slubTheme.changeLanguage"}
@@ -105,6 +106,7 @@
                 class="dropdown-toggle tab-focus"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                id="skip-to-user-nav-desktop"
               >
                 <span class="sr-only">
                   {translate key="plugins.themes.slubTheme.account"}
@@ -125,7 +127,7 @@
     </div>
   </div>
   {if in_array($activeTheme->getOption('header'), ['default', 'defaultCenter'])}
-    <nav class="header-desktop-nav-main">
+    <nav class="header-desktop-nav-main" id="skip-to-nav-desktop">
       {$primaryMenu}
     </nav>
   {/if}

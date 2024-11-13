@@ -1,0 +1,38 @@
+.skip-links {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999999;
+  background: white;
+  color: black;
+
+  &:focus-within {
+    padding: 0.5rem;
+    outline: 2px solid black;
+  }
+
+  & a {
+    @apply sr-only;
+
+    &:focus-visible {
+      @apply not-sr-only;
+      outline: none;
+}
+  }
+
+  & .skip-links-desktop {
+    display: none;
+  }
+}
+
+@media (--laptops-sm) {
+
+  & .skip-links-mobile {
+    display: none;
+  }
+
+  & .skip-links-desktop {
+    display: block;
+  }
+}

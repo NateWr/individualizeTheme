@@ -94,6 +94,12 @@ msgstr "Unsupported"
 msgid "plugins.themes.slubTheme.site.unsupported.description"
 msgstr "This page is not supported by this theme. Please select another theme to use for a site hosting multiple journals."
 
+msgid "plugins.themes.slubTheme.skip.language"
+msgstr "Skip to language selection"
+
+msgid "plugins.themes.slubTheme.skip.userNav"
+msgstr "Skip to login and user account menu"
+
 msgid "plugins.themes.slubTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
 
