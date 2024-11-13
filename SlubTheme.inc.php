@@ -108,7 +108,12 @@ class SlubTheme extends ThemePlugin
             }
         }
 
-        if ($template === 'frontend/pages/search.tpl') {
+        $articleListTemplates = [
+            'frontend/pages/catalogCategory.tpl',
+            'frontend/pages/search.tpl'
+        ];
+
+        if (in_array($template, $articleListTemplates)) {
             if ($context) {
                 $templateMgr->assign([
                     'primaryGenreIds' => $this->getPrimaryFileGenreIds($context->getId()),
