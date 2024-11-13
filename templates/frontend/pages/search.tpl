@@ -1,3 +1,9 @@
+{assign var="pageTitleTranslated" value={translate key="common.search"}}
+{if $query}
+  {assign var="pageTitleTranslated" value={translate key="plugins.themes.slubTheme.search.pageTitle" phrase=$query|escape}}
+{/if}
+
+
 {extends file="frontend/layout.tpl"}
 
 {block name="content"}

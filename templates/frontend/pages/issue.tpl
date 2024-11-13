@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value={$issue->getIssueIdentification()|escape}}
+
 {extends file="frontend/layout.tpl"}
 
 {block name="content"}

@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value=$article->getLocalizedFullTitle()|escape}
+
 {foreach from=$pubIdPlugins item="pubIdPlugin"}
   {if $pubIdPlugin->getPubIdType() != 'doi'}
     {continue}

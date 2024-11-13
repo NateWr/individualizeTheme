@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value={translate key="user.register"}}
+
 {extends file="frontend/layout.tpl"}
 
 {block name="content"}

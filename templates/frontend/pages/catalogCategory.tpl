@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value={$category->getLocalizedTitle()|escape}}
+
 {if $prevPage || $nextPage}
   {capture assign="urlPattern"}{url page="catalog" op="category" path=$category->getPath()|to_array:'__page__'}{/capture}
   {th_pagination

@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value={translate key="plugins.themes.slubTheme.allIssues"}}
+
 {if $prevPage || $nextPage}
   {capture assign="urlPattern"}{url page="issue" op="archive" path="__page__"}{/capture}
   {th_pagination

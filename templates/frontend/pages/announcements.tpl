@@ -1,3 +1,5 @@
+{assign var="pageTitleTranslated" value={translate key="announcement.announcements"}}
+
 {extends file="frontend/layout.tpl"}
 
 {block name="content"}

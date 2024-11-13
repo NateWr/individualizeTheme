@@ -85,6 +85,9 @@ msgstr "No matches were found for the phrase <strong>{$phrase}</strong>."
 msgid "plugins.themes.slubTheme.search.placeholder"
 msgstr "Search articles..."
 
+msgid "plugins.themes.slubTheme.search.pageTitle"
+msgstr "\"{$phrase}\" Search Results"
+
 msgid "plugins.themes.slubTheme.announcements.none"
 msgstr "There are no announcements at this time."
 

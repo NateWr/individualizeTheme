@@ -1,3 +1,4 @@
+{assign var="pageTitleTranslated" value={$announcement->getLocalizedTitle()|escape}}
 {assign var="title" value={$announcement->getLocalizedTitle()|escape}}
 {assign var="description" value={$announcement->getDatePosted()|date_format:$dateFormatLong}}
 {capture assign="breadcrumb"}
