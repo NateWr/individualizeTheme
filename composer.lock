@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NateWr/pkp-theme-helper.git",
-                "reference": "4880bfbb5990614e537450f71e398f9aae72e897"
+                "reference": "2f98f4e950663ee5faa08e09a6d259acccabd431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NateWr/pkp-theme-helper/zipball/4880bfbb5990614e537450f71e398f9aae72e897",
-                "reference": "4880bfbb5990614e537450f71e398f9aae72e897",
+                "url": "https://api.github.com/repos/NateWr/pkp-theme-helper/zipball/2f98f4e950663ee5faa08e09a6d259acccabd431",
+                "reference": "2f98f4e950663ee5faa08e09a6d259acccabd431",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 "source": "https://github.com/NateWr/pkp-theme-helper/tree/main",
                 "issues": "https://github.com/NateWr/pkp-theme-helper/issues"
             },
-            "time": "2024-10-02T13:47:54+00:00"
+            "time": "2024-11-11T12:19:50+00:00"
         },
         {
             "name": "NateWr/pkp-vite",
@@ -46,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NateWr/pkp-vite.git",
-                "reference": "ff0ec2072c1a1f1339acc5c8cf768a008c53a19a"
+                "reference": "812c7ca0e14b68a0faaeb63e682a838ac70b42da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NateWr/pkp-vite/zipball/ff0ec2072c1a1f1339acc5c8cf768a008c53a19a",
-                "reference": "ff0ec2072c1a1f1339acc5c8cf768a008c53a19a",
+                "url": "https://api.github.com/repos/NateWr/pkp-vite/zipball/812c7ca0e14b68a0faaeb63e682a838ac70b42da",
+                "reference": "812c7ca0e14b68a0faaeb63e682a838ac70b42da",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
                 "source": "https://github.com/NateWr/pkp-vite/tree/main",
                 "issues": "https://github.com/NateWr/pkp-vite/issues"
             },
-            "time": "2024-09-30T15:39:03+00:00"
+            "time": "2024-11-04T11:04:59+00:00"
         }
     ],
     "packages-dev": [],
