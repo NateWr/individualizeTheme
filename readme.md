@@ -23,13 +23,13 @@ Start Vite's development server.
 npm run start
 ```
 
+## Package
+
 Build the assets for distribution.
 
 ```bash
 npm run build
 ```
-
-## Package
 
 Create a `.tar.gz` package of this theme by running the following command in the directory above the theme's file.
 
