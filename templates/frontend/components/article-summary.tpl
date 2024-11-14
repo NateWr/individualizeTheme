@@ -70,16 +70,16 @@
       {/if}
     </div>
 
-    {if $galleys}
+    {if $galleys && $article->getGalleys()|@count}
       {th_filter_galleys
-        assign="galleys"
+        assign="primaryGalleys"
         galleys=$article->getGalleys()
         genreIds=$primaryGenreIds
         remotes=true
       }
-      {if $galleys|count}
+      {if $primaryGalleys|count}
         <div class="article-summary-galleys">
-          {foreach from=$galleys item="galley"}
+          {foreach from=$primaryGalleys item="galley"}
             {capture assign="galleyUrl"}{strip}
               {if $galley->getRemoteUrl()}
                 {$galley->getRemoteUrl()}

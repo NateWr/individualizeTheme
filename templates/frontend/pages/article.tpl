@@ -54,11 +54,13 @@
       {* Preview and old version notices *}
       {if $publication->getData('status') !== $smarty.const.STATUS_PUBLISHED}
         {capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
-        {assign var="notice" value={translate key="submission.viewingPreview" url=$submissionUrl}}
+        {capture assign="notice"}
+          <p>{translate key="submission.viewingPreview" url=$submissionUrl}</p>
+        {/capture}
         {include
           file="frontend/components/notice.tpl"
           title="{translate key="common.preview"}"
-          content=$notice|escape
+          content=$notice
         }
 	    {elseif $currentPublication->getId() !== $publication->getId()}
   			{capture assign="latestVersionUrl"}{url page="article" op="view" path=$article->getBestId()}{/capture}
@@ -227,25 +229,27 @@
       <div class="article-sections">
 
         {* Abstract *}
-        <section class="article-section article-section-abstract">
-          <h2 class="article-section-title">
-            {translate key="article.abstract"}
-          </h2>
-          <div class="html-text">
-  					{$publication->getLocalizedData('abstract')|strip_unsafe_html}
-          </div>
-          <div class="article-abstract-galleys">
-            {foreach from=$primaryGalleys item="galley"}
-              {include
-                file="frontend/components/galley-link.tpl"
-                galley=$galley
-                publication=$publication
-                submission=$submission
-                label=$galley->getGalleyLabel()|escape
-              }
-            {/foreach}
-          </div>
-        </section>
+        {if $publication->getLocalizedData('abstract')}
+          <section class="article-section article-section-abstract">
+            <h2 class="article-section-title">
+              {translate key="article.abstract"}
+            </h2>
+            <div class="html-text">
+              {$publication->getLocalizedData('abstract')|strip_unsafe_html}
+            </div>
+            <div class="article-abstract-galleys">
+              {foreach from=$primaryGalleys item="galley"}
+                {include
+                  file="frontend/components/galley-link.tpl"
+                  galley=$galley
+                  publication=$publication
+                  submission=$submission
+                  label=$galley->getGalleyLabel()|escape
+                }
+              {/foreach}
+            </div>
+          </section>
+        {/if}
 
         {* References *}
         {if $parsedCitations || $publication->getData('citationsRaw')}

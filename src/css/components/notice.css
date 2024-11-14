@@ -5,7 +5,6 @@
   padding: 2rem;
   background: var(--color-block-background);
   color: var(--color-block-text);
-  font-weight: 500;
 
   & .button {
     background: var(--color-header-text);
@@ -25,6 +24,7 @@
   gap: 1.5rem;
 
   & a {
+    @apply link;
     color: var(--color-block-text);
 
     &:hover {

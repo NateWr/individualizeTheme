@@ -1,4 +1,7 @@
-{assign var="pageTitleTranslated" value={$issue->getIssueIdentification()|escape}}
+{assign var="pageTitleTranslated" value={translate key="editor.issues.currentIssue"}}
+{if $issue}
+  {assign var="pageTitleTranslated" value={$issue->getIssueIdentification()|escape}}
+{/if}
 
 {extends file="frontend/layout.tpl"}
 
