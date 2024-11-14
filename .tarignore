@@ -1,0 +1,13 @@
+.git
+.gitignore
+.tarignore
+.vite.server.json
+composer.json
+composer.lock
+package-lock.json
+package.json
+postcss.config.js
+tailwind.config.js
+node_modules
+./src
+vite.config.js

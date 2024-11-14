@@ -29,3 +29,10 @@ Build the assets for distribution.
 npm run build
 ```
 
+## Package
+
+Create a `.tar.gz` package of this theme by running the following command in the directory above the theme's file.
+
+```
+tar -czf slubTheme.tar.gz --exclude-ignore=.tarignore slubTheme
+```
