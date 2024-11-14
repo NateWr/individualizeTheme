@@ -1,34 +1,12 @@
 import { defineConfig } from 'vite'
-import fs from 'fs'
 import path from 'path'
+import pkpThemePlugin from 'vite-pkp-theme'
 
 const viteServer = './.vite.server.json'
 
-const pkpThemePlugin = () => ({
-  name: 'pkp-vite',
-  configResolved({ mode }) {
-    if (mode === 'production') {
-      if (fs.existsSync(viteServer)) {
-        fs.unlinkSync(viteServer)
-      }
-    }
-  },
-  configureServer(server) {
-    server.httpServer?.once('listening', () => {
-      const timer = setInterval(() => {
-        const urls = server?.resolvedUrls
-        if (urls) {
-          fs.writeFileSync(viteServer, JSON.stringify(urls, null, 2))
-          clearInterval(timer)
-        }
-      }, 100)
-    })
-  },
-})
-
 export default defineConfig({
   plugins: [
-    pkpThemePlugin(),
+    pkpThemePlugin({configFile: viteServer}),
   ],
   build: {
     manifest: true,
