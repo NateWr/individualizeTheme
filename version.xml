@@ -3,8 +3,8 @@
 <version>
 	<application>slubTheme</application>
 	<type>plugins.themes</type>
-	<release>0.1.0.0</release>
-	<date>2024-09-26</date>
+	<release>0.1.1.0</release>
+	<date>2024-11-15</date>
 	<lazy-load>1</lazy-load>
 	<class>SlubTheme</class>
 </version>
