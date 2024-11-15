@@ -5,7 +5,13 @@
 }
 
 .issue-summary-cover {
+  width: 100%;
   max-width: 16rem;
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .issue-summary-inner {
