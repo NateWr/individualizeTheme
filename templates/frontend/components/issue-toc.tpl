@@ -103,6 +103,10 @@
 
   {* Articles *}
   <ul class="issue-toc-sections">
+    {assign var="showCovers" value=false}
+    {if $issue->getLocalizedCoverImageUrl()}
+      {assign var="showCovers" value=true}
+    {/if}
     {foreach from=$publishedSubmissions item="section"}
       {if $section.articles}
         <li class="issue-toc-section">
@@ -118,7 +122,7 @@
                   file="frontend/components/article-summary.tpl"
                   article=$article
                   context=$currentContext
-                  cover=true
+                  cover=$showCovers
                   galleys=true
                   heading=$articleHeading
                 }
