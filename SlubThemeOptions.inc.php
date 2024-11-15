@@ -95,6 +95,7 @@ class SlubThemeOptions
         $this->addHowToSubmitBlock();
         $this->addPartnersBlock();
         $this->addCategoriesBlock();
+        $this->addLatestArticlesBlock();
         $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
         $this->addIssueArchivesOption();
@@ -444,6 +445,30 @@ class SlubThemeOptions
     }
 
     /**
+     * Add title and description fields for the latest articles homepage block
+     */
+    protected function addLatestArticlesBlock(): void
+    {
+        $this->theme->addOption('latestArticlesTitle', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.latestArticlesTitle.label'),
+            'description' => __('plugins.themes.slubTheme.option.latestArticlesTitle.description'),
+            'isMultilingual' => true,
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.latestArticles'),
+            ],
+        ]);
+        $this->theme->addOption('latestArticlesDescription', 'FieldText', [
+            'label' => __('plugins.themes.slubTheme.option.latestArticlesDescription.label'),
+            'description' => __('plugins.themes.slubTheme.option.latestArticlesDescription.description'),
+            'isMultilingual' => true,
+            'size' => 'large',
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.latestArticles.description'),
+            ],
+        ]);
+    }
+
+    /**
      * Add option to change how authors are displayed on
      * the article landing page
      */
@@ -633,7 +658,7 @@ class SlubThemeOptions
 
     protected function getLatestArticles(): array
     {
-        // Import required to access constant in 3.3
+        // Import is required to access constant in 3.3
         import('lib.pkp.classes.submission.PKPSubmissionDAO');
 
         return iterator_to_array(

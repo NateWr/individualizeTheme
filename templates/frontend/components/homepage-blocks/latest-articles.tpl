@@ -2,13 +2,11 @@
   <section class="homepage-block homepage-block-latest-articles">
     <div class="homepage-block-latest-articles-header">
       <h2 class="homepage-block-latest-articles-title">
-        {translate key="plugins.themes.slubTheme.latestArticles"}
+        {$activeTheme->getLocalizedOption('latestArticlesTitle')|escape}
       </h2>
       <div class="homepage-block-latest-articles-description">
-        {translate
-          key="plugins.themes.slubTheme.latestArticles.description"
-          url={url page="issue" op="archive"}
-        }
+        {assign var="url" value={url page="issue" op="archive"}}
+        {$activeTheme->getLocalizedOption('latestArticlesDescription')|replace:'{$url}':$url|strip_unsafe_html}
       </div>
     </div>
     <ul class="homepage-block-latest-articles-list">

@@ -235,6 +235,18 @@ msgstr "Browse by Category - Description"
 msgid "plugins.themes.slubTheme.option.categoriesDescription.description"
 msgstr "Change the description of the Browse by Category block on the homepage."
 
+msgid "plugins.themes.slubTheme.option.latestArticlesTitle.label"
+msgstr "Latest Articles - Title"
+
+msgid "plugins.themes.slubTheme.option.latestArticlesTitle.description"
+msgstr "Change the title for the Latest Articles block on the homepage."
+
+msgid "plugins.themes.slubTheme.option.latestArticlesDescription.label"
+msgstr "Latest Articles - Description"
+
+msgid "plugins.themes.slubTheme.option.latestArticlesDescription.description"
+msgstr "Change the description of the Latest Articles block on the homepage."
+
 msgid "plugins.themes.slubTheme.option.showAuthors.label"
 msgstr "Author Details"
 
