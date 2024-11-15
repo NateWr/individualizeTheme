@@ -36,7 +36,6 @@
 
   & fieldset {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 0.25rem;
   }
@@ -53,19 +52,19 @@
     line-height: 1.25;
   }
 
-  select {
+  & [name*="Year"] {
     flex-shrink: 0;
-    flex-grow: 1;
+    width: 6rem;
   }
 
-  & [name*="Year"] {
-    width: 4rem;
-    max-width: 8rem;
+  & [name*="Month"] {
+    flex-grow: 1;
+    max-width: none;
   }
 
   & [name*="Day"] {
-    width: 3rem;
-    max-width: 6rem;
+    flex-shrink: 0;
+    width: 4rem;
   }
 }
 

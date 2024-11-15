@@ -83,6 +83,14 @@
   }
 }
 
+@media (--laptops) {
+
+  .search-body-has-results {
+    grid-template-columns: 24rem minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
 @media (--laptops-lg) {
 
   .search {
@@ -106,9 +114,5 @@
 
   .search-desc-results {
     font-size: 2rem;
-  }
-
-  .search-body-has-results {
-    gap: 4rem;
   }
 }
