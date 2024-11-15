@@ -1,5 +1,6 @@
 <?php
 
+use Application;
 use Illuminate\Support\Collection;
 
 /**
@@ -66,9 +67,19 @@ class SlubThemeOptions
     public const COLOR_PAGE_TEXT = '#000000';
     public const COLOR_PRIMARY_TEXT = '#ffffff';
 
+    /**
+     * Primary locale of current context
+     */
+    protected string $primaryLocale;
+
     public function __construct(public SlubTheme $theme)
     {
-        //
+
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $this->primaryLocale = $context
+            ? $context->getPrimaryLocale()
+            : $request->getSite()->getPrimaryLocale();
     }
 
     /**
@@ -76,6 +87,7 @@ class SlubThemeOptions
      */
     public function addOptions(): void
     {
+
         $this->addHeaderOption();
         $this->addTaglineOption();
         $this->addHomepageImageOption();
@@ -280,7 +292,7 @@ class SlubThemeOptions
         $this->theme->addOption('tagline', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.tagline.label'),
             'description' => __('plugins.themes.slubTheme.option.tagline.description'),
-            'default' => '',
+            'isMultilingual' => true,
         ]);
     }
 
@@ -358,19 +370,28 @@ class SlubThemeOptions
         $this->theme->addOption('howToSubmitTitle', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.howToSubmitTitle.label'),
             'description' => __('plugins.themes.slubTheme.option.howToSubmitTitle.description'),
-            'default' => __('navigation.submissions'),
+            'isMultilingual' => true,
+            'default' => [
+                $this->primaryLocale => __('navigation.submissions'),
+            ],
         ]);
         $this->theme->addOption('howToSubmitText', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.howToSubmitText.label'),
             'description' => __('plugins.themes.slubTheme.option.howToSubmitText.description'),
+            'isMultilingual' => true,
             'size' => 'large',
-            'default' => __('plugins.themes.slubTheme.option.howToSubmitText.default'),
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.option.howToSubmitText.default'),
+            ],
         ]);
         $this->theme->addOption('howToSubmitAction', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.howToSubmitAction.label'),
             'description' => __('plugins.themes.slubTheme.option.howToSubmitAction.description'),
+            'isMultilingual' => true,
             'size' => 'small',
-            'default' => __('plugins.themes.slubTheme.option.howToSubmitAction.default'),
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.option.howToSubmitAction.default'),
+            ],
         ]);
     }
 
@@ -382,13 +403,19 @@ class SlubThemeOptions
         $this->theme->addOption('partnersTitle', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.partnersTitle.label'),
             'description' => __('plugins.themes.slubTheme.option.partnersTitle.description'),
-            'default' => __('plugins.themes.slubTheme.partners'),
+            'isMultilingual' => true,
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.partners'),
+            ],
         ]);
         $this->theme->addOption('partnersDescription', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.partnersDescription.label'),
             'description' => __('plugins.themes.slubTheme.option.partnersDescription.description'),
+            'isMultilingual' => true,
             'size' => 'large',
-            'default' => __('plugins.themes.slubTheme.partners.description'),
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.partners.description'),
+            ],
         ]);
     }
 
@@ -397,24 +424,22 @@ class SlubThemeOptions
      */
     protected function addCategoriesBlock(): void
     {
-        $request = Application::get()->getRequest();
-        $issueArchiveUrl = $request->getDispatcher()->url(
-            $request,
-            ROUTE_PAGE,
-            null,
-            'issue',
-            'archive'
-        );
         $this->theme->addOption('categoriesTitle', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.categoriesTitle.label'),
             'description' => __('plugins.themes.slubTheme.option.categoriesTitle.description'),
-            'default' => __('plugins.themes.slubTheme.browseByCategory'),
+            'isMultilingual' => true,
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.browseByCategory'),
+            ],
         ]);
         $this->theme->addOption('categoriesDescription', 'FieldText', [
             'label' => __('plugins.themes.slubTheme.option.categoriesDescription.label'),
             'description' => __('plugins.themes.slubTheme.option.categoriesDescription.description'),
+            'isMultilingual' => true,
             'size' => 'large',
-            'default' => __('plugins.themes.slubTheme.browseByCategory.description'),
+            'default' => [
+                $this->primaryLocale => __('plugins.themes.slubTheme.browseByCategory.description'),
+            ],
         ]);
     }
 

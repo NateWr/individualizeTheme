@@ -42,9 +42,9 @@
             </div>
           {/if}
         </a>
-        {if $displayPageHeaderLogo && $activeTheme->getOption('tagline') && in_array($activeTheme->getOption('header'), ['default', 'defaultCenter'])}
+        {if $displayPageHeaderLogo && $activeTheme->getLocalizedOption('tagline') && in_array($activeTheme->getOption('header'), ['default', 'defaultCenter'])}
           <div class="header-desktop-tagline">
-            {$activeTheme->getOption('tagline')}
+            {$activeTheme->getLocalizedOption('tagline')}
           </div>
         {/if}
       </div>

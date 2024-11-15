@@ -2,11 +2,11 @@
   <section class="homepage-block homepage-block-categories">
     <div class="homepage-block-categories-header">
       <h2 class="homepage-block-categories-title">
-        {$activeTheme->getOption('categoriesTitle')|escape}
+        {$activeTheme->getLocalizedOption('categoriesTitle')|escape}
       </h2>
       <div class="homepage-block-categories-desc">
         {capture assign="url"}{url page="issue" op="archive"}{/capture}
-        {$activeTheme->getOption('categoriesDescription')|replace:'{$url}':$url|strip_unsafe_html}
+        {$activeTheme->getLocalizedOption('categoriesDescription')|replace:'{$url}':$url|strip_unsafe_html}
       </div>
     </div>
     <ul class="homepage-block-categories-list">
