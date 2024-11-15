@@ -1,12 +1,28 @@
-.header-desktop-line {
-  position: sticky;
-  top: 0;
+@media (--laptops-sm) {
 
-  & .header-desktop-inner-content {
-    gap: 1rem;
-  }
+  /**
+   * .header-desktop-inner will scroll with the
+   * screen while the rest of the header scrolls
+   * away.
+   *
+   * display: contents allows .header-desktop-inner
+   * to "stick" to its next ancestor. Otherwise, it
+   * would scroll away with the rest of the header.
+   */
+  .header-desktop-line {
+    display: contents;
 
-  & .menu-desktop-main  {
-    justify-content: center;
+    & .header-desktop-inner {
+      position: sticky;
+      top: 0;
+    }
+
+    & .header-desktop-inner-content {
+      gap: 1rem;
+    }
+
+    & .menu-desktop-main  {
+      justify-content: center;
+    }
   }
 }
