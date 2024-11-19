@@ -54,13 +54,13 @@
                 <tbody>
                   {if $currentContext->getData('printIssn')}
                     <tr>
-                      <th>ISSN</th>
+                      <th>{translate key="journal.issn"}</th>
                       <td>{$currentContext->getData('printIssn')}</td>
                     </tr>
                   {/if}
                   {if $currentContext->getData('onlineIssn')}
                     <tr>
-                      <th>eISSN</th>
+                      <th>{translate key="metadata.property.displayName"}</th>
                       <td>{$currentContext->getData('onlineIssn')}</td>
                     </tr>
                   {/if}
