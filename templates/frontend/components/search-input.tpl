@@ -17,7 +17,7 @@
 {/if}
 
 <div class="search-input">
-  <label for="search-input{$id}" class="sr-only">
+  <label for="{$id}" class="sr-only">
     {$label}
   </label>
   {include file="frontend/icons/search.svg"}
