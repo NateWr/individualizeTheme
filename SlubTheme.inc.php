@@ -1,14 +1,14 @@
 <?php
 import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.slubTheme.SlubThemeOptions');
-import('plugins.themes.slubTheme.classes.ViteLoader');
-import('plugins.themes.slubTheme.classes.ThemeHelper');
-import('plugins.themes.slubTheme.classes.TemplatePlugin');
+import('plugins.themes.slubTheme.classes.SlubThemeHelper');
+import('plugins.themes.slubTheme.classes.SlubThemeOptions');
+import('plugins.themes.slubTheme.classes.SlubThemeTemplatePlugin');
+import('plugins.themes.slubTheme.classes.SlubThemeViteLoader');
 
 class SlubTheme extends ThemePlugin
 {
     protected SlubThemeOptions $optionsHelper;
-    protected ThemeHelper $themeHelper;
+    protected SlubThemeHelper $SlubThemeHelper;
 
     public function isActive()
     {
@@ -18,7 +18,7 @@ class SlubTheme extends ThemePlugin
 
     public function init()
     {
-        $this->useThemeHelper();
+        $this->useSlubThemeHelper();
         $this->optionsHelper = new SlubThemeOptions($this);
         $this->optionsHelper->addOptions();
         $this->addFonts();
@@ -60,7 +60,7 @@ class SlubTheme extends ThemePlugin
      */
     public function setContextNameLength(array $params, $smarty): void
     {
-        if (!$this->themeHelper->hasParams($params, ['assign'], 'slub_context_name_lenth')) {
+        if (!$this->SlubThemeHelper->hasParams($params, ['assign'], 'slub_context_name_lenth')) {
             return;
         }
 
@@ -122,17 +122,17 @@ class SlubTheme extends ThemePlugin
     }
 
     /**
-     * Use functions from ThemeHelper
+     * Use functions from SlubThemeHelper
      *
      * These helper functions register custom template functions, add
      * useful data to templates, and provide other utilities.
      */
-    protected function useThemeHelper(): void
+    protected function useSlubThemeHelper(): void
     {
-        $this->themeHelper = new ThemeHelper($this->getTemplateManager());
-        $this->themeHelper->addCommonTemplatePlugins();
-        $this->themeHelper->addTemplatePlugin(
-            new TemplatePlugin(
+        $this->SlubThemeHelper = new SlubThemeHelper($this->getTemplateManager());
+        $this->SlubThemeHelper->addCommonSlubThemeTemplatePlugins();
+        $this->SlubThemeHelper->addSlubThemeTemplatePlugin(
+            new SlubThemeTemplatePlugin(
                 type: 'function',
                 name: 'slub_context_name_length',
                 callback: [$this, 'setContextNameLength']
@@ -209,14 +209,15 @@ class SlubTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $viteLoader = new ViteLoader(
+        $SlubThemeViteLoader = new SlubThemeViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),
             buildUrl: join('/', [$this->getPluginUrl(), 'dist/']),
+            prefix: $this->getPluginPath()
         );
 
-        $viteLoader->load($entryPoints);
+        $SlubThemeViteLoader->load($entryPoints);
     }
 
     /**

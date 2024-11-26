@@ -2,7 +2,7 @@
 /**
  * Class to represent a Smarty plugin
  */
-class TemplatePlugin
+class SlubThemeTemplatePlugin
 {
     public function __construct(
         /**

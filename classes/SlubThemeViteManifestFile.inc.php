@@ -5,7 +5,7 @@
  *
  * @see https://github.com/vitejs/vite/blob/e7adcf0878bd7f3c0b7bb5c9a1d7e6f0d55d9650/packages/vite/src/node/plugins/manifest.ts#L18-L28
  */
-class ViteManifestFile
+class SlubThemeViteManifestFile
 {
     public function __construct(
         /**

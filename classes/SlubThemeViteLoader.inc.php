@@ -1,7 +1,7 @@
 <?php
 
 import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.slubTheme.classes.ViteManifestFile');
+import('plugins.themes.slubTheme.classes.SlubThemeViteManifestFile');
 
 /**
  * Initialize Vite integration
@@ -13,7 +13,7 @@ import('plugins.themes.slubTheme.classes.ViteManifestFile');
  * All assets are registered through the PKP's TemplateManager
  * class, or a ThemePlugin class if passed in the constructor.
  */
-class ViteLoader
+class SlubThemeViteLoader
 {
     public const DEFAULT_VITE_SERVER_URL = 'http://localhost:5173/';
 
@@ -44,6 +44,13 @@ class ViteLoader
          * of the plugin.
          */
         public string $serverPath,
+
+        /**
+         * Unique prefix to use with script and style assets
+         *
+         * Typically the plugin name.
+         */
+        protected string $prefix,
 
         /**
          * Register assets as part of a theme
@@ -116,9 +123,9 @@ class ViteLoader
      */
     protected function loadDev(array $entryPoints): void
     {
-        $this->loadScript('vite', "{$this->baseUrl}@vite/client", ['type' => 'module']);
+        $this->loadScript($this->prefix, "{$this->baseUrl}@vite/client", ['type' => 'module']);
         foreach ($entryPoints as $entryPoint) {
-            $this->loadScript('vite-' . $entryPoint, "{$this->baseUrl}{$entryPoint}", ['type' => 'module']);
+            $this->loadScript("{$this->prefix}-" . $entryPoint, "{$this->baseUrl}{$entryPoint}", ['type' => 'module']);
         }
     }
 
@@ -130,13 +137,13 @@ class ViteLoader
         $files = $this->getFiles();
         foreach ($files as $file) {
             if (str_ends_with($file->file, '.js')) {
-                $this->templateManager->addHeader("vite-{$file->file}-preload", $this->getPreload($file->file, true));
+                $this->templateManager->addHeader("{$this->prefix}-{$file->file}-preload", $this->getPreload($file->file, true));
             }
             if ($file->isEntry) {
-                $this->loadScript("vite-{$file->file}", "{$this->baseUrl}{$file->file}", ['type' => 'module']);
+                $this->loadScript("{$this->prefix}-{$file->file}", "{$this->baseUrl}{$file->file}", ['type' => 'module']);
             }
             foreach ($file->css as $css) {
-                $this->loadStyle("vite-{$file->file}-{$css}", "{$this->baseUrl}{$css}");
+                $this->loadStyle("{$this->prefix}-{$file->file}-{$css}", "{$this->baseUrl}{$css}");
             }
         }
     }
@@ -152,7 +159,7 @@ class ViteLoader
         }
 
         return array_map(
-            fn(array $chunk) => ViteManifestFile::create($chunk),
+            fn(array $chunk) => SlubThemeViteManifestFile::create($chunk),
             json_decode(file_get_contents($this->manifestPath), true)
         );
     }

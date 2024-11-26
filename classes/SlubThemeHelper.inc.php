@@ -2,7 +2,7 @@
 /**
  * Helper class to register custom Smarty plugin
  */
-import('plugins.themes.slubTheme.classes.TemplatePlugin');
+import('plugins.themes.slubTheme.classes.SlubThemeTemplatePlugin');
 
 /**
  * A helper class for building custom themes for
@@ -17,7 +17,7 @@ import('plugins.themes.slubTheme.classes.TemplatePlugin');
  *
  * @see https://www.smarty.net
  */
-class ThemeHelper
+class SlubThemeHelper
 {
     /**
      * Number of page buttons to display before truncating
@@ -26,15 +26,15 @@ class ThemeHelper
     public const DEFAULT_MAX_PAGES = 9;
 
     /**
-     * @var TemplatePlugin[]
+     * @var SlubThemeTemplatePlugin[]
      */
-    protected array $templatePlugins = [];
+    protected array $SlubThemeTemplatePlugins = [];
 
     public function __construct(
         protected TemplateManager $templateMgr
     ) {
         $this->templateMgr = $templateMgr;
-        HookRegistry::register('TemplateManager::display', [$this, 'registerTemplatePlugins']);
+        HookRegistry::register('TemplateManager::display', [$this, 'registerSlubThemeTemplatePlugins']);
     }
 
     /**
@@ -43,24 +43,24 @@ class ThemeHelper
      *
      * @param TemplateManager $templateMgr
      */
-    public function addCommonTemplatePlugins(): void
+    public function addCommonSlubThemeTemplatePlugins(): void
     {
-        $this->addTemplatePlugin(
-            new TemplatePlugin(
+        $this->addSlubThemeTemplatePlugin(
+            new SlubThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_locales',
                 callback: [$this, 'setLocales']
             )
         );
-        $this->addTemplatePlugin(
-            new TemplatePlugin(
+        $this->addSlubThemeTemplatePlugin(
+            new SlubThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_filter_galleys',
                 callback: [$this, 'filterGalleys']
             )
         );
-        $this->addTemplatePlugin(
-            new TemplatePlugin(
+        $this->addSlubThemeTemplatePlugin(
+            new SlubThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_pagination',
                 callback: [$this, 'getPages']
@@ -71,9 +71,9 @@ class ThemeHelper
     /**
      * Add a template plugin
      */
-    public function addTemplatePlugin(TemplatePlugin $plugin): void
+    public function addSlubThemeTemplatePlugin(SlubThemeTemplatePlugin $plugin): void
     {
-        $this->templatePlugins[] = $plugin;
+        $this->SlubThemeTemplatePlugins[] = $plugin;
     }
 
     /**
@@ -85,10 +85,10 @@ class ThemeHelper
      *
      * This allows core plugins to be overridden.
      */
-    public function registerTemplatePlugins(string $hookName, array $args): bool
+    public function registerSlubThemeTemplatePlugins(string $hookName, array $args): bool
     {
-        foreach ($this->templatePlugins as $plugin) {
-            $this->safeRegisterTemplatePlugin($plugin);
+        foreach ($this->SlubThemeTemplatePlugins as $plugin) {
+            $this->safeRegisterSlubThemeTemplatePlugin($plugin);
         }
         return false;
 
@@ -100,7 +100,7 @@ class ThemeHelper
      * This wrapper function prevents a fatal error if a smarty plugin
      * with the same name has already been registered.
      */
-    protected function safeRegisterTemplatePlugin(TemplatePlugin $plugin): void
+    protected function safeRegisterSlubThemeTemplatePlugin(SlubThemeTemplatePlugin $plugin): void
     {
         $registered = isset($this->templateMgr->registered_plugins[$plugin->type][$plugin->name]);
         if ($registered && $plugin->override) {
