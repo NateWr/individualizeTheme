@@ -65,11 +65,18 @@
 	    {elseif $currentPublication->getId() !== $publication->getId()}
   			{capture assign="latestVersionUrl"}{url page="article" op="view" path=$article->getBestId()}{/capture}
         {capture assign="notice"}{strip}
-          {translate key="submission.outdatedVersion"
-            datePublished=$publication->getData('datePublished')|date_format:$dateFormatShort
-            urlRecentVersion=$latestVersionUrl|escape
-          }
+          <p>
+            {translate key="submission.outdatedVersion"
+              datePublished=$publication->getData('datePublished')|date_format:$dateFormatShort
+              urlRecentVersion=$latestVersionUrl|escape
+            }
+          </p>
         {/strip}{/capture}
+        {include
+          file="frontend/components/notice.tpl"
+          title=""
+          content=$notice
+        }
       {/if}
 
       {* Title and Authors *}
