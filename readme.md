@@ -13,7 +13,6 @@ This theme uses [Vite](https://vitejs.dev/) to build CSS/JS assets. Run the foll
 Install dependencies.
 
 ```bash
-composer install
 npm install
 ```
 
