@@ -61,8 +61,8 @@ class SlubThemeOptions
     public const COLOR_MODE_DEFAULT = 'default';
     public const COLOR_MODE_ADVANCED = 'advanced';
 
-    public const COLOR_PRIMARY = '#cc0000';
-    public const COLOR_ACCENT = '#116677';
+    public const COLOR_PRIMARY = '#1E102B';
+    public const COLOR_ACCENT = '#BC3200';
     public const COLOR_PAGE_BACKGROUND = '#ffffff';
     public const COLOR_PAGE_TEXT = '#000000';
     public const COLOR_PRIMARY_TEXT = '#ffffff';
