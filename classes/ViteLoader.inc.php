@@ -1,8 +1,5 @@
 <?php
 
-use RuntimeException;
-use TemplateManager;
-
 import('lib.pkp.classes.plugins.ThemePlugin');
 import('plugins.themes.slubTheme.classes.ViteManifestFile');
 
