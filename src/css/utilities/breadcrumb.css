@@ -30,6 +30,12 @@
     }
   }
 
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .breadcrumb-item-last {
     text-overflow: ellipsis;
     white-space: nowrap;

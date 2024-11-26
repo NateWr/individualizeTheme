@@ -23,11 +23,11 @@
   ">
     {if $parentCategory}
       <div class="breadcrumb">
-        {include file="frontend/icons/arrow-left.svg"}
         <a
           class="breadcrumb-item tab-focus"
           href="{url page="catalog" op="category" path=$parentCategory->getPath()}"
         >
+          {include file="frontend/icons/arrow-left.svg"}
           {$parentCategory->getLocalizedTitle()|escape}
         </a>
       </div>

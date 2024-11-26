@@ -3,11 +3,11 @@
 {assign var="description" value={$announcement->getDatePosted()|date_format:$dateFormatLong}}
 {capture assign="breadcrumb"}
   <div class="breadcrumb">
-    {include file="frontend/icons/arrow-left.svg"}
     <a
       class="breadcrumb-item tab-focus"
       href="{url page="announcement"}"
     >
+      {include file="frontend/icons/arrow-left.svg"}
       {translate key="announcement.announcements"}
     </a>
   </div>

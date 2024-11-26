@@ -25,11 +25,11 @@
     max-w-screen-xl mx-auto flex flex-col gap-8 my-8 xl:gap-16 xl:my-0
   ">
     <div class="breadcrumb">
-      {include file="frontend/icons/arrow-left.svg"}
       <a
         class="breadcrumb-item tab-focus"
         href="{url page="issue" op="archive"}"
       >
+        {include file="frontend/icons/arrow-left.svg"}
         {translate key="navigation.archives"}
       </a>
       <span class="breadcrumb-separator">/</span>

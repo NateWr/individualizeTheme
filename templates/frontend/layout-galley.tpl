@@ -16,11 +16,11 @@
 
     <header class="layout-galley-header">
       <div class="breadcrumb">
-        {include file="frontend/icons/arrow-left.svg"}
         <a
           class="breadcrumb-item tab-focus"
           href="{$parentUrl}"
         >
+          {include file="frontend/icons/arrow-left.svg"}
           {$title}
         </a>
       </div>

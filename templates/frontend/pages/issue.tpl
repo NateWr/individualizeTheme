@@ -19,11 +19,11 @@
       }
     {else}
       <div class="breadcrumb">
-        {include file="frontend/icons/arrow-left.svg"}
         <a
           class="breadcrumb-item tab-focus"
           href="{url page="issue" op="archive"}"
         >
+          {include file="frontend/icons/arrow-left.svg"}
           {translate key="navigation.archives"}
         </a>
         <span class="breadcrumb-separator">/</span>
