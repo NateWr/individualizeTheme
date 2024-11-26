@@ -1,12 +1,9 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-
-use NateWr\themehelper\TemplatePlugin;
-use NateWr\themehelper\ThemeHelper;
-
 import('lib.pkp.classes.plugins.ThemePlugin');
 import('plugins.themes.slubTheme.SlubThemeOptions');
 import('plugins.themes.slubTheme.classes.ViteLoader');
+import('plugins.themes.slubTheme.classes.ThemeHelper');
+import('plugins.themes.slubTheme.classes.TemplatePlugin');
 
 class SlubTheme extends ThemePlugin
 {
