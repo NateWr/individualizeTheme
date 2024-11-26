@@ -73,6 +73,13 @@
   }
 }
 
+.article-metadata-cover {
+
+  & img {
+    max-width: 12rem;
+  }
+}
+
 .article-sections {
   gap: 3rem;
 }
@@ -86,7 +93,9 @@
 .article-abstract-galleys {
   margin-top: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.25rem;
 }
 
 .citation-output {
@@ -108,16 +117,28 @@
   }
 
   .article-details {
-    flex-direction: row-reverse;
+    display: block;
+    clear: both;
   }
 
   .article-media {
+    float: right;
     width: 16rem;
     flex-shrink: 0;
+    margin-inline-start: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .article-metadata {
     width: 100%;
+  }
+
+  .article-sections {
+    display: block;
+  }
+
+  .article-section + .article-section {
+    margin-top: 6rem;
   }
 
   .article-section-title {
@@ -132,8 +153,13 @@
     max-width: 56rem;
   }
 
+  .article-media {
+    margin-inline-start: 3rem;
+    margin-bottom: 3rem;
+  }
+
   .article-section {
-    max-width: 48rem;
+    width: 48rem;
   }
 
   .article-section-title {
@@ -147,13 +173,15 @@
     }
   }
 
+  .article-metadata {
+    margin-top: -2rem;
+  }
+
   .article-metadata-table {
     width: 100%;
-    max-width: 48rem;
+    max-width: 36rem;
     border-collapse: initial;
     border-spacing: 0 2rem;
-    margin-top: -2rem;
-    margin-bottom: -2rem;
 
     & tr {
       display: table-row;
@@ -185,5 +213,9 @@
 
   .article-header {
     max-width: 64rem;
+  }
+
+  .article-metadata-table {
+    max-width: 48rem;
   }
 }

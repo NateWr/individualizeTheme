@@ -12,7 +12,7 @@
   <tr>
     <th>
       {if $publishedByImage}
-        <a class="tab-focus" href="{$publishedInUrl|escape}">
+        <a class="article-metadata-cover" tab-focus" href="{$publishedInUrl|escape}">
           <img src="{$publishedByImage|escape}">
         </a>
       {else}

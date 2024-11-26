@@ -14,9 +14,6 @@
  */
 @layer utilities {
   .html-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
@@ -30,17 +27,40 @@
       text-decoration-thickness: 2px;
     }
 
+    p,
+    ul,
+    ol,
+    blockquote,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     ul,
     ol {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25em;
       margin-left: 2em;
     }
 
     li {
       list-style: initial;
       line-height: 1.5;
+
+      + li {
+        margin-top: 0.25em;
+      }
     }
 
     blockquote {

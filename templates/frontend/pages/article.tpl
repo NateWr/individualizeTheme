@@ -225,134 +225,135 @@
             </table>
           {/if}
         </div>
-      </div>
-      <div class="article-sections">
 
-        {* Abstract *}
-        {if $publication->getLocalizedData('abstract')}
-          <section class="article-section article-section-abstract">
-            <h2 class="article-section-title">
-              {translate key="article.abstract"}
-            </h2>
-            <div class="html-text">
-              {$publication->getLocalizedData('abstract')|strip_unsafe_html}
-            </div>
-            <div class="article-abstract-galleys">
-              {foreach from=$primaryGalleys item="galley"}
-                {include
-                  file="frontend/components/galley-link.tpl"
-                  galley=$galley
-                  publication=$publication
-                  submission=$submission
-                  label=$galley->getGalleyLabel()|escape
-                }
-              {/foreach}
-            </div>
-          </section>
-        {/if}
+        <div class="article-sections">
 
-        {* References *}
-        {if $parsedCitations || $publication->getData('citationsRaw')}
-          <section class="article-section article-section-references">
-            <h2 class="article-section-title">
-              {translate key="submission.citations"}
-            </h2>
-            <div class="html-text" data-reveal data-height="40">
-              {if $parsedCitations}
-                {foreach from=$parsedCitations item="parsedCitation"}
-                  <p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
+          {* Abstract *}
+          {if $publication->getLocalizedData('abstract')}
+            <section class="article-section article-section-abstract">
+              <h2 class="article-section-title">
+                {translate key="article.abstract"}
+              </h2>
+              <div class="html-text">
+                {$publication->getLocalizedData('abstract')|strip_unsafe_html}
+              </div>
+              <div class="article-abstract-galleys">
+                {foreach from=$primaryGalleys item="galley"}
+                  {include
+                    file="frontend/components/galley-link.tpl"
+                    galley=$galley
+                    publication=$publication
+                    submission=$submission
+                    label=$galley->getGalleyLabel()|escape
+                  }
                 {/foreach}
-              {else}
-                {$publication->getData('citationsRaw')|escape|nl2br}
-              {/if}
-            </div>
-          </section>
-        {/if}
+              </div>
+            </section>
+          {/if}
 
-        {* Metadata table (DOI, Issue, Section, etc.) *}
-        <section class="article-section">
-          <h2 class="article-section-title" id="article-metadata-title">
-            {translate key="article.details"}
-          </h2>
-          <table
-            class="article-metadata-table"
-            aria-labelledby="article-metadata-title"
-          >
-            <tbody>
-              {foreach from=$pubIdPlugins item="pubIdPlugin"}
-                {if !$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-                  {continue}
+          {* References *}
+          {if $parsedCitations || $publication->getData('citationsRaw')}
+            <section class="article-section article-section-references">
+              <h2 class="article-section-title">
+                {translate key="submission.citations"}
+              </h2>
+              <div class="html-text" data-reveal data-height="40">
+                {if $parsedCitations}
+                  {foreach from=$parsedCitations item="parsedCitation"}
+                    <p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
+                  {/foreach}
+                {else}
+                  {$publication->getData('citationsRaw')|escape|nl2br}
                 {/if}
-                {assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $article->getStoredPubId($pubIdPlugin->getPubIdType()))}
-                {capture assign="pubIdLink"}{strip}
-                  <a class="arrow-link tab-focus" href="{$doiUrl|escape}">
-                    {$doiUrl|escape}
-                    {include file="frontend/icons/arrow-right.svg"}
-                  </a>
-                {/capture}
-                {include
-                  file="frontend/components/metadata-tr-html.tpl"
-                  title=$pubIdPlugin->getPubIdDisplayType()
-                  html=$pubIdLink
-                }
-              {/foreach}
-              {include
-                file="frontend/components/metadata-tr-published.tpl"
-                article=$article
-                publication=$publication
-                firstPublication=$firstPublication
-                currentPublication=$currentPublication
-              }
-              {include
-                file="frontend/components/metadata-tr-issue.tpl"
-                issue=$issue
-              }
-              {if $section}
-                {include
-                  file="frontend/components/metadata-tr-html.tpl"
-                  title={translate key="section.section"}
-                  html={$section->getLocalizedTitle()|strip_unsafe_html}
-                }
-              {/if}
-              {include
-                file="frontend/components/metadata-tr-categories.tpl"
-                categories=$categories
-              }
-              {if !empty($publication->getLocalizedData('keywords'))}
-                {include
-                  file="frontend/components/metadata-tr-keywords.tpl"
-                  keywords=$publication->getLocalizedData('keywords')
-                }
-              {/if}
-              {include
-                file="frontend/components/metadata-tr-how-to-cite.tpl"
-                citation=$citation
-                citationStyles=$citationStyles
-                citationDownloads=$citationDownloads
-                citationArgs=$citationArgs
-                citationArgsJson=$citationArgsJson
-              }
-              {if $publication->getData('pages')}
-                {include
-                  file="frontend/components/metadata-tr-html.tpl"
-                  title={translate key="editor.issues.pages"}
-                  html=$publication->getData('pages')
-                }
-              {/if}
-              {include
-                file="frontend/components/metadata-tr-license.tpl"
-                publication=$publication
-                ccLicenseBadge=$ccLicenseBadge
-              }
+              </div>
+            </section>
+          {/if}
 
-              {call_hook name="Templates::Article::Details"}
+          {* Metadata table (DOI, Issue, Section, etc.) *}
+          <section class="article-section">
+            <h2 class="article-section-title" id="article-metadata-title">
+              {translate key="article.details"}
+            </h2>
+            <table
+              class="article-metadata-table"
+              aria-labelledby="article-metadata-title"
+            >
+              <tbody>
+                {foreach from=$pubIdPlugins item="pubIdPlugin"}
+                  {if !$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+                    {continue}
+                  {/if}
+                  {assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $article->getStoredPubId($pubIdPlugin->getPubIdType()))}
+                  {capture assign="pubIdLink"}{strip}
+                    <a class="arrow-link tab-focus" href="{$doiUrl|escape}">
+                      {$doiUrl|escape}
+                      {include file="frontend/icons/arrow-right.svg"}
+                    </a>
+                  {/capture}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title=$pubIdPlugin->getPubIdDisplayType()
+                    html=$pubIdLink
+                  }
+                {/foreach}
+                {include
+                  file="frontend/components/metadata-tr-published.tpl"
+                  article=$article
+                  publication=$publication
+                  firstPublication=$firstPublication
+                  currentPublication=$currentPublication
+                }
+                {include
+                  file="frontend/components/metadata-tr-issue.tpl"
+                  issue=$issue
+                }
+                {if $section}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title={translate key="section.section"}
+                    html={$section->getLocalizedTitle()|strip_unsafe_html}
+                  }
+                {/if}
+                {include
+                  file="frontend/components/metadata-tr-categories.tpl"
+                  categories=$categories
+                }
+                {if !empty($publication->getLocalizedData('keywords'))}
+                  {include
+                    file="frontend/components/metadata-tr-keywords.tpl"
+                    keywords=$publication->getLocalizedData('keywords')
+                  }
+                {/if}
+                {include
+                  file="frontend/components/metadata-tr-how-to-cite.tpl"
+                  citation=$citation
+                  citationStyles=$citationStyles
+                  citationDownloads=$citationDownloads
+                  citationArgs=$citationArgs
+                  citationArgsJson=$citationArgsJson
+                }
+                {if $publication->getData('pages')}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title={translate key="editor.issues.pages"}
+                    html=$publication->getData('pages')
+                  }
+                {/if}
+                {include
+                  file="frontend/components/metadata-tr-license.tpl"
+                  publication=$publication
+                  ccLicenseBadge=$ccLicenseBadge
+                }
 
-            </tbody>
-          </table>
-        </section>
+                {call_hook name="Templates::Article::Details"}
+
+              </tbody>
+            </table>
+          </section>
 
 
-        {call_hook name="Templates::Article::Footer::PageFooter"}
+          {call_hook name="Templates::Article::Footer::PageFooter"}
+        </div>
       </div>
     </article>
   </div>
