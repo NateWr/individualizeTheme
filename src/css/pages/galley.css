@@ -15,6 +15,9 @@
   & .breadcrumb {
     margin-left: 0;
     flex-shrink: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     & svg {
       color: var(--color-header-text);
