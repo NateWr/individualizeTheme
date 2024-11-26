@@ -60,7 +60,7 @@
                   {/if}
                   {if $currentContext->getData('onlineIssn')}
                     <tr>
-                      <th>{translate key="metadata.property.displayName"}</th>
+                      <th>{translate key="metadata.property.displayName.eissn"}</th>
                       <td>{$currentContext->getData('onlineIssn')}</td>
                     </tr>
                   {/if}
