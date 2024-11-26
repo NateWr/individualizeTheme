@@ -189,6 +189,7 @@
 
     & th {
       width: 25%;
+      min-width: 12rem;
       vertical-align: top;
     }
 
