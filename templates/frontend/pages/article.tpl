@@ -42,7 +42,7 @@
       {if $issue}
         <a
           class="breadcrumb-item breadcrumb-item-last tab-focus"
-          href="{url page="issue" op="view" page=$issue->getBestIssueId()}"
+          href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
         >
           {$issue->getIssueIdentification(['showTitle' => false, 'showYear' => false])}
         </a>
