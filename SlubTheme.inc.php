@@ -3,10 +3,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 use NateWr\themehelper\TemplatePlugin;
 use NateWr\themehelper\ThemeHelper;
-use NateWr\vite\Loader;
 
 import('lib.pkp.classes.plugins.ThemePlugin');
 import('plugins.themes.slubTheme.SlubThemeOptions');
+import('plugins.themes.slubTheme.classes.ViteLoader');
 
 class SlubTheme extends ThemePlugin
 {
@@ -212,7 +212,7 @@ class SlubTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $viteLoader = new Loader(
+        $viteLoader = new ViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),

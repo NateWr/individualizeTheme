@@ -3,7 +3,6 @@
     "description": "Custom OJS theme for journals hosted by SLUB.",
     "license": "GPL-3.0-or-later",
     "require": {
-        "natewr/pkp-theme-helper": "^0.1.0",
-        "natewr/pkp-vite": "^0.1.1"
+        "natewr/pkp-theme-helper": "^0.1.0"
     }
 }
