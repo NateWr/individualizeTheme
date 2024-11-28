@@ -15,6 +15,7 @@
 }
 
 .article-title {
+  font-family: var(--font-titles);
   font-size: 2rem;
   font-weight: 900;
   line-height: 1.25;
@@ -86,6 +87,7 @@
 
 .article-section-title {
   margin: 1rem 0;
+  font-family: var(--font-titles);
   font-weight: 900;
   font-size: 1.5rem;
 }

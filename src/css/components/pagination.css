@@ -5,6 +5,7 @@
   gap: 1rem;
   width: 100%;
   color: var(--color-page-links);
+  font-family: var(--font-actions);
   font-weight: 700;
 }
 

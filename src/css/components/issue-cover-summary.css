@@ -21,11 +21,13 @@
 }
 
 .issue-cover-summary-vol {
+  font-family: var(--font-titles);
   font-size: 1.5rem;
   font-weight: 900;
 }
 
 .issue-cover-summary-year {
+  font-family: var(--font-titles);
   font-size: 1.125rem;
   font-weight: 700;
 }

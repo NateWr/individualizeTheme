@@ -28,6 +28,7 @@
 }
 
 .issue-summary-vol {
+  font-family: var(--font-titles);
   font-size: 2rem;
   font-weight: 900;
   line-height: 1.25;
@@ -40,6 +41,7 @@
 }
 
 .issue-summary-title {
+  font-family: var(--font-titles);
   font-size: 1.125rem;
   line-height: 1.25;
 }

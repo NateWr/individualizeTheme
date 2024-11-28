@@ -11,6 +11,7 @@
 
 .homepage-block-latest-articles-title {
   margin-bottom: 0.25rem;
+  font-family: var(--font-titles);
   font-size: 2rem;
   font-weight: 900;
 }

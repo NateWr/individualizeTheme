@@ -14,6 +14,7 @@
 }
 
 .search-title {
+  font-family: var(--font-titles);
   font-size: 2rem;
   font-weight: 900;
   line-height: 1.25;
@@ -31,6 +32,7 @@
 }
 
 .search-desc-results {
+  font-family: var(--font-titles);
   font-size: 1.5rem;
 }
 

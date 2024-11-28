@@ -14,9 +14,9 @@
 {/capture}
 {capture assign="html"}
   {if $announcement->getLocalizedDescription()}
-    {$announcement->getLocalizedDescription()|strip_unsafe_html}
+    {$announcement->getLocalizedDescription()}
   {else}
-    {$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+    {$announcement->getLocalizedDescriptionShort()}
   {/if}
 {/capture}
 

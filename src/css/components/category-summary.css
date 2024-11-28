@@ -10,6 +10,7 @@
 }
 
 .category-summary-title {
+  font-family: var(--font-titles);
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.25;

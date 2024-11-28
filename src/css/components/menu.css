@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-family: var(--font-actions);
 }
 
 .menu-button {
@@ -12,6 +13,7 @@
   gap: 0.25rem;
   padding: 0.25rem var(--inline-padding);
   margin-inline-start: calc(-1 * var(--inline-padding));
+  font-family: var(--font-actions);
   font-weight: 600;
 }
 

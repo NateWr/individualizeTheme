@@ -18,6 +18,7 @@
   padding-right: 0.75rem;
   margin: 0 auto;
   color: var(--color-page-links);
+  font-family: var(--font-actions);
   font-weight: 700;
 }
 

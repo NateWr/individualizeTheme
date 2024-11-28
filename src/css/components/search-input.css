@@ -7,6 +7,7 @@
   border: var(--input-border-width) solid;
   color: var(--color-page-text);
   border-radius: var(--search-radius);
+  font-family: var(--font-actions);
   font-weight: 500;
 
   &:focus-within {

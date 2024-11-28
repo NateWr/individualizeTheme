@@ -17,6 +17,7 @@
     border-radius: var(--button-radius);
     color: var(--color-button-text);
     background: var(--color-button-background);
+    font-family: var(--font-actions);
     font-weight: 700;
     line-height: 1.25;
     text-decoration: none;

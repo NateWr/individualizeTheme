@@ -13,6 +13,7 @@
     border: var(--input-border-width) solid;
     color: var(--color-page-text);
     border-radius: var(--input-radius);
+    font-family: var(--font-actions);
     font-weight: 400;
 
     &:focus-visible {
@@ -54,6 +55,7 @@
   .input-legend {
     padding: 0.75rem;
     margin-bottom: 0.75rem;
+    font-family: var(--font-actions);
     font-weight: 700;
     line-height: 1.25;
     background: var(--color-page-background);
