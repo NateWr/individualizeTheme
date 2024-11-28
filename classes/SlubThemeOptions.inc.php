@@ -162,16 +162,15 @@ class SlubThemeOptions
         }
 
         if ($this->theme->usesCustomFonts($this->enabledFonts)) {
-            $fallback = 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
-            foreach ($this->enabledFonts as $id => $name) {
-                if ($id === $this->theme->getOption('font')) {
-                    $variables['--font-base'] = "'{$name}', {$fallback}";
+            foreach ($this->enabledFonts as $font) {
+                if ($font['id'] === $this->theme->getOption('font')) {
+                    $variables['--font-base'] = "'{$font['family']}', {$this->getFontFallback($font['category'])}";
                 }
-                if ($id === $this->theme->getOption('titlesFont')) {
-                    $variables['--font-titles'] = "'{$name}', {$fallback}";
+                if ($font['id'] === $this->theme->getOption('titlesFont')) {
+                    $variables['--font-titles'] = "'{$font['family']}', {$this->getFontFallback($font['category'])}";
                 }
-                if ($id === $this->theme->getOption('actionsFont')) {
-                    $variables['--font-actions'] = "'{$name}', {$fallback}";
+                if ($font['id'] === $this->theme->getOption('actionsFont')) {
+                    $variables['--font-actions'] = "'{$font['family']}', {$this->getFontFallback($font['category'])}";
                 }
             }
         }
@@ -600,10 +599,10 @@ class SlubThemeOptions
         }
 
         $options = [];
-        foreach ($this->enabledFonts as $value => $name) {
+        foreach ($this->enabledFonts as $font) {
             $options[] = [
-                'value' => $value,
-                'label' => $name,
+                'value' => $font['id'],
+                'label' => $font['family'],
             ];
         }
 
@@ -736,5 +735,23 @@ class SlubThemeOptions
                 'count' => 5,
             ])
         );
+    }
+
+    /**
+     * Get the fallback font statement based on a font category
+     *
+     * The category is usually serif or sans-serif, but may be
+     * other categories from Google Fonts, such as display and
+     * handwriting.
+     */
+    protected function getFontFallback(string $category): string
+    {
+        switch ($category) {
+            case 'serif':
+                return 'serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+            case 'sans-serif':
+            default:
+                return 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+        }
     }
 }

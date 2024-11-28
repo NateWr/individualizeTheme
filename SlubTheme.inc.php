@@ -33,7 +33,7 @@ class SlubTheme extends ThemePlugin
         }
 
         $this->useSlubThemeHelper();
-        $enabledFonts = $this->getEnabledFonts($request->getContext()?->getId());
+        $enabledFonts = $this->getEnabledFonts();
         $this->optionsHelper = new SlubThemeOptions($this, $enabledFonts);
         $this->optionsHelper->addOptions();
         if (!$this->usesCustomFonts($enabledFonts)) {
@@ -282,8 +282,11 @@ class SlubTheme extends ThemePlugin
      * reason, we go directly to the database to get the Google
      * Fonts plugin's settings.
      */
-    protected function getEnabledFonts(?int $contextId = CONTEXT_ID_NONE): array
+    protected function getEnabledFonts(?int $contextId = null): array
     {
+        if (is_null($contextId)) {
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? CONTEXT_ID_NONE;
+        }
         /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
         $enabledFonts = $pluginSettingsDao->getSetting($contextId, 'googlefontsplugin', 'fonts');
