@@ -18,10 +18,27 @@ class SlubTheme extends ThemePlugin
 
     public function init()
     {
+        /**
+         * Skip requests for publisher library files
+         *
+         * OJS loads and initializes all plugins when handling a request
+         * to a public file in the publisher library. We don't initialize
+         * the plugin for these requests in order to avoid unnecessary
+         * database calls.
+         */
+        $request = Application::get()->getRequest();
+        $router = $request->getRouter();
+        if (is_a($router, 'PKPPageRouter') && $router->getRequestedPage($request) === 'libraryFiles') {
+            return;
+        }
+
         $this->useSlubThemeHelper();
-        $this->optionsHelper = new SlubThemeOptions($this);
+        $enabledFonts = $this->getEnabledFonts($request->getContext()?->getId());
+        $this->optionsHelper = new SlubThemeOptions($this, $enabledFonts);
         $this->optionsHelper->addOptions();
-        $this->addFonts();
+        if (!$this->usesCustomFonts($enabledFonts)) {
+            $this->addDefaultFont($enabledFonts);
+        }
         $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true]);
         $this->addMenuArea(['primary', 'user', 'homepage', 'policy']);
         $this->addScript('i18n', $this->getI18nScript(), ['inline' => true]);
@@ -122,6 +139,22 @@ class SlubTheme extends ThemePlugin
     }
 
     /**
+     * Whether or not this theme uses custom fonts
+     *
+     * Checks if Google Fonts have been enabled and the theme
+     * option has been set.
+     */
+    public function usesCustomFonts(array $enabledFonts): bool
+    {
+        return count($enabledFonts)
+            && (
+                $this->getOption('font')
+                || $this->getOption('titlesFont')
+                || $this->getOption('actionsFont')
+            );
+    }
+
+    /**
      * Use functions from SlubThemeHelper
      *
      * These helper functions register custom template functions, add
@@ -140,15 +173,18 @@ class SlubTheme extends ThemePlugin
         );
     }
 
+    /**
+     * Get the TemplateManager instance
+     */
     protected function getTemplateManager(): TemplateManager
     {
         return TemplateManager::getManager(Application::get()->getRequest());
     }
 
     /**
-     * Load the selected fonts
+     * Load the default font
      */
-    protected function addFonts(): void
+    protected function addDefaultFont(): void
     {
         $this->addStyle(
             'st-font',
@@ -190,6 +226,9 @@ class SlubTheme extends ThemePlugin
         );
     }
 
+    /**
+     * Adds translatable strings used by JavaScript code
+     */
     protected function getI18nScript(): string
     {
         return 'window.slubTheme = '
@@ -233,5 +272,24 @@ class SlubTheme extends ThemePlugin
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $primaryGenres = $genreDao->getPrimaryByContextId($contextId)->toArray();
         return array_map(fn($genre) => $genre->getId(), $primaryGenres);
+    }
+
+    /**
+     * Get enabled fonts from the Google Fonts plugin
+     *
+     * Font options rely upon the Google Fonts plugin, but the
+     * theme is initialized before other generic plugins. For this
+     * reason, we go directly to the database to get the Google
+     * Fonts plugin's settings.
+     */
+    protected function getEnabledFonts(?int $contextId = CONTEXT_ID_NONE): array
+    {
+        /** @var PluginSettingsDAO $pluginSettingsDao */
+        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+        $enabledFonts = $pluginSettingsDao->getSetting($contextId, 'googlefontsplugin', 'fonts');
+        if (is_array($enabledFonts)) {
+            return $enabledFonts;
+        }
+        return [];
     }
 }

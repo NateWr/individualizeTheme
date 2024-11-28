@@ -1,6 +1,5 @@
 <?php
 
-use Application;
 use Illuminate\Support\Collection;
 
 /**
@@ -58,6 +57,8 @@ class SlubThemeOptions
     public const ISSUE_ARCHIVE_COVERS = 'covers';
     public const ISSUE_ARCHIVE_NO_COVERS = 'no-covers';
 
+    public const FONT_DEFAULT = 'inter';
+
     public const COLOR_MODE_DEFAULT = 'default';
     public const COLOR_MODE_ADVANCED = 'advanced';
 
@@ -72,9 +73,21 @@ class SlubThemeOptions
      */
     protected string $primaryLocale;
 
-    public function __construct(public SlubTheme $theme)
-    {
+    public function __construct(
+        /**
+         * Instance of the theme
+         */
+        protected SlubTheme $theme,
 
+        /**
+         * List of enabled fonts
+         *
+         * From the Google Fonts plugin. Empty array
+         * if the plugin is disabled or no fonts have
+         * been added through the plugin.
+         */
+        protected array $enabledFonts
+    ) {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $this->primaryLocale = $context
@@ -87,7 +100,6 @@ class SlubThemeOptions
      */
     public function addOptions(): void
     {
-
         $this->addHeaderOption();
         $this->addTaglineOption();
         $this->addHomepageImageOption();
@@ -99,6 +111,7 @@ class SlubThemeOptions
         $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
         $this->addIssueArchivesOption();
+        $this->addFontOptions();
         $this->addColorOptions();
     }
 
@@ -146,6 +159,21 @@ class SlubThemeOptions
             $variables['--color-overlay-text'] = $this->theme->getOption('blockTextColor');
             $variables['--color-footer-background'] = $this->theme->getOption('footerBackgroundColor');
             $variables['--color-footer-text'] = $this->theme->getOption('footerTextColor');
+        }
+
+        if ($this->theme->usesCustomFonts($this->enabledFonts)) {
+            $fallback = 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+            foreach ($this->enabledFonts as $id => $name) {
+                if ($id === $this->theme->getOption('font')) {
+                    $variables['--font-base'] = "'{$name}', {$fallback}";
+                }
+                if ($id === $this->theme->getOption('titlesFont')) {
+                    $variables['--font-titles'] = "'{$name}', {$fallback}";
+                }
+                if ($id === $this->theme->getOption('actionsFont')) {
+                    $variables['--font-actions'] = "'{$name}', {$fallback}";
+                }
+            }
         }
 
         return $variables;
@@ -559,6 +587,45 @@ class SlubThemeOptions
                 ],
             ],
             'default' => self::ISSUE_ARCHIVE_DEFAULT,
+        ]);
+    }
+
+    /**
+     * Add options to set typography
+     */
+    protected function addFontOptions(): void
+    {
+        if (!count($this->enabledFonts)) {
+            return;
+        }
+
+        $options = [];
+        foreach ($this->enabledFonts as $value => $name) {
+            $options[] = [
+                'value' => $value,
+                'label' => $name,
+            ];
+        }
+
+        $this->theme->addOption('font', 'FieldSelect', [
+            'label' => __('plugins.themes.slubTheme.option.font.label'),
+            'description' => __('plugins.themes.slubTheme.option.font.description'),
+            'options' => $options,
+            'default' => self::FONT_DEFAULT,
+        ]);
+
+        $this->theme->addOption('titlesFont', 'FieldSelect', [
+            'label' => __('plugins.themes.slubTheme.option.titlesFont.label'),
+            'description' => __('plugins.themes.slubTheme.option.titlesFont.description'),
+            'options' => $options,
+            'default' => self::FONT_DEFAULT,
+        ]);
+
+        $this->theme->addOption('actionsFont', 'FieldSelect', [
+            'label' => __('plugins.themes.slubTheme.option.actionsFont.label'),
+            'description' => __('plugins.themes.slubTheme.option.actionsFont.description'),
+            'options' => $options,
+            'default' => self::FONT_DEFAULT,
         ]);
     }
 

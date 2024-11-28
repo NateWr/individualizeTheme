@@ -286,6 +286,24 @@ msgstr "Galley of issue cover images"
 msgid "plugins.themes.slubTheme.option.issueArchives.no-covers"
 msgstr "List of issue summaries without cover images. (Choose this option if your journal never publishes issue cover images.)"
 
+msgid "plugins.themes.slubTheme.option.font.label"
+msgstr "Base Font"
+
+msgid "plugins.themes.slubTheme.option.font.description"
+msgstr "Select the font to use for the main body text, such as paragraphs and long blocks of text."
+
+msgid "plugins.themes.slubTheme.option.titlesFont.label"
+msgstr "Headings and Titles Font"
+
+msgid "plugins.themes.slubTheme.option.titlesFont.description"
+msgstr "Select the font to use for titles, headings and other large text."
+
+msgid "plugins.themes.slubTheme.option.actionsFont.label"
+msgstr "Buttons, Menus and Forms Font"
+
+msgid "plugins.themes.slubTheme.option.actionsFont.description"
+msgstr "Select the font to use for interactive elements, such as buttons, navigation menus, and forms."
+
 msgid "plugins.themes.slubTheme.option.colorMode.label"
 msgstr "Color Options Mode"
 
