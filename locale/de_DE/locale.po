@@ -1,0 +1,373 @@
+msgid "plugins.themes.individualizeTheme.name"
+msgstr "Individualize-Theme von der SLUB Dresden"
+
+msgid "plugins.themes.individualizeTheme.description"
+msgstr "Ein anpassbares Theme mit vielen Optionen, die es Redakteuren ermöglichen, Design und Layout ihrer Journale anzupassen."
+
+msgid "plugins.themes.individualizeTheme.backToTop"
+msgstr "Nach oben"
+
+msgid "plugins.themes.individualizeTheme.accessibility"
+msgstr "Barrierefreiheit"
+
+msgid "plugins.themes.individualizeTheme.privacyPolicy"
+msgstr "Datenschutzerklärung"
+
+msgid "plugins.themes.individualizeTheme.changeLanguage"
+msgstr "Sprache ändern"
+
+msgid "plugins.themes.individualizeTheme.account"
+msgstr "Konto"
+
+msgid "plugins.themes.individualizeTheme.loggedInAs"
+msgstr "Angemeldet als <strong>{$username}</strong>."
+
+msgid "plugins.themes.individualizeTheme.menu"
+msgstr "Menü"
+
+msgid "plugins.themes.individualizeTheme.latestArticles"
+msgstr "Neueste Artikel"
+
+msgid "plugins.themes.individualizeTheme.latestArticles.description"
+msgstr "Lesen Sie unsere neuesten Veröffentlichungen oder durchsuchen Sie alle Artikel in unserem <a href=\"{$url}\" class=\"link\">vollständigen Archiv</a>."
+
+msgid "plugins.themes.individualizeTheme.partners"
+msgstr "Partner"
+
+msgid "plugins.themes.individualizeTheme.partners.description"
+msgstr "Dieses Journal wird mit Unterstützung der folgenden Partner veröffentlicht."
+
+msgid "plugins.themes.individualizeTheme.browseByCategory"
+msgstr "Nach Kategorie durchsuchen"
+
+msgid "plugins.themes.individualizeTheme.browseByCategory.description"
+msgstr "Finden Sie Artikel in unseren Hauptbereichen oder durchsuchen Sie alle Artikel in unseren <a href=\"{$url}\">vergangenen Ausgaben</a>."
+
+msgid "plugins.themes.individualizeTheme.viewCategory"
+msgstr "Kategorie ansehen"
+
+msgid "plugins.themes.individualizeTheme.parenthesis"
+msgstr "({$text})"
+
+msgid "plugins.themes.individualizeTheme.publishedInIssue"
+msgstr "Veröffentlicht in <a class='link' href='{$issueUrl}'>{$issue}</a> von <a class='link' href='{$journalUrl}'>{$journal}</a>."
+
+msgid "plugins.themes.individualizeTheme.allIssues"
+msgstr "Alle Ausgaben"
+
+msgid "plugins.themes.individualizeTheme.pagination.prompt"
+msgstr "Gehe zu anderen Seiten"
+
+msgid "plugins.themes.individualizeTheme.pagination.goToPage"
+msgstr "Gehe zu Seite {$page}"
+
+msgid "plugins.themes.individualizeTheme.pagination.nextPage"
+msgstr "Gehe zur nächsten Seite"
+
+msgid "plugins.themes.individualizeTheme.pagination.previousPage"
+msgstr "Gehe zur vorherigen Seite"
+
+msgid "plugins.themes.individualizeTheme.pagination.issueArchive"
+msgstr "Zeige {$start}-{$end} von {$total} Ausgaben von <strong>{$journal}</strong>."
+
+msgid "plugins.themes.individualizeTheme.search.description"
+msgstr "Durchsuchen Sie alle Artikel oder stöbern Sie in unseren <a href='{$url}' class='link'>vergangenen Ausgaben</a>."
+
+msgid "plugins.themes.individualizeTheme.search.countResults"
+msgstr "{$count} Ergebnisse"
+
+msgid "plugins.themes.individualizeTheme.search.showing"
+msgstr "Zeige {$start}-{$end}, die mit der Suchanfrage <strong>{$phrase}</strong> übereinstimmen."
+
+msgid "plugins.themes.individualizeTheme.search.noMatches"
+msgstr "Keine Übereinstimmungen für die Suchanfrage <strong>{$phrase}</strong> gefunden."
+
+msgid "plugins.themes.individualizeTheme.search.placeholder"
+msgstr "Artikel suchen..."
+
+msgid "plugins.themes.individualizeTheme.search.pageTitle"
+msgstr "\"{$phrase}\" Suchergebnisse"
+
+msgid "plugins.themes.individualizeTheme.announcements.none"
+msgstr "Derzeit gibt es keine Ankündigungen."
+
+msgid "plugins.themes.individualizeTheme.site.unsupported"
+msgstr "Nicht unterstützt"
+
+msgid "plugins.themes.individualizeTheme.site.unsupported.description"
+msgstr "Diese Seite wird von diesem Theme nicht unterstützt. Bitte wählen Sie ein anderes Theme für eine Website mit mehreren Journals aus."
+
+msgid "plugins.themes.individualizeTheme.skip.language"
+msgstr "Zur Sprachauswahl springen"
+
+msgid "plugins.themes.individualizeTheme.skip.userNav"
+msgstr "Zum Login- und Benutzerkontomenü springen"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
+msgstr "Partner / Sponsoren"
+
+msgid "plugins.themes.individualizeTheme.option.header.label"
+msgstr "Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.header.description"
+msgstr "Wählen Sie das Layout für das Logo und die Navigationsmenüs in der Kopfzeile Ihrer Website. Die Standardlayouts eignen sich für die meisten Websites. Verwenden Sie die Option \"Eine Zeile\" nur, wenn Sie wenige Elemente im Navigationsmenü haben."
+
+msgid "plugins.themes.individualizeTheme.option.header.default"
+msgstr "Standard"
+
+msgid "plugins.themes.individualizeTheme.option.header.default-center"
+msgstr "Standard (Zentriert)"
+
+msgid "plugins.themes.individualizeTheme.option.header.line"
+msgstr "Eine Zeile (Logo und Navigationsmenü in einer Zeile)"
+
+msgid "plugins.themes.individualizeTheme.option.tagline.label"
+msgstr "<Slogan>"
+
+msgid "plugins.themes.individualizeTheme.option.tagline.description"
+msgstr "Eine kurze Beschreibung, ein Motto oder ein Titel, der neben dem Logo des Journals angezeigt wird. Dieser wird nicht angezeigt, wenn kein Logo hochgeladen wurde."
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.label"
+msgstr "Position des Startseitenbilds"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.description"
+msgstr "Wählen Sie, wie das Startseitenbild in der Kopfzeile Ihrer Website angezeigt werden soll. Das Startseitenbild kann in den Einstellungen unter <a href='#appearance/appearance-setup'>Erscheinungsbild > Setup</a> hochgeladen werden."
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.above"
+msgstr "Über der Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.above-center"
+msgstr "Über der Kopfzeile (Zentriert)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.behind"
+msgstr "Hinter der Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-top"
+msgstr "Hinter der Kopfzeile (Oben rechts)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-center"
+msgstr "Hinter der Kopfzeile (Rechts zentriert)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-bottom"
+msgstr "Hinter der Kopfzeile (Unten rechts)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.behind-pattern"
+msgstr "Hinter der Kopfzeile (Wiederholendes Muster)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.below"
+msgstr "Unter der Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.homepageImagePosition.below-center"
+msgstr "Unter der Kopfzeile (Zentriert)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.label"
+msgstr "Startseiten-Blöcke"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.description"
+msgstr "Wählen Sie aus, welche Blöcke auf Ihrer Startseite angezeigt werden sollen."
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.announcement"
+msgstr "Neueste Ankündigung"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.about"
+msgstr "Über die Zeitschrift mit Startseiten-Menü"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.issue-summary"
+msgstr "Aktuelle Ausgabe (Zusammenfassung)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.issue-toc"
+msgstr "Aktuelle Ausgabe (Inhaltsverzeichnis)"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.how-to-submit"
+msgstr "Wie man einreicht"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.browse-by-category"
+msgstr "Nach Kategorie durchsuchen"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
+msgstr "Partner / Sponsoren"
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitTitle.label"
+msgstr "Wie man einreicht - Titel"
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitTitle.description"
+msgstr "Ändern Sie den Titel für den Block \"Wie man einreicht\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitText.label"
+msgstr "Wie man einreicht - Text"
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitText.description"
+msgstr "Ändern Sie den kurzen Hinweis, wie man Beiträge für dieses Journal einreicht."
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitText.default"
+msgstr "Lesen Sie unsere Richtlinien für Autoren und erfahren Sie, wie Sie bei {$journalName} einreichen können."
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.label"
+msgstr "Wie man einreicht - Button"
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.description"
+msgstr "Ändern Sie den Text auf dem Button, um die Seite für Einreichungen anzuzeigen."
+
+msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.default"
+msgstr "Wie man einreicht"
+
+msgid "plugins.themes.individualizeTheme.option.partnersTitle.label"
+msgstr "Partner / Sponsoren - Titel"
+
+msgid "plugins.themes.individualizeTheme.option.partnersTitle.description"
+msgstr "Ändern Sie den Titel für den Block \"Partner / Sponsoren\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.partnersDescription.label"
+msgstr "Partner / Sponsoren - Beschreibung"
+
+msgid "plugins.themes.individualizeTheme.option.partnersDescription.description"
+msgstr "Ändern Sie die Beschreibung des Blocks \"Partner / Sponsoren\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.categoriesTitle.label"
+msgstr "Nach Kategorie durchsuchen - Titel"
+
+msgid "plugins.themes.individualizeTheme.option.categoriesTitle.description"
+msgstr "Ändern Sie den Titel für den Block \"Nach Kategorie durchsuchen\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.categoriesDescription.label"
+msgstr "Nach Kategorie durchsuchen - Beschreibung"
+
+msgid "plugins.themes.individualizeTheme.option.categoriesDescription.description"
+msgstr "Ändern Sie die Beschreibung des Blocks \"Nach Kategorie durchsuchen\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.latestArticlesTitle.label"
+msgstr "Neueste Artikel - Titel"
+
+msgid "plugins.themes.individualizeTheme.option.latestArticlesTitle.description"
+msgstr "Ändern Sie den Titel für den Block \"Neueste Artikel\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.latestArticlesDescription.label"
+msgstr "Neueste Artikel - Beschreibung"
+
+msgid "plugins.themes.individualizeTheme.option.latestArticlesDescription.description"
+msgstr "Ändern Sie die Beschreibung des Blocks \"Neueste Artikel\" auf der Startseite."
+
+msgid "plugins.themes.individualizeTheme.option.showAuthors.label"
+msgstr "Autorendetails"
+
+msgid "plugins.themes.individualizeTheme.option.showAuthors.description"
+msgstr "Wählen Sie aus, wie die Autorendetails auf der Artikelseite angezeigt werden sollen. Wenn Sie \"Automatisch\" wählen, versucht das System, den besten Anzeigemodus basierend auf der Anzahl der Autoren und den bereitgestellten Details zu verwenden."
+
+msgid "plugins.themes.individualizeTheme.option.showAuthors.auto"
+msgstr "Automatisch"
+
+msgid "plugins.themes.individualizeTheme.option.showAuthors.simple"
+msgstr "Immer Autorennamen anzeigen mit einem Button für vollständige Details"
+
+msgid "plugins.themes.individualizeTheme.option.showAuthors.detailed"
+msgstr "Immer vollständige Autorendetails anzeigen"
+
+msgid "plugins.themes.individualizeTheme.option.highlightArticleMetadata.label"
+msgstr "Artikel-Metadaten hervorheben"
+
+msgid "plugins.themes.individualizeTheme.option.highlightArticleMetadata.description"
+msgstr "Wählen Sie die Artikel-Metadaten aus, die oben auf der Artikelseite angezeigt werden sollen."
+
+msgid "plugins.themes.individualizeTheme.option.highlightArticleMetadata.published-by"
+msgstr "Veröffentlicht in Ausgabe/Zeitschrift"
+
+msgid "plugins.themes.individualizeTheme.option.issueArchives.label"
+msgstr "Ausgaben-Archiv"
+
+msgid "plugins.themes.individualizeTheme.option.issueArchives.description"
+msgstr "Wählen Sie aus, wie die Liste der veröffentlichten Ausgaben im Archiv angezeigt werden soll."
+
+msgid "plugins.themes.individualizeTheme.option.issueArchives.default"
+msgstr "Liste der Ausgabenzusammenfassungen"
+
+msgid "plugins.themes.individualizeTheme.option.issueArchives.covers"
+msgstr "Galerie der Ausgabe-Coverbilder"
+
+msgid "plugins.themes.individualizeTheme.option.issueArchives.no-covers"
+msgstr "Liste der Ausgabenzusammenfassungen ohne Coverbilder. (Wählen Sie diese Option, wenn Ihr Journal niemals Ausgabe-Coverbilder veröffentlicht.)"
+
+msgid "plugins.themes.individualizeTheme.option.font.label"
+msgstr "Grundschriftart"
+
+msgid "plugins.themes.individualizeTheme.option.font.description"
+msgstr "Wählen Sie die Schriftart für den Haupttext, wie Absätze und lange Textblöcke."
+
+msgid "plugins.themes.individualizeTheme.option.titlesFont.label"
+msgstr "Schriftart für Überschriften und Titel"
+
+msgid "plugins.themes.individualizeTheme.option.titlesFont.description"
+msgstr "Wählen Sie die Schriftart für Titel, Überschriften und andere große Texte."
+
+msgid "plugins.themes.individualizeTheme.option.actionsFont.label"
+msgstr "Schriftart für Buttons, Menüs und Formulare"
+
+msgid "plugins.themes.individualizeTheme.option.actionsFont.description"
+msgstr "Wählen Sie die Schriftart für interaktive Elemente wie Buttons, Navigationsmenüs und Formulare."
+
+msgid "plugins.themes.individualizeTheme.option.colorMode.label"
+msgstr "Farboptionen-Modus"
+
+msgid "plugins.themes.individualizeTheme.option.colorMode.description"
+msgstr "Die meisten Journale sollten den einfachen Modus verwenden. Der erweiterte Modus bietet Designern mehr Kontrolle, aber falsche Nutzung kann dazu führen, dass einige Texte auf Ihrer Website unleserlich werden."
+
+msgid "plugins.themes.individualizeTheme.option.colorMode.default"
+msgstr "Einfacher Modus: Wählen Sie eine oder zwei Farben für Ihre Website aus."
+
+msgid "plugins.themes.individualizeTheme.option.colorMode.advanced"
+msgstr "Erweiterter Modus: Legen Sie verschiedene Farben für Kopfzeilen, Fußzeilen, Buttons, Texte, Links und mehr fest."
+
+msgid "plugins.themes.individualizeTheme.option.primaryColor.label"
+msgstr "Primärfarbe"
+
+msgid "plugins.themes.individualizeTheme.option.primaryColor.description"
+msgstr "Die dominante Farbe Ihrer Website, die für den Hintergrund der Kopfzeile verwendet wird."
+
+msgid "plugins.themes.individualizeTheme.option.accentColor.label"
+msgstr "Akzentfarbe"
+
+msgid "plugins.themes.individualizeTheme.option.accentColor.description"
+msgstr "Die Farbe für Links und Buttons. Wählen Sie eine dunkle Farbe, die auf einem weißen Hintergrund gut lesbar ist."
+
+msgid "plugins.themes.individualizeTheme.option.pageBackgroundColor.label"
+msgstr "Hintergrundfarbe der Seite"
+
+msgid "plugins.themes.individualizeTheme.option.pageTextColor.label"
+msgstr "Textfarbe der Seite"
+
+msgid "plugins.themes.individualizeTheme.option.pageLinkColor.label"
+msgstr "Linkfarbe der Seite"
+
+msgid "plugins.themes.individualizeTheme.option.headerBackgroundColor.label"
+msgstr "Hintergrundfarbe der Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.headerTextColor.label"
+msgstr "Textfarbe der Kopfzeile"
+
+msgid "plugins.themes.individualizeTheme.option.buttonBackgroundColor.label"
+msgstr "Hintergrundfarbe der Buttons"
+
+msgid "plugins.themes.individualizeTheme.option.buttonTextColor.label"
+msgstr "Textfarbe der Buttons"
+
+msgid "plugins.themes.individualizeTheme.option.blockBackgroundColor.label"
+msgstr "Hintergrundfarbe der Blöcke"
+
+msgid "plugins.themes.individualizeTheme.option.blockTextColor.label"
+msgstr "Textfarbe der Blöcke"
+
+msgid "plugins.themes.individualizeTheme.option.footerBackgroundColor.label"
+msgstr "Hintergrundfarbe der Fußzeile"
+
+msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
+msgstr "Textfarbe der Fußzeile"
+
+# 3.3 Compatibility
+#
+# The following locale keys can be removed for
+# OJS versions 3.4+
+msgid "publication.version"
+msgstr "Version {$version}"
+
+msgid "admin.versionHistory"
+msgstr "Versionsverlauf"
+
