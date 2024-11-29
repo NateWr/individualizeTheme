@@ -12,7 +12,7 @@
 {**
  * Get the list of locales supported by the journal or site
  *}
-{th_locales assign="slubLocales"}
+{th_locales assign="individualizeLocales"}
 
 <body
   dir="{$currentLocaleLangDir|escape|default:"ltr"}"
@@ -35,7 +35,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 19L8.125 19L8.125 6.875L4.075 10.925L3 9.85L8.925 4L14.75 9.825L13.675 10.9L9.625 6.85L9.625 17.5L20 17.5V19Z" fill="currentColor"/>
           </svg>
-          {translate key="plugins.themes.slubTheme.backToTop"}
+          {translate key="plugins.themes.individualizeTheme.backToTop"}
         </a>
       </div>
     </div>
@@ -77,7 +77,7 @@
                 <ul class="menu" id="nav-footer-policy">
                   <li class="menu-item">
                     <a class="menu-button" href="{url page="about" op="privacy"}">
-                      {translate key="plugins.themes.slubTheme.privacyPolicy"}
+                      {translate key="plugins.themes.individualizeTheme.privacyPolicy"}
                     </a>
                   </li>
                   <li class="menu-item">
@@ -106,7 +106,7 @@
         {/if}
       </div>
     </div>
-    {call_hook name="SLUB::Footer"}
+    {call_hook name="IndividualizeTheme::Footer"}
   </footer>
   {load_script context="frontend"}
 </html>

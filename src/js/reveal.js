@@ -37,7 +37,7 @@ const init = () => {
     $button.setAttribute('aria-controls', `#${$reveal.id}`)
     $button.dataset.revealLink = true
     $button.innerHTML = `
-      ${window?.slubTheme?.i18n?.reveal}
+      ${window?.individualizeTheme?.i18n?.reveal}
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
         <path d="M480-371.69 267.69-584 296-612.31l184 184 184-184L692.31-584 480-371.69Z"/>
       </svg>

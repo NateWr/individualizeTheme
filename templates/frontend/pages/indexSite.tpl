@@ -15,7 +15,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>{translate|escape key="plugins.themes.slubTheme.site.unsupported"}</title>
+	<title>{translate|escape key="plugins.themes.individualizeTheme.site.unsupported"}</title>
   <style>
     body,
     html {
@@ -46,10 +46,10 @@
   <div class="root">
     <div class="message">
       <h1 class="title">
-        {translate key="plugins.themes.slubTheme.site.unsupported"}
+        {translate key="plugins.themes.individualizeTheme.site.unsupported"}
       </h1>
       <div class="desc">
-        {translate key="plugins.themes.slubTheme.site.unsupported.description"}
+        {translate key="plugins.themes.individualizeTheme.site.unsupported.description"}
       </div>
     </div>
   </div>

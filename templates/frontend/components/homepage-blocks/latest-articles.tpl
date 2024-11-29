@@ -1,4 +1,4 @@
-{if $slubLatestArticles|count}
+{if $individualizeLatestArticles|count}
   <section class="homepage-block homepage-block-latest-articles">
     <div class="homepage-block-latest-articles-header">
       <h2 class="homepage-block-latest-articles-title">
@@ -10,7 +10,7 @@
       </div>
     </div>
     <ul class="homepage-block-latest-articles-list">
-      {foreach from=$slubLatestArticles item="article"}
+      {foreach from=$individualizeLatestArticles item="article"}
         <li>
           {include
             file="frontend/components/article-summary.tpl"

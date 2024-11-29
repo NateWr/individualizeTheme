@@ -14,19 +14,19 @@
 		{translate key="navigation.skip.nav"}
 	</a>
 	<a href="#skip-to-language-desktop" class="skip-links-desktop">
-		{translate key="plugins.themes.slubTheme.skip.language"}
+		{translate key="plugins.themes.individualizeTheme.skip.language"}
 	</a>
 	<a href="#skip-to-user-nav-desktop" class="skip-links-desktop">
-		{translate key="plugins.themes.slubTheme.skip.userNav"}
+		{translate key="plugins.themes.individualizeTheme.skip.userNav"}
 	</a>
 	<a href="#skip-to-nav-mobile" class="skip-links-mobile">
 		{translate key="navigation.skip.nav"}
 	</a>
 	<a href="#skip-to-language-mobile" class="skip-links-mobile">
-		{translate key="plugins.themes.slubTheme.skip.language"}
+		{translate key="plugins.themes.individualizeTheme.skip.language"}
 	</a>
 	<a href="#skip-to-user-nav-mobile" class="skip-links-mobile">
-		{translate key="plugins.themes.slubTheme.skip.userNav"}
+		{translate key="plugins.themes.individualizeTheme.skip.userNav"}
 	</a>
 	<a href="#skip-to-footer">
 		{translate key="navigation.skip.footer"}

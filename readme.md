@@ -1,6 +1,6 @@
-# OJS Theme by SLUB Dresden
+# Individualize Theme by SLUB Dresden
 
-...
+A custom theme for OJS to allow editors to customize the design and layout of their journal.
 
 # Install
 
@@ -33,5 +33,5 @@ npm run build
 Create a `.tar.gz` package of this theme by running the following command in the directory above the theme's file.
 
 ```
-tar -czf slubTheme.tar.gz --exclude-ignore=.tarignore slubTheme
+tar -czf individualizeTheme.tar.gz --exclude-ignore=.tarignore individualizeTheme
 ```

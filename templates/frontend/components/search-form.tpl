@@ -14,7 +14,7 @@
     file="frontend/components/search-input.tpl"
     id="search-form-input"
     name="query"
-    placeholder={translate key="plugins.themes.slubTheme.search.placeholder"}
+    placeholder={translate key="plugins.themes.individualizeTheme.search.placeholder"}
     value=$query
   }
   <fieldset class="search-form-filters-fieldset">

@@ -36,7 +36,7 @@
             </h1>
             <img class="header-desktop-logo" src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}">
           {else}
-            {slub_context_name_length assign="size"}
+            {individualize_context_name_length assign="size"}
             <div class="header-desktop-name header-desktop-name-{$size}">
               {$currentContext->getLocalizedName()}
             </div>
@@ -62,7 +62,7 @@
               name="query"
             }
           </form>
-          {if $slubLocales|count > 1}
+          {if $individualizeLocales|count > 1}
             <div class="dropdown">
               <button
                 class="dropdown-toggle tab-focus"
@@ -71,16 +71,16 @@
                 id="skip-to-language-desktop"
               >
                 <span class="sr-only">
-                  {translate key="plugins.themes.slubTheme.changeLanguage"}
+                  {translate key="plugins.themes.individualizeTheme.changeLanguage"}
                 </span>
                 {include file="frontend/icons/globe.svg"}
               </button>
               <div class="dropdown-menu">
                 <div class="header-desktop-languages">
                   <h2 class="sr-only">
-                    {translate key="plugins.themes.slubTheme.changeLanguage"}
+                    {translate key="plugins.themes.individualizeTheme.changeLanguage"}
                   </h2>
-                  {foreach key="localeKey" item="name" from=$slubLocales}
+                  {foreach key="localeKey" item="name" from=$individualizeLocales}
                     <a
                       class="
                         header-desktop-language
@@ -109,7 +109,7 @@
                 id="skip-to-user-nav-desktop"
               >
                 <span class="sr-only">
-                  {translate key="plugins.themes.slubTheme.account"}
+                  {translate key="plugins.themes.individualizeTheme.account"}
                 </span>
                 {include file="frontend/icons/account-circle.svg"}
               </button>

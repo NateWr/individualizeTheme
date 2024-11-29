@@ -1,6 +1,6 @@
 {assign var="pageTitleTranslated" value={translate key="common.search"}}
 {if $query}
-  {assign var="pageTitleTranslated" value={translate key="plugins.themes.slubTheme.search.pageTitle" phrase=$query|escape}}
+  {assign var="pageTitleTranslated" value={translate key="plugins.themes.individualizeTheme.search.pageTitle" phrase=$query|escape}}
 {/if}
 
 
@@ -21,14 +21,14 @@
         {if !$query}
           <div>
             {translate
-              key="plugins.themes.slubTheme.search.description"
+              key="plugins.themes.individualizeTheme.search.description"
               url={url page="issue" op="archive"}
             }
           </div>
         {else}
           <div class="search-desc-results">
             {translate
-              key="plugins.themes.slubTheme.search.countResults"
+              key="plugins.themes.individualizeTheme.search.countResults"
               count=$results->count
             }
           </div>
@@ -37,14 +37,14 @@
               {assign var="start" value=(($results->getPage() - 1) * $results->itemsPerPage) + 1}
               {assign var="end" value=(min($results->getCount(), ($results->getPage() * $results->itemsPerPage)))}
               {translate
-                key="plugins.themes.slubTheme.search.showing"
+                key="plugins.themes.individualizeTheme.search.showing"
                 start=$start
                 end=$end
                 phrase=$query|escape
               }
             {else}
               {translate
-                key="plugins.themes.slubTheme.search.noMatches"
+                key="plugins.themes.individualizeTheme.search.noMatches"
                 phrase=$query|escape
               }
             {/if}

@@ -4,9 +4,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Helper class to define and register theme options
- * for SlubTheme
+ * for IndividualizeTheme
  */
-class SlubThemeOptions
+class IndividualizeThemeOptions
 {
     public const HEADER_DEFAULT = 'default';
     public const HEADER_CENTER = 'defaultCenter';
@@ -77,7 +77,7 @@ class SlubThemeOptions
         /**
          * Instance of the theme
          */
-        protected SlubTheme $theme,
+        protected IndividualizeTheme $theme,
 
         /**
          * List of enabled fonts
@@ -219,7 +219,7 @@ class SlubThemeOptions
                     $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
                     break;
                 case self::HOMEPAGE_BLOCK_LATEST_ARTICLES:
-                    $templateMgr->assign('slubLatestArticles', $this->getLatestArticles());
+                    $templateMgr->assign('individualizeLatestArticles', $this->getLatestArticles());
                     break;
                 case self::HOMEPAGE_BLOCK_PARTNERS:
                     /** @var PartnerLogosPlugin */
@@ -250,35 +250,35 @@ class SlubThemeOptions
         return collect([
             [
                 'value' => self::HOMEPAGE_BLOCK_ANNOUNCEMENT,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.announcement'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.announcement'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_ABOUT,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.about'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.about'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_ISSUE_SUMMARY,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.issue-summary'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.issue-summary'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_ISSUE_TOC,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.issue-toc'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.issue-toc'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_SUBMIT,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.how-to-submit'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.how-to-submit'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES,
-                'label' => __('plugins.themes.slubTheme.latestArticles'),
+                'label' => __('plugins.themes.individualizeTheme.latestArticles'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.browse-by-category'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.browse-by-category'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_PARTNERS,
-                'label' => __('plugins.themes.slubTheme.option.homepageBlocks.partners'),
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.partners'),
             ],
         ]);
 
@@ -292,20 +292,20 @@ class SlubThemeOptions
     {
         $this->theme->addOption('header', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.header.label'),
-            'description' => __('plugins.themes.slubTheme.option.header.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.header.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.header.description'),
             'options' => [
                 [
                     'value' => self::HEADER_DEFAULT,
-                    'label' => __('plugins.themes.slubTheme.option.header.default'),
+                    'label' => __('plugins.themes.individualizeTheme.option.header.default'),
                 ],
                 [
                     'value' => self::HEADER_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.header.default-center'),
+                    'label' => __('plugins.themes.individualizeTheme.option.header.default-center'),
                 ],
                 [
                     'value' => self::HEADER_LINE,
-                    'label' => __('plugins.themes.slubTheme.option.header.line'),
+                    'label' => __('plugins.themes.individualizeTheme.option.header.line'),
                 ],
             ],
             'default' => self::HEADER_DEFAULT,
@@ -318,8 +318,8 @@ class SlubThemeOptions
     protected function addTaglineOption(): void
     {
         $this->theme->addOption('tagline', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.tagline.label'),
-            'description' => __('plugins.themes.slubTheme.option.tagline.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.tagline.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.tagline.description'),
             'isMultilingual' => true,
         ]);
     }
@@ -331,44 +331,44 @@ class SlubThemeOptions
     {
         $this->theme->addOption('homepageImagePosition', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.label'),
-            'description' => __('plugins.themes.slubTheme.option.homepageImagePosition.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.description'),
             'options' => [
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_ABOVE,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.above'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.above'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_ABOVE_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.above-center'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.above-center'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.behind'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_TOP,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-top'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-top'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-center'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-center'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_RIGHT_BOTTOM,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-right-bottom'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.behind-right-bottom'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BEHIND_PATTERN,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.behind-pattern'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.behind-pattern'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BELOW,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.below'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.below'),
                 ],
                 [
                     'value' => self::HOMEPAGE_IMAGE_POSITION_BELOW_CENTER,
-                    'label' => __('plugins.themes.slubTheme.option.homepageImagePosition.below-center'),
+                    'label' => __('plugins.themes.individualizeTheme.option.homepageImagePosition.below-center'),
                 ],
             ],
             'default' => self::HOMEPAGE_IMAGE_POSITION_ABOVE,
@@ -383,8 +383,8 @@ class SlubThemeOptions
         $this->theme->addOption('homepageBlocks', 'FieldOptions', [
             'type' => 'checkbox',
             'isOrderable' => true,
-            'label' => __('plugins.themes.slubTheme.option.homepageBlocks.label'),
-            'description' => __('plugins.themes.slubTheme.option.homepageBlocks.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.homepageBlocks.description'),
             'options' => $this->getHomepageBlockOptions()->toArray(),
             'default' => self::HOMEPAGE_BLOCKS_DEFAULT,
         ]);
@@ -396,29 +396,29 @@ class SlubThemeOptions
     protected function addHowToSubmitBlock(): void
     {
         $this->theme->addOption('howToSubmitTitle', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.howToSubmitTitle.label'),
-            'description' => __('plugins.themes.slubTheme.option.howToSubmitTitle.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.howToSubmitTitle.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.howToSubmitTitle.description'),
             'isMultilingual' => true,
             'default' => [
                 $this->primaryLocale => __('navigation.submissions'),
             ],
         ]);
         $this->theme->addOption('howToSubmitText', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.howToSubmitText.label'),
-            'description' => __('plugins.themes.slubTheme.option.howToSubmitText.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.howToSubmitText.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.howToSubmitText.description'),
             'isMultilingual' => true,
             'size' => 'large',
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.option.howToSubmitText.default'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.option.howToSubmitText.default'),
             ],
         ]);
         $this->theme->addOption('howToSubmitAction', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.howToSubmitAction.label'),
-            'description' => __('plugins.themes.slubTheme.option.howToSubmitAction.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.howToSubmitAction.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.howToSubmitAction.description'),
             'isMultilingual' => true,
             'size' => 'small',
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.option.howToSubmitAction.default'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.option.howToSubmitAction.default'),
             ],
         ]);
     }
@@ -429,20 +429,20 @@ class SlubThemeOptions
     protected function addPartnersBlock(): void
     {
         $this->theme->addOption('partnersTitle', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.partnersTitle.label'),
-            'description' => __('plugins.themes.slubTheme.option.partnersTitle.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.partnersTitle.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.partnersTitle.description'),
             'isMultilingual' => true,
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.partners'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.partners'),
             ],
         ]);
         $this->theme->addOption('partnersDescription', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.partnersDescription.label'),
-            'description' => __('plugins.themes.slubTheme.option.partnersDescription.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.partnersDescription.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.partnersDescription.description'),
             'isMultilingual' => true,
             'size' => 'large',
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.partners.description'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.partners.description'),
             ],
         ]);
     }
@@ -453,20 +453,20 @@ class SlubThemeOptions
     protected function addCategoriesBlock(): void
     {
         $this->theme->addOption('categoriesTitle', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.categoriesTitle.label'),
-            'description' => __('plugins.themes.slubTheme.option.categoriesTitle.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.categoriesTitle.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.categoriesTitle.description'),
             'isMultilingual' => true,
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.browseByCategory'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.browseByCategory'),
             ],
         ]);
         $this->theme->addOption('categoriesDescription', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.categoriesDescription.label'),
-            'description' => __('plugins.themes.slubTheme.option.categoriesDescription.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.categoriesDescription.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.categoriesDescription.description'),
             'isMultilingual' => true,
             'size' => 'large',
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.browseByCategory.description'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.browseByCategory.description'),
             ],
         ]);
     }
@@ -477,20 +477,20 @@ class SlubThemeOptions
     protected function addLatestArticlesBlock(): void
     {
         $this->theme->addOption('latestArticlesTitle', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.latestArticlesTitle.label'),
-            'description' => __('plugins.themes.slubTheme.option.latestArticlesTitle.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.latestArticlesTitle.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.latestArticlesTitle.description'),
             'isMultilingual' => true,
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.latestArticles'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.latestArticles'),
             ],
         ]);
         $this->theme->addOption('latestArticlesDescription', 'FieldText', [
-            'label' => __('plugins.themes.slubTheme.option.latestArticlesDescription.label'),
-            'description' => __('plugins.themes.slubTheme.option.latestArticlesDescription.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.latestArticlesDescription.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.latestArticlesDescription.description'),
             'isMultilingual' => true,
             'size' => 'large',
             'default' => [
-                $this->primaryLocale => __('plugins.themes.slubTheme.latestArticles.description'),
+                $this->primaryLocale => __('plugins.themes.individualizeTheme.latestArticles.description'),
             ],
         ]);
     }
@@ -503,20 +503,20 @@ class SlubThemeOptions
     {
         $this->theme->addOption('showAuthors', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.showAuthors.label'),
-            'description' => __('plugins.themes.slubTheme.option.showAuthors.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.showAuthors.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.showAuthors.description'),
             'options' => [
                 [
                     'value' => self::SHOW_AUTHORS_AUTO,
-                    'label' => __('plugins.themes.slubTheme.option.showAuthors.auto'),
+                    'label' => __('plugins.themes.individualizeTheme.option.showAuthors.auto'),
                 ],
                 [
                     'value' => self::SHOW_AUTHORS_SIMPLE,
-                    'label' => __('plugins.themes.slubTheme.option.showAuthors.simple'),
+                    'label' => __('plugins.themes.individualizeTheme.option.showAuthors.simple'),
                 ],
                 [
                     'value' => self::SHOW_AUTHORS_DETAILED,
-                    'label' => __('plugins.themes.slubTheme.option.showAuthors.detailed'),
+                    'label' => __('plugins.themes.individualizeTheme.option.showAuthors.detailed'),
                 ],
             ],
             'default' => self::SHOW_AUTHORS_AUTO,
@@ -533,8 +533,8 @@ class SlubThemeOptions
         $this->theme->addOption('highlightArticleMetadata', 'FieldOptions', [
             'type' => 'checkbox',
             'isOrderable' => true,
-            'label' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.label'),
-            'description' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.highlightArticleMetadata.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.highlightArticleMetadata.description'),
             'options' => [
                 [
                     'value' => self::ARTICLE_METADATA_DOI,
@@ -550,7 +550,7 @@ class SlubThemeOptions
                 ],
                 [
                     'value' => self::ARTICLE_METADATA_PUBLISHED_BY,
-                    'label' => __('plugins.themes.slubTheme.option.highlightArticleMetadata.published-by'),
+                    'label' => __('plugins.themes.individualizeTheme.option.highlightArticleMetadata.published-by'),
                 ],
                 [
                     'value' => self::ARTICLE_METADATA_HOW_TO_CITE,
@@ -569,20 +569,20 @@ class SlubThemeOptions
     {
         $this->theme->addOption('issueArchives', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.issueArchives.label'),
-            'description' => __('plugins.themes.slubTheme.option.issueArchives.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.issueArchives.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.issueArchives.description'),
             'options' => [
                 [
                     'value' => self::ISSUE_ARCHIVE_DEFAULT,
-                    'label' => __('plugins.themes.slubTheme.option.issueArchives.default'),
+                    'label' => __('plugins.themes.individualizeTheme.option.issueArchives.default'),
                 ],
                 [
                     'value' => self::ISSUE_ARCHIVE_COVERS,
-                    'label' => __('plugins.themes.slubTheme.option.issueArchives.covers'),
+                    'label' => __('plugins.themes.individualizeTheme.option.issueArchives.covers'),
                 ],
                 [
                     'value' => self::ISSUE_ARCHIVE_NO_COVERS,
-                    'label' => __('plugins.themes.slubTheme.option.issueArchives.no-covers'),
+                    'label' => __('plugins.themes.individualizeTheme.option.issueArchives.no-covers'),
                 ],
             ],
             'default' => self::ISSUE_ARCHIVE_DEFAULT,
@@ -607,22 +607,22 @@ class SlubThemeOptions
         }
 
         $this->theme->addOption('font', 'FieldSelect', [
-            'label' => __('plugins.themes.slubTheme.option.font.label'),
-            'description' => __('plugins.themes.slubTheme.option.font.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.font.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.font.description'),
             'options' => $options,
             'default' => self::FONT_DEFAULT,
         ]);
 
         $this->theme->addOption('titlesFont', 'FieldSelect', [
-            'label' => __('plugins.themes.slubTheme.option.titlesFont.label'),
-            'description' => __('plugins.themes.slubTheme.option.titlesFont.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.titlesFont.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.titlesFont.description'),
             'options' => $options,
             'default' => self::FONT_DEFAULT,
         ]);
 
         $this->theme->addOption('actionsFont', 'FieldSelect', [
-            'label' => __('plugins.themes.slubTheme.option.actionsFont.label'),
-            'description' => __('plugins.themes.slubTheme.option.actionsFont.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.actionsFont.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.actionsFont.description'),
             'options' => $options,
             'default' => self::FONT_DEFAULT,
         ]);
@@ -635,16 +635,16 @@ class SlubThemeOptions
     {
         $this->theme->addOption('colorMode', 'FieldOptions', [
             'type' => 'radio',
-            'label' => __('plugins.themes.slubTheme.option.colorMode.label'),
-            'description' => __('plugins.themes.slubTheme.option.colorMode.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.colorMode.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.colorMode.description'),
             'options' => [
                 [
                     'value' => self::COLOR_MODE_DEFAULT,
-                    'label' => __('plugins.themes.slubTheme.option.colorMode.default'),
+                    'label' => __('plugins.themes.individualizeTheme.option.colorMode.default'),
                 ],
                 [
                     'value' => self::COLOR_MODE_ADVANCED,
-                    'label' => __('plugins.themes.slubTheme.option.colorMode.advanced'),
+                    'label' => __('plugins.themes.individualizeTheme.option.colorMode.advanced'),
                 ],
             ],
             'default' => self::COLOR_MODE_DEFAULT,
@@ -652,71 +652,71 @@ class SlubThemeOptions
 
         // Simple mode
         $this->theme->addOption('primaryColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.primaryColor.label'),
-            'description' => __('plugins.themes.slubTheme.option.primaryColor.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.primaryColor.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.primaryColor.description'),
             'default' => self::COLOR_PRIMARY,
             'showWhen' => ['colorMode', self::COLOR_MODE_DEFAULT],
         ]);
         $this->theme->addOption('accentColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.accentColor.label'),
-            'description' => __('plugins.themes.slubTheme.option.accentColor.description'),
+            'label' => __('plugins.themes.individualizeTheme.option.accentColor.label'),
+            'description' => __('plugins.themes.individualizeTheme.option.accentColor.description'),
             'default' => self::COLOR_ACCENT,
             'showWhen' => ['colorMode', self::COLOR_MODE_DEFAULT],
         ]);
 
         // Advanced mode
         $this->theme->addOption('pageBackgroundColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.pageBackgroundColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.pageBackgroundColor.label'),
             'default' => self::COLOR_PAGE_BACKGROUND,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('pageTextColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.pageTextColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.pageTextColor.label'),
             'default' => self::COLOR_PAGE_TEXT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('pageLinkColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.pageLinkColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.pageLinkColor.label'),
             'default' => self::COLOR_ACCENT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('headerBackgroundColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.headerBackgroundColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.headerBackgroundColor.label'),
             'default' => self::COLOR_PRIMARY,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('headerTextColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.headerTextColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.headerTextColor.label'),
             'default' => self::COLOR_PRIMARY_TEXT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('buttonBackgroundColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.buttonBackgroundColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.buttonBackgroundColor.label'),
             'default' => self::COLOR_PAGE_BACKGROUND,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('buttonTextColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.buttonTextColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.buttonTextColor.label'),
             'default' => self::COLOR_PRIMARY,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('blockBackgroundColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.blockBackgroundColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.blockBackgroundColor.label'),
             'default' => self::COLOR_PRIMARY,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('blockTextColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.blockTextColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.blockTextColor.label'),
             'default' => self::COLOR_PRIMARY_TEXT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('footerBackgroundColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.footerBackgroundColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.footerBackgroundColor.label'),
             'default' => self::COLOR_PRIMARY,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);
         $this->theme->addOption('footerTextColor', 'FieldColor', [
-            'label' => __('plugins.themes.slubTheme.option.footerTextColor.label'),
+            'label' => __('plugins.themes.individualizeTheme.option.footerTextColor.label'),
             'default' => self::COLOR_PRIMARY_TEXT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
         ]);

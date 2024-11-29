@@ -23,7 +23,7 @@
       <div class="html-text">
         <p>
           {translate
-            key="plugins.themes.slubTheme.publishedInIssue"
+            key="plugins.themes.individualizeTheme.publishedInIssue"
             issue=$issue->getIssueIdentification(['showTitle' => false])
             issueUrl=$publishedInUrl
             journal=$currentContext->getLocalizedName()|escape

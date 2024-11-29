@@ -1,4 +1,4 @@
-{assign var="pageTitleTranslated" value={translate key="plugins.themes.slubTheme.allIssues"}}
+{assign var="pageTitleTranslated" value={translate key="plugins.themes.individualizeTheme.allIssues"}}
 
 {if $prevPage || $nextPage}
   {capture assign="urlPattern"}{url page="issue" op="archive" path="__page__"}{/capture}
@@ -21,12 +21,12 @@
   ">
     <div class="issue-archive-header">
       <h1 class="issue-archive-title">
-        {translate key="plugins.themes.slubTheme.allIssues"}
+        {translate key="plugins.themes.individualizeTheme.allIssues"}
       </h1>
       {if $prevPage || $nextPage}
         <div class="issue-archive-showing">
           {translate
-            key="plugins.themes.slubTheme.pagination.issueArchive"
+            key="plugins.themes.individualizeTheme.pagination.issueArchive"
             start=$showingStart
             end=$showingEnd
             total=$total

@@ -43,7 +43,7 @@
                 <a href="{$versionUrl}" class="link">
                   {$versionName}
                 </a>
-                {translate key="plugins.themes.slubTheme.parenthesis" text=$version->getData('datePublished')|date_format:$dateFormatLong}
+                {translate key="plugins.themes.individualizeTheme.parenthesis" text=$version->getData('datePublished')|date_format:$dateFormatLong}
               {/if}
             </li>
           {/foreach}

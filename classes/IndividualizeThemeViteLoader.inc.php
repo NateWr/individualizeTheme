@@ -1,7 +1,7 @@
 <?php
 
 import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.slubTheme.classes.SlubThemeViteManifestFile');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeViteManifestFile');
 
 /**
  * Initialize Vite integration
@@ -13,7 +13,7 @@ import('plugins.themes.slubTheme.classes.SlubThemeViteManifestFile');
  * All assets are registered through the PKP's TemplateManager
  * class, or a ThemePlugin class if passed in the constructor.
  */
-class SlubThemeViteLoader
+class IndividualizeThemeViteLoader
 {
     public const DEFAULT_VITE_SERVER_URL = 'http://localhost:5173/';
 
@@ -159,7 +159,7 @@ class SlubThemeViteLoader
         }
 
         return array_map(
-            fn(array $chunk) => SlubThemeViteManifestFile::create($chunk),
+            fn(array $chunk) => IndividualizeThemeViteManifestFile::create($chunk),
             json_decode(file_get_contents($this->manifestPath), true)
         );
     }

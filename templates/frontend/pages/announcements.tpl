@@ -17,7 +17,7 @@
     </div>
     {if !$announcements|@count}
       <div class="page-content">
-        {translate key="plugins.themes.slubTheme.announcements.none"}
+        {translate key="plugins.themes.individualizeTheme.announcements.none"}
       </div>
     {else}
       <ol class="announcements-list" start="1">

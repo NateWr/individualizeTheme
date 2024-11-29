@@ -14,7 +14,7 @@
     class="arrow-link tab-focus"
     href="{url page="catalog" op="category" path=$category->getPath()|escape}"
   >
-    {translate key="plugins.themes.slubTheme.viewCategory"}
+    {translate key="plugins.themes.individualizeTheme.viewCategory"}
     {include file="frontend/icons/arrow-right.svg"}
   </a>
 </div>

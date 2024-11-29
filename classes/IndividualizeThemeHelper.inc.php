@@ -2,7 +2,7 @@
 /**
  * Helper class to register custom Smarty plugin
  */
-import('plugins.themes.slubTheme.classes.SlubThemeTemplatePlugin');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeTemplatePlugin');
 
 /**
  * A helper class for building custom themes for
@@ -17,7 +17,7 @@ import('plugins.themes.slubTheme.classes.SlubThemeTemplatePlugin');
  *
  * @see https://www.smarty.net
  */
-class SlubThemeHelper
+class IndividualizeThemeHelper
 {
     /**
      * Number of page buttons to display before truncating
@@ -26,15 +26,15 @@ class SlubThemeHelper
     public const DEFAULT_MAX_PAGES = 9;
 
     /**
-     * @var SlubThemeTemplatePlugin[]
+     * @var IndividualizeThemeTemplatePlugin[]
      */
-    protected array $SlubThemeTemplatePlugins = [];
+    protected array $IndividualizeThemeTemplatePlugins = [];
 
     public function __construct(
         protected TemplateManager $templateMgr
     ) {
         $this->templateMgr = $templateMgr;
-        HookRegistry::register('TemplateManager::display', [$this, 'registerSlubThemeTemplatePlugins']);
+        HookRegistry::register('TemplateManager::display', [$this, 'registerIndividualizeThemeTemplatePlugins']);
     }
 
     /**
@@ -43,24 +43,24 @@ class SlubThemeHelper
      *
      * @param TemplateManager $templateMgr
      */
-    public function addCommonSlubThemeTemplatePlugins(): void
+    public function addCommonIndividualizeThemeTemplatePlugins(): void
     {
-        $this->addSlubThemeTemplatePlugin(
-            new SlubThemeTemplatePlugin(
+        $this->addIndividualizeThemeTemplatePlugin(
+            new IndividualizeThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_locales',
                 callback: [$this, 'setLocales']
             )
         );
-        $this->addSlubThemeTemplatePlugin(
-            new SlubThemeTemplatePlugin(
+        $this->addIndividualizeThemeTemplatePlugin(
+            new IndividualizeThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_filter_galleys',
                 callback: [$this, 'filterGalleys']
             )
         );
-        $this->addSlubThemeTemplatePlugin(
-            new SlubThemeTemplatePlugin(
+        $this->addIndividualizeThemeTemplatePlugin(
+            new IndividualizeThemeTemplatePlugin(
                 type: 'function',
                 name: 'th_pagination',
                 callback: [$this, 'getPages']
@@ -71,9 +71,9 @@ class SlubThemeHelper
     /**
      * Add a template plugin
      */
-    public function addSlubThemeTemplatePlugin(SlubThemeTemplatePlugin $plugin): void
+    public function addIndividualizeThemeTemplatePlugin(IndividualizeThemeTemplatePlugin $plugin): void
     {
-        $this->SlubThemeTemplatePlugins[] = $plugin;
+        $this->IndividualizeThemeTemplatePlugins[] = $plugin;
     }
 
     /**
@@ -85,10 +85,10 @@ class SlubThemeHelper
      *
      * This allows core plugins to be overridden.
      */
-    public function registerSlubThemeTemplatePlugins(string $hookName, array $args): bool
+    public function registerIndividualizeThemeTemplatePlugins(string $hookName, array $args): bool
     {
-        foreach ($this->SlubThemeTemplatePlugins as $plugin) {
-            $this->safeRegisterSlubThemeTemplatePlugin($plugin);
+        foreach ($this->IndividualizeThemeTemplatePlugins as $plugin) {
+            $this->safeRegisterIndividualizeThemeTemplatePlugin($plugin);
         }
         return false;
 
@@ -100,7 +100,7 @@ class SlubThemeHelper
      * This wrapper function prevents a fatal error if a smarty plugin
      * with the same name has already been registered.
      */
-    protected function safeRegisterSlubThemeTemplatePlugin(SlubThemeTemplatePlugin $plugin): void
+    protected function safeRegisterIndividualizeThemeTemplatePlugin(IndividualizeThemeTemplatePlugin $plugin): void
     {
         $registered = isset($this->templateMgr->registered_plugins[$plugin->type][$plugin->name]);
         if ($registered && $plugin->override) {

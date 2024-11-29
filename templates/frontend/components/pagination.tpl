@@ -12,12 +12,12 @@
  * @param string $firstPageUrl (optional) See comment above.
  *}
 <nav
-  aria-label="{translate|escape key="plugins.themes.slubTheme.pagination.prompt"}"
+  aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.prompt"}"
   class="pagination"
   role="navigation"
 >
   <a
-    aria-label="{translate|escape key="plugins.themes.slubTheme.pagination.previousPage"}"
+    aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.previousPage"}"
     class="pagination-text-link tab-focus"
     {if $currentPage <= 1}
       disabled=true
@@ -40,7 +40,7 @@
           <span class="pagination-skip">···</span>
         {else}
           <a
-            aria-label="{translate|escape key="plugins.themes.slubTheme.pagination.goToPage" page=$lastPage}"
+            aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.goToPage" page=$lastPage}"
             class="pagination-page"
             {if $page == $currentPage}
               aria-current=true
@@ -64,7 +64,7 @@
     {/foreach}
   </ul>
   <a
-    aria-label="{translate|escape key="plugins.themes.slubTheme.pagination.nextPage"}"
+    aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.nextPage"}"
     class="pagination-text-link tab-focus"
     {if $currentPage >= $lastPage}
       disabled=true

@@ -1,14 +1,14 @@
 <?php
 import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.slubTheme.classes.SlubThemeHelper');
-import('plugins.themes.slubTheme.classes.SlubThemeOptions');
-import('plugins.themes.slubTheme.classes.SlubThemeTemplatePlugin');
-import('plugins.themes.slubTheme.classes.SlubThemeViteLoader');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeHelper');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeOptions');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeTemplatePlugin');
+import('plugins.themes.individualizeTheme.classes.IndividualizeThemeViteLoader');
 
-class SlubTheme extends ThemePlugin
+class IndividualizeTheme extends ThemePlugin
 {
-    protected SlubThemeOptions $optionsHelper;
-    protected SlubThemeHelper $SlubThemeHelper;
+    protected IndividualizeThemeOptions $optionsHelper;
+    protected IndividualizeThemeHelper $IndividualizeThemeHelper;
 
     public function isActive()
     {
@@ -32,9 +32,9 @@ class SlubTheme extends ThemePlugin
             return;
         }
 
-        $this->useSlubThemeHelper();
+        $this->useIndividualizeThemeHelper();
         $enabledFonts = $this->getEnabledFonts();
-        $this->optionsHelper = new SlubThemeOptions($this, $enabledFonts);
+        $this->optionsHelper = new IndividualizeThemeOptions($this, $enabledFonts);
         $this->optionsHelper->addOptions();
         if (!$this->usesCustomFonts($enabledFonts)) {
             $this->addDefaultFont($enabledFonts);
@@ -48,12 +48,12 @@ class SlubTheme extends ThemePlugin
 
     public function getDisplayName()
     {
-        return __('plugins.themes.slubTheme.name');
+        return __('plugins.themes.individualizeTheme.name');
     }
 
     public function getDescription()
     {
-        return __('plugins.themes.slubTheme.description');
+        return __('plugins.themes.individualizeTheme.description');
     }
 
     /**
@@ -77,7 +77,7 @@ class SlubTheme extends ThemePlugin
      */
     public function setContextNameLength(array $params, $smarty): void
     {
-        if (!$this->SlubThemeHelper->hasParams($params, ['assign'], 'slub_context_name_lenth')) {
+        if (!$this->IndividualizeThemeHelper->hasParams($params, ['assign'], 'individualize_context_name_lenth')) {
             return;
         }
 
@@ -155,19 +155,19 @@ class SlubTheme extends ThemePlugin
     }
 
     /**
-     * Use functions from SlubThemeHelper
+     * Use functions from IndividualizeThemeHelper
      *
      * These helper functions register custom template functions, add
      * useful data to templates, and provide other utilities.
      */
-    protected function useSlubThemeHelper(): void
+    protected function useIndividualizeThemeHelper(): void
     {
-        $this->SlubThemeHelper = new SlubThemeHelper($this->getTemplateManager());
-        $this->SlubThemeHelper->addCommonSlubThemeTemplatePlugins();
-        $this->SlubThemeHelper->addSlubThemeTemplatePlugin(
-            new SlubThemeTemplatePlugin(
+        $this->IndividualizeThemeHelper = new IndividualizeThemeHelper($this->getTemplateManager());
+        $this->IndividualizeThemeHelper->addCommonIndividualizeThemeTemplatePlugins();
+        $this->IndividualizeThemeHelper->addIndividualizeThemeTemplatePlugin(
+            new IndividualizeThemeTemplatePlugin(
                 type: 'function',
-                name: 'slub_context_name_length',
+                name: 'individualize_context_name_length',
                 callback: [$this, 'setContextNameLength']
             )
         );
@@ -231,7 +231,7 @@ class SlubTheme extends ThemePlugin
      */
     protected function getI18nScript(): string
     {
-        return 'window.slubTheme = '
+        return 'window.individualizeTheme = '
             . json_encode([
                 'i18n' => [
                     'reveal' => __('common.readMore'),
@@ -248,7 +248,7 @@ class SlubTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $SlubThemeViteLoader = new SlubThemeViteLoader(
+        $IndividualizeThemeViteLoader = new IndividualizeThemeViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),
@@ -256,7 +256,7 @@ class SlubTheme extends ThemePlugin
             prefix: $this->getPluginPath()
         );
 
-        $SlubThemeViteLoader->load($entryPoints);
+        $IndividualizeThemeViteLoader->load($entryPoints);
     }
 
     /**

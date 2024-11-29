@@ -8,7 +8,7 @@
           </h1>
           <img class="header-mobile-logo" src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}">
         {else}
-          {slub_context_name_length assign="size"}
+          {individualize_context_name_length assign="size"}
           <div class="header-mobile-name header-mobile-name-{$size}">
             {$currentContext->getLocalizedName()}
           </div>
@@ -22,7 +22,7 @@
       data-mobile-menu="#{$dropdownId|escape}"
     >
       <span class="sr-only">
-        {translate key="plugins.themes.slubTheme.menu"}
+        {translate key="plugins.themes.individualizeTheme.menu"}
       </span>
       <span class="header-mobile-button-icon" aria-hidden="true">
         <span></span>
@@ -43,14 +43,14 @@
       <nav class="header-mobile-primary-menu" id="skip-to-nav-mobile">
         {load_menu name="primary" id="nav-mobile-primary" path="frontend/components/menu.tpl"}
       </nav>
-      {if $slubLocales|count > 1}
+      {if $individualizeLocales|count > 1}
         <div class="header-mobile-languages">
           <h2 class="sr-only" id="skip-to-language-mobile">
-            {translate key="plugins.themes.slubTheme.changeLanguage"}
+            {translate key="plugins.themes.individualizeTheme.changeLanguage"}
           </h2>
           {include file="frontend/icons/globe.svg"}
           <div class="header-mobile-languages-list">
-            {foreach key="localeKey" item="name" from=$slubLocales}
+            {foreach key="localeKey" item="name" from=$individualizeLocales}
               <a
                 class="
                   header-mobile-language

@@ -1,6 +1,6 @@
 <?php
-require_once('SlubTheme.inc.php');
+require_once('IndividualizeTheme.inc.php');
 
-return new SlubTheme();
+return new IndividualizeTheme();
 
 
