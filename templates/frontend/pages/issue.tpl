@@ -8,7 +8,7 @@
 {block name="content"}
 
   <div class="
-    flex flex-col gap-8 my-8
+    max-w-screen-xl mx-auto flex flex-col gap-8 my-8
     xl:gap-16 xl:my-0
   ">
     {if !$issue}
