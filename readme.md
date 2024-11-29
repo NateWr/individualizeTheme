@@ -30,7 +30,7 @@ Build the assets for distribution.
 npm run build
 ```
 
-Create a `.tar.gz` package of this theme by running the following command in the directory above the theme's file.
+Create a `.tar.gz` package of this theme by running the following command in the directory above the theme.
 
 ```
 tar -czf individualizeTheme.tar.gz --exclude-ignore=.tarignore individualizeTheme
