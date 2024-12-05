@@ -179,6 +179,7 @@ class IndividualizeThemeViteLoader
     protected function loadScript(string $name, string $path, array $args): void
     {
         if ($this->theme) {
+            $args['baseUrl'] = '';
             $this->theme->addScript($name, $path, $args);
         } else {
             $this->templateManager->addJavaScript($name, $path, $args);
@@ -191,6 +192,7 @@ class IndividualizeThemeViteLoader
     protected function loadStyle(string $name, string $path, array $args = []): void
     {
         if ($this->theme) {
+            $args['baseUrl'] = '';
             $this->theme->addStyle($name, $path, $args);
         } else {
             $this->templateManager->addStyleSheet($name, $path, $args);
