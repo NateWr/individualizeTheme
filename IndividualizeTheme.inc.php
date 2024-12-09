@@ -39,10 +39,11 @@ class IndividualizeTheme extends ThemePlugin
         if (!$this->usesCustomFonts($enabledFonts)) {
             $this->addDefaultFont($enabledFonts);
         }
-        $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true]);
+        $this->addStyle('variables', $this->optionsHelper->getCssVariablesString(), ['inline' => true, 'contexts' => ['frontend', 'htmlGalley']]);
         $this->addMenuArea(['primary', 'user', 'homepage', 'policy']);
         $this->addScript('i18n', $this->getI18nScript(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
+        $this->addViteAssets(['src/galley.js'], ['contexts' => ['htmlGalley']]);
         HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);
     }
 
@@ -222,7 +223,10 @@ class IndividualizeTheme extends ThemePlugin
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
             ",
-            ['inline' => true]
+            [
+                'inline' => true,
+                'contexts' => ['frontend', 'htmlGalley'],
+            ]
         );
     }
 
@@ -241,22 +245,25 @@ class IndividualizeTheme extends ThemePlugin
 
     /**
      * Add the script, style and other assets compiled by Vite
+     *
+     * @param array $args Pass arguments to ThemePlugin::addStyle() or TemplateManager::addStylesheet()
      */
-    protected function addViteAssets(array $entryPoints): void
+    protected function addViteAssets(array $entryPoints, ?array $args = null): void
     {
         $templateMgr = TemplateManager::getManager(
             Application::get()->getRequest()
         );
 
-        $IndividualizeThemeViteLoader = new IndividualizeThemeViteLoader(
+        $viteLoader = new IndividualizeThemeViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),
             buildUrl: join('/', [$this->getPluginUrl(), 'dist/']),
-            prefix: $this->getPluginPath()
+            prefix: $this->getPluginPath(),
+            args: $args
         );
 
-        $IndividualizeThemeViteLoader->load($entryPoints);
+        $viteLoader->load($entryPoints);
     }
 
     /**

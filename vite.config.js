@@ -11,7 +11,10 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: path.resolve(__dirname, 'src', 'main.js'),
+      input: {
+        main: path.resolve(__dirname, 'src', 'main.js'),
+        galley: path.resolve(__dirname, 'src', 'galley.js'),
+      },
     },
   },
 })

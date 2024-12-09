@@ -1,0 +1,87 @@
+/**
+ * Styles for the HTML article galley
+ *
+ * These files are loaded in the <iframe> which displays
+ * an HTML article galley file. This file does not loads
+ * styles from the main stylesheet.
+ */
+@import "css/variables";
+
+body {
+  margin: 0;
+  background: var(--color-page-background);
+  color: var(--color-page-text);
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  max-width: 44em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.75rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titles);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-page-text);
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+    text-decoration: none;
+  }
+}
+
+figure {
+  margin: 1.5em 0;
+  margin-left: 0;
+  margin-right: 0;
+
+  & img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+figcaption {
+  max-width: 40em;
+  margin-top: 0.5em;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+@media (--tablets) {
+
+  body {
+    font-size: 1.125rem;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+}
+
+@media (--laptops-lg) {
+
+  body {
+    font-size: 1.25rem;
+  }
+}

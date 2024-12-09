@@ -62,6 +62,15 @@ class IndividualizeThemeViteLoader
          * This makes it easier to work with child themes.
          */
         public ?ThemePlugin $theme = null,
+
+        /**
+         * Arguments to pass when registering scripts or styles
+         *
+         * These are arguments supported by ThemePlugin::addStyle(),
+         * ThemePlugin::addScript(), TemplateManager::addStyleSheet(),
+         * or TemplateManager::addJavaScript()
+         */
+        public ?array $args = null,
     ) {
         $this->buildUrl = rtrim($buildUrl, '/') . '/';
         $this->setMode();
@@ -115,7 +124,7 @@ class IndividualizeThemeViteLoader
         if ($this->devMode) {
             $this->loadDev($entryPoints);
         } else {
-            $this->loadProd();
+            $this->loadProd($entryPoints);
         }
     }
 
@@ -133,12 +142,12 @@ class IndividualizeThemeViteLoader
     /**
      * Load built assets from vite manifest
      */
-    protected function loadProd(): void
+    protected function loadProd(array $entryPoints): void
     {
-        $files = $this->getFiles();
+        $files = $this->getFiles($entryPoints);
         foreach ($files as $file) {
             if (str_ends_with($file->file, '.js')) {
-                $this->templateManager->addHeader("{$this->prefix}-{$file->file}-preload", $this->getPreload($file->file, true));
+                $this->templateManager->addHeader("{$this->prefix}-{$file->file}-preload", $this->getPreload($file->file, true), $this->getArgs([]));
             }
             if ($file->isEntry) {
                 $this->loadScript("{$this->prefix}-{$file->file}", "{$this->baseUrl}{$file->file}", ['type' => 'module']);
@@ -149,7 +158,10 @@ class IndividualizeThemeViteLoader
         }
     }
 
-    protected function getFiles(): array
+    /**
+     * @return IndividualizeThemeViteManifestFile[]
+     */
+    protected function getFiles(array $entryPoints): array
     {
         if (!is_readable($this->manifestPath)) {
             throw new RuntimeException(
@@ -159,9 +171,12 @@ class IndividualizeThemeViteLoader
             );
         }
 
-        return array_map(
-            fn(array $chunk) => IndividualizeThemeViteManifestFile::create($chunk),
-            json_decode(file_get_contents($this->manifestPath), true)
+        return array_filter(
+            array_map(
+                fn(array $chunk) => IndividualizeThemeViteManifestFile::create($chunk),
+                json_decode(file_get_contents($this->manifestPath), true)
+            ),
+            fn(IndividualizeThemeViteManifestFile $file) => in_array($file->src, $entryPoints)
         );
     }
 
@@ -181,9 +196,9 @@ class IndividualizeThemeViteLoader
     {
         if ($this->theme) {
             $args['baseUrl'] = '';
-            $this->theme->addScript($name, $path, $args);
+            $this->theme->addScript($name, $path, $this->getArgs($args));
         } else {
-            $this->templateManager->addJavaScript($name, $path, $args);
+            $this->templateManager->addJavaScript($name, $path, $this->getArgs($args));
         }
     }
 
@@ -194,9 +209,20 @@ class IndividualizeThemeViteLoader
     {
         if ($this->theme) {
             $args['baseUrl'] = '';
-            $this->theme->addStyle($name, $path, $args);
+            $this->theme->addStyle($name, $path, $this->getArgs($args));
         } else {
-            $this->templateManager->addStyleSheet($name, $path, $args);
+            $this->templateManager->addStyleSheet($name, $path, $this->getArgs($args));
         }
+    }
+
+    /**
+     * Compile final args array
+     */
+    protected function getArgs(array $args): array
+    {
+        if ($this->args) {
+            return array_merge($this->args, $args);
+        }
+        return $args;
     }
 }
