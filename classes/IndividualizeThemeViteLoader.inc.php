@@ -98,6 +98,7 @@ class IndividualizeThemeViteLoader
 
         if (empty($config['network'])) {
             $this->baseUrl = isset($config['local']) ? $config['local'][0] : self::DEFAULT_VITE_SERVER_URL;
+            return;
         }
 
         $this->baseUrl = $config['network'][0];
