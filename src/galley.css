@@ -7,8 +7,13 @@
  */
 @import "css/variables";
 
+html {
+  background: var(--color-page-background);
+}
 body {
-  margin: 0;
+  max-width: 44em;
+  margin: 0 auto;
+  padding: 0.75rem;
   background: var(--color-page-background);
   color: var(--color-page-text);
   font-family: var(--font-base);
@@ -18,13 +23,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-main {
-  max-width: 44em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0.75rem;
 }
 
 h1,
@@ -70,13 +68,9 @@ figcaption {
 @media (--tablets) {
 
   body {
+    padding: 1.5rem;
     font-size: 1.125rem;
   }
-
-  main {
-    padding: 1.5rem;
-  }
-
 }
 
 @media (--laptops-lg) {
