@@ -37,6 +37,7 @@
 }
 
 .header-desktop-name {
+  font-family: var(--font-titles);
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;

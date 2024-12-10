@@ -25,6 +25,7 @@
 }
 
 .header-mobile-name {
+  font-family: var(--font-titles);
   font-weight: 700;
   line-height: 1.25;
   text-wrap: balance;
