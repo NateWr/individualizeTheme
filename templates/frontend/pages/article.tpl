@@ -258,8 +258,21 @@
             </section>
           {/if}
 
-          {* References *}
-          {if $parsedCitations || $publication->getData('citationsRaw')}
+          {**
+           * Full text of the article
+           *
+           * Use this hook in a plugin or child theme to display full
+           * article text on the landing page.
+           *}
+          {capture assign="individualizeFullTextHtml"}{strip}
+            {call_hook name="IndividualizeTheme::FullText"}
+          {/strip}{/capture}
+
+          {if $individualizeFullTextHtml}
+            {$individualizeFullTextHtml}
+
+          {* References from publication data *}
+          {elseif $parsedCitations || $publication->getData('citationsRaw')}
             <section class="article-section article-section-references">
               <h2 class="article-section-title">
                 {translate key="submission.citations"}
