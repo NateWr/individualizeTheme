@@ -294,6 +294,7 @@
             <h2 class="article-section-title" id="article-metadata-title">
               {translate key="article.details"}
             </h2>
+            {call_hook name="Templates::Article::Details"}
             <table
               class="article-metadata-table"
               aria-labelledby="article-metadata-title"
@@ -364,9 +365,6 @@
                   publication=$publication
                   ccLicenseBadge=$ccLicenseBadge
                 }
-
-                {call_hook name="Templates::Article::Details"}
-
               </tbody>
             </table>
           </section>

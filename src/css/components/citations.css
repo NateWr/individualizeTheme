@@ -1,0 +1,40 @@
+/**
+ * Styles for the Scopus/Crossref citations plugin
+ *
+ * @see https://github.com/RBoelter/citations
+ */
+.citations-container {
+
+  & .citations-count {
+    gap: 1rem;
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+  & br {
+    display: none;
+  }
+
+  & .badge_total {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border: var(--radius);
+    background: var(--color-block-background);
+    color: var(--color-block-text);
+  }
+}
+
+@media (--tablets) {
+
+  .citations-container {
+
+    & .citations-count {
+      gap: 2rem;
+    }
+  }
+}
