@@ -1,6 +1,6 @@
 {assign var="parentUrl" value={url page="article" op="view" path=$article->getBestId()}}
 {capture assign="galleyTitle"}{translate key="submission.representationOfTitle" representation=$galley->getLabel() title=$publication->getLocalizedFullTitle()|escape}{/capture}
-{assign var="title" value=$article->getLocalizedTitle()}
+{assign var="title" value=$publication->getLocalizedFullTitle()}
 
 {capture assign="downloadUrl"}{strip}
   {if !$isLatestPublication}

@@ -166,7 +166,7 @@ class ThemeHelper
         $filteredGalleys = collect([]);
 
         foreach ($galleys as $galley) {
-            if ($galley->getRemoteUrl() && $remotes) {
+            if ($galley->getData('urlRemote') && $remotes) {
                 $filteredGalleys->push($galley);
                 continue;
             }

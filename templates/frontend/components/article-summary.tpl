@@ -81,8 +81,8 @@
         <div class="article-summary-galleys">
           {foreach from=$primaryGalleys item="galley"}
             {capture assign="galleyUrl"}{strip}
-              {if $galley->getRemoteUrl()}
-                {$galley->getRemoteUrl()}
+              {if $galley->getData('urlRemote')}
+                {$galley->getData('urlRemote')}
               {else}
                 {url page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}
               {/if}

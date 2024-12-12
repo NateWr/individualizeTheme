@@ -1,4 +1,4 @@
-{if $announcements|@count}
+{if $announcements && $announcements|@count}
   {assign var="announcement" value=reset($announcements)}
 
   {capture assign="actions"}{strip}
