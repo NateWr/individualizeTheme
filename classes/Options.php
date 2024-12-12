@@ -1,12 +1,23 @@
 <?php
 
+namespace APP\plugins\themes\individualizeTheme\classes;
+
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\plugins\themes\individualizeTheme\IndividualizeTheme;
+use APP\submission\Collector;
+use APP\submission\Submission;
+use APP\template\TemplateManager;
 use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
 
 /**
  * Helper class to define and register theme options
  * for IndividualizeTheme
  */
-class IndividualizeThemeOptions
+class Options
 {
     public const HEADER_DEFAULT = 'default';
     public const HEADER_CENTER = 'defaultCenter';
@@ -219,7 +230,7 @@ class IndividualizeThemeOptions
                     $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
                     break;
                 case self::HOMEPAGE_BLOCK_LATEST_ARTICLES:
-                    $templateMgr->assign('individualizeLatestArticles', $this->getLatestArticles());
+                    $templateMgr->assign('individualizeLatestArticles', $this->getLatestArticles()->values()->toArray());
                     break;
                 case self::HOMEPAGE_BLOCK_PARTNERS:
                     /** @var PartnerLogosPlugin */
@@ -229,11 +240,17 @@ class IndividualizeThemeOptions
                     }
                     break;
                 case self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY:
-                    /** @var CategoryDAO */
-                    $categoryDao = DAORegistry::getDAO('CategoryDAO');
                     if ($context) {
-                        $categories = $categoryDao->getByParentId(null, $context->getId())->toArray();
-                        $templateMgr->assign('categories', $categories);
+                        $templateMgr->assign(
+                            'categories',
+                            Repo::category()
+                                ->getCollector()
+                                ->filterByContextIds([$context->getId()])
+                                ->filterByParentIds([null])
+                                ->getMany()
+                                ->values()
+                                ->toArray()
+                        );
                     }
                     break;
             }
@@ -529,7 +546,6 @@ class IndividualizeThemeOptions
      */
     protected function addArticleMetadataOption(): void
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
         $this->theme->addOption('highlightArticleMetadata', 'FieldOptions', [
             'type' => 'checkbox',
             'isOrderable' => true,
@@ -722,19 +738,14 @@ class IndividualizeThemeOptions
         ]);
     }
 
-    protected function getLatestArticles(): array
+    protected function getLatestArticles(): LazyCollection
     {
-        // Import is required to access constant in 3.3
-        import('lib.pkp.classes.submission.PKPSubmissionDAO');
-
-        return iterator_to_array(
-            Services::get('submission')->getMany([
-                'contextId' => Application::get()->getRequest()->getContext()?->getId() ?? 0,
-                'status' => STATUS_PUBLISHED,
-                'orderBy' => ORDERBY_DATE_PUBLISHED,
-                'count' => 5,
-            ])
-        );
+        return Repo::submission()->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()?->getId() ?? 0])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED)
+            ->limit(5)
+            ->getMany();
     }
 
     /**

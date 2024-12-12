@@ -26,15 +26,7 @@
     </div>
     {if $submissionChecklist}
       <h2>{translate key="about.submissionPreparationChecklist"}</h2>
-			{translate key="about.submissionPreparationChecklist.description"}
-			<ul>
-				{foreach from=$submissionChecklist item=checklistItem}
-					<li>
-						<span class="fa fa-check" aria-hidden="true"></span>
-						{$checklistItem.content|nl2br}
-					</li>
-				{/foreach}
-			</ul>
+			{$submissionChecklist}
     {/if}
     {if $currentContext->getLocalizedData('authorGuidelines')}
       <h2>{translate key="about.authorGuidelines"}</h2>

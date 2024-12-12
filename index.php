@@ -1,6 +1,5 @@
 <?php
-require_once('IndividualizeTheme.inc.php');
+
+use APP\plugins\themes\individualizeTheme\IndividualizeTheme;
 
 return new IndividualizeTheme();
-
-

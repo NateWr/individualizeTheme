@@ -1,14 +1,22 @@
 <?php
-import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeHelper');
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeOptions');
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeTemplatePlugin');
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeViteLoader');
+namespace APP\plugins\themes\individualizeTheme;
+
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\plugins\themes\individualizeTheme\classes\Options;
+use APP\plugins\themes\individualizeTheme\classes\TemplatePlugin;
+use APP\plugins\themes\individualizeTheme\classes\ThemeHelper;
+use APP\plugins\themes\individualizeTheme\classes\ViteLoader;
+use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
+use PKP\plugins\ThemePlugin;
+use PKP\security\Role;
 
 class IndividualizeTheme extends ThemePlugin
 {
-    protected IndividualizeThemeOptions $optionsHelper;
-    protected IndividualizeThemeHelper $IndividualizeThemeHelper;
+    protected Options $optionsHelper;
+    protected ThemeHelper $themeHelper;
 
     public function isActive()
     {
@@ -34,7 +42,7 @@ class IndividualizeTheme extends ThemePlugin
 
         $this->useIndividualizeThemeHelper();
         $enabledFonts = $this->getEnabledFonts();
-        $this->optionsHelper = new IndividualizeThemeOptions($this, $enabledFonts);
+        $this->optionsHelper = new Options($this, $enabledFonts);
         $this->optionsHelper->addOptions();
         if (!$this->usesCustomFonts($enabledFonts)) {
             $this->addDefaultFont($enabledFonts);
@@ -44,7 +52,7 @@ class IndividualizeTheme extends ThemePlugin
         $this->addScript('i18n', $this->getI18nScript(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
         $this->addViteAssets(['src/galley.js'], ['contexts' => ['htmlGalley']]);
-        HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);
+        Hook::add('TemplateManager::display', [$this, 'addTemplateData']);
     }
 
     public function getDisplayName()
@@ -78,7 +86,7 @@ class IndividualizeTheme extends ThemePlugin
      */
     public function setContextNameLength(array $params, $smarty): void
     {
-        if (!$this->IndividualizeThemeHelper->hasParams($params, ['assign'], 'individualize_context_name_lenth')) {
+        if (!$this->themeHelper->hasParams($params, ['assign'], 'individualize_context_name_lenth')) {
             return;
         }
 
@@ -112,13 +120,13 @@ class IndividualizeTheme extends ThemePlugin
         }
 
         if ($template === 'frontend/pages/article.tpl') {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
             if ($context) {
-                /** @var UserGroupDAO */
-                $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-                $userGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
                 $templateMgr->assign([
-                    'authorUserGroups' => $userGroups->toArray(),
+                    'authorUserGroups' => Repo::userGroup()
+                    ->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->getMany(),
                 ]);
             }
         }
@@ -156,17 +164,17 @@ class IndividualizeTheme extends ThemePlugin
     }
 
     /**
-     * Use functions from IndividualizeThemeHelper
+     * Use functions from themeHelper
      *
      * These helper functions register custom template functions, add
      * useful data to templates, and provide other utilities.
      */
     protected function useIndividualizeThemeHelper(): void
     {
-        $this->IndividualizeThemeHelper = new IndividualizeThemeHelper($this->getTemplateManager());
-        $this->IndividualizeThemeHelper->addCommonIndividualizeThemeTemplatePlugins();
-        $this->IndividualizeThemeHelper->addIndividualizeThemeTemplatePlugin(
-            new IndividualizeThemeTemplatePlugin(
+        $this->themeHelper = new ThemeHelper($this->getTemplateManager());
+        $this->themeHelper->addCommonTemplatePlugins();
+        $this->themeHelper->addTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'individualize_context_name_length',
                 callback: [$this, 'setContextNameLength']
@@ -254,7 +262,7 @@ class IndividualizeTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $viteLoader = new IndividualizeThemeViteLoader(
+        $viteLoader = new ViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),
@@ -292,7 +300,7 @@ class IndividualizeTheme extends ThemePlugin
     protected function getEnabledFonts(?int $contextId = null): array
     {
         if (is_null($contextId)) {
-            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? CONTEXT_ID_NONE;
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::CONTEXT_ID_NONE;
         }
         /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');

@@ -3,7 +3,7 @@
  * and provides a logout link.
  *}
 <div class="logged-in-as">
-  {translate key="plugins.themes.individualizeTheme.loggedInAs" username=$currentUser->getData('username')}
+  {translate key="plugins.themes.individualizeTheme.loggedInAs" username=$currentUser->getData('userName')}
   <a
     {if $isUserLoggedInAs}
       href="{url page="login" op="signOutAsUser"}"

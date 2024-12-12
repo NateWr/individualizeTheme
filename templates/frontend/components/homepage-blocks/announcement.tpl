@@ -1,5 +1,5 @@
 {if $announcements|@count}
-  {assign var="announcement" value=$announcements[0]}
+  {assign var="announcement" value=reset($announcements)}
 
   {capture assign="actions"}{strip}
     <a class="button" href="{url page="announcement" op="view" path=$announcement->getId()}">

@@ -29,7 +29,7 @@
           <div class="search-desc-results">
             {translate
               key="plugins.themes.individualizeTheme.search.countResults"
-              count=$results->count
+              number=$results->count
             }
           </div>
           <div>

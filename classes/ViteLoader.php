@@ -1,7 +1,9 @@
 <?php
+namespace APP\plugins\themes\individualizeTheme\classes;
 
-import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeViteManifestFile');
+use APP\template\TemplateManager;
+use PKP\plugins\ThemePlugin;
+use RuntimeException;
 
 /**
  * Initialize Vite integration
@@ -13,7 +15,7 @@ import('plugins.themes.individualizeTheme.classes.IndividualizeThemeViteManifest
  * All assets are registered through the PKP's TemplateManager
  * class, or a ThemePlugin class if passed in the constructor.
  */
-class IndividualizeThemeViteLoader
+class ViteLoader
 {
     public const DEFAULT_VITE_SERVER_URL = 'http://localhost:5173/';
 
@@ -159,7 +161,7 @@ class IndividualizeThemeViteLoader
     }
 
     /**
-     * @return IndividualizeThemeViteManifestFile[]
+     * @return ViteManifestFile[]
      */
     protected function getFiles(array $entryPoints): array
     {
@@ -173,10 +175,10 @@ class IndividualizeThemeViteLoader
 
         return array_filter(
             array_map(
-                fn(array $chunk) => IndividualizeThemeViteManifestFile::create($chunk),
+                fn(array $chunk) => ViteManifestFile::create($chunk),
                 json_decode(file_get_contents($this->manifestPath), true)
             ),
-            fn(IndividualizeThemeViteManifestFile $file) => in_array($file->src, $entryPoints)
+            fn(ViteManifestFile $file) => in_array($file->src, $entryPoints)
         );
     }
 

@@ -59,7 +59,7 @@ msgid "plugins.themes.individualizeTheme.pagination.prompt"
 msgstr "Goto other pages"
 
 msgid "plugins.themes.individualizeTheme.pagination.goToPage"
-msgstr "Goto {$page}"
+msgstr "Goto {$page}"{}
 
 msgid "plugins.themes.individualizeTheme.pagination.nextPage"
 msgstr "Goto next page"
@@ -74,7 +74,7 @@ msgid "plugins.themes.individualizeTheme.search.description"
 msgstr "Search all articles or browse every article in our <a href='{$url}' class='link'>back issues</a>."
 
 msgid "plugins.themes.individualizeTheme.search.countResults"
-msgstr "{$count} Results"
+msgstr "{$number} Results"
 
 msgid "plugins.themes.individualizeTheme.search.showing"
 msgstr "Showing {$start}-{$end} matching the phrase <strong>{$phrase}</strong>."
@@ -360,13 +360,3 @@ msgstr "Footer Background Color"
 
 msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
 msgstr "Footer Text Color"
-
-# 3.3 Compatibility
-#
-# The following locale keys can be removed for
-# OJS versions 3.4+
-msgid "publication.version"
-msgstr "Version {$version}"
-
-msgid "admin.versionHistory"
-msgstr "Version history"

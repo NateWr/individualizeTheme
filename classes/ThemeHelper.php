@@ -1,8 +1,10 @@
 <?php
-/**
- * Helper class to register custom Smarty plugin
- */
-import('plugins.themes.individualizeTheme.classes.IndividualizeThemeTemplatePlugin');
+namespace APP\plugins\themes\individualizeTheme\classes;
+
+use APP\core\Application;
+use APP\template\TemplateManager;
+use Exception;
+use PKP\plugins\Hook;
 
 /**
  * A helper class for building custom themes for
@@ -17,7 +19,7 @@ import('plugins.themes.individualizeTheme.classes.IndividualizeThemeTemplatePlug
  *
  * @see https://www.smarty.net
  */
-class IndividualizeThemeHelper
+class ThemeHelper
 {
     /**
      * Number of page buttons to display before truncating
@@ -26,15 +28,15 @@ class IndividualizeThemeHelper
     public const DEFAULT_MAX_PAGES = 9;
 
     /**
-     * @var IndividualizeThemeTemplatePlugin[]
+     * @var TemplatePlugin[]
      */
-    protected array $IndividualizeThemeTemplatePlugins = [];
+    protected array $templatePlugins = [];
 
     public function __construct(
         protected TemplateManager $templateMgr
     ) {
         $this->templateMgr = $templateMgr;
-        HookRegistry::register('TemplateManager::display', [$this, 'registerIndividualizeThemeTemplatePlugins']);
+        Hook::add('TemplateManager::display', [$this, 'registerTemplatePlugins']);
     }
 
     /**
@@ -43,24 +45,24 @@ class IndividualizeThemeHelper
      *
      * @param TemplateManager $templateMgr
      */
-    public function addCommonIndividualizeThemeTemplatePlugins(): void
+    public function addCommonTemplatePlugins(): void
     {
-        $this->addIndividualizeThemeTemplatePlugin(
-            new IndividualizeThemeTemplatePlugin(
+        $this->addTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'th_locales',
                 callback: [$this, 'setLocales']
             )
         );
-        $this->addIndividualizeThemeTemplatePlugin(
-            new IndividualizeThemeTemplatePlugin(
+        $this->addTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'th_filter_galleys',
                 callback: [$this, 'filterGalleys']
             )
         );
-        $this->addIndividualizeThemeTemplatePlugin(
-            new IndividualizeThemeTemplatePlugin(
+        $this->addTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'th_pagination',
                 callback: [$this, 'getPages']
@@ -71,9 +73,9 @@ class IndividualizeThemeHelper
     /**
      * Add a template plugin
      */
-    public function addIndividualizeThemeTemplatePlugin(IndividualizeThemeTemplatePlugin $plugin): void
+    public function addTemplatePlugin(TemplatePlugin $plugin): void
     {
-        $this->IndividualizeThemeTemplatePlugins[] = $plugin;
+        $this->templatePlugins[] = $plugin;
     }
 
     /**
@@ -85,9 +87,9 @@ class IndividualizeThemeHelper
      *
      * This allows core plugins to be overridden.
      */
-    public function registerIndividualizeThemeTemplatePlugins(string $hookName, array $args): bool
+    public function registerTemplatePlugins(string $hookName, array $args): bool
     {
-        foreach ($this->IndividualizeThemeTemplatePlugins as $plugin) {
+        foreach ($this->templatePlugins as $plugin) {
             $this->safeRegisterIndividualizeThemeTemplatePlugin($plugin);
         }
         return false;
@@ -100,7 +102,7 @@ class IndividualizeThemeHelper
      * This wrapper function prevents a fatal error if a smarty plugin
      * with the same name has already been registered.
      */
-    protected function safeRegisterIndividualizeThemeTemplatePlugin(IndividualizeThemeTemplatePlugin $plugin): void
+    protected function safeRegisterIndividualizeThemeTemplatePlugin(TemplatePlugin $plugin): void
     {
         $registered = isset($this->templateMgr->registered_plugins[$plugin->type][$plugin->name]);
         if ($registered && $plugin->override) {
@@ -126,7 +128,7 @@ class IndividualizeThemeHelper
             return;
         }
 
-        $request = \Application::get()->getRequest();
+        $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         $locales = $context

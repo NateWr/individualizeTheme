@@ -1,8 +1,10 @@
 <?php
+namespace APP\plugins\themes\individualizeTheme\classes;
+
 /**
  * Class to represent a Smarty plugin
  */
-class IndividualizeThemeTemplatePlugin
+class TemplatePlugin
 {
     public function __construct(
         /**
