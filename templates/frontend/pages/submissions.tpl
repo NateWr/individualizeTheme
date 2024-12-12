@@ -26,7 +26,7 @@
     </div>
     {if $submissionChecklist}
       <h2>{translate key="about.submissionPreparationChecklist"}</h2>
-			{$submissionChecklist}
+      {$submissionChecklist}
     {/if}
     {if $currentContext->getLocalizedData('authorGuidelines')}
       <h2>{translate key="about.authorGuidelines"}</h2>

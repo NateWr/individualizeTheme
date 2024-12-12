@@ -60,7 +60,7 @@
           {$publication->getLocalizedFullTitle()|strip_unsafe_html}
         </{$heading}>
         <div class="article-summary-authors">
-    			{$publication->getAuthorString($authorUserGroups)|escape}
+          {$publication->getAuthorString($authorUserGroups)|escape}
         </div>
       </a>
       {if $abstract && $publication->getLocalizedData('abstract')}
