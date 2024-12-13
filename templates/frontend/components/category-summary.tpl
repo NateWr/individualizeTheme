@@ -6,7 +6,7 @@
     <{$heading} class="category-summary-title">
       {$category->getLocalizedTitle()|escape}
     </{$heading}>
-    <div class="category-summary-description">
+    <div class="category-summary-description html-text">
       {$category->getLocalizedDescription()|strip_unsafe_html}
     </div>
   </div>
