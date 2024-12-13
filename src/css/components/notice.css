@@ -7,13 +7,13 @@
   color: var(--color-block-text);
 
   & .button {
-    background: var(--color-header-text);
-    color: var(--color-header-background);
-    border-color: var(--color-header-text);
+    background: var(--color-block-text);
+    color: var(--color-block-background);
+    border-color: var(--color-block-text);
 
     &:hover,
     &:focus-visible {
-      outline-color: var(--color-header-text);
+      outline-color: var(--color-block-text);
     }
   }
 }
