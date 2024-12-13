@@ -74,7 +74,7 @@ msgid "plugins.themes.individualizeTheme.search.description"
 msgstr "Durchsuchen Sie alle Artikel oder stöbern Sie in unseren <a href='{$url}' class='link'>vergangenen Ausgaben</a>."
 
 msgid "plugins.themes.individualizeTheme.search.countResults"
-msgstr "{$count} Ergebnisse"
+msgstr "{$number} Ergebnisse"
 
 msgid "plugins.themes.individualizeTheme.search.showing"
 msgstr "Zeige {$start}-{$end}, die mit der Suchanfrage <strong>{$phrase}</strong> übereinstimmen."

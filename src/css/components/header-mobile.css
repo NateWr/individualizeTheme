@@ -138,7 +138,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-titles);
+  font-family: var(--font-actions);
 
   & svg {
     margin-inline-start: -1.5rem;
