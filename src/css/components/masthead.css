@@ -1,0 +1,50 @@
+/**
+ * Use the class name twice to override styles
+ * in .html-text
+ */
+.masthead.masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+
+  & li {
+    list-style: none;
+  }
+
+  & .masthead-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  & .masthead-orcid {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  & .masthead-affiliation {
+    font-weight: 500;
+  }
+
+  & .masthead-dates {
+    font-size: 0.875rem;
+  }
+}
+
+@media (--laptops) {
+
+  .masthead.masthead {
+
+    & .masthead-name {
+      font-size: 1.25rem;
+    }
+
+    & .masthead-dates {
+      font-size: 1rem;
+    }
+  }
+}
