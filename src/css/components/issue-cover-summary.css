@@ -14,7 +14,8 @@
   gap: 0.25rem;
 }
 
-.issue-cover-summary-image {
+.issue-cover-summary-image,
+.issue-cover-summary svg {
   width: 100%;
   max-width: 12rem;
   height: auto;
@@ -34,7 +35,8 @@
 
 @media (--laptops) {
 
-  .issue-cover-summary-image {
+  .issue-cover-summary-image,
+  .issue-cover-summary svg {
     max-width: 16rem;
   }
 }
