@@ -6,29 +6,38 @@
  * order to work.
  */
 const init = () => {
-  const citation = document.getElementById('citationOutput');
-  const links = [...document.querySelectorAll('[data-load-citation][data-json-href]')]
-  if (!citation || !links.length) {
+  const citations = [...document.querySelectorAll('[data-citation]')]
+
+  if (!citations.length) {
     return
   }
 
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault()
-      citation.style.opacity = 0.5
-      const url = link.dataset['jsonHref']
-      fetch(url, {dataType: 'json'})
-        .then(r => r.json())
-        .then(r => {
-          if (!r?.content) {
-            throw new Error(`Unable to load new citation format ${link.innerText}`)
-          }
-          return r.content
-        })
-        .then(html => citation.innerHTML = html)
-        .finally(() => {
-          citation.style.opacity = 1
-        })
+  citations.forEach(citation => {
+    const output = citation.querySelector('[data-citation-output]')
+    const links = [...citation.querySelectorAll('[data-load-citation][data-json-href]')]
+
+    if (!output || !links.length) {
+      return
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault()
+        output.style.opacity = 0.5
+        const url = link.dataset['jsonHref']
+        fetch(url, {dataType: 'json'})
+          .then(r => r.json())
+          .then(r => {
+            if (!r?.content) {
+              throw new Error(`Unable to load new citation format ${link.innerText}`)
+            }
+            return r.content
+          })
+          .then(html => output.innerHTML = html)
+          .finally(() => {
+            output.style.opacity = 1
+          })
+      })
     })
   })
 }
