@@ -3,11 +3,13 @@ namespace APP\plugins\themes\individualizeTheme;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\plugins\generic\citationStyleLanguage\CitationStyleLanguagePlugin;
 use APP\plugins\themes\individualizeTheme\classes\Options;
 use APP\plugins\themes\individualizeTheme\classes\TemplatePlugin;
 use APP\plugins\themes\individualizeTheme\classes\ThemeHelper;
 use APP\plugins\themes\individualizeTheme\classes\ViteLoader;
 use APP\template\TemplateManager;
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
@@ -53,6 +55,7 @@ class IndividualizeTheme extends ThemePlugin
         $this->addViteAssets(['src/main.js']);
         $this->addViteAssets(['src/galley.js'], ['contexts' => ['htmlGalley']]);
         Hook::add('TemplateManager::display', [$this, 'addTemplateData']);
+
     }
 
     public function getDisplayName()
@@ -128,6 +131,7 @@ class IndividualizeTheme extends ThemePlugin
                     ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
                     ->getMany(),
                 ]);
+                $this->removeHowToCiteDefault();
             }
         }
 
@@ -145,6 +149,47 @@ class IndividualizeTheme extends ThemePlugin
         }
 
         return false;
+    }
+
+    /**
+     * Disable the the default output of the CitationStyleLanguage
+     * plugin.
+     *
+     * It disables the scripts and styles and removes the callback which
+     * is hooked to Templates::Article::Details to inject the how to
+     * cite block on the article landing page.
+     *
+     * This theme shows its own markup for the How to Cite block and
+     * uses its own styles and scripts to support displaying it in
+     * two locations.
+     */
+    public function removeHowToCiteDefault(): void
+    {
+        $request = Application::get()->getRequest();
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->addJavaScript('citationStyleLanguage', '', ['inline' => true]);
+        $templateMgr->addStyleSheet('cslPluginStyles', '', [
+            'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
+            'inline' => true,
+            'contexts' => ['frontend']
+        ]);
+
+        $hooks = Hook::getHooks();
+
+        if (empty($hooks['Templates::Article::Details'])) {
+            return;
+        }
+
+        foreach ($hooks['Templates::Article::Details'] as $priority => $callbacks) {
+            foreach($callbacks as $key => $callback) {
+                if (is_a($callback[0], CitationStyleLanguagePlugin::class)) {
+                    unset($hooks['Templates::Article::Details'][$priority][$key]);
+                    Registry::set('hooks', $hooks);
+                    break;
+                }
+            }
+        }
     }
 
     /**
