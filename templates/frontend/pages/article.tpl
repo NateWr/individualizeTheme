@@ -220,6 +220,7 @@
                   {if $type === 'how-to-cite'}
                     {include
                       file="frontend/components/metadata-tr-how-to-cite.tpl"
+                      id="how-to-cite-header"
                       citation=$citation
                       citationStyles=$citationStyles
                       citationDownloads=$citationDownloads
@@ -347,6 +348,7 @@
                 {/if}
                 {include
                   file="frontend/components/metadata-tr-how-to-cite.tpl"
+                  id="how-to-cite"
                   citation=$citation
                   citationStyles=$citationStyles
                   citationDownloads=$citationDownloads

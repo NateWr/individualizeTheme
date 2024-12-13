@@ -4,8 +4,8 @@
       {translate key="submission.howToCite"}
     </th>
     <td>
-      <div class="how-to-cite">
-        <div id="citationOutput" class="citation-output" role="region" aria-live="polite">
+      <div class="how-to-cite" data-citation>
+        <div id="{$id}" class="citation-output" role="region" aria-live="polite" data-citation-output>
           {$citation}
         </div>
         <button
@@ -20,7 +20,7 @@
           {foreach from=$citationStyles item="citationStyle"}
             <li>
               <button
-                aria-controls="citationOutput"
+                aria-controls="{$id}"
                 class="dropdown-item tab-focus"
                 data-load-citation="true"
                 data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
