@@ -39,6 +39,7 @@ class Options
     public const HOMEPAGE_BLOCK_ISSUE_TOC = 'frontend/components/homepage-blocks/issue-toc.tpl';
     public const HOMEPAGE_BLOCK_SUBMIT = 'frontend/components/homepage-blocks/how-to-submit.tpl';
     public const HOMEPAGE_BLOCK_LATEST_ARTICLES = 'frontend/components/homepage-blocks/latest-articles.tpl';
+    public const HOMEPAGE_BLOCK_HIGHLIGHTS = 'frontend/components/homepage-blocks/highlights.tpl';
     public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
     public const HOMEPAGE_BLOCK_PARTNERS = 'frontend/components/homepage-blocks/partners.tpl';
     public const HOMEPAGE_BLOCKS_DEFAULT = [
@@ -288,6 +289,10 @@ class Options
             [
                 'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES,
                 'label' => __('plugins.themes.individualizeTheme.latestArticles'),
+            ],
+            [
+                'value' => self::HOMEPAGE_BLOCK_HIGHLIGHTS,
+                'label' => __('common.highlights'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY,

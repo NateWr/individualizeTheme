@@ -1,6 +1,6 @@
-{assign var="pageTitleTranslated" value={$announcement->getLocalizedTitle()|escape}}
-{assign var="title" value={$announcement->getLocalizedTitle()|escape}}
-{assign var="description" value={$announcement->getDatePosted()|date_format:$dateFormatLong}}
+{assign var="pageTitleTranslated" value={$announcement->getLocalizedData('title')|escape}}
+{assign var="title" value={$announcement->getLocalizedData('title')|escape}}
+{assign var="description" value={$announcement->datePosted->format($dateFormatLong)}}
 {capture assign="breadcrumb"}
   <div class="breadcrumb">
     <a
@@ -13,10 +13,10 @@
   </div>
 {/capture}
 {capture assign="html"}
-  {if $announcement->getLocalizedDescription()}
-    {$announcement->getLocalizedDescription()}
+  {if $announcement->getLocalizedData('description')}
+    {$announcement->getLocalizedData('description')}
   {else}
-    {$announcement->getLocalizedDescriptionShort()}
+    {$announcement->getLocalizedData('descriptionShort')}
   {/if}
 {/capture}
 

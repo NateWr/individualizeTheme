@@ -22,18 +22,18 @@
     {else}
       <ol class="announcements-list" start="1">
         {foreach from=$announcements item="announcement"}
-          {capture assign="url"}{url page="announcement" op="view" path=$announcement->getId()}{/capture}
+          {capture assign="url"}{url page="announcement" op="view" path=$announcement->id}{/capture}
           <article class="announcements-summary">
             <a href="{$url}" class="tab-focus">
               <h3 class="announcements-summary-title">
-                {$announcement->getLocalizedTitle()|escape}
+                {$announcement->getLocalizedData('title')|escape}
               </h3>
             </a>
             <div class="announcements-summary-date">
-              {$announcement->getDatePosted()|date_format:$dateFormatLong}
+              {$announcement->datePosted->format($dateFormatLong)}
             </div>
             <div class="announcements-summary-desc html-text">
-              {$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+              {$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
             </div>
             <a
               class="arrow-link tab-focus"

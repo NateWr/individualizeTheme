@@ -292,6 +292,8 @@ class IndividualizeTheme extends ThemePlugin
             . json_encode([
                 'i18n' => [
                     'reveal' => __('common.readMore'),
+                    'nextSlide' => __('plugins.themes.individualizeTheme.nextSlide'),
+                    'prevSlide' => __('plugins.themes.individualizeTheme.prevSlide'),
                 ],
             ]);
     }
