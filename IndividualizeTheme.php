@@ -9,6 +9,8 @@ use APP\plugins\themes\individualizeTheme\classes\TemplatePlugin;
 use APP\plugins\themes\individualizeTheme\classes\ThemeHelper;
 use APP\plugins\themes\individualizeTheme\classes\ViteLoader;
 use APP\template\TemplateManager;
+use Closure;
+use Laravel\SerializableClosure\Support\ReflectionClosure;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -183,10 +185,13 @@ class IndividualizeTheme extends ThemePlugin
 
         foreach ($hooks['Templates::Article::Details'] as $priority => $callbacks) {
             foreach($callbacks as $key => $callback) {
-                if (is_a($callback[0], CitationStyleLanguagePlugin::class)) {
-                    unset($hooks['Templates::Article::Details'][$priority][$key]);
-                    Registry::set('hooks', $hooks);
-                    break;
+                if (is_array($callback) && is_a($callback[0], Closure::class)) {
+                    $reflectionClosure = new ReflectionClosure($callback[0]);
+                    if ($reflectionClosure->getClosureScopeClass()->getName() === CitationStyleLanguagePlugin::class) {
+                        unset($hooks['Templates::Article::Details'][$priority][$key]);
+                        Registry::set('hooks', $hooks);
+                        break;
+                    }
                 }
             }
         }
