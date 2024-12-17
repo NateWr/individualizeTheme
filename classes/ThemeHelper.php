@@ -4,6 +4,8 @@ namespace APP\plugins\themes\individualizeTheme\classes;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\plugins\Hook;
 
 /**
@@ -131,9 +133,13 @@ class ThemeHelper
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        $locales = $context
-            ? $context->getSupportedLocaleNames()
-            : $request->getSite()->getSupportedLocaleNames();
+        $locales = Locale::getFormattedDisplayNames(
+            isset($context)
+                ? $context->getSupportedLocales()
+                : $request->getSite()->getSupportedLocales(),
+            Locale::getLocales(),
+            LocaleMetadata::LANGUAGE_LOCALE_ONLY
+        );
 
         $smarty->assign($params['assign'], $locales);
     }
