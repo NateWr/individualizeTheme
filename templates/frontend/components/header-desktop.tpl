@@ -90,7 +90,7 @@
                           header-desktop-language-selected
                         {/if}
                       "
-                      href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}"
+                      href="{url page="user" op="setLocale" path=$localeKey}"
                     >
                       {include file="frontend/icons/check.svg"}
                       {$name}
