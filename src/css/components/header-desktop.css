@@ -6,7 +6,7 @@
 
 @media (--laptops-sm) {
   .header-desktop {
-    display: block;
+    display: contents;
   }
 }
 

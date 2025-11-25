@@ -1,5 +1,12 @@
 .header-desktop-default {
 
+  & .header-desktop-nav-main {
+    position: sticky;
+    top: 0;
+    background: var(--color-page-background);
+    z-index: 999999;
+  }
+
   & .menu-desktop-main {
     margin-inline-start: calc(-1 * var(--inline-padding));
 
