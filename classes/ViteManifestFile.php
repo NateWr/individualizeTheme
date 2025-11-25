@@ -15,7 +15,7 @@ class ViteManifestFile
         /**
          * Path to the source file, relative to Vite's `root`.
          */
-        public readonly ?string $src,
+        public string $src,
 
         /**
          * Logical chunk name, as defined by Rollup.
@@ -28,22 +28,22 @@ class ViteManifestFile
          *
          * @link https://rollupjs.org/configuration-options/#input
          */
-        public readonly ?string $name,
+        public string $name,
 
         /**
          * Indicates whether this chunk is an entry point.
          */
-        public readonly bool $isEntry,
+        public bool $isEntry,
 
         /**
          * Indicates whether this chunk is a dynamic entry point.
          */
-        public readonly bool $isDynamicEntry,
+        public bool $isDynamicEntry,
 
         /**
          * Path to the published file, relative to Vite's `build.outDir`.
          */
-        public readonly string $file,
+        public string $file,
 
         /**
          * Paths to published CSS files imported by this chunk,
@@ -51,7 +51,7 @@ class ViteManifestFile
          *
          * @var string[]
          */
-        public readonly array $css,
+        public array $css,
 
         /**
          * Paths to published assets imported by this chunk,
@@ -59,29 +59,29 @@ class ViteManifestFile
          *
          * @var string[]
          */
-        public readonly array $assets,
+        public array $assets,
 
         /**
          * List of chunk names of other chunks (statically) imported by this chunk.
          *
          * @var string[]
          */
-        public readonly array $imports,
+        public array $imports,
 
         /**
          * Links of chunk names of other chunks (dynamically) imported by this chunk.
          *
          * @var string[]
          */
-        public readonly array $dynamicImports,
+        public array $dynamicImports,
     ) {
     }
 
     public static function create(array $chunk): self
     {
         return new self(
-            src: $chunk['src'] ?? null,
-            name: $chunk['name'] ?? null,
+            src: $chunk['src'] ? $chunk['src'] : '',
+            name: $chunk['name'] ? $chunk['name'] : '',
             isEntry: $chunk['isEntry'] ?? false,
             isDynamicEntry: $chunk['isDynamicEntry'] ?? false,
             file: $chunk['file'],
