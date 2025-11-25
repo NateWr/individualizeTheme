@@ -25,29 +25,53 @@
   }
 }
 
+@media (--tablets) {
+
+  .homepage-block-latest-articles {
+    --cover-image-width: 16rem;
+    --gap: 1.5rem;
+  }
+}
+
 @media (--tablets-landscape) {
 
   .homepage-block-latest-articles {
+    max-width: 1024px;
+  }
+
+  .homepage-block-latest-articles-header {
+    align-self: center;
+    text-align: center;
+  }
+
+  .homepage-block-latest-articles-no-images {
     display: grid;
     grid-template-columns: 16rem minmax(0, 1fr);
+
+    & .homepage-block-latest-articles-header {
+      align-self: flex-start;
+      text-align: initial;
+    }
   }
 }
 
 @media (--laptops-sm) {
 
-  .homepage-block-latest-articles {
+  .homepage-block-latest-articles-no-images {
     grid-template-columns: 22rem minmax(0, 1fr);
     gap: 6rem;
-    max-width: 1024px;
   }
 }
 
 @media (--laptops-lg) {
 
   .homepage-block-latest-articles {
+    max-width: 1280px;
+  }
+
+  .homepage-block-latest-articles-no-images {
     grid-template-columns: 24rem minmax(0, 1fr);
     gap: 8rem;
-    max-width: 1280px;
   }
 
   .homepage-block-latest-articles-title {
