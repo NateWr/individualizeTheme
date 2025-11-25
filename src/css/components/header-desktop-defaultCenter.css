@@ -24,6 +24,13 @@
     max-width: 20rem;
   }
 
+  & .header-desktop-nav-main {
+    position: sticky;
+    top: 0;
+    background: var(--color-page-background);
+    z-index: 999999;
+  }
+
   & .menu-desktop-main  {
     justify-content: center;
   }
