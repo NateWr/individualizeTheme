@@ -31,6 +31,9 @@ msgstr "Latest Articles"
 msgid "plugins.themes.individualizeTheme.latestArticles.description"
 msgstr "Read our most recent publications or browse every article in our <a href=\"{$url}\" class=\"link\">full archive</a>."
 
+msgid "plugins.themes.individualizeTheme.latestArticlesWithImages"
+msgstr "Latest Articles (with Cover Images)"
+
 msgid "plugins.themes.individualizeTheme.partners"
 msgstr "Partners"
 

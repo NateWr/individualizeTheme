@@ -1,5 +1,5 @@
 {if $individualizeLatestArticles|count}
-  <section class="homepage-block homepage-block-latest-articles">
+  <section class="homepage-block homepage-block-latest-articles {if !$showCoverImages}homepage-block-latest-articles-no-images{/if}">
     <div class="homepage-block-latest-articles-header">
       <h2 class="homepage-block-latest-articles-title">
         {$activeTheme->getLocalizedOption('latestArticlesTitle')|escape}
@@ -16,7 +16,7 @@
             file="frontend/components/article-summary.tpl"
             article=$article
             context=$currentContext
-            cover=false
+            cover=$showCoverImages
             galleys=true
             heading="h3"
           }

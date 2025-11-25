@@ -28,6 +28,7 @@ class IndividualizeThemeOptions
     public const HOMEPAGE_BLOCK_ISSUE_TOC = 'frontend/components/homepage-blocks/issue-toc.tpl';
     public const HOMEPAGE_BLOCK_SUBMIT = 'frontend/components/homepage-blocks/how-to-submit.tpl';
     public const HOMEPAGE_BLOCK_LATEST_ARTICLES = 'frontend/components/homepage-blocks/latest-articles.tpl';
+    public const HOMEPAGE_BLOCK_LATEST_ARTICLES_WITH_IMAGES = 'frontend/components/homepage-blocks/latest-articles-with-images.tpl';
     public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
     public const HOMEPAGE_BLOCK_PARTNERS = 'frontend/components/homepage-blocks/partners.tpl';
     public const HOMEPAGE_BLOCKS_DEFAULT = [
@@ -219,6 +220,7 @@ class IndividualizeThemeOptions
                     $templateMgr->assign('pubIdPlugins', $pubIdPlugins);
                     break;
                 case self::HOMEPAGE_BLOCK_LATEST_ARTICLES:
+                case self::HOMEPAGE_BLOCK_LATEST_ARTICLES_WITH_IMAGES:
                     $templateMgr->assign('individualizeLatestArticles', $this->getLatestArticles());
                     break;
                 case self::HOMEPAGE_BLOCK_PARTNERS:
@@ -271,6 +273,10 @@ class IndividualizeThemeOptions
             [
                 'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES,
                 'label' => __('plugins.themes.individualizeTheme.latestArticles'),
+            ],
+            [
+                'value' => self::HOMEPAGE_BLOCK_LATEST_ARTICLES_WITH_IMAGES,
+                'label' => __('plugins.themes.individualizeTheme.latestArticlesWithImages'),
             ],
             [
                 'value' => self::HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY,
