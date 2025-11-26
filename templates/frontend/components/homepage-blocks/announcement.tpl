@@ -1,4 +1,4 @@
-{if $announcements|@count}
+{if $announcements && $announcements|@count}
   <section class="homepage-block homepage-block-announcement">
 
     {foreach from=$announcements item="announcement"}
