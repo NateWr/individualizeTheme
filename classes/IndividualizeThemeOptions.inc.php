@@ -31,6 +31,7 @@ class IndividualizeThemeOptions
     public const HOMEPAGE_BLOCK_LATEST_ARTICLES_WITH_IMAGES = 'frontend/components/homepage-blocks/latest-articles-with-images.tpl';
     public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
     public const HOMEPAGE_BLOCK_PARTNERS = 'frontend/components/homepage-blocks/partners.tpl';
+    public const HOMEPAGE_BLOCK_PLUGIN_HOOK = 'frontend/components/homepage-blocks/plugin-hook.tpl';
     public const HOMEPAGE_BLOCKS_DEFAULT = [
         self::HOMEPAGE_BLOCK_ANNOUNCEMENT,
         self::HOMEPAGE_BLOCK_ABOUT,
@@ -285,6 +286,10 @@ class IndividualizeThemeOptions
             [
                 'value' => self::HOMEPAGE_BLOCK_PARTNERS,
                 'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.partners'),
+            ],
+            [
+                'value' => self::HOMEPAGE_BLOCK_PLUGIN_HOOK,
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.pluginHook'),
             ],
         ]);
 

@@ -106,9 +106,6 @@ msgstr "Skip to language selection"
 msgid "plugins.themes.individualizeTheme.skip.userNav"
 msgstr "Skip to login and user account menu"
 
-msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
-msgstr "Partners / Sponsors"
-
 msgid "plugins.themes.individualizeTheme.option.header.label"
 msgstr "Header"
 
@@ -189,6 +186,9 @@ msgstr "Browse By Category"
 
 msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
 msgstr "Partners / Sponsors"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.pluginHook"
+msgstr "Plugin Content"
 
 msgid "plugins.themes.individualizeTheme.option.howToSubmitTitle.label"
 msgstr "How to Submit - Title"
