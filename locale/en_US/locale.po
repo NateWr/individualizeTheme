@@ -364,6 +364,12 @@ msgstr "Footer Background Color"
 msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
 msgstr "Footer Text Color"
 
+msgid "plugins.themes.individualizeTheme.option.footerMenu.label"
+msgstr "Show Menus in Footer"
+
+msgid "plugins.themes.individualizeTheme.option.footerMenu.checkbox"
+msgstr "Yes, show the navigation menus in the footer at the bottom of every page."
+
 # 3.3 Compatibility
 #
 # The following locale keys can be removed for

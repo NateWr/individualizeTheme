@@ -89,12 +89,14 @@
               {/if}
             </div>
           </div>
-          <div class="footer-block footer-block-menu menu-vertical-wrapper">
-            {load_menu name="primary" id="nav-footer-primary" path="frontend/components/menu.tpl"}
-          </div>
-          <div class="footer-block footer-block-menu menu-vertical-wrapper">
-            {load_menu name="user" id="nav-footer-user" path="frontend/components/menu.tpl"}
-          </div>
+          {if $activeTheme->getOption('footerMenu')}
+            <div class="footer-block footer-block-menu menu-vertical-wrapper">
+              {load_menu name="primary" id="nav-footer-primary" path="frontend/components/menu.tpl"}
+            </div>
+            <div class="footer-block footer-block-menu menu-vertical-wrapper">
+              {load_menu name="user" id="nav-footer-user" path="frontend/components/menu.tpl"}
+            </div>
+          {/if}
         </div>
         {capture assign="sidebar"}{strip}
           {call_hook name="Templates::Common::Sidebar"}
