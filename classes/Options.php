@@ -127,6 +127,7 @@ class Options
         $this->addIssueArchivesOption();
         $this->addFontOptions();
         $this->addColorOptions();
+        $this->addFooterMenuOption();
     }
 
     /**
@@ -751,6 +752,24 @@ class Options
             'label' => __('plugins.themes.individualizeTheme.option.footerTextColor.label'),
             'default' => self::COLOR_PRIMARY_TEXT,
             'showWhen' => ['colorMode', self::COLOR_MODE_ADVANCED],
+        ]);
+    }
+
+    /**
+     * Add option to show or hide the main menu in the footer
+     */
+    protected function addFooterMenuOption(): void
+    {
+        $this->theme->addOption('footerMenu', 'FieldOptions', [
+            'label' => __('plugins.themes.individualizeTheme.option.footerMenu.label'),
+            'options' => [
+                [
+                    'value' => true,
+                    'label' => __('plugins.themes.individualizeTheme.option.footerMenu.checkbox'),
+                ],
+            ],
+            'default' => true,
+
         ]);
     }
 
