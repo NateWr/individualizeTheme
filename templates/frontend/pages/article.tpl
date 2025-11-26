@@ -362,6 +362,13 @@
                     html=$publication->getData('pages')
                   }
                 {/if}
+                {if $publication->getData('pub-id::publisher-id')}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title={translate key="submission.publisherId"}
+                    html=$publication->getData('pub-id::publisher-id')
+                  }
+                {/if}
                 {include
                   file="frontend/components/metadata-tr-license.tpl"
                   publication=$publication
