@@ -57,9 +57,17 @@
 
 @media (--laptops-sm) {
 
+  .homepage-block-latest-articles .article-summary-galley {
+    max-width: 16rem;
+  }
+
   .homepage-block-latest-articles-no-images {
     grid-template-columns: 22rem minmax(0, 1fr);
     gap: 6rem;
+
+    & .article-summary-galley {
+      max-width: 12rem;
+    }
   }
 }
 
@@ -80,5 +88,13 @@
 
   .homepage-block-latest-articles-description {
     font-size: 1.25rem;
+  }
+
+  .homepage-block-latest-articles .article-summary-galley {
+    max-width: 24rem;
+  }
+
+  .homepage-block-latest-articles-no-images .article-summary-galley {
+    max-width: 16rem;
   }
 }

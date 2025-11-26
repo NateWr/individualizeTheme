@@ -38,6 +38,16 @@
   gap: 0.5rem;
 }
 
+.article-summary-galley {
+  max-width: 80vw;
+}
+
+.article-summary-galley-label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 @media (--tablets) {
 
   .article-summary-with-cover {
@@ -45,6 +55,10 @@
     grid-template-columns: var(--cover-image-width) minmax(0, 1fr);
     gap: 1.5rem;
     gap: var(--gap);
+
+    & .article-summary-galley {
+      max-width: 100%;
+    }
   }
 
   .article-summary-cover {
@@ -69,10 +83,14 @@
   .article-summary-galleys {
     flex-direction: column;
     align-items: stretch;
+  }
 
-    & .button {
-      white-space: nowrap;
-    }
+  .article-summary-galley {
+    max-width: 20rem;
+  }
+
+  .article-summary-with-cover .article-summary-galley {
+    max-width: 16rem;
   }
 }
 
@@ -85,5 +103,9 @@
 
   .article-summary-authors {
     font-size: 1.125rem;
+  }
+
+  .article-summary-with-cover .article-summary-galley {
+    max-width: 20rem;
   }
 }
