@@ -378,8 +378,17 @@
             </table>
           </section>
 
+          {* Default theme hook used by some plugins *}
+          {capture assign="articleFooterContent"}{strip}
+            {call_hook name="Templates::Article::Footer::PageFooter"}
+          {/strip}{/capture}
+          {if $articleFooterContent}
+            <section class="article-section article-section-article-page-footer html-text">
+              <h2 class="sr-only">{$common.more}</h2>
+              {$articleFooterContent}
+            </section>
+          {/if}
 
-          {call_hook name="Templates::Article::Footer::PageFooter"}
         </div>
       </div>
     </article>
