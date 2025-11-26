@@ -1,0 +1,75 @@
+#articlesBySimilarityList {
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    a {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--color-page-text);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      list-style: none;
+    }
+  }
+}
+
+#articlesBySimilarityPages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  color: var(--color-page-links);
+  font-family: var(--font-actions);
+
+  > * {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
+  & strong {
+    border-radius: var(--radius);
+    background: var(--color-button-text);
+    color: var(--color-button-background);
+  }
+}
+
+@media (--tablets) {
+
+  #articlesBySimilarityList h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  #articlesBySimilarityList {
+
+    h3 {
+      font-size: 2.5rem;
+    }
+
+    ul {
+      font-size: 1.125rem;
+      gap: 2rem;
+    }
+  }
+}
