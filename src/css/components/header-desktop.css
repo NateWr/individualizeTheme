@@ -115,6 +115,7 @@
 
   .dropdown-menu {
     padding: 0;
+    z-index: 9999999;
   }
 
   .dropdown-divider {
