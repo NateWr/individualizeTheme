@@ -43,6 +43,7 @@ class Options
     public const HOMEPAGE_BLOCK_HIGHLIGHTS = 'frontend/components/homepage-blocks/highlights.tpl';
     public const HOMEPAGE_BLOCK_BROWSE_BY_CATEGORY = 'frontend/components/homepage-blocks/browse-by-category.tpl';
     public const HOMEPAGE_BLOCK_PARTNERS = 'frontend/components/homepage-blocks/partners.tpl';
+    public const HOMEPAGE_BLOCK_PLUGIN_HOOK = 'frontend/components/homepage-blocks/plugin-hook.tpl';
     public const HOMEPAGE_BLOCKS_DEFAULT = [
         self::HOMEPAGE_BLOCK_ANNOUNCEMENT,
         self::HOMEPAGE_BLOCK_ABOUT,
@@ -307,6 +308,10 @@ class Options
             [
                 'value' => self::HOMEPAGE_BLOCK_PARTNERS,
                 'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.partners'),
+            ],
+            [
+                'value' => self::HOMEPAGE_BLOCK_PLUGIN_HOOK,
+                'label' => __('plugins.themes.individualizeTheme.option.homepageBlocks.pluginHook'),
             ],
         ]);
 
