@@ -106,6 +106,9 @@ msgstr "Skip to language selection"
 msgid "plugins.themes.individualizeTheme.skip.userNav"
 msgstr "Skip to login and user account menu"
 
+msgid "plugins.themes.individualizeTheme.usesOjs"
+msgstr "Hosted using the <a href=\"{$urlOJS}\">Open Journal Systems</a> software by <a href=\"{$urlPKP}\">Public Knowledge Project</a>."
+
 msgid "plugins.themes.individualizeTheme.option.header.label"
 msgstr "Header"
 
