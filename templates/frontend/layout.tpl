@@ -47,7 +47,11 @@
         <div class="footer-blocks">
           <div class="footer-block footer-block-masthead">
             <div class="footer-description html-text" data-reveal data-height="30">
-              {$currentContext->getLocalizedDescription()|strip_unsafe_html}
+              {if $pageFooter}
+                {$pageFooter}
+              {else}
+                {$currentContext->getLocalizedDescription()|strip_unsafe_html}
+              {/if}
             </div>
             {if $currentContext->getData('onlineIssn') || $currentContext->getData('printIssn')}
               <table class="footer-metadata">
