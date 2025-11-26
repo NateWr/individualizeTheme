@@ -120,6 +120,10 @@ class IndividualizeTheme extends ThemePlugin
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
+        $templateMgr->assign([
+            'themeRootUrl' => $this->getPluginUrl(),
+        ]);
+
         if ($template === 'frontend/pages/indexJournal.tpl') {
             $this->optionsHelper->getHomepageBlocks();
         }

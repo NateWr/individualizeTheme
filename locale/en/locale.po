@@ -112,6 +112,9 @@ msgstr "Next slide"
 msgid "plugins.themes.individualizeTheme.prevSlide"
 msgstr "Previous slide"
 
+msgid "plugins.themes.individualizeTheme.usesOjs"
+msgstr "Hosted using the <a href=\"{$urlOJS}\">Open Journal Systems</a> software by <a href=\"{$urlPKP}\">Public Knowledge Project</a>."
+
 msgid "plugins.themes.individualizeTheme.option.header.label"
 msgstr "Header"
 
