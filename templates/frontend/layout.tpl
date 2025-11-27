@@ -58,13 +58,13 @@
                 <tbody>
                   {if $currentContext->getData('printIssn')}
                     <tr>
-                      <th>{translate key="journal.issn"}</th>
+                      <th scope="row">{translate key="journal.issn"}</th>
                       <td>{$currentContext->getData('printIssn')}</td>
                     </tr>
                   {/if}
                   {if $currentContext->getData('onlineIssn')}
                     <tr>
-                      <th>{translate key="metadata.property.displayName.eissn"}</th>
+                      <th scope="row">{translate key="metadata.property.displayName.eissn"}</th>
                       <td>{$currentContext->getData('onlineIssn')}</td>
                     </tr>
                   {/if}
