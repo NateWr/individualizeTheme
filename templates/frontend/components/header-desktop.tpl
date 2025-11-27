@@ -14,7 +14,7 @@
 ">
   {if $homepageImage && in_array($activeTheme->getOption('homepageImagePosition'), ['above', 'above-center'])}
     <div class="header-desktop-above">
-      <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
+      <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImage.altText|escape}">
     </div>
   {/if}
   <div class="header-desktop-inner">
@@ -23,7 +23,7 @@
         {if $activeTheme->getOption('homepageImagePosition') === 'behind-pattern'}
           <div class="header-desktop-image" style="background-image: url('{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}');"></div>
         {else}
-          <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
+          <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImage.altText|escape}">
         {/if}
       </div>
     {/if}
@@ -133,7 +133,7 @@
   {/if}
   {if $homepageImage && in_array($activeTheme->getOption('homepageImagePosition'), ['below', 'below-center'])}
     <div class="header-desktop-below">
-      <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
+      <img class="header-desktop-image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImage.altText|escape}">
     </div>
   {/if}
 </header>
