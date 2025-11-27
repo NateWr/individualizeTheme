@@ -1,0 +1,28 @@
+.article-section-hook-main {
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  & .usageStatsGraph {
+    width: 100%;
+  }
+}
+
+@media (--tablets) {
+
+  .article-section-hook-main h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .article-section-hook-main {
+
+    & h3 {
+      font-size: 2.5rem;
+    }
+  }
+}
