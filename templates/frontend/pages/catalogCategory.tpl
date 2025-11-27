@@ -28,7 +28,15 @@
           href="{url page="catalog" op="category" path=$parentCategory->getPath()}"
         >
           {include file="frontend/icons/arrow-left.svg"}
-          {$parentCategory->getLocalizedTitle()|escape}
+          <span class="sr-only">
+            {translate
+              key="plugins.themes.individualizeTheme.backToTitle"
+              title=$parentCategory->getLocalizedTitle()|escape
+            }
+          </span>
+          <span aria-hidden="true">
+            {$parentCategory->getLocalizedTitle()|escape}
+          </span>
         </a>
       </div>
     {/if}
