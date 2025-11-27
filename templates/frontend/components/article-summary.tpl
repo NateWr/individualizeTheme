@@ -82,11 +82,19 @@
                 {url page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}
               {/if}
             {/strip}{/capture}
-            <a class="button article-summary-galley" href="{$galleyUrl}">
+            <a
+              class="button article-summary-galley"
+              href="{$galleyUrl}"
+              aria-label="{translate
+                key="submission.representationOfTitle"
+                representation=$galley->getGalleyLabel()|escape
+                title=$publication->getLocalizedFullTitle()|escape
+              }"
+            >
               {if $galley->isPdfGalley()}
                 {include file="frontend/icons/download.svg"}
               {/if}
-              <span class="article-summary-galley-label">
+              <span class="button-truncate-text">
                 {$galley->getGalleyLabel()|escape}
               </span>
             </a>
