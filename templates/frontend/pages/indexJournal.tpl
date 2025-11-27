@@ -2,6 +2,10 @@
 
 {block name="content"}
 
+  <h1 class="sr-only">
+    {$currentContext->getLocalizedName()}
+  </h1>
+
   {if $homepageBlocks}
     <div class="
       homepage-blocks

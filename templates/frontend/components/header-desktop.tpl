@@ -31,9 +31,9 @@
       <div class="header-desktop-context">
         <a href="{url page="index"}" class="tab-focus">
           {if $displayPageHeaderLogo}
-            <h1 class="sr-only">
+            <div class="sr-only">
               {$currentContext->getLocalizedName()}
-            </h1>
+            </div>
             <img class="header-desktop-logo" src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}">
           {else}
             {individualize_context_name_length assign="size"}
