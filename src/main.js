@@ -17,7 +17,7 @@ import citation from './js/citation'
 import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
 import reviewerInterests from './js/reviewer-interests'
-import highlights from './js/highlights'
+import usageStats from './js/usage-stats'
 
 /**
  * Custom CSS for the theme
@@ -29,10 +29,10 @@ import './main.css'
 /**
  * Initialize
  */
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded', () => {
   citation.init()
   mobileMenu.init()
   reveal.init()
   reviewerInterests.init()
-  const highlightsSwiper = highlights.init()
+  usageStats.init()
 })
