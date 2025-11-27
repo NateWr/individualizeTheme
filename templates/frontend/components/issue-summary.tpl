@@ -5,25 +5,22 @@
   {/if}
 ">
   {if !$hideCover}
-    <a
-      class="issue-summary-cover tab-focus"
-      href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
-    >
-      {if $issue->getLocalizedCoverImageUrl()}
-        <img
-          class="issue-summary-cover-image"
-          src="{$issue->getLocalizedCoverImageUrl()}"
-          alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
-        >
-      {else}
+    {if $issue->getLocalizedCoverImageUrl()}
+      <img
+        class="issue-summary-cover"
+        src="{$issue->getLocalizedCoverImageUrl()}"
+        alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
+      >
+    {else}
+      <div class="issue-summary-cover">
         {include file="frontend/components/issue-cover-default.svg"}
-      {/if}
-    </a>
+      </div>
+    {/if}
   {/if}
   <div class="issue-summary-inner">
     <div class="issue-summary-header">
       <a
-        class="tab-focus"
+        class="issue-summary-link tab-focus"
         href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
       >
         <h3>
