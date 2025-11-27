@@ -52,4 +52,10 @@
       outline-color: var(--color-button-text);
     }
   }
+
+  .button-truncate-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }

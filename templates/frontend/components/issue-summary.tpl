@@ -48,11 +48,18 @@
             <a
               class="button"
               href="{url page="issue" op="view" path=$issue->getBestIssueId()|to_array:$galley->getBestGalleyId()}"
+              aria-label="{translate
+                key="submission.representationOfTitle"
+                representation=$galley->getGalleyLabel()|escape
+                title=$issue->getIssueIdentification()|escape
+              }"
             >
               {if $galley->isPdfGalley()}
                 {include file="frontend/icons/download.svg"}
               {/if}
-              {$galley->getGalleyLabel()|escape}
+              <span class="button-truncate-text">
+                {$galley->getGalleyLabel()|escape}
+              </span>
             </a>
           {/foreach}
         </div>

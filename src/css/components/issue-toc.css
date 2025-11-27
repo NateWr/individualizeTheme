@@ -74,6 +74,10 @@
   font-family: var(--font-titles);
 }
 
+.issue-toc-galleys {
+  max-width: 90vw;
+}
+
 @media (--tablets) {
 
   .issue-toc-header-top {
@@ -96,6 +100,10 @@
       margin-inline-start: calc(var(--cover-image-width) + var(--gap));
     }
   }
+
+  .issue-toc-galleys {
+    max-width: 16rem;
+  }
 }
 
 @media (--laptops-sm) {
@@ -106,6 +114,13 @@
       flex-direction: row;
       justify-content: space-between;
     }
+  }
+}
+
+@media (--laptops) {
+
+  .issue-toc-galleys {
+    max-width: 20rem;
   }
 }
 

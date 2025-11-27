@@ -56,12 +56,6 @@
   max-width: 80vw;
 }
 
-.article-summary-galley-label {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
 @media (--tablets) {
 
   .article-summary-with-cover {
