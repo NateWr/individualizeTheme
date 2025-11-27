@@ -13,18 +13,22 @@
 	<a href="#skip-to-nav-desktop" class="skip-links-desktop">
 		{translate key="navigation.skip.nav"}
 	</a>
-	<a href="#skip-to-language-desktop" class="skip-links-desktop">
-		{translate key="plugins.themes.individualizeTheme.skip.language"}
-	</a>
+	{if $individualizeLocales|count > 1}
+		<a href="#skip-to-language-desktop" class="skip-links-desktop">
+			{translate key="plugins.themes.individualizeTheme.skip.language"}
+		</a>
+	{/if}
 	<a href="#skip-to-user-nav-desktop" class="skip-links-desktop">
 		{translate key="plugins.themes.individualizeTheme.skip.userNav"}
 	</a>
 	<a href="#skip-to-nav-mobile" class="skip-links-mobile">
 		{translate key="navigation.skip.nav"}
 	</a>
-	<a href="#skip-to-language-mobile" class="skip-links-mobile">
-		{translate key="plugins.themes.individualizeTheme.skip.language"}
-	</a>
+	{if $individualizeLocales|count > 1}
+		<a href="#skip-to-language-mobile" class="skip-links-mobile">
+			{translate key="plugins.themes.individualizeTheme.skip.language"}
+		</a>
+	{/if}
 	<a href="#skip-to-user-nav-mobile" class="skip-links-mobile">
 		{translate key="plugins.themes.individualizeTheme.skip.userNav"}
 	</a>
