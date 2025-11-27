@@ -7,6 +7,9 @@ msgstr "A custom theme with many options to allow editors to customize the desig
 msgid "plugins.themes.individualizeTheme.backToTop"
 msgstr "Back to Top"
 
+msgid "plugins.themes.individualizeTheme.backToTitle"
+msgstr "Back to {$title}"
+
 msgid "plugins.themes.individualizeTheme.accessibility"
 msgstr "Accessibility"
 

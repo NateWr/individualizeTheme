@@ -25,6 +25,9 @@
     max-w-screen-xl mx-auto flex flex-col gap-8 my-8 xl:gap-16 xl:my-0
   ">
     <div class="breadcrumb">
+      <span class="sr-only">
+        {translate key="navigation.breadcrumbLabel"}
+      </span>
       <a
         class="breadcrumb-item tab-focus"
         href="{url page="issue" op="archive"}"
@@ -34,7 +37,7 @@
       </a>
       <span class="breadcrumb-separator">/</span>
       {if $section}
-        <span class="breadcrumb-item{if $issue} breadcrumb-item-last{/if}">
+        <span class="breadcrumb-item{if !$issue} breadcrumb-item-last{/if}">
           {$section->getLocalizedTitle()}
         </span>
         <span class="breadcrumb-separator">/</span>

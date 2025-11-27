@@ -19,6 +19,9 @@
       }
     {else}
       <div class="breadcrumb">
+        <span class="sr-only">
+          {translate key="navigation.breadcrumbLabel"}
+        </span>
         <a
           class="breadcrumb-item tab-focus"
           href="{url page="issue" op="archive"}"

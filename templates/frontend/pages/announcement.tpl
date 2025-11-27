@@ -3,6 +3,9 @@
 {assign var="description" value={$announcement->getDatePosted()|date_format:$dateFormatLong}}
 {capture assign="breadcrumb"}
   <div class="breadcrumb">
+    <span class="sr-only">
+      {translate key="navigation.breadcrumbLabel"}
+    </span>
     <a
       class="breadcrumb-item tab-focus"
       href="{url page="announcement"}"

@@ -21,7 +21,15 @@
           href="{$parentUrl}"
         >
           {include file="frontend/icons/arrow-left.svg"}
-          {$title}
+          <span class="sr-only">
+            {translate
+              key="plugins.themes.individualizeTheme.backToTitle"
+              title=$title
+            }
+          </span>
+          <span aria-hidden="true">
+            {$title}
+          </span>
         </a>
       </div>
       {if $pdfUrl}
