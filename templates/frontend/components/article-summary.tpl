@@ -36,17 +36,12 @@
   {/if}
 ">
   {if $cover && $publication->getLocalizedData('coverImage')}
-    <a
-      class="article-summary-cover tab-focus"
-      href="{url journal=$context->getPath() page="article" op="view" path=$article->getBestId()}"
+    {assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+    <img
+      class="article-summary-cover"
+      src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+      alt="{$coverImage.altText|escape|default:''}"
     >
-      {assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
-      <img
-        class="article-summary-cover-image"
-        src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
-        alt="{$coverImage.altText|escape|default:''}"
-      >
-    </a>
   {else}
     <div>{* Empty on purpose *}</div>
   {/if}
