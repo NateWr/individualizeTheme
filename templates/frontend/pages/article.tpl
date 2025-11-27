@@ -290,6 +290,17 @@
             </section>
           {/if}
 
+          {* Common hook used by plugins *}
+          {capture assign="articleMainContent"}{strip}
+            {call_hook name="Templates::Article::Main"}
+          {/strip}{/capture}
+          {if $articleMainContent}
+            <section class="article-section article-section-hook-main html-text">
+              {$articleMainContent}
+            </section>
+          {/if}
+
+
           {* Metadata table (DOI, Issue, Section, etc.) *}
           <section class="article-section">
             <h2 class="article-section-title" id="article-metadata-title">
@@ -378,13 +389,12 @@
             </table>
           </section>
 
-          {* Default theme hook used by some plugins *}
+          {* Common hook used by plugins *}
           {capture assign="articleFooterContent"}{strip}
             {call_hook name="Templates::Article::Footer::PageFooter"}
           {/strip}{/capture}
           {if $articleFooterContent}
-            <section class="article-section article-section-article-page-footer html-text">
-              <h2 class="sr-only">{$common.more}</h2>
+            <section class="article-section article-section-hook-footer html-text">
               {$articleFooterContent}
             </section>
           {/if}
