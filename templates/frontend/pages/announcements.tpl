@@ -25,9 +25,9 @@
           {capture assign="url"}{url page="announcement" op="view" path=$announcement->getId()}{/capture}
           <article class="announcements-summary">
             <a href="{$url}" class="tab-focus">
-              <h3 class="announcements-summary-title">
+              <h2 class="announcements-summary-title">
                 {$announcement->getLocalizedTitle()|escape}
-              </h3>
+              </h2>
             </a>
             <div class="announcements-summary-date">
               {$announcement->getDatePosted()|date_format:$dateFormatLong}
