@@ -1,5 +1,5 @@
 {if !empty($publication->getLocalizedData('keywords'))}
-  <tr>
+  <tr scope="row">
     <th>
       {translate key="common.keywords"}
     </th>

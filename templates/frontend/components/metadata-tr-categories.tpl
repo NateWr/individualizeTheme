@@ -1,6 +1,6 @@
 {if $categories}
   <tr>
-    <th>
+    <th scope="row">
       {translate key="category.category"}
     </th>
     <td>

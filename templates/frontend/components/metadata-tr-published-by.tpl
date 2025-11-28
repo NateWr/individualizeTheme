@@ -10,7 +10,7 @@
     {url page="issue" op="view" path=$issue->getBestIssueId()}
   {/strip}{/capture}
   <tr>
-    <th>
+    <th scope="row">
       {if $publishedByImage}
         <a class="article-metadata-cover" tab-focus" href="{$publishedInUrl|escape}">
           <img src="{$publishedByImage|escape}">
