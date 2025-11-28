@@ -1,5 +1,5 @@
 msgid "plugins.themes.individualizeTheme.name"
-msgstr "Individualize Theme by SLUB Dresden"
+msgstr "Individualize Theme by Publia"
 
 msgid "plugins.themes.individualizeTheme.description"
 msgstr "A custom theme with many options to allow editors to customize the design and layout of their journals."

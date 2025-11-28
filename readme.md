@@ -1,4 +1,4 @@
-# Individualize Theme by SLUB Dresden
+# Individualize Theme by Publia
 
 A custom theme for OJS to allow editors to customize the design and layout of their journal.
 
