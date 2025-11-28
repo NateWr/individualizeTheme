@@ -1,5 +1,5 @@
 <tr>
-  <th>
+  <th scope="row">
     {$title|strip_unsafe_html}
   </th>
   <td>

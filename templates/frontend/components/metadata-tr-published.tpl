@@ -1,5 +1,5 @@
 <tr>
-  <th>
+  <th scope="row">
     {translate key="submission.status.published"}
   </th>
   <td>

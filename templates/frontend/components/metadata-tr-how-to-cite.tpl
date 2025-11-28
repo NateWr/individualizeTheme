@@ -1,6 +1,6 @@
 {if $citation}
   <tr>
-    <th>
+    <th scope="row">
       {translate key="submission.howToCite"}
     </th>
     <td>

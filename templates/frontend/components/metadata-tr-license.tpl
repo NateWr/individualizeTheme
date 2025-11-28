@@ -1,6 +1,6 @@
 {if $currentContext->getLocalizedData('licenseTerms') || $publication->getData('licenseUrl')}
   <tr>
-    <th>
+    <th scope="row">
       {translate key="submission.license"}
     </th>
     <td>

@@ -1,5 +1,5 @@
 {if $issue}
-  <tr>
+  <tr scope="row">
     <th>
       {translate key="issue.issue"}
     </th>
