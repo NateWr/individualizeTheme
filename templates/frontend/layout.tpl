@@ -112,28 +112,7 @@
         {/if}
       </div>
     </div>
-    {capture assign="footerBtm"}{strip}
-      {call_hook name="IndividualizeTheme::Footer"}
-    {/strip}{/capture}
-    {if $footerBtm}
-      {$footerBtm}
-    {else}
-      <div class="footer-btm">
-        <a class="footer-btm-logo" href="https://pkp.sfu.ca/software/ojs">
-          <img
-            src="{$themeRootUrl}/images/ojs-logo.png"
-            alt="{translate key="about.aboutThisPublishingSystem"}"
-          />
-        </a>
-        <div class="footer-btm-text">
-          {translate
-            key="plugins.themes.individualizeTheme.usesOjs"
-            urlOJS="https://pkp.sfu.ca/software/ojs"
-            urlPKP="https://pkp.sfu.ca"
-          }
-        </div>
-      </div>
-    {/if}
+    {include file="frontend/components/footer-btm.tpl"}
   </footer>
   {load_script context="frontend"}
   {call_hook name="Templates::Common::Footer::PageFooter"}
