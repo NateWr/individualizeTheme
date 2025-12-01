@@ -67,6 +67,9 @@ class Options
         self::ARTICLE_METADATA_PUBLISHED_BY,
     ];
 
+    public const ARTICLE_FULLTEXT_SHOW = 'show';
+    public const ARTICLE_FULLTEXT_HIDE = 'hide';
+
     public const ISSUE_ARCHIVE_DEFAULT = 'default';
     public const ISSUE_ARCHIVE_COVERS = 'covers';
     public const ISSUE_ARCHIVE_NO_COVERS = 'no-covers';
@@ -87,6 +90,11 @@ class Options
      */
     protected string $primaryLocale;
 
+    /**
+     * Curent content
+     */
+    protected Context $context;
+
     public function __construct(
         /**
          * Instance of the theme
@@ -103,9 +111,9 @@ class Options
         protected array $enabledFonts
     ) {
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $this->primaryLocale = $context
-            ? $context->getPrimaryLocale()
+        $this->context = $request->getContext();
+        $this->primaryLocale = $this->context
+            ? $this->context->getPrimaryLocale()
             : $request->getSite()->getPrimaryLocale();
     }
 
@@ -124,6 +132,7 @@ class Options
         $this->addLatestArticlesBlock();
         $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
+        $this->addArticleFullTextOptions();
         $this->addIssueArchivesOption();
         $this->addFontOptions();
         $this->addColorOptions();
@@ -591,6 +600,43 @@ class Options
                 ],
             ],
             'default' => self::ARTICLE_METADATA_DEFAULT,
+        ]);
+    }
+
+    /**
+     * Add option to display full-text HTML galleys on the
+     * article landing page
+     */
+    protected function addArticleFullTextOptions(): void
+    {
+        $allThemes = PluginRegistry::getPlugins('themes');
+        $activeTheme = null;
+        foreach ($allThemes as $theme) {
+            if ($this->context->getData('themePluginPath') === $theme->getDirName()) {
+                $activeTheme = $theme;
+                break;
+            }
+        }
+
+        if (!$activeTheme || !$this->theme->getThemeSupportsArticleFullText($activeTheme)) {
+            return;
+        }
+
+        $this->theme->addOption('articleFullText', 'FieldOptions', [
+            'label' => __('plugins.themes.individualizeTheme.option.articleFullText.label'),
+            'type' => 'radio',
+            'description' => __('plugins.themes.individualizeTheme.option.articleFullText.description'),
+            'options' => [
+                [
+                    'value' => self::ARTICLE_FULLTEXT_SHOW,
+                    'label' => __('plugins.themes.individualizeTheme.option.articleFullText.show'),
+                ],
+                [
+                    'value' => self::ARTICLE_FULLTEXT_HIDE,
+                    'label' => __('plugins.themes.individualizeTheme.option.articleFullText.hide'),
+                ],
+            ],
+            'default' => self::ARTICLE_FULLTEXT_HIDE,
         ]);
     }
 

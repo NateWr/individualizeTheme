@@ -4,6 +4,8 @@ namespace APP\plugins\themes\individualizeTheme;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\plugins\generic\citationStyleLanguage\CitationStyleLanguagePlugin;
+use APP\submission\Submission;
+use APP\plugins\themes\individualizeTheme\classes\FullText;
 use APP\plugins\themes\individualizeTheme\classes\Options;
 use APP\plugins\themes\individualizeTheme\classes\TemplatePlugin;
 use APP\plugins\themes\individualizeTheme\classes\ThemeHelper;
@@ -13,6 +15,7 @@ use Closure;
 use Laravel\SerializableClosure\Support\ReflectionClosure;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\galley\Galley;
 use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
@@ -58,7 +61,7 @@ class IndividualizeTheme extends ThemePlugin
         $this->addViteAssets(['src/main.js']);
         $this->addViteAssets(['src/galley.js'], ['contexts' => ['htmlGalley']]);
         Hook::add('TemplateManager::display', [$this, 'addTemplateData']);
-
+        Hook::add('IndividualizeTheme::FullText', [$this, 'addArticleFullText']);
     }
 
     public function getDisplayName()
@@ -236,6 +239,120 @@ class IndividualizeTheme extends ThemePlugin
     }
 
     /**
+     * Add the full text to the article landing page if a HTML
+     * galley exists
+     */
+    public function addArticleFullText(string $hookName, array $args): bool
+    {
+        if ($this->getOption('articleFullText') !== Options::ARTICLE_FULLTEXT_SHOW) {
+            return false;
+        }
+
+        $request = Application::get()->getRequest();
+        $templateMgr = TemplateManager::getManager($request);
+        $submission = $templateMgr->get_template_vars('article');
+        $galley = $this->getHtmlGalley($templateMgr);
+
+        if (!$galley) {
+            return false;
+        }
+
+        $content = $this->getFileContent($galley);
+
+        if (!$content) {
+            return false;
+        }
+
+        $activeTheme = TemplateManager::getManager(Application::get()->getRequest())->get_template_vars('activeTheme');
+        $themeWithExtractor = $this->getThemeWithFullTextExtractor($activeTheme);
+
+        if (!$themeWithExtractor) {
+            return false;
+        }
+
+        $extractor = $themeWithExtractor->getFullTextExtractor($content, $galley, $submission);
+
+        if (!$extractor) {
+            return false;
+        }
+
+        $article = $extractor->getArticleContent();
+
+        if (!$article) {
+            return false;
+        }
+
+        $references = $extractor->getReferencesContent();
+
+        $templateMgr->assign([
+            'fullTextHtml' => $article,
+            'fullTextReferences' => $references,
+            'fullTextTableOfContents' => $extractor->getTableOfContents($article, (bool) $references),
+        ]);
+
+        $templateMgr->display($this->getTemplateResource('frontend/components/article-full-text.tpl'));
+
+        return false;
+    }
+
+    /**
+     * Whether or not this theme supports full-text extraction
+     * from HTML galleys
+     *
+     * Return false to disable full-text extraction and remove
+     * the theme option.
+     *
+     * @see self::addArticleFullText()
+     */
+    public function supportsArticleFullText(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Recursively check the active theme and all parent
+     * themes' support for article full text
+     */
+    public function getThemeSupportsArticleFullText(ThemePlugin $theme): bool
+    {
+        while ($theme) {
+            if (method_exists($theme, 'supportsArticleFullText')) {
+                return $theme->supportsArticleFullText();
+            }
+            $theme = $theme->parent;
+        }
+        return false;
+    }
+
+    /**
+     * Get the helper class to extract full-text HTML
+     * from a HTML galley
+     *
+     * Override this method in a child theme to adapt the
+     * extraction code to your HTML structure.
+     *
+     * @see FullText
+     */
+    public function getFullTextExtractor(string $html, Galley $galley, Submission $submission): ?FullText
+    {
+        return new FullText($html, $galley, $submission);
+    }
+
+    /**
+     * Recursively check the active theme and all
+     * parent themes for a full text extractor
+     */
+    public function getThemeWithFullTextExtractor(ThemePlugin $theme): ?ThemePlugin
+    {
+        while ($theme) {
+            if (method_exists($theme, 'getFullTextExtractor')) {
+                return $theme;
+            }
+            $theme = $theme->parent;
+        }
+    }
+
+    /**
      * Use functions from themeHelper
      *
      * These helper functions register custom template functions, add
@@ -383,5 +500,34 @@ class IndividualizeTheme extends ThemePlugin
             return $enabledFonts;
         }
         return [];
+    }
+
+    /**
+     * Get the first primary galley that is a HTML file
+     * from the template variables
+     */
+    protected function getHtmlGalley(TemplateManager $templateMgr): ?Galley
+    {
+        $galleys = $templateMgr->get_template_vars('primaryGalleys');
+        foreach ($galleys as $galley) {
+            if ($galley->getFile()?->getData('mimetype') === 'text/html') {
+                return $galley;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get the content of a galley file
+     */
+    protected function getFileContent(Galley $galley): string
+    {
+        $file = $galley->getFile();
+
+        if (!$file) {
+            return '';
+        }
+
+        return Services::get('file')->fs->read($file->getData('path'));
     }
 }
