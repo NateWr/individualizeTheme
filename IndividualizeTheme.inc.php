@@ -124,6 +124,22 @@ class IndividualizeTheme extends ThemePlugin
                 $templateMgr->assign([
                     'authorUserGroups' => $userGroups->toArray(),
                 ]);
+
+                /** @var OpenScienceBadgesPlugin $plugin */
+                $plugin = PluginRegistry::getPlugin('generic', 'opensciencebadgesplugin');
+                if (
+                    $plugin
+                    && $plugin->getEnabled($context->getId())
+                    && $plugin->getSetting($context->getId(), $plugin::SETTING_LOCATION) === $plugin::LOCATION_NONE
+                ) {
+                    $publication = $templateMgr->get_template_vars('publication');
+                    $size = $plugin->getSetting($context->getId(), $plugin::SETTING_SIZE);
+                    $templateMgr->assign([
+                        'openScienceBadges' => $size === $plugin::SIZE_LARGE
+                            ? $plugin->getLargeBadgesHTML($publication, $templateMgr)
+                            : $plugin->getSmallBadgesHTML($publication, $templateMgr),
+                    ]);
+                }
             }
         }
 

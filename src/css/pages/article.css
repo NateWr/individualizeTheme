@@ -4,7 +4,8 @@
 .article-details,
 .article-media,
 .article-galleys-list,
-.article-sections {
+.article-sections,
+.article-section-hook-main {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -81,7 +82,8 @@
   }
 }
 
-.article-sections {
+.article-sections,
+.article-section-hook-main {
   gap: 3rem;
 }
 
@@ -139,7 +141,8 @@
     display: block;
   }
 
-  .article-section + .article-section {
+  .article-section + .article-section,
+  .article-section-hook-main > .item + .item {
     margin-top: 6rem;
   }
 

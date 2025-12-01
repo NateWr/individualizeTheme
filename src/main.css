@@ -35,6 +35,7 @@
 @import "css/components/menu-desktop-main.css";
 @import "css/components/notice.css";
 @import "css/components/pagination.css";
+@import "css/components/plugins/open-science-badges.css";
 @import "css/components/plugins/recommend-by-similarity.css";
 @import "css/components/plugins/usage-stats.css";
 @import "css/components/search-input.css";

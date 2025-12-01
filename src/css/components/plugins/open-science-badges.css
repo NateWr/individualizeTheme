@@ -1,0 +1,41 @@
+.opensciencebadges-article-details {
+  margin: 1.5rem 0;
+
+  & .label {
+    @apply sr-only;
+  }
+
+  & .opensciencebadges-lg-descs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.opensciencebadges-article-main {
+
+  & .label {
+    @apply article-section-title;
+  }
+}
+
+.article-metadata-table {
+
+  & .opensciencebadges {
+    margin-top: 0.5rem;
+  }
+
+  & .opensciencebadges-lg-badges {
+    max-width: 90vw;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .article-metadata-table {
+
+    & .opensciencebadges {
+      margin-top: 0;
+    }
+  }
+}
