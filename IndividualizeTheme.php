@@ -16,6 +16,7 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
+use PKP\plugins\PluginRegistry;
 
 class IndividualizeTheme extends ThemePlugin
 {
@@ -132,12 +133,29 @@ class IndividualizeTheme extends ThemePlugin
             if ($context) {
                 $templateMgr->assign([
                     'authorUserGroups' => Repo::userGroup()
-                    ->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-                    ->getMany(),
+                        ->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->getMany(),
                 ]);
+
                 $this->removeHowToCiteDefault();
+
+                /** @var OpenScienceBadgesPlugin $plugin */
+                $plugin = PluginRegistry::getPlugin('generic', 'opensciencebadgesplugin');
+                if (
+                    $plugin
+                    && $plugin->getEnabled($context->getId())
+                    && $plugin->getSetting($context->getId(), $plugin::SETTING_LOCATION) === $plugin::LOCATION_NONE
+                ) {
+                    $publication = $templateMgr->get_template_vars('publication');
+                    $size = $plugin->getSetting($context->getId(), $plugin::SETTING_SIZE);
+                    $templateMgr->assign([
+                        'openScienceBadges' => $size === $plugin::SIZE_LARGE
+                            ? $plugin->getLargeBadgesHTML($publication, $templateMgr)
+                            : $plugin->getSmallBadgesHTML($publication, $templateMgr),
+                    ]);
+                }
             }
         }
 

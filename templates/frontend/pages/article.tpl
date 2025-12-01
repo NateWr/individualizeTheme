@@ -369,12 +369,18 @@
                   citationArgs=$citationArgs
                   citationArgsJson=$citationArgsJson
                 }
+                {if $openScienceBadges}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title={translate key="plugins.generic.openScienceBadges.displayName"}
+                    html=$openScienceBadges
+                  }
+                {/if}
                 {if $publication->getLocalizedData('dataAvailability')}
                   {include
                     file="frontend/components/metadata-tr-html.tpl"
                     title={translate key="submission.dataAvailability"}
                     html=$publication->getLocalizedData('dataAvailability')
-                  }
                 {/if}
                 {if $publication->getData('pages')}
                   {include
