@@ -9,6 +9,7 @@
 @import "css/utilities/link.css";
 @import "css/utilities/reveal.css";
 @import "css/utilities/tab-focus.css";
+@import "css/components/article-full-text.css";
 @import "css/components/article-summary.css";
 @import "css/components/author-details.css";
 @import "css/components/category-summary.css";

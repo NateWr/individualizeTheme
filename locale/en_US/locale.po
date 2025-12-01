@@ -376,6 +376,18 @@ msgstr "Show Menus in Footer"
 msgid "plugins.themes.individualizeTheme.option.footerMenu.checkbox"
 msgstr "Yes, show the navigation menus in the footer at the bottom of every page."
 
+msgid "plugins.themes.individualizeTheme.option.articleFullText.label"
+msgstr "Article HTML Full Text"
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.description"
+msgstr "Whether or not to show the full text of an article on the landing page when an HTML galley exists. The HTML galley must conform to specific standards. Please consult your publisher before changing this setting."
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.show"
+msgstr "Yes, show the full text on the article landing page"
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.hide"
+msgstr "No, only show the full text when someone views the HTML galley"
+
 # 3.3 Compatibility
 #
 # The following locale keys can be removed for

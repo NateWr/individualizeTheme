@@ -13,6 +13,7 @@ import './css/bootstrap.scss'
 /**
  * Custom JS for the theme
  */
+import articleFullText from './js/article-full-text'
 import citation from './js/citation'
 import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
@@ -29,6 +30,7 @@ import './main.css'
  * Initialize
  */
 document.addEventListener('DOMContentLoaded',function() {
+  articleFullText.init()
   citation.init()
   mobileMenu.init()
   reveal.init()
