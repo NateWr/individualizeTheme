@@ -192,7 +192,7 @@
                   checked="checked"
                 {/if}
               >
-              <span class="input-label">
+              <span class="input-label html-text">
                 {translate
                   key="user.register.form.privacyConsent"
                   privacyUrl=$privacyUrl
