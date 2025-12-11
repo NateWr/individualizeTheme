@@ -38,6 +38,10 @@
             <a
               class="arrow-link tab-focus"
               href="{$url}"
+              aria-label="{translate
+                key="common.readMoreWithTitle"
+                title=$announcement->getLocalizedTitle()|escape
+              }"
             >
               {translate key="common.readMore"}
               {include file="frontend/icons/arrow-right.svg"}

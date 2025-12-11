@@ -7,7 +7,10 @@
         <a
           class="button"
           href="{url page="announcement" op="view" path=$announcement->getId()}"
-          aria-label="{$announcement->getLocalizedTitle()|escape}"
+          aria-label="{translate
+            key="common.readMoreWithTitle"
+            title=$announcement->getLocalizedTitle()|escape
+          }"
         >
           {translate key="common.readMore"}
         </a>
