@@ -54,22 +54,20 @@
               {/if}
             </div>
             {if $currentContext->getData('onlineIssn') || $currentContext->getData('printIssn')}
-              <table class="footer-metadata">
-                <tbody>
-                  {if $currentContext->getData('printIssn')}
-                    <tr>
-                      <th scope="row">{translate key="journal.issn"}</th>
-                      <td>{$currentContext->getData('printIssn')}</td>
-                    </tr>
-                  {/if}
-                  {if $currentContext->getData('onlineIssn')}
-                    <tr>
-                      <th scope="row">{translate key="metadata.property.displayName.eissn"}</th>
-                      <td>{$currentContext->getData('onlineIssn')}</td>
-                    </tr>
-                  {/if}
-                </tbody>
-              </table>
+              <div class="footer-metadata">
+                {if $currentContext->getData('printIssn')}
+                  <div class="footer-metadata-item">
+                    <h3 class="footer-metadata-title">{translate key="journal.issn"}</h3>
+                    <div>{$currentContext->getData('printIssn')}</div>
+                  </div>
+                {/if}
+                {if $currentContext->getData('onlineIssn')}
+                  <div class="footer-metadata-item">
+                    <h3 class="footer-metadata-title">{translate key="metadata.property.displayName.eissn"}</h3>
+                    <div>{$currentContext->getData('onlineIssn')}</div>
+                  </div>
+                {/if}
+              </div>
             {/if}
             <div class="footer-links">
               {capture assign="policyMenu"}{strip}

@@ -1,15 +1,13 @@
 {if $categories}
-  <tr>
-    <th scope="row">
+  <div class="article-metadata-table-row">
+    <h3 class="article-metadata-table-heading">
       {translate key="category.category"}
-    </th>
-    <td>
-      <div>
-        {foreach from=$categories item="category" name="categories"}
-          <a class="link" href="{url page="catalog" op="category" path=$category->getPath()|escape}">
-            {$category->getLocalizedTitle()|escape}</a>{if !$smarty.foreach.categories.last},{/if}
-        {/foreach}
-      </div>
-    </td>
-  </tr>
+    </h3>
+    <div class="html-text">
+      {foreach from=$categories item="category" name="categories"}
+        <a href="{url page="catalog" op="category" path=$category->getPath()|escape}">
+          {$category->getLocalizedTitle()|escape}</a>{if !$smarty.foreach.categories.last},{/if}
+      {/foreach}
+    </div>
+  </div>
 {/if}
