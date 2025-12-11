@@ -28,7 +28,7 @@
 
     </div>
   </div>
-  <footer class="footer" id="skip-to-footer">
+  <div class="footer">
     <div class="container">
       <div class="footer-back-to-top">
         <a href="#back-to-top" class="footer-back-to-top-link tab-focus">
@@ -39,7 +39,7 @@
         </a>
       </div>
     </div>
-    <div class="footer-inner">
+    <footer class="footer-inner" id="skip-to-footer">
       <div class="container">
         <h2 class="footer-block footer-name">
           {$currentContext->getLocalizedName()|escape}
@@ -109,9 +109,9 @@
           </div>
         {/if}
       </div>
-    </div>
+    </footer>
     {include file="frontend/components/footer-btm.tpl"}
-  </footer>
+  </div>
   {load_script context="frontend"}
   {call_hook name="Templates::Common::Footer::PageFooter"}
 </html>
