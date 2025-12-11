@@ -21,13 +21,13 @@
   {include file="frontend/components/skip-links.tpl"}
   {include file="frontend/components/header-mobile.tpl"}
   {include file="frontend/components/header-desktop.tpl"}
-  <main class="pt-16" id="skip-to-main">
+  <div class="pt-16">
     <div class="container">
 
       {block name="content"}{/block}
 
     </div>
-  </main>
+  </div>
   <footer class="footer" id="skip-to-footer">
     <div class="container">
       <div class="footer-back-to-top">

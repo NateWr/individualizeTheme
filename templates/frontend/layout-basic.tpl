@@ -13,19 +13,21 @@
 
   <div class="page">
     {$breadcrumb}
-    <div class="page-heading">
-      <h1 class="page-title">
-        {$title}
-      </h1>
-      {if $description}
-        <div class="page-description">
-          {$description}
-        </div>
-      {/if}
-    </div>
-    <div class="page-content html-text">
-      {$html}
-    </div>
+    <main class="page-wrapper" id="skip-to-main">
+      <div class="page-heading">
+        <h1 class="page-title">
+          {$title}
+        </h1>
+        {if $description}
+          <div class="page-description">
+            {$description}
+          </div>
+        {/if}
+      </div>
+      <div class="page-content html-text">
+        {$html}
+      </div>
+    </main>
   </div>
 
 {/block}

@@ -51,8 +51,7 @@
         </a>
       {/if}
     </div>
-
-    <article class="article">
+    <main class="article" id="skip-to-main">
 
       {* Preview and old version notices *}
       {if $publication->getData('status') !== $smarty.const.STATUS_PUBLISHED}
@@ -405,7 +404,7 @@
 
         </div>
       </div>
-    </article>
+    </main>
   </div>
 
 {/block}

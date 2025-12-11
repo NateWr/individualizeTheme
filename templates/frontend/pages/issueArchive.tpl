@@ -15,10 +15,13 @@
 
 {block name="content"}
 
-  <div class="
-    issue-archive
-    issue-archive-{$activeTheme->getOption('issueArchives')}
-  ">
+  <main
+    id="skip-to-main"
+    class="
+      issue-archive
+      issue-archive-{$activeTheme->getOption('issueArchives')}
+    "
+  >
     <div class="issue-archive-header">
       <h1 class="issue-archive-title">
         {translate key="plugins.themes.individualizeTheme.allIssues"}
@@ -72,6 +75,6 @@
         urlPattern=$urlPattern
       }
     {/if}
-  </div>
+  </main>
 
 {/block}
