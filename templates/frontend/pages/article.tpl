@@ -189,51 +189,52 @@
         {* Optional metadata table (DOI, Published Date, etc *}
         <div class="article-metadata">
           {if $activeTheme->getOption('highlightArticleMetadata')|count}
-            <table class="article-metadata-table">
-              <tbody>
-                {foreach from=$activeTheme->getOption('highlightArticleMetadata') item="type"}
-                  {if $type === 'doi' && $doiLink}
-                    {include
-                      file="frontend/components/metadata-tr-html.tpl"
-                      title=$pubIdPlugin->getPubIdDisplayType()
-                      html=$doiLink
-                    }
-                  {/if}
-                  {if $type === 'keywords'}
-                    {include
-                      file="frontend/components/metadata-tr-keywords.tpl"
-                      keywords=$publication->getLocalizedData('keywords')
-                    }
-                  {/if}
-                  {if $type === 'published'}
-                    {include
-                      file="frontend/components/metadata-tr-published.tpl"
-                      article=$article
-                      publication=$publication
-                      firstPublication=$firstPublication
-                      currentPublication=$currentPublication
-                    }
-                  {/if}
-                  {if $type === 'published-by'}
-                    {include
-                      file="frontend/components/metadata-tr-published-by.tpl"
-                      issue=$issue
-                    }
-                  {/if}
-                  {if $type === 'how-to-cite'}
-                    {include
-                      file="frontend/components/metadata-tr-how-to-cite.tpl"
-                      id="how-to-cite-header"
-                      citation=$citation
-                      citationStyles=$citationStyles
-                      citationDownloads=$citationDownloads
-                      citationArgs=$citationArgs
-                      citationArgsJson=$citationArgsJson
-                    }
-                  {/if}
-                {/foreach}
-              </tbody>
-            </table>
+            <h2 class="sr-only">
+              {translate key="plugins.themes.individualizeTheme.highlightedArticleDetails"}
+            </h2>
+            <div class="article-metadata-table">
+              {foreach from=$activeTheme->getOption('highlightArticleMetadata') item="type"}
+                {if $type === 'doi' && $doiLink}
+                  {include
+                    file="frontend/components/metadata-tr-html.tpl"
+                    title=$pubIdPlugin->getPubIdDisplayType()
+                    html=$doiLink
+                  }
+                {/if}
+                {if $type === 'keywords'}
+                  {include
+                    file="frontend/components/metadata-tr-keywords.tpl"
+                    keywords=$publication->getLocalizedData('keywords')
+                  }
+                {/if}
+                {if $type === 'published'}
+                  {include
+                    file="frontend/components/metadata-tr-published.tpl"
+                    article=$article
+                    publication=$publication
+                    firstPublication=$firstPublication
+                    currentPublication=$currentPublication
+                  }
+                {/if}
+                {if $type === 'published-by'}
+                  {include
+                    file="frontend/components/metadata-tr-published-by.tpl"
+                    issue=$issue
+                  }
+                {/if}
+                {if $type === 'how-to-cite'}
+                  {include
+                    file="frontend/components/metadata-tr-how-to-cite.tpl"
+                    id="how-to-cite-header"
+                    citation=$citation
+                    citationStyles=$citationStyles
+                    citationDownloads=$citationDownloads
+                    citationArgs=$citationArgs
+                    citationArgsJson=$citationArgsJson
+                  }
+                {/if}
+              {/foreach}
+            </div>
           {/if}
         </div>
 
@@ -310,99 +311,86 @@
               {translate key="article.details"}
             </h2>
             {call_hook name="Templates::Article::Details"}
-            <table
-              class="article-metadata-table"
-              aria-labelledby="article-metadata-title"
-            >
-              <tbody>
-                {foreach from=$pubIdPlugins item="pubIdPlugin"}
-                  {if !$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-                    {continue}
-                  {/if}
-                  {assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $article->getStoredPubId($pubIdPlugin->getPubIdType()))}
-                  {capture assign="pubIdLink"}{strip}
-                    <a class="arrow-link tab-focus" href="{$doiUrl|escape}">
-                      {$doiUrl|escape}
-                      {include file="frontend/icons/arrow-right.svg"}
-                    </a>
-                  {/capture}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title=$pubIdPlugin->getPubIdDisplayType()
-                    html=$pubIdLink
-                  }
-                {/foreach}
+            <div class="article-metadata-table">
+              {foreach from=$pubIdPlugins item="pubIdPlugin"}
+                {if !$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+                  {continue}
+                {/if}
+                {assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $article->getStoredPubId($pubIdPlugin->getPubIdType()))}
+                {capture assign="pubIdLink"}{strip}
+                  <a class="arrow-link tab-focus" href="{$doiUrl|escape}">
+                    {$doiUrl|escape}
+                    {include file="frontend/icons/arrow-right.svg"}
+                  </a>
+                {/capture}
                 {include
-                  file="frontend/components/metadata-tr-published.tpl"
-                  article=$article
-                  publication=$publication
-                  firstPublication=$firstPublication
-                  currentPublication=$currentPublication
+                  file="frontend/components/metadata-tr-html.tpl"
+                  title=$pubIdPlugin->getPubIdDisplayType()
+                  html=$pubIdLink
                 }
+              {/foreach}
+              {include
+                file="frontend/components/metadata-tr-published.tpl"
+                article=$article
+                publication=$publication
+                firstPublication=$firstPublication
+                currentPublication=$currentPublication
+              }
+              {include
+                file="frontend/components/metadata-tr-issue.tpl"
+                issue=$issue
+              }
+              {if $section}
                 {include
-                  file="frontend/components/metadata-tr-issue.tpl"
-                  issue=$issue
+                  file="frontend/components/metadata-tr-html.tpl"
+                  title={translate key="section.section"}
+                  html={$section->getLocalizedTitle()|strip_unsafe_html}
                 }
-                {if $section}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title={translate key="section.section"}
-                    html={$section->getLocalizedTitle()|strip_unsafe_html}
-                  }
-                {/if}
+              {/if}
+              {include
+                file="frontend/components/metadata-tr-categories.tpl"
+                categories=$categories
+              }
+              {include
+                file="frontend/components/metadata-tr-keywords.tpl"
+                keywords=$publication->getLocalizedData('keywords')
+              }
+              {include
+                file="frontend/components/metadata-tr-how-to-cite.tpl"
+                id="how-to-cite"
+                citation=$citation
+                citationStyles=$citationStyles
+                citationDownloads=$citationDownloads
+                citationArgs=$citationArgs
+                citationArgsJson=$citationArgsJson
+              }
+              {if $openScienceBadges}
                 {include
-                  file="frontend/components/metadata-tr-categories.tpl"
-                  categories=$categories
+                  file="frontend/components/metadata-tr-html.tpl"
+                  title={translate key="plugins.generic.openScienceBadges.displayName"}
+                  html=$openScienceBadges
                 }
-                {if !empty($publication->getLocalizedData('keywords'))}
-                  {include
-                    file="frontend/components/metadata-tr-keywords.tpl"
-                    keywords=$publication->getLocalizedData('keywords')
-                  }
-                {/if}
+              {/if}
+              {if $publication->getData('pages')}
                 {include
-                  file="frontend/components/metadata-tr-how-to-cite.tpl"
-                  id="how-to-cite"
-                  citation=$citation
-                  citationStyles=$citationStyles
-                  citationDownloads=$citationDownloads
-                  citationArgs=$citationArgs
-                  citationArgsJson=$citationArgsJson
+                  file="frontend/components/metadata-tr-html.tpl"
+                  title={translate key="editor.issues.pages"}
+                  html=$publication->getData('pages')
                 }
-                {if $openScienceBadges}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title={translate key="plugins.generic.openScienceBadges.displayName"}
-                    html=$openScienceBadges
-                  }
-                {/if}
-                {if $publication->getLocalizedData('dataAvailability')}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title={translate key="submission.dataAvailability"}
-                    html=$publication->getLocalizedData('dataAvailability')
-                {/if}
-                {if $publication->getData('pages')}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title={translate key="editor.issues.pages"}
-                    html=$publication->getData('pages')
-                  }
-                {/if}
-                {if $publication->getData('pub-id::publisher-id')}
-                  {include
-                    file="frontend/components/metadata-tr-html.tpl"
-                    title={translate key="submission.publisherId"}
-                    html=$publication->getData('pub-id::publisher-id')
-                  }
-                {/if}
+              {/if}
+              {if $publication->getData('pub-id::publisher-id')}
                 {include
-                  file="frontend/components/metadata-tr-license.tpl"
-                  publication=$publication
-                  ccLicenseBadge=$ccLicenseBadge
+                  file="frontend/components/metadata-tr-html.tpl"
+                  title={translate key="submission.publisherId"}
+                  html=$publication->getData('pub-id::publisher-id')
                 }
-              </tbody>
-            </table>
+              {/if}
+              {include
+                file="frontend/components/metadata-tr-license.tpl"
+                publication=$publication
+                ccLicenseBadge=$ccLicenseBadge
+              }
+            </div>
           </section>
 
           {* Common hook used by plugins *}

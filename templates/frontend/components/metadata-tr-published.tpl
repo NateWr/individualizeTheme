@@ -1,12 +1,12 @@
-<tr>
-  <th scope="row">
+<div class="article-metadata-table-row">
+  <h3 class="article-metadata-table-heading">
     {translate key="submission.status.published"}
-  </th>
-  <td>
+  </h3>
+  <div>
     {if !$publication->getData('datePublished')}
-      <div>{translate key="publication.status.unpublished"}</div>
+      <div class="html-text">{translate key="publication.status.unpublished"}</div>
     {else}
-      <div>
+      <div class="html-text">
         {if $firstPublication->getId() === $publication->getId()}
           {$firstPublication->getData('datePublished')|date_format:$dateFormatLong}
         {else}
@@ -50,5 +50,5 @@
         </ul>
       {/if}
     {/if}
-  </td>
-</tr>
+  </div>
+</div>

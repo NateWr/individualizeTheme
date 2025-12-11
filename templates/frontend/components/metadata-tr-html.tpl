@@ -1,10 +1,8 @@
-<tr>
-  <th scope="row">
+<div class="article-metadata-table-row">
+  <h3 class="article-metadata-table-heading">
     {$title|strip_unsafe_html}
-  </th>
-  <td>
-    <div class="html-text">
-      {$html}
-    </div>
-  </td>
-</tr>
+  </h3>
+  <div class="html-text">
+    {$html}
+  </div>
+</div>

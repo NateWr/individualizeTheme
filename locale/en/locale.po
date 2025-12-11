@@ -97,6 +97,9 @@ msgstr "\"{$phrase}\" Search Results"
 msgid "plugins.themes.individualizeTheme.announcements.none"
 msgstr "There are no announcements at this time."
 
+msgid "plugins.themes.individualizeTheme.highlightedArticleDetails"
+msgstr "Key Information"
+
 msgid "plugins.themes.individualizeTheme.site.unsupported"
 msgstr "Unsupported"
 
