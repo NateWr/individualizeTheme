@@ -28,15 +28,6 @@
   gap: 1.5rem;
 }
 
-.issue-summary-link:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .issue-summary-vol {
   font-family: var(--font-titles);
   font-size: 2rem;

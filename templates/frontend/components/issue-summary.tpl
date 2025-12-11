@@ -38,28 +38,6 @@
           </div>
         {/if}
       </h3>
-      {if !empty($issueGalleys)}
-        <div class="issue-summary-galleys">
-          {foreach from=$issueGalleys item=galley}
-            <a
-              class="button"
-              href="{url page="issue" op="view" path=$issue->getBestIssueId()|to_array:$galley->getBestGalleyId()}"
-              aria-label="{translate
-                key="submission.representationOfTitle"
-                representation=$galley->getGalleyLabel()|escape
-                title=$issue->getIssueIdentification()|escape
-              }"
-            >
-              {if $galley->isPdfGalley()}
-                {include file="frontend/icons/download.svg"}
-              {/if}
-              <span class="button-truncate-text">
-                {$galley->getGalleyLabel()|escape}
-              </span>
-            </a>
-          {/foreach}
-        </div>
-      {/if}
     </div>
     <div class="issue-summary-description">
       {if $issue->getLocalizedDescription()}
