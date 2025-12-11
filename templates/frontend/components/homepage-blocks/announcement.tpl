@@ -8,7 +8,10 @@
         <a
           class="button"
           href="{url page="announcement" op="view" path=$announcement->id}"
-          aria-label="{$announcement->getLocalizedData('title')|escape}"
+          aria-label="{translate
+            key="common.readMoreWithTitle"
+            title=$announcement->getLocalizedData('title')|escape
+          }"
         >
           {translate key="common.readMore"}
         </a>
