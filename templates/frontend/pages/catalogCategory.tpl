@@ -41,71 +41,74 @@
       </div>
     {/if}
 
-    <div class="category-header">
-      <h1 class="category-title">
-        {$category->getLocalizedTitle()|escape}
-      </h1>
-      {if $category->getLocalizedDescription()}
-        <div class="category-desc html-text">
-          {$category->getLocalizedDescription()|strip_unsafe_html}
-        </div>
-      {/if}
-    </div>
+    <main class="category-wrapper" id="skip-to-main">
 
-    <div class="category-inner">
-      {if $subcategories|@count}
-        <nav class="category-subcategories">
-          <h2 class="category-subcategories-title">
-            {translate key="catalog.category.subcategories"}
-          </h2>
-          <ul>
-            {foreach from=$subcategories item=subcategory}
-              <li>
-                <a
-                  class="tab-focus"
-                  href="{url op="category" path=$subcategory->getPath()}"
-                >
-                  {$subcategory->getLocalizedTitle()|escape}
-                </a>
-              </li>
-            {/foreach}
-          </ul>
-        </nav>
-      {/if}
-      <div class="category-items">
-        <h2 class="sr-only">
-          {translate key="article.articles"}
-        </h2>
-        {if !$publishedSubmissions|@count}
-          <div class="notice">
-            <div class="notice-content">
-              {translate key="catalog.category.noItems"}
-            </div>
+      <div class="category-header">
+        <h1 class="category-title">
+          {$category->getLocalizedTitle()|escape}
+        </h1>
+        {if $category->getLocalizedDescription()}
+          <div class="category-desc html-text">
+            {$category->getLocalizedDescription()|strip_unsafe_html}
           </div>
-        {else}
-          <ul class="category-items-list">
-            {foreach from=$publishedSubmissions item="article"}
-              <li>
-                {include
-                  file="frontend/components/article-summary.tpl"
-                  article=$article
-                  heading="h3"
-                  galleys=true
-                }
-              </li>
-            {/foreach}
-          </ul>
-          {if $prevPage || $nextPage}
-            {include
-              file="frontend/components/pagination.tpl"
-              pages=$pages
-              currentPage=$currentPage
-              urlPattern=$urlPattern
-            }
-          {/if}
         {/if}
       </div>
-    </div>
+
+      <div class="category-inner">
+        {if $subcategories|@count}
+          <nav class="category-subcategories">
+            <h2 class="category-subcategories-title">
+              {translate key="catalog.category.subcategories"}
+            </h2>
+            <ul>
+              {foreach from=$subcategories item=subcategory}
+                <li>
+                  <a
+                    class="tab-focus"
+                    href="{url op="category" path=$subcategory->getPath()}"
+                  >
+                    {$subcategory->getLocalizedTitle()|escape}
+                  </a>
+                </li>
+              {/foreach}
+            </ul>
+          </nav>
+        {/if}
+        <div class="category-items">
+          <h2 class="sr-only">
+            {translate key="article.articles"}
+          </h2>
+          {if !$publishedSubmissions|@count}
+            <div class="notice">
+              <div class="notice-content">
+                {translate key="catalog.category.noItems"}
+              </div>
+            </div>
+          {else}
+            <ul class="category-items-list">
+              {foreach from=$publishedSubmissions item="article"}
+                <li>
+                  {include
+                    file="frontend/components/article-summary.tpl"
+                    article=$article
+                    heading="h3"
+                    galleys=true
+                  }
+                </li>
+              {/foreach}
+            </ul>
+            {if $prevPage || $nextPage}
+              {include
+                file="frontend/components/pagination.tpl"
+                pages=$pages
+                currentPage=$currentPage
+                urlPattern=$urlPattern
+              }
+            {/if}
+          {/if}
+        </div>
+      </div>
+    </main>
   </div>
 
 {/block}

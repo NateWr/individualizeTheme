@@ -2,20 +2,23 @@
 
 {block name="content"}
 
-  <h1 class="sr-only">
-    {$currentContext->getLocalizedName()}
-  </h1>
-
-  {if $homepageBlocks}
-    <div class="
+  <main
+    id="skip-to-main"
+    class="
       homepage-blocks
       flex flex-col items-center gap-32 my-16
       2xl:my-24 2xl:gap-48
-    ">
+    "
+  >
+    <h1 class="sr-only">
+      {$currentContext->getLocalizedName()}
+    </h1>
+
+    {if $homepageBlocks}
       {foreach from=$homepageBlocks item="template"}
         {include file=$template}
       {/foreach}
-    </div>
-  {/if}
+    {/if}
+  </main>
 
 {/block}

@@ -4,7 +4,7 @@
 
 {block name="content"}
 
-  <div class="register">
+  <main class="register" id="skip-to-main">
     <h1 class="register-title">
       {translate key="user.register"}
     </h1>
@@ -274,6 +274,6 @@
         </a>
       </div>
     </form>
-  </div>
+  </main>
 
 {/block}

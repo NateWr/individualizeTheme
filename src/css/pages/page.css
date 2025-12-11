@@ -3,7 +3,8 @@
  * contact page. Also used for custom pages and announcements.
  */
 .page,
-.page-heading {
+.page-heading,
+.page-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

@@ -8,7 +8,7 @@
 
 {block name="content"}
 
-  <div class="search">
+  <main class="search" id="skip-to-main">
     <div class="search-header">
       <h1 class="search-title">
         {if !$query}
@@ -113,6 +113,6 @@
         urlPattern=$urlPattern
       }
     {/if}
-  </div>
+  </main>
 
 {/block}

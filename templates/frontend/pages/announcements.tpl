@@ -1,10 +1,10 @@
 {assign var="pageTitleTranslated" value={translate key="announcement.announcements"}}
 
-{extends file="frontend/layout.tpl"}
+{extends file="frontend/layout-basic.tpl"}
 
 {block name="content"}
 
-  <div class="page announcements">
+  <main class="page announcements" id="skip-to-main">
     <div class="page-heading">
       <h1 class="page-title">
         {translate key="announcement.announcements"}
@@ -46,6 +46,6 @@
         {/foreach}
       </ol>
     {/if}
-  </div>
+  </main>
 
 {/block}

@@ -8,15 +8,17 @@
 {block name="content"}
 
   <div class="
-    max-w-screen-xl mx-auto flex flex-col gap-8 my-8
-    xl:gap-16 xl:my-0
+    max-w-screen-xl mx-auto my-8 flex flex-col gap-8
+    xl:my-0 xl:gap-16
   ">
     {if !$issue}
-      {include
-        file="frontend/components/notice.tpl"
-        title="<h1>{translate key="current.noCurrentIssue"}</h2>"
-        content={translate key="current.noCurrentIssueDesc"}
-      }
+      <main id="skip-to-main">
+        {include
+          file="frontend/components/notice.tpl"
+          title="<h1>{translate key="current.noCurrentIssue"}</h2>"
+          content={translate key="current.noCurrentIssueDesc"}
+        }
+      </main>
     {else}
       <div class="breadcrumb">
         <span class="sr-only">
@@ -34,7 +36,15 @@
           {$issue->getIssueIdentification(['showTitle' => false, 'showYear' => false])}
         </span>
       </div>
-      {include file="frontend/components/issue-toc.tpl"}
+      <main
+        id="skip-to-main"
+        class="
+          flex flex-col gap-8
+          xl:gap-16
+        "
+      >
+        {include file="frontend/components/issue-toc.tpl"}
+      </main>
     {/if}
   </div>
 
