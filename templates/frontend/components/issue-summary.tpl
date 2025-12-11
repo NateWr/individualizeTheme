@@ -1,9 +1,13 @@
-<div class="
-  issue-summary
-  {if $hideCover}
-    issue-summary-no-cover
-  {/if}
-">
+<a
+  class="
+    tab-focus
+    issue-summary
+    {if $hideCover}
+      issue-summary-no-cover
+    {/if}
+  "
+  href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
+>
   {if !$hideCover}
     {if $issue->getLocalizedCoverImageUrl()}
       <img
@@ -19,26 +23,21 @@
   {/if}
   <div class="issue-summary-inner">
     <div class="issue-summary-header">
-      <a
-        class="issue-summary-link tab-focus"
-        href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
-      >
-        <h3>
-          <div class="issue-summary-vol">
-            {$issue->getIssueIdentification(['showTitle' => false, 'showYear' => false])}
+      <h3>
+        <div class="issue-summary-vol">
+          {$issue->getIssueIdentification(['showTitle' => false, 'showYear' => false])}
+        </div>
+        {if $issue->getYear()}
+          <div class="issue-summary-year">
+            {$issue->getYear()}
           </div>
-          {if $issue->getYear()}
-            <div class="issue-summary-year">
-              {$issue->getYear()}
-            </div>
-          {/if}
-          {if $issue->getLocalizedTitle()}
-            <div class="issue-summary-title">
-              {$issue->getLocalizedTitle()|escape}
-            </div>
-          {/if}
-        </h3>
-      </a>
+        {/if}
+        {if $issue->getLocalizedTitle()}
+          <div class="issue-summary-title">
+            {$issue->getLocalizedTitle()|escape}
+          </div>
+        {/if}
+      </h3>
       {if !empty($issueGalleys)}
         <div class="issue-summary-galleys">
           {foreach from=$issueGalleys item=galley}
@@ -69,14 +68,11 @@
         </div>
       {/if}
       <div class="issue-summary-button">
-        <a
-          class="arrow-link tab-focus"
-          href="{url page="issue" op="view" path=$issue->getBestIssueId()}"
-        >
+        <div class="arrow-link">
           {translate key="issue.viewIssue"}
           {include file="frontend/icons/arrow-right.svg"}
-        </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>
