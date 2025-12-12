@@ -211,12 +211,12 @@ class IndividualizeTheme extends ThemePlugin
             return;
         }
 
-        foreach ($hooks['Templates::Article::Details'] as $priority => $callbacks) {
-            foreach($callbacks as $key => $callback) {
-                if (is_array($callback) && is_a($callback[0], Closure::class)) {
-                    $reflectionClosure = new ReflectionClosure($callback[0]);
+        foreach ($hooks['Templates::Article::Details']['hooks'] as $priority => $callbacks) {
+            foreach ($callbacks as $key => $callback) {
+                if (is_object($callback) && is_a($callback, Closure::class)) {
+                    $reflectionClosure = new ReflectionClosure($callback);
                     if ($reflectionClosure->getClosureScopeClass()->getName() === CitationStyleLanguagePlugin::class) {
-                        unset($hooks['Templates::Article::Details'][$priority][$key]);
+                        unset($hooks['Templates::Article::Details']['hooks'][$priority][$key]);
                         Registry::set('hooks', $hooks);
                         break;
                     }
