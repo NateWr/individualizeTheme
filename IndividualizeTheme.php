@@ -2,6 +2,7 @@
 namespace APP\plugins\themes\individualizeTheme;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\plugins\generic\citationStyleLanguage\CitationStyleLanguagePlugin;
 use APP\submission\Submission;
@@ -20,6 +21,7 @@ use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\plugins\PluginRegistry;
+use PKP\submissionFile\SubmissionFile;
 
 class IndividualizeTheme extends ThemePlugin
 {
@@ -135,11 +137,7 @@ class IndividualizeTheme extends ThemePlugin
         if ($template === 'frontend/pages/article.tpl') {
             if ($context) {
                 $templateMgr->assign([
-                    'authorUserGroups' => Repo::userGroup()
-                        ->getCollector()
-                        ->filterByContextIds([$context->getId()])
-                        ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-                        ->getMany(),
+                    'authorUserGroups' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId()),
                 ]);
 
                 $this->removeHowToCiteDefault();
@@ -151,7 +149,7 @@ class IndividualizeTheme extends ThemePlugin
                     && $plugin->getEnabled($context->getId())
                     && $plugin->getSetting($context->getId(), $plugin::SETTING_LOCATION) === $plugin::LOCATION_NONE
                 ) {
-                    $publication = $templateMgr->get_template_vars('publication');
+                    $publication = $templateMgr->getTemplateVars('publication');
                     $size = $plugin->getSetting($context->getId(), $plugin::SETTING_SIZE);
                     $templateMgr->assign([
                         'openScienceBadges' => $size === $plugin::SIZE_LARGE
@@ -250,27 +248,33 @@ class IndividualizeTheme extends ThemePlugin
 
         $request = Application::get()->getRequest();
         $templateMgr = TemplateManager::getManager($request);
-        $submission = $templateMgr->get_template_vars('article');
+        $submission = $templateMgr->getTemplateVars('article');
         $galley = $this->getHtmlGalley($templateMgr);
 
         if (!$galley) {
             return false;
         }
 
-        $content = $this->getFileContent($galley);
+        $file = Repo::submissionFile()->get($galley->getData('submissionFileId'));
+
+        if (!$file) {
+            return false;
+        }
+
+        $content = $this->getFileContent($file);
 
         if (!$content) {
             return false;
         }
 
-        $activeTheme = TemplateManager::getManager(Application::get()->getRequest())->get_template_vars('activeTheme');
+        $activeTheme = TemplateManager::getManager(Application::get()->getRequest())->getTemplateVars('activeTheme');
         $themeWithExtractor = $this->getThemeWithFullTextExtractor($activeTheme);
 
         if (!$themeWithExtractor) {
             return false;
         }
 
-        $extractor = $themeWithExtractor->getFullTextExtractor($content, $galley, $submission);
+        $extractor = $themeWithExtractor->getFullTextExtractor($content, $galley, $file, $submission);
 
         if (!$extractor) {
             return false;
@@ -333,9 +337,9 @@ class IndividualizeTheme extends ThemePlugin
      *
      * @see FullText
      */
-    public function getFullTextExtractor(string $html, Galley $galley, Submission $submission): ?FullText
+    public function getFullTextExtractor(string $html, Galley $galley, SubmissionFile $galleyFile, Submission $submission): ?FullText
     {
-        return new FullText($html, $galley, $submission);
+        return new FullText($html, $galley, $galleyFile, $submission);
     }
 
     /**
@@ -350,6 +354,7 @@ class IndividualizeTheme extends ThemePlugin
             }
             $theme = $theme->parent;
         }
+        return null;
     }
 
     /**
@@ -491,7 +496,7 @@ class IndividualizeTheme extends ThemePlugin
     protected function getEnabledFonts(?int $contextId = null): array
     {
         if (is_null($contextId)) {
-            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::CONTEXT_ID_NONE;
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::SITE_CONTEXT_ID;
         }
         /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
@@ -508,7 +513,7 @@ class IndividualizeTheme extends ThemePlugin
      */
     protected function getHtmlGalley(TemplateManager $templateMgr): ?Galley
     {
-        $galleys = $templateMgr->get_template_vars('primaryGalleys');
+        $galleys = $templateMgr->getTemplateVars('primaryGalleys');
         foreach ($galleys as $galley) {
             if ($galley->getFile()?->getData('mimetype') === 'text/html') {
                 return $galley;
@@ -520,14 +525,8 @@ class IndividualizeTheme extends ThemePlugin
     /**
      * Get the content of a galley file
      */
-    protected function getFileContent(Galley $galley): string
+    protected function getFileContent(SubmissionFile $file): string
     {
-        $file = $galley->getFile();
-
-        if (!$file) {
-            return '';
-        }
-
         return Services::get('file')->fs->read($file->getData('path'));
     }
 }

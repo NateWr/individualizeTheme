@@ -26,6 +26,13 @@
  */
 namespace APP\plugins\themes\individualizeTheme\classes;
 
+use APP\core\Application;
+use APP\core\Services;
+use APP\facades\Repo;
+use APP\submission\Submission;
+use PKP\galley\Galley;
+use PKP\submissionFile\SubmissionFile;
+
 class FullText
 {
     public function __construct(
@@ -48,7 +55,12 @@ class FullText
          * Images referenced in the HTML file must be uploaded as
          * dependent files to this galley.
          */
-        protected ArticleGalley $galley,
+        protected Galley $galley,
+
+        /**
+         * Submission file for the full-text HTML galley
+         */
+        protected SubmissionFile $galleyFile,
 
         /**
          * Article that this galley represents
@@ -163,19 +175,21 @@ class FullText
     protected function getDependentFiles(): array
     {
         return iterator_to_array(
-            Services::get('submissionFile')->getMany([
-                'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
-                'assocIds' => [$this->galley->getFile()->getId()],
-                'fileStages' => [SUBMISSION_FILE_DEPENDENT],
-                'includeDependentFiles' => true,
-            ])
+            Repo::submissionFile()
+                ->getCollector()
+                ->getMany([
+                    'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE],
+                    'assocIds' => [$this->galleyFile->getId()],
+                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
+                    'includeDependentFiles' => true,
+                ])
         );
     }
 
     /**
      * Get the URL to a dependent file in a galley
      */
-    protected function getDependentFileUrl(SubmissionFile $file, Submission $submission, ArticleGalley $galley): string
+    protected function getDependentFileUrl(SubmissionFile $file, Submission $submission, Galley $galley): string
     {
         return Application::get()->getRequest()->url(
             null,

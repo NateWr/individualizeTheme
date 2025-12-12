@@ -4,13 +4,13 @@ namespace APP\plugins\themes\individualizeTheme\classes;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\journal\Journal;
 use APP\plugins\themes\individualizeTheme\IndividualizeTheme;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 
 /**
@@ -93,7 +93,7 @@ class Options
     /**
      * Curent content
      */
-    protected Context $context;
+    protected Journal $context;
 
     public function __construct(
         /**
