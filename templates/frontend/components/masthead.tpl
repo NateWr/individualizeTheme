@@ -7,14 +7,14 @@
 
 {if $mastheadRoles && $mastheadUsers}
   {foreach from=$mastheadRoles item="mastheadRole"}
-    {if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
-      <h2>{$mastheadRole->getLocalizedName()|escape}</h2>
+    {if array_key_exists($mastheadRole->id, $mastheadUsers)}
+      <h2>{$mastheadRole->getLocalizedData('name')|escape}</h2>
       <ul class="masthead" role="list">
-        {foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
+        {foreach from=$mastheadUsers[$mastheadRole->id] item="mastheadUser"}
           <li class="masthead-person">
             <h3 class="masthead-name">
               {$mastheadUser['user']->getFullName()|escape}
-              {* {if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')} *}
+              {if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}
                 <span class="masthead-orcid">
                   <a
                     href="{$mastheadUser['user']->getData('orcid')|escape}"
@@ -24,7 +24,7 @@
                     {$orcidIcon}
                   </a>
                 </span>
-              {* {/if} *}
+              {/if}
             </h3>
             {if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
               <div class="masthead-affiliation">
@@ -40,7 +40,7 @@
                   {translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}
                   {if !$smarty.foreach.services.last}{translate key="common.commaListSeparator"}{/if}
                 {/foreach}
-              {else}
+              {else if $mastheadUser['dateStart']}
                 {translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}
               {/if}
             </div>
