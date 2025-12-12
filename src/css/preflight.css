@@ -15,3 +15,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/**
+ * Apply Tailwind's sr-only styles to the .pkp_screen_reader
+ * class, which appears in several default OJS templates
+ */
+.pkp_screen_reader {
+  @apply sr-only;
+}

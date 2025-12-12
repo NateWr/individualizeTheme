@@ -15,6 +15,7 @@ import './css/bootstrap.scss'
  */
 import articleFullText from './js/article-full-text'
 import citation from './js/citation'
+import highlights from './js/highlights'
 import mobileMenu from './js/mobile-menu'
 import reveal from './js/reveal'
 import reviewerInterests from './js/reviewer-interests'
@@ -33,6 +34,7 @@ import './main.css'
 document.addEventListener('DOMContentLoaded', () => {
   articleFullText.init()
   citation.init()
+  highlights.init()
   mobileMenu.init()
   reveal.init()
   reviewerInterests.init()
