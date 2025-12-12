@@ -216,17 +216,17 @@
             </span>
           </label>
           {foreach from=$reviewerUserGroups[$currentContext->getId()] item="userGroup"}
-            {if !$userGroup->getPermitSelfRegistration()}
+            {if !$userGroup->permitSelfRegistration}
                 {continue}
             {/if}
             <label class="input-checkbox-wrapper">
               <input
                 class="input-checkbox"
                 type="checkbox"
-                name="reviewerGroup[{$userGroup->getId()}]"
+                name="reviewerGroup[{$userGroup->id}]"
                 id="reviewerInterests"
                 value="1"
-                {if in_array($userGroup->getId(), $userGroupIds)}
+                {if in_array($userGroup->id, $userGroupIds)}
                   checked="checked"
                 {/if}
               >
