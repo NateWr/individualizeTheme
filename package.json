@@ -18,7 +18,7 @@
     "sass": "1.77.6",
     "swiper": "^10.3.1",
     "tailwindcss": "^3.4.13",
-    "vite": "^5.4.8",
+    "vite": "^7.2.7",
     "vite-pkp-theme": "^0.2.0"
   },
   "keywords": [],
