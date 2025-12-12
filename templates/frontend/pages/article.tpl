@@ -293,6 +293,19 @@
             </section>
           {/if}
 
+          {* Usage stats *}
+          {if $activeTheme->getOption('displayStats') && $activeTheme->getOption('displayStats') !== 'none'}
+            <section class="article-section article-section-chart">
+              <h2 class="article-section-title">
+						    {translate key="plugins.themes.default.displayStats.downloads"}
+              </h2>
+              <canvas class="usageStatsGraph" data-object-type="Submission" data-object-id="{$article->getId()|escape}"></canvas>
+              <div class="html-text usageStatsUnavailable" data-object-type="Submission" data-object-id="{$article->getId()|escape}">
+                {translate key="plugins.themes.default.displayStats.noStats"}
+              </div>
+            </section>
+          {/if}
+
           {* Common hook used by plugins *}
           {capture assign="articleMainContent"}{strip}
             {call_hook name="Templates::Article::Main"}

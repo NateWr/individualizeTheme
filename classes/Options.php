@@ -132,6 +132,7 @@ class Options
         $this->addLatestArticlesBlock();
         $this->addArticleAuthorsOption();
         $this->addArticleMetadataOption();
+        $this->addArticleStatsOption();
         $this->addArticleFullTextOptions();
         $this->addIssueArchivesOption();
         $this->addFontOptions();
@@ -600,6 +601,33 @@ class Options
                 ],
             ],
             'default' => self::ARTICLE_METADATA_DEFAULT,
+        ]);
+    }
+
+    /**
+     * Add optikon to show article downloads on the
+     * article landing page.
+     */
+    protected function addArticleStatsOption(): void
+    {
+        $this->theme->addOption('displayStats', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.default.option.displayStats.label'),
+            'options' => [
+                [
+                    'value' => 'none',
+                    'label' => __('plugins.themes.default.option.displayStats.none'),
+                ],
+                [
+                    'value' => 'bar',
+                    'label' => __('plugins.themes.default.option.displayStats.bar'),
+                ],
+                [
+                    'value' => 'line',
+                    'label' => __('plugins.themes.default.option.displayStats.line'),
+                ],
+            ],
+            'default' => 'none',
         ]);
     }
 

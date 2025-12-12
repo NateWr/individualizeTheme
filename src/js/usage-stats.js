@@ -12,42 +12,45 @@
 const init = () => {
   document.addEventListener('usageStatsChartOptions.pkp', (e) => {
     if (
-      !e?.chartOptions?.elements?.rectangle
+      !e?.chartOptions?.elements?.bar
       || !e?.chartOptions?.elements?.line
-      || !e?.chartOptions?.tooltips
-      || !e?.chartOptions?.scales?.xAxes?.length
-      || !e?.chartOptions?.scales?.xAxes[0]?.gridLines
-      || !e?.chartOptions?.scales?.yAxes?.length
-      || !e?.chartOptions?.scales?.yAxes[0]?.gridLines
+      || !e?.chartOptions?.scales
     ) {
       return
     }
     const bodyStyle = window.getComputedStyle(document.body)
     const rootStyle = window.getComputedStyle(document.documentElement)
-    e.chartOptions.elements.rectangle.backgroundColor = bodyStyle.getPropertyValue('--color-page-links')
+    e.chartOptions.elements.bar.backgroundColor = bodyStyle.getPropertyValue('--color-page-links')
     e.chartOptions.elements.line.borderColor = bodyStyle.getPropertyValue('--color-page-links')
     e.chartOptions.elements.line.backgroundColor = bodyStyle.getPropertyValue('--color-page-links')
-    e.chartOptions.tooltips.titleColor = rootStyle.getPropertyValue('--color-overlay-text')
-    e.chartOptions.tooltips.bodyColor = rootStyle.getPropertyValue('--color-overlay-text')
-    e.chartOptions.tooltips.footerColor = rootStyle.getPropertyValue('--color-overlay-text')
-    e.chartOptions.tooltips.backgroundColor = rootStyle.getPropertyValue('--color-overlay-background')
-    e.chartOptions.tooltips.borderColor = rootStyle.getPropertyValue('--color-overlay-text')
-    e.chartOptions.tooltips.borderWidth = 2
-    e.chartOptions.scales.xAxes[0].gridLines.color = bodyStyle.getPropertyValue('--color-page-text')
-    e.chartOptions.scales.xAxes[0].gridLines.lineWidth = 0.25
-    e.chartOptions.scales.xAxes[0].gridLines.zeroLineColor = bodyStyle.getPropertyValue('--color-page-text')
-    e.chartOptions.scales.yAxes[0].gridLines.color = bodyStyle.getPropertyValue('--color-page-text')
-    e.chartOptions.scales.yAxes[0].gridLines.lineWidth = 0.25
-    e.chartOptions.scales.yAxes[0].gridLines.zeroLineColor = bodyStyle.getPropertyValue('--color-page-text')
-    e.chartOptions.scales.xAxes[0].ticks = {
-      ...e.chartOptions.scales.xAxes[0]?.ticks ?? {},
-      fontFamily: bodyStyle.getPropertyValue('--font-base'),
-      fontColor: bodyStyle.getPropertyValue('--color-page-text'),
+    const scale = {
+      border: {
+        lineWidth: 0.25,
+        color: bodyStyle.getPropertyValue('--color-page-text'),
+      },
+      grid: {
+        lineWidth: 0.25,
+        color: bodyStyle.getPropertyValue('--color-page-text'),
+      },
+      ticks: {
+        color: bodyStyle.getPropertyValue('--color-page-text'),
+      }
     }
-    e.chartOptions.scales.yAxes[0].ticks = {
-      ...e.chartOptions.scales.yAxes[0]?.ticks ?? {},
-      fontFamily: bodyStyle.getPropertyValue('--font-base'),
-      fontColor: bodyStyle.getPropertyValue('--color-page-text'),
+    e.chartOptions.scales.x = {...e.chartOptions.scales.x, ...scale}
+    e.chartOptions.scales.y = {...e.chartOptions.scales.y, ...scale}
+    e.chartOptions.plugins = {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        titleColor: rootStyle.getPropertyValue('--color-overlay-text'),
+        bodyColor: rootStyle.getPropertyValue('--color-overlay-text'),
+        footerColor: rootStyle.getPropertyValue('--color-overlay-text'),
+        backgroundColor: rootStyle.getPropertyValue('--color-overlay-background'),
+        borderColor: rootStyle.getPropertyValue('--color-overlay-text'),
+        borderWidth: 1,
+        padding: 12,
+      },
     }
   })
 }

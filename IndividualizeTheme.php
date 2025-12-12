@@ -142,6 +142,11 @@ class IndividualizeTheme extends ThemePlugin
 
                 $this->removeHowToCiteDefault();
 
+                $article = $templateMgr->getTemplateVars('article');
+                if ($article) {
+                    $this->displayUsageStatsGraph($article->getId());
+                }
+
                 /** @var OpenScienceBadgesPlugin $plugin */
                 $plugin = PluginRegistry::getPlugin('generic', 'opensciencebadgesplugin');
                 if (
