@@ -40,7 +40,7 @@
           <span class="pagination-skip">···</span>
         {else}
           <a
-            aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.goToPage" page=$lastPage}"
+            aria-label="{translate|escape key="plugins.themes.individualizeTheme.pagination.goToPage" page=$page}"
             class="pagination-page"
             {if $page == $currentPage}
               aria-current=true
