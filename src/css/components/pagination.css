@@ -58,7 +58,9 @@
   display: none;
 }
 
-.pagination-pages li:has([aria-current="true"]) {
+.pagination-pages li:has([aria-current="true"]),
+.pagination-pages li:has(+ li > [aria-current]),
+.pagination-pages li:has([aria-current]) + li {
   display: block;
 }
 
