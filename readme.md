@@ -18,7 +18,7 @@ Follow these steps to install the plugin on your OJS site.
 
 # Develop and Contribute
 
-This theme uses [Vite](https://vitejs.dev/) to build CSS/JS assets. Run the following commands to sync CSS/JS assets with Vite's HMR server while editing the theme.
+This theme uses [Vite](https://vitejs.dev/) to build CSS/JS assets.
 
 Install dependencies.
 
@@ -26,15 +26,26 @@ Install dependencies.
 npm install
 ```
 
-Start Vite's development server.
+Run the following commands to sync CSS/JS assets with Vite's HMR server while editing the theme.
+
 
 ```bash
 npm run start
 ```
 
-Learn more about
-
 ## Package and Release
+
+Update the version in the `package.json` file.
+
+```
+  "version": "<version>",
+```
+
+Update the version in the `version.xml` file.
+
+```
+  <release>[version]</release>
+```
 
 Build the assets for distribution.
 
