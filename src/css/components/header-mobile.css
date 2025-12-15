@@ -141,6 +141,7 @@
   font-family: var(--font-actions);
 
   & svg {
+    flex-shrink: 0;
     margin-inline-start: -1.5rem;
     width: 3rem;
     height: 3rem;
@@ -149,8 +150,10 @@
 
 .header-mobile-languages-list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.25rem;
+  margin-inline-start: -0.5rem;
 }
 
 .header-mobile-language {
