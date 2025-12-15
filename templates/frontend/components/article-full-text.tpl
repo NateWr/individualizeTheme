@@ -60,14 +60,16 @@
     <div class="html-text">
       {$fullTextHtml}
     </div>
+  </section>
+{/if}
 
-    {if $fullTextReferences}
-      <h3 class="article-section-title" id="individualize-references">
-        {translate key="submission.citations"}
-      </h3>
-      <div class="html-text">
-        {$fullTextReferences}
-      </div>
-    {/if}
+{if $fullTextReferences}
+  <section class="article-section article-section-references">
+    <h3 class="article-section-title" id="individualize-references">
+      {translate key="submission.citations"}
+    </h3>
+    <div class="html-text">
+      {$fullTextReferences}
+    </div>
   </section>
 {/if}

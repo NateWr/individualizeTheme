@@ -112,6 +112,13 @@
   }
 }
 
+.article-section-references {
+
+  & ol {
+    list-style: decimal;
+  }
+}
+
 @media (--tablets) {
 
   .article-title {
