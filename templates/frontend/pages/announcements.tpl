@@ -40,7 +40,7 @@
               href="{$url}"
               aria-label="{translate
                 key="common.readMoreWithTitle"
-                title=$announcement->getLocalizedTitle()|escape
+                title=$announcement->getLocalizedData('title')|escape
               }"
             >
               {translate key="common.readMore"}
