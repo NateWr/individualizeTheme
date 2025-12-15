@@ -2,7 +2,7 @@
   background: var(--color-block-background);
   color: var(--color-block-text);
 
-  &:first-child {
+  &:nth-child(2) {
     margin-top: -4rem;
   }
 
