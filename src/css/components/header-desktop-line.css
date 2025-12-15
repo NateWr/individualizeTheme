@@ -15,7 +15,7 @@
     & .header-desktop-inner {
       position: sticky;
       top: 0;
-      z-index: 9999;
+      z-index: 999999;
     }
 
     & .header-desktop-inner-content {
