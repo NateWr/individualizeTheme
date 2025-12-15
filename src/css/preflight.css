@@ -14,4 +14,12 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
+@media (--laptops-sm) {
+
+  html {
+    scroll-padding-top: 20rem;
+  }
 }
