@@ -65,7 +65,7 @@ msgid "plugins.themes.individualizeTheme.pagination.prompt"
 msgstr "Goto other pages"
 
 msgid "plugins.themes.individualizeTheme.pagination.goToPage"
-msgstr "Goto {$page}"{}
+msgstr "Goto {$page}"
 
 msgid "plugins.themes.individualizeTheme.pagination.nextPage"
 msgstr "Goto next page"
