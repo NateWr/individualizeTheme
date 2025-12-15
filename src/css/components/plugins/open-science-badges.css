@@ -4,12 +4,11 @@
   & .label {
     @apply sr-only;
   }
+}
 
-  & .opensciencebadges-lg-descs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+.opensciencebadge-desc,
+.opensciencebadges-lg-descs {
+  @apply html-text;
 }
 
 .opensciencebadges-article-main {
@@ -29,6 +28,7 @@
     max-width: 90vw;
   }
 }
+
 
 @media (--tablets-landscape) {
 
