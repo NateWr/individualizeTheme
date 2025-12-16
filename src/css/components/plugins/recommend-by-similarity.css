@@ -27,10 +27,13 @@
   }
 }
 
-#articlesBySimilarityList .cmp_pagination {
+#articlesBySimilarityList .cmp_pagination,
+#articlesBySameAuthorPages .cmp_pagination {
   display: flex;
   align-items: center;
   gap: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 
   > a {
     padding-left: 0.5rem;
@@ -52,39 +55,6 @@
     font-size: 1.25rem;
     color: var(--color-page-text);
   }
-}
-
-#articlesBySameAuthorPages {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-  color: var(--color-page-links);
-  font-family: var(--font-actions);
-
-  > * {
-    min-width: 2.5rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  & a {
-    text-decoration: none;
-  }
-
-  & strong {
-    border-radius: var(--radius);
-    background: var(--color-button-text);
-    color: var(--color-button-background);
-  }
-}
-
-#articlesBySameAuthorPages {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
 }
 
 @media (--tablets) {
