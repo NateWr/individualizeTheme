@@ -52,6 +52,10 @@
   margin-top: 0;
 }
 
+.article-table-of-contents {
+  margin-bottom: 1.5em;
+}
+
 .article-table-of-contents ul {
   display: flex;
   flex-direction: column;
