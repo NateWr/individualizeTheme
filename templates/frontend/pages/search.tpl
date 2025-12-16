@@ -62,7 +62,7 @@
           start=(($results->getPage() - 1) * $results->itemsPerPage) + 1
         }
         {include
-          file="frontend/components/pagination.tpl"
+          file="frontend/components/pagination-custom.tpl"
           pages=$pages
           currentPage=$currentPage
           urlPattern=$urlPattern
@@ -107,7 +107,7 @@
 
     {if $results->getPageCount()> 1}
       {include
-        file="frontend/components/pagination.tpl"
+        file="frontend/components/pagination-custom.tpl"
         pages=$pages
         currentPage=$currentPage
         urlPattern=$urlPattern

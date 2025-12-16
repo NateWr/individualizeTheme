@@ -37,7 +37,7 @@
           }
         </div>
         {include
-          file="frontend/components/pagination.tpl"
+          file="frontend/components/pagination-custom.tpl"
           pages=$pages
           currentPage=$currentPage
           urlPattern=$urlPattern
@@ -69,7 +69,7 @@
     {/if}
     {if $prevPage || $nextPage}
       {include
-        file="frontend/components/pagination.tpl"
+        file="frontend/components/pagination-custom.tpl"
         pages=$pages
         currentPage=$currentPage
         urlPattern=$urlPattern
