@@ -71,10 +71,10 @@ class FullText
     }
 
     /**
-     * Get the <article> from the HTML string
+     * Get the main article content from the HTML string
      *
-     * Replaces embedded file URLs and extracts the
-     * <article> content from the HTML string.
+     * Replaces embedded file URLs and extracts the contents
+     * of the <article> element.
      */
     public function getArticleContent(): string
     {
@@ -89,7 +89,9 @@ class FullText
     }
 
     /**
-     * Get the <aside> from the HTML string
+     * Get the references from the HTML string
+     *
+     * Extracts the content of the <aside> element.
      */
     public function getReferencesContent(): string
     {
