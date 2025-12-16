@@ -293,7 +293,7 @@ msgid "plugins.themes.individualizeTheme.option.issueArchives.default"
 msgstr "List of issue summaries"
 
 msgid "plugins.themes.individualizeTheme.option.issueArchives.covers"
-msgstr "Galley of issue cover images"
+msgstr "Gallery of issue cover images"
 
 msgid "plugins.themes.individualizeTheme.option.issueArchives.no-covers"
 msgstr "List of issue summaries without cover images. (Choose this option if your journal never publishes issue cover images.)"
