@@ -2,6 +2,10 @@
  * Styles for article full text on the landing page
  *
  */
+.article-section-full-text hgroup:has(.author) {
+  display: none;
+}
+
 .article-section-full-text .figcaption-label {
   font-weight: 700;
 }
