@@ -1,11 +1,14 @@
 msgid "plugins.themes.individualizeTheme.name"
-msgstr "Individualize-Theme von der PUblia"
+msgstr "Individualize-Theme von Publia - SLUB Open Publishing"
 
 msgid "plugins.themes.individualizeTheme.description"
 msgstr "Ein anpassbares Theme mit vielen Optionen, die es Redakteuren ermöglichen, Design und Layout ihrer Journale anzupassen."
 
 msgid "plugins.themes.individualizeTheme.backToTop"
 msgstr "Nach oben"
+
+msgid "plugins.themes.individualizeTheme.backToTitle"
+msgstr "Zurück zu {$title}"
 
 msgid "plugins.themes.individualizeTheme.accessibility"
 msgstr "Barrierefreiheit"
@@ -31,6 +34,9 @@ msgstr "Neueste Artikel"
 msgid "plugins.themes.individualizeTheme.latestArticles.description"
 msgstr "Lesen Sie unsere neuesten Veröffentlichungen oder durchsuchen Sie alle Artikel in unserem <a href=\"{$url}\" class=\"link\">vollständigen Archiv</a>."
 
+msgid "plugins.themes.individualizeTheme.latestArticlesWithImages"
+msgstr "Neuste Artikel (mit Cover Bildern)"
+
 msgid "plugins.themes.individualizeTheme.partners"
 msgstr "Partner"
 
@@ -41,7 +47,7 @@ msgid "plugins.themes.individualizeTheme.browseByCategory"
 msgstr "Nach Kategorie durchsuchen"
 
 msgid "plugins.themes.individualizeTheme.browseByCategory.description"
-msgstr "Finden Sie Artikel in unseren Hauptbereichen oder durchsuchen Sie alle Artikel in unseren <a href=\"{$url}\">vergangenen Ausgaben</a>."
+msgstr "Finden Sie Artikel in unseren Hauptbereichen oder durchsuchen Sie alle Artikel in unseren <a href=\"{$url}\">bisherigen Ausgaben</a>."
 
 msgid "plugins.themes.individualizeTheme.viewCategory"
 msgstr "Kategorie ansehen"
@@ -59,7 +65,7 @@ msgid "plugins.themes.individualizeTheme.pagination.prompt"
 msgstr "Gehe zu anderen Seiten"
 
 msgid "plugins.themes.individualizeTheme.pagination.goToPage"
-msgstr "Gehe zu Seite {$page}"
+msgstr "Gehe zu {$page}"
 
 msgid "plugins.themes.individualizeTheme.pagination.nextPage"
 msgstr "Gehe zur nächsten Seite"
@@ -91,6 +97,9 @@ msgstr "\"{$phrase}\" Suchergebnisse"
 msgid "plugins.themes.individualizeTheme.announcements.none"
 msgstr "Derzeit gibt es keine Ankündigungen."
 
+msgid "plugins.themes.individualizeTheme.highlightedArticleDetails"
+msgstr "Kerninformationen"
+
 msgid "plugins.themes.individualizeTheme.site.unsupported"
 msgstr "Nicht unterstützt"
 
@@ -102,6 +111,15 @@ msgstr "Zur Sprachauswahl springen"
 
 msgid "plugins.themes.individualizeTheme.skip.userNav"
 msgstr "Zum Login- und Benutzerkontomenü springen"
+
+msgid "plugins.themes.individualizeTheme.nextSlide"
+msgstr "Nächste Seite"
+
+msgid "plugins.themes.individualizeTheme.prevSlide"
+msgstr "Vorherige Seite"
+
+msgid "plugins.themes.individualizeTheme.usesOjs"
+msgstr "Betrieben mit <a href=\"{$urlOJS}\">Open Journal Systems</a>, entwickelt von <a href=\"{$urlPKP}\">Public Knowledge Project</a>."
 
 msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
 msgstr "Partner / Sponsoren"
@@ -122,7 +140,7 @@ msgid "plugins.themes.individualizeTheme.option.header.line"
 msgstr "Eine Zeile (Logo und Navigationsmenü in einer Zeile)"
 
 msgid "plugins.themes.individualizeTheme.option.tagline.label"
-msgstr "<Slogan>"
+msgstr "Slogan"
 
 msgid "plugins.themes.individualizeTheme.option.tagline.description"
 msgstr "Eine kurze Beschreibung, ein Motto oder ein Titel, der neben dem Logo des Journals angezeigt wird. Dieser wird nicht angezeigt, wenn kein Logo hochgeladen wurde."
@@ -187,6 +205,9 @@ msgstr "Nach Kategorie durchsuchen"
 msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
 msgstr "Partner / Sponsoren"
 
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.pluginHook"
+msgstr "Plugin Inhalt"
+
 msgid "plugins.themes.individualizeTheme.option.howToSubmitTitle.label"
 msgstr "Wie man einreicht - Titel"
 
@@ -206,7 +227,7 @@ msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.label"
 msgstr "Wie man einreicht - Button"
 
 msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.description"
-msgstr "Ändern Sie den Text auf dem Button, um die Seite für Einreichungen anzuzeigen."
+msgstr "Ändern Sie den Text auf dem Button, welcher die Seite für Einreichungen anzeigt."
 
 msgid "plugins.themes.individualizeTheme.option.howToSubmitAction.default"
 msgstr "Wie man einreicht"
@@ -361,13 +382,17 @@ msgstr "Hintergrundfarbe der Fußzeile"
 msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
 msgstr "Textfarbe der Fußzeile"
 
-# 3.3 Compatibility
-#
-# The following locale keys can be removed for
-# OJS versions 3.4+
-msgid "publication.version"
-msgstr "Version {$version}"
+msgid "plugins.themes.individualizeTheme.option.footerMenu.checkbox"
+msgstr "Ja, zeige die navigationsmenüs im Footer jeder Seite an."
 
-msgid "admin.versionHistory"
-msgstr "Versionsverlauf"
+msgid "plugins.themes.individualizeTheme.option.articleFullText.label"
+msgstr "Artikel HTML Volltext"
 
+msgid "plugins.themes.individualizeTheme.option.articleFullText.description"
+msgstr "Ob der Volltext auf der Artikelseite abgebildet werden soll, wenn eine HTML-Ausgabefahne existiert. Die HTML-Ausgabfahne muss bestimmten Anforderungen entsprechen. Bitte kontaktierieren sie Ihren Publisher, bevor sie diese Einstellung anpassen."
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.show"
+msgstr "Ja, Volltext auf der Artikelseite anzeigen"
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.hide"
+msgstr "Nein, Volltext anzeigen, wenn Nutzer die HTML-Ausgabefahne anzeigen"
