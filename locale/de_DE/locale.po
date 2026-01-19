@@ -7,6 +7,9 @@ msgstr "Ein anpassbares Theme mit vielen Optionen, die es Redakteuren ermöglich
 msgid "plugins.themes.individualizeTheme.backToTop"
 msgstr "Nach oben"
 
+msgid "plugins.themes.individualizeTheme.backToTitle"
+msgstr "Zurück zu {$title}"
+
 msgid "plugins.themes.individualizeTheme.accessibility"
 msgstr "Barrierefreiheit"
 
@@ -30,6 +33,9 @@ msgstr "Neueste Artikel"
 
 msgid "plugins.themes.individualizeTheme.latestArticles.description"
 msgstr "Lesen Sie unsere neuesten Veröffentlichungen oder durchsuchen Sie alle Artikel in unserem <a href=\"{$url}\" class=\"link\">vollständigen Archiv</a>."
+
+msgid "plugins.themes.individualizeTheme.latestArticlesWithImages"
+msgstr "Neuste Artikel (mit Cover Bildern)"
 
 msgid "plugins.themes.individualizeTheme.partners"
 msgstr "Partner"
@@ -90,6 +96,9 @@ msgstr "\"{$phrase}\" Suchergebnisse"
 
 msgid "plugins.themes.individualizeTheme.announcements.none"
 msgstr "Derzeit gibt es keine Ankündigungen."
+
+msgid "plugins.themes.individualizeTheme.highlightedArticleDetails"
+msgstr "Kerninformationen"
 
 msgid "plugins.themes.individualizeTheme.site.unsupported"
 msgstr "Nicht unterstützt"
@@ -186,6 +195,9 @@ msgstr "Nach Kategorie durchsuchen"
 
 msgid "plugins.themes.individualizeTheme.option.homepageBlocks.partners"
 msgstr "Partner / Sponsoren"
+
+msgid "plugins.themes.individualizeTheme.option.homepageBlocks.pluginHook"
+msgstr "Plugin Inhalt"
 
 msgid "plugins.themes.individualizeTheme.option.howToSubmitTitle.label"
 msgstr "Wie man einreicht - Titel"
@@ -314,7 +326,7 @@ msgid "plugins.themes.individualizeTheme.option.colorMode.default"
 msgstr "Einfacher Modus: Wählen Sie eine oder zwei Farben für Ihre Website aus."
 
 msgid "plugins.themes.individualizeTheme.option.colorMode.advanced"
-msgstr "Erweiterter Modus: Legen Sie verschiedene Farben für Kopfzeilen, Fußzeilen, Buttons, Texte, Links und mehr fest."
+msgstr "Erweiterter Modus: Legen Sie verschiedene Farben für Kopfzeilen, Footer, Buttons, Texte, Links und mehr fest."
 
 msgid "plugins.themes.individualizeTheme.option.primaryColor.label"
 msgstr "Primärfarbe"
@@ -356,10 +368,28 @@ msgid "plugins.themes.individualizeTheme.option.blockTextColor.label"
 msgstr "Textfarbe der Blöcke"
 
 msgid "plugins.themes.individualizeTheme.option.footerBackgroundColor.label"
-msgstr "Hintergrundfarbe der Fußzeile"
+msgstr "Hintergrundfarbe des Footer"
 
 msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
-msgstr "Textfarbe der Fußzeile"
+msgstr "Textfarbe des Footer"
+
+msgid "plugins.themes.individualizeTheme.option.footerMenu.label"
+msgstr "Menüs im Footer anzeigen"
+
+msgid "plugins.themes.individualizeTheme.option.footerMenu.checkbox"
+msgstr "Ja, zeige die navigationsmenüs im Footer jeder Seite an."
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.label"
+msgstr "Artikel HTML Volltext"
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.description"
+msgstr "Ob der Volltext auf der Artikelseite abgebildet werden soll, wenn eine HTML-Ausgabefahne existiert. Die HTML-Ausgabfahne muss bestimmten Anforderungen entsprechen. Bitte kontaktierieren sie Ihren Publisher, bevor sie diese Einstellung anpassen."
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.show"
+msgstr "Ja, Volltext auf der Artikelseite anzeigen"
+
+msgid "plugins.themes.individualizeTheme.option.articleFullText.hide"
+msgstr "Nein, Volltext anzeigen, wenn Nutzer die HTML-Ausgabefahne anzeigen"
 
 # 3.3 Compatibility
 #
