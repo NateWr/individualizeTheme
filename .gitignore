@@ -4,3 +4,6 @@ node_modules
 # Vite
 dist
 .vite.server.json
+
+# Webstorm project files
+.idea
