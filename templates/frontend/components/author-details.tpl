@@ -21,11 +21,21 @@
         </div>
       {/if}
       {if $author->getData('orcid')}
-        <a href="{$author->getData('orcid')|escape}" class="author-details-orcid tab-focus" target="_blank">
-          {* {if $author->getData('orcidAccessToken')} *}
-            {include file="frontend/icons/orcid.svg"}
-          {* {/if} *}
-          {$author->getData('orcid')|escape}
+        <a
+          href="{$author->getData('orcid')|escape}"
+          class="author-details-orcid tab-focus"
+          target="_blank"
+          aria-label="{translate
+            key="common.editorialHistory.page.orcidLink"
+            name=$author->getFullName()|escape
+          }"
+        >
+          {if $author->hasVerifiedOrcid()}
+            {$orcidIcon}
+          {else}
+            {$orcidUnauthenticatedIcon}
+          {/if}
+          {$author->getOrcidDisplayValue()|escape}
         </a>
       {/if}
     </div>
