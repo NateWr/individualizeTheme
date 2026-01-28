@@ -7,5 +7,6 @@ package.json
 postcss.config.js
 tailwind.config.js
 node_modules
+docs
 src
 vite.config.js
