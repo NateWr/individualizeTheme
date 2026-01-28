@@ -400,3 +400,6 @@ msgstr "Version {$version}"
 
 msgid "admin.versionHistory"
 msgstr "Version history"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "View {$name} ORCID profile"
