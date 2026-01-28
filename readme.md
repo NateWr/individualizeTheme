@@ -6,7 +6,7 @@ A custom theme for OJS to allow editors to customize the design and layout of th
 
 # Install
 
-> This theme is available for OJS 3.3.0-21+. If you don't see it in the list of available plugins, it is not compatible with the version of OJS you are running.
+> This theme is available for OJS 3.3.0-21+ and 3.5.0-3. If you don't see it in the list of available plugins, it is not compatible with the version of OJS you are running.
 
 Follow these steps to install the plugin on your OJS site.
 
