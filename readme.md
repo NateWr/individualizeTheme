@@ -47,10 +47,11 @@ Update the version in the `package.json` file.
   "version": "<version>",
 ```
 
-Update the version in the `version.xml` file.
+Update the version and date in the `version.xml` file.
 
 ```
   <release>[version]</release>
+  <date>[YYYY-MM-DD]</date>
 ```
 
 Build the assets for distribution.
