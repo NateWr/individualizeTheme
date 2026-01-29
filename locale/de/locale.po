@@ -382,8 +382,11 @@ msgstr "Hintergrundfarbe der Fußzeile"
 msgid "plugins.themes.individualizeTheme.option.footerTextColor.label"
 msgstr "Textfarbe der Fußzeile"
 
+msgid "plugins.themes.individualizeTheme.option.footerMenu.label"
+msgstr "Menüs in der Fußzeile anzeigen"
+
 msgid "plugins.themes.individualizeTheme.option.footerMenu.checkbox"
-msgstr "Ja, zeige die navigationsmenüs im Footer jeder Seite an."
+msgstr "Ja, zeige die Navigationsmenüs im Footer jeder Seite an."
 
 msgid "plugins.themes.individualizeTheme.option.articleFullText.label"
 msgstr "Artikel HTML Volltext"
