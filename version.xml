@@ -3,8 +3,8 @@
 <version>
 	<application>individualizeTheme</application>
 	<type>plugins.themes</type>
-	<release>1.0.0.0</release>
-	<date>2026-01-27</date>
+	<release>1.0.0.1</release>
+	<date>2026-02-05</date>
 	<lazy-load>1</lazy-load>
 	<class>IndividualizeTheme</class>
 </version>
