@@ -94,9 +94,17 @@ The **Published In Issue/Journal** setting provides a snapshot of the issue the 
 
 ### Article HTML Full Text
 
-> More documentation on this feature will be available soon.
+> **Most journals will need to make special adjustments to display full-text article content.**
 
-The theme includes a feature to extract the full text from a HTML galley and display it directly on the landing page. This only works with specific HTML galleys.
+The theme includes a feature to extract the full text from a HTML galley and display it directly on the landing page. This only works when the HTML galley has been formatted in a specific way.
+
+To use the built-in full-text feature, your HTML must include:
+
+- An `<article>` tag that includes the main content of the article (excluding the title, authors, and abstract).
+- An `<aside>` tag that includes the references of the article.
+- All headings in the `<article>` must use `<h3>` or `<h4>` to be shown in the table of contents.
+
+Coders can follow this [example child theme](https://github.com/NateWr/exampleIndividualizeChild) to write a custom full-text extractor that matches their journal's HTML format.
 
 ### Issue Archives
 
