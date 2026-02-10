@@ -98,7 +98,7 @@ The **Published In Issue/Journal** setting provides a snapshot of the issue the 
 
 The theme includes a feature to extract the full text from a HTML galley and display it directly on the landing page. This only works when the HTML galley has been formatted in a specific way.
 
-To use the built-in full-text feature, your HTML must include:
+To use the built-in full-text feature, the HTML galley file must include:
 
 - An `<article>` tag that includes the main content of the article (excluding the title, authors, and abstract).
 - An `<aside>` tag that includes the references of the article.
