@@ -78,6 +78,14 @@
             </span>
           </label>
         </div>
+        {if $altchaEnabled}
+          <div class="input-wrapper altcha_wrapper">
+            <altcha-widget
+              challengejson='{$altchaChallenge|@json_encode}'
+              floating
+            ></altcha-widget>
+          </div>
+        {/if}
       </div>
 
       <button class="button" type="submit">
