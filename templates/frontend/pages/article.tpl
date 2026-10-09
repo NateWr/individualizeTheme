@@ -92,7 +92,7 @@
           </h2>
           {assign var="hasAffiliations" value=false}
           {foreach from=$publication->getData('authors') item="author"}
-            {if $author->getLocalizedData('affiliation') || $author->getData('orcid')}
+            {if count($author->getAffiliations()) > 0 || $author->getData('orcid')}
               {assign var="hasAffiliations" value=true}
             {/if}
           {/foreach}
@@ -108,8 +108,20 @@
             {include file="frontend/components/author-details.tpl"}
           {else}
             <address class="article-authors">
-              {if $authorUserGroups}
-                {$publication->getAuthorString($authorUserGroups)|escape}
+              {if $userGroupsById}
+                {foreach from=$publication->getData('authors') item="author"}
+                  <span class="article-author">
+                    <span class="article-author-name">
+                      {$author->getFullName()|escape}
+                    </span>
+                    {assign var="authorUserGroup" value=$userGroupsById[$author->getData('userGroupId')]}
+                    {if $authorUserGroup && $authorUserGroup->showTitle}
+                      <span class="article-author-userGroup">
+                        ({$authorUserGroup->getLocalizedData('name')|escape})
+                      </span>
+                    {/if}
+                  </span>
+                {/foreach}
               {else}
                 {$publication->getShortAuthorString()|escape}
               {/if}

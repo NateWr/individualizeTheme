@@ -12,12 +12,23 @@
       <div class="author-details-name">
         {$author->getFullName()|escape}
       </div>
-      {if $author->getLocalizedData('affiliation')}
+      {assign var="authorUserGroup" value=$userGroupsById[$author->getData('userGroupId')]}
+      {if $authorUserGroup && $authorUserGroup->showTitle}
+        <div class="author-details-userGroup">
+          {$authorUserGroup->getLocalizedData('name')|escape}
+        </div>
+      {/if}
+      {if count($author->getAffiliations()) > 0}
         <div class="author-details-affiliation">
-          {$author->getLocalizedData('affiliation')|escape}
-          {if $author->getData('rorId')}
-            <a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-          {/if}
+          {assign var="renderedAffiliation" value=false}
+          {foreach from=$author->getAffiliations() item="affiliation"}
+            {if $affiliation->getLocalizedName() || $affiliation->getRor()}
+              {if $renderedAffiliation}{translate key="common.commaListSeparator"}{/if}
+              {if $affiliation->getLocalizedName()}<span>{$affiliation->getLocalizedName()|escape}</span>{/if}
+              {if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
+              {assign var="renderedAffiliation" value=true}
+            {/if}
+          {/foreach}
         </div>
       {/if}
       {if $author->getData('orcid')}
