@@ -16,7 +16,16 @@
 }
 
 .author-details-affiliation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   line-height: 1.25rem;
+}
+
+.author-details-affiliation-item {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
 .author-details-orcid {

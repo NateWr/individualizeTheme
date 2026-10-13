@@ -25,8 +25,23 @@
 
 .article-authors {
   font-style: normal;
-  align-items: flex-start;
-  gap: 0.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+
+.article-author {
+  display: inline;
+}
+
+.article-author + .article-author::before {
+  content: ', ';
+}
+
+.article-author-userGroup {
+  font-size: 0.875em;
+  color: var(--color-text-secondary, #6b7280);
 }
 
 .article-author-details {
@@ -34,6 +49,12 @@
 }
 
 .article-authors-more-details {
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
 
   &[aria-expanded="false"] .article-author-details-collapse {
     display: none;

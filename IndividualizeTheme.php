@@ -22,6 +22,7 @@ use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\plugins\PluginRegistry;
 use PKP\submissionFile\SubmissionFile;
+use PKP\userGroup\UserGroup;
 
 class IndividualizeTheme extends ThemePlugin
 {
@@ -132,18 +133,30 @@ class IndividualizeTheme extends ThemePlugin
 
         if ($template === 'frontend/pages/indexJournal.tpl') {
             $this->optionsHelper->getHomepageBlocks();
+            if ($context) {
+                $templateMgr->assign([
+                    'authorUserGroups' => UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->withContextIds([$context->getId()])
+                        ->get(),
+                ]);
+            }
         }
 
         if ($template === 'frontend/pages/article.tpl') {
             if ($context) {
-                $templateMgr->assign([
-                    'authorUserGroups' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId()),
-                ]);
+                $article = $templateMgr->getTemplateVars('article');
+                $publication = $templateMgr->getTemplateVars('publication');
+                if ($publication !== null) {
+                    $templateMgr->assign([
+                        'userGroupsById' => UserGroup::withPublicationIds([$publication->getId()])
+                            ->get()
+                            ->all(),
+                    ]);
+                }
 
                 $this->removeHowToCiteDefault();
 
-                $article = $templateMgr->getTemplateVars('article');
-                if ($article) {
+                if ($article !== null) {
                     $this->displayUsageStatsGraph($article->getId());
                 }
 
@@ -174,6 +187,26 @@ class IndividualizeTheme extends ThemePlugin
             if ($context) {
                 $templateMgr->assign([
                     'primaryGenreIds' => $this->getPrimaryFileGenreIds($context->getId()),
+                    'authorUserGroups' => UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->withContextIds([$context->getId()])
+                        ->get(),
+                ]);
+            }
+        }
+
+        // Issue TOC pages also need authorUserGroups for article summaries
+        $issueTocTemplates = [
+            'frontend/pages/issue.tpl',
+            'frontend/pages/issueArchive.tpl',
+            'plugins/generic/browseBySection/frontend/pages/section.tpl',
+        ];
+
+        if (in_array($template, $issueTocTemplates)) {
+            if ($context) {
+                $templateMgr->assign([
+                    'authorUserGroups' => UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->withContextIds([$context->getId()])
+                        ->get(),
                 ]);
             }
         }
