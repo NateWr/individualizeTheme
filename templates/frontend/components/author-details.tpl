@@ -23,9 +23,10 @@
           {assign var="renderedAffiliation" value=false}
           {foreach from=$author->getAffiliations() item="affiliation"}
             {if $affiliation->getLocalizedName() || $affiliation->getRor()}
-              {if $renderedAffiliation}{translate key="common.commaListSeparator"}{/if}
-              {if $affiliation->getLocalizedName()}<span>{$affiliation->getLocalizedName()|escape}</span>{/if}
-              {if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
+              <span class="author-details-affiliation-item">
+                {if $affiliation->getLocalizedName()}{$affiliation->getLocalizedName()|escape}{/if}
+                {if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
+              </span>
               {assign var="renderedAffiliation" value=true}
             {/if}
           {/foreach}
