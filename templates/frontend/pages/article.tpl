@@ -109,19 +109,20 @@
           {else}
             <address class="article-authors">
               {if $userGroupsById}
-                {foreach from=$publication->getData('authors') item="author"}
-                  <span class="article-author">
-                    <span class="article-author-name">
-                      {$author->getFullName()|escape}
-                    </span>
-                    {assign var="authorUserGroup" value=$userGroupsById[$author->getData('userGroupId')]}
-                    {if $authorUserGroup && $authorUserGroup->showTitle}
-                      <span class="article-author-userGroup">
-                        ({$authorUserGroup->getLocalizedData('name')|escape})
+                {strip}
+                  <span class="article-author-list">
+                    {foreach from=$publication->getData('authors') item="author" name="articleAuthors"}
+                      {if !$smarty.foreach.articleAuthors.first}{translate key="common.commaListSeparator"}{/if}
+                      <span class="article-author">
+                        <span class="article-author-name">{$author->getFullName()|escape}</span>
+                        {assign var="authorUserGroup" value=$userGroupsById[$author->getData('userGroupId')]}
+                        {if $authorUserGroup && $authorUserGroup->showTitle}
+                          {' '}<span class="article-author-userGroup">({$authorUserGroup->getLocalizedData('name')|escape})</span>
+                        {/if}
                       </span>
-                    {/if}
+                    {/foreach}
                   </span>
-                {/foreach}
+                {/strip}
               {else}
                 {$publication->getShortAuthorString()|escape}
               {/if}

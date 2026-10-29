@@ -35,10 +35,6 @@
   display: inline;
 }
 
-.article-author + .article-author::before {
-  content: ', ';
-}
-
 .article-author-userGroup {
   font-size: 0.875em;
   color: var(--color-text-secondary, #6b7280);
