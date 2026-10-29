@@ -179,12 +179,13 @@ class FullText
         return iterator_to_array(
             Repo::submissionFile()
                 ->getCollector()
-                ->getMany([
-                    'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE],
-                    'assocIds' => [$this->galleyFile->getId()],
-                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
-                    'includeDependentFiles' => true,
-                ])
+                ->filterByAssoc(
+                    Application::ASSOC_TYPE_SUBMISSION_FILE,
+                    [$this->galleyFile->getId()]
+                )
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                ->includeDependentFiles()
+                ->getMany()
         );
     }
 
